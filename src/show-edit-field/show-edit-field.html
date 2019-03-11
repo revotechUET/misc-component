@@ -1,0 +1,17 @@
+<div ng-if="!self.isMore">
+	<b ng-click="self.showEdit = !self.showEdit" >{{self.brand}} : </b>
+	<span ng-show="self.showEdit" ng-click="self.showEdit = !self.showEdit">
+		{{self.input}}
+	</span>
+	<span>
+		<input ng-show="!self.showEdit" type="text" style="display: inline-block; width: auto;" class="form-control" ng-model="self.input" ng-change="self.input = (self.input | uppercase)" ng-blur="self.showEdit = !self.showEdit" focus-me="!self.showEdit">
+	</span>
+</div>
+<div ng-if="self.isMore">
+	<span ng-show="self.showEdit" ng-click="self.showEdit = !self.showEdit">
+		{{self.input}}
+	</span>
+	<span>
+		<input ng-show="!self.showEdit" type="text" style="display: inline-block; width: auto;" class="form-control" ng-model="self.showInput" ng-change="self.showInput = (self.showInput | uppercase)" ng-blur="self.changeValue()" focus-me="!self.showEdit">
+	</span>
+</div>
