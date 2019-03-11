@@ -1,0 +1,19 @@
+{
+  "name": "misc-component",
+  "version": "1.0.0",
+  "description": "This is The Nam",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tunghoang/misc-component.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tunghoang/misc-component/issues"
+  },
+  "homepage": "https://github.com/tunghoang/misc-component#readme"
+}
