@@ -1,4 +1,4 @@
-<div ng-if="!self.isMore">
+<div ng-if="!self.isArray" ng-init="self.showEdit = true">
 	<b ng-click="self.showEdit = !self.showEdit" >{{self.brand}} : </b>
 	<span ng-show="self.showEdit" ng-click="self.showEdit = !self.showEdit">
 		{{self.input}}
@@ -7,11 +7,14 @@
 		<input ng-show="!self.showEdit" type="text" style="display: inline-block; width: auto;" class="form-control" ng-model="self.input" ng-change="self.input = (self.input | uppercase)" ng-blur="self.showEdit = !self.showEdit" focus-me="!self.showEdit">
 	</span>
 </div>
-<div ng-if="self.isMore">
-	<span ng-show="self.showEdit" ng-click="self.showEdit = !self.showEdit">
-		{{self.input}}
-	</span>
-	<span>
-		<input ng-show="!self.showEdit" type="text" style="display: inline-block; width: auto;" class="form-control" ng-model="self.showInput" ng-change="self.showInput = (self.showInput | uppercase)" ng-blur="self.changeValue()" focus-me="!self.showEdit">
-	</span>
+<div ng-if="self.isArray">
+	<b>{{self.brand}} : </b>
+	<div ng-repeat="(index, value) in self.input" ng-init="self.showEdit[index] = true;input = self.input[index]">
+		<span ng-show="self.showEdit[index]" ng-click="self.showEdit[index] = !self.showEdit[index]">
+			{{input}}
+		</span>
+		<span>
+			<input ng-show="!self.showEdit[index]" type="text" style="display: inline-block; width: auto;" class="form-control" ng-model="input" ng-change="input = (input | uppercase)" ng-blur="self.changeValue(input,index)" focus-me="!self.showEdit[index]">
+		</span>
+	</div>
 </div>
