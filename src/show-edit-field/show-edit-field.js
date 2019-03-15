@@ -13,7 +13,6 @@ function ShowEditImportController() {
     }
 }
 
-
 let app = angular.module(moduleName, []);
 
 app.component(componentName, {
