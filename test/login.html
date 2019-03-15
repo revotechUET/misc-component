@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" href="../bower_components/ng-dialog/css/ngDialog.min.css">
+	<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
+	<script src="../bower_components/angular/angular.min.js"></script>
+	<script src="../bower_components/ng-dialog/js/ngDialog.min.js"></script>
+	<script src="../dist/misc-components.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl as self">
+	<wi-login></wi-login>
+	<script>
+		var app = angular.module('myApp', ['wiLogin','ngDialog']);
+		app.controller('myCtrl', function () {})
+	</script>
+</body>
+
+</html>

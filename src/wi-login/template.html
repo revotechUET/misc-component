@@ -1,0 +1,31 @@
+<body>
+    <div class="login">
+        <div class="login-banner">
+        </div>
+        <div class="login-screen">
+            <div class="app-title">
+                <p>Login</p>
+            </div>
+
+            <div class="login-form">
+                <div class="control-group">
+                    <input type="text" placeholder="username" ng-model="name">
+                </div>
+
+                <div class="control-group">
+                    <input type="password" placeholder="password" ng-model="password">
+                </div>
+
+                <a class="btn" ng-click="getInfor()" href="#">Login</a>
+                <a class="login-link" href="#">Không có account thì thôi!</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/ng-template" id="templateNoti">
+		<div class="ngdialog-message">
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+			<p>Maybe your username and password are wrong, please try again!</h3>
+		</div>
+	</script>
+</body>

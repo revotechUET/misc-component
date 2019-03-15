@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DDDD</title>
+	<script src="../bower_components/angular/angular.min.js"></script>
+	<script src="../dist/misc-components.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl as self">
+	<show-edit-field input='self.input' brand="Nam Thế" is-more="false"></show-edit-field>
+	<script>
+		var app = angular.module('myApp',['show-edit-field']);
+		app.controller('myCtrl', function(){
+			var self = this;
+			this.input = 'Nam';
+		})
+	</script>
+</body>
+</html>

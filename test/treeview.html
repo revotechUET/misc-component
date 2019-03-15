@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>treeview</title>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/lodash/dist/lodash.min.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <script src="../dist/misc-components.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+    <div class=vut-di>
+        <wi-base-treeview name="abc" config="config"></wi-base-treeview>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', ['wi-base-treeview']);
+        app.controller('myCtrl', function ($scope) {
+
+            $scope.config = [{
+                    "idWell": 2,
+                    "name": "Lv1  ",
+                    "type": "well",
+                    "data": {
+                        "icon": "well-16x16",
+                        "label": "Lv1 Lv1 wi-base-treeview/wi-base-treeview.less] 1.23 KiB {main} [built]",
+                        "childExpanded": false,
+                        "prevExpanded": false,
+                        "hide": false
+                    },
+                    "properties": {
+                        "topDepth": 1146.048,
+                        "bottomDepth": 1146.048
+                    },
+                    "children": [{
+                            "idWell": 2,
+                            "name": "Lv2  ",
+                            "type": "well",
+                            "data": {
+                                "icon": "well-16x16",
+                                "label": "Lv2 ",
+                                "childExpanded": false,
+                                "prevExpanded": false,
+                                "hide": false
+                            },
+                            "properties": {
+                                "topDepth": 1146.048,
+                                "bottomDepth": 1146.048
+                            },
+                            "children": [{
+                                "idWell": 2,
+                                "name": "TEST 1  ",
+                                "type": "well",
+                                "data": {
+                                    "icon": "well-16x16",
+                                    "label": "Lv3 ",
+                                    "childExpanded": false,
+                                    "prevExpanded": false,
+                                    "hide": false
+                                },
+                                "properties": {
+                                    "topDepth": 1146.048,
+                                    "bottomDepth": 1146.048
+                                },
+                                "children": [],
+                                "level":2,
+                                "falsy": ""
+                            }],
+                            "level": 1,
+                            "falsy": ""
+                        }
+                    ],
+                    "level": 1,
+                    "falsy": ""
+                }
+            ]
+            // $scope.config = [{
+            //         "idWell": 2,
+            //         "name": "TEST 1  ",
+            //         "type": "well",
+            //         "data": {
+            //             "icon": "well-16x16",
+            //             "label": "TEST 1 ",
+            //             "childExpanded": false,
+            //             "prevExpanded": false,
+            //             "hide": false
+            //         },
+            //         "properties": {
+            //             "topDepth": 1146.048,
+            //             "bottomDepth": 1146.048
+            //         },
+            //         "children": [],
+            //         "level": 0,
+            //         "falsy": ""
+            //     },
+            //     {
+            //         "idWell": 6,
+            //         "name": "TEST 2",
+            //         "type": "well",
+            //         "data": {
+            //             "icon": "well-16x16",
+            //             "label": "TEST 2",
+            //             "childExpanded": false,
+            //             "prevExpanded": false,
+            //             "hide": false
+            //         },
+            //         "properties": {
+            //             "topDepth": 70.104,
+            //             "bottomDepth": 70.104
+            //         },
+            //         "children": [],
+            //         "level": 0,
+            //         "falsy": ""
+            //     },
+            //     {
+            //         "idWell": 8,
+            //         "name": "TEST 3",
+            //         "type": "well",
+            //         "data": {
+            //             "icon": "well-16x16",
+            //             "label": "TEST 3",
+            //             "childExpanded": false,
+            //             "prevExpanded": false,
+            //             "hide": false
+            //         },
+            //         "properties": {
+            //             "topDepth": 1400,
+            //             "bottomDepth": 1400
+            //         },
+            //         "children": [],
+            //         "level": 0,
+            //         "falsy": ""
+            //     },
+            //     {
+            //         "idWell": 7,
+            //         "name": "TEST 4",
+            //         "type": "well",
+            //         "data": {
+            //             "icon": "well-16x16",
+            //             "label": "TEST 4",
+            //             "childExpanded": false,
+            //             "prevExpanded": false,
+            //             "hide": false
+            //         },
+            //         "properties": {
+            //             "topDepth": 0,
+            //             "bottomDepth": 0
+            //         },
+            //         "children": [],
+            //         "level": 0,
+            //         "falsy": ""
+            //     },
+            //     {
+            //         "idWell": 6,
+            //         "name": "TEST 2",
+            //         "type": "well",
+            //         "data": {
+            //             "icon": "well-16x16",
+            //             "label": "TEST 2",
+            //             "childExpanded": false,
+            //             "prevExpanded": false,
+            //             "hide": false
+            //         },
+            //         "properties": {
+            //             "topDepth": 70.104,
+            //             "bottomDepth": 70.104
+            //         },
+            //         "children": [],
+            //         "level": 0,
+            //         "falsy": ""
+            //     },
+            //     {
+            //         "idWell": 6,
+            //         "name": "TEST 2",
+            //         "type": "well",
+            //         "data": {
+            //             "icon": "well-16x16",
+            //             "label": "TEST 2",
+            //             "childExpanded": false,
+            //             "prevExpanded": false,
+            //             "hide": false
+            //         },
+            //         "properties": {
+            //             "topDepth": 70.104,
+            //             "bottomDepth": 70.104
+            //         },
+            //         "children": [],
+            //         "level": 0,
+            //         "falsy": ""
+            //     },
+            //     {
+            //         "idWell": 6,
+            //         "name": "TEST 2",
+            //         "type": "well",
+            //         "data": {
+            //             "icon": "well-16x16",
+            //             "label": "TEST 2",
+            //             "childExpanded": false,
+            //             "prevExpanded": false,
+            //             "hide": false
+            //         },
+            //         "properties": {
+            //             "topDepth": 70.104,
+            //             "bottomDepth": 70.104
+            //         },
+            //         "children": [],
+            //         "level": 0,
+            //         "falsy": ""
+            //     }
+
+
+            // ]
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

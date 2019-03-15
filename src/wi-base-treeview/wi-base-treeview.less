@@ -1,0 +1,171 @@
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+wi-base-treeview {
+    display: block;
+    background: #fff;
+    font-size: 13px;
+    overflow-anchor: none;
+    overflow-y: auto;
+    width: 100%;
+    flex: 1;
+
+    .wi-treeview-container {
+        transition: background-color 0.1s cubic-bezier(0.54, 0.45, 0.59, 0.71);
+        display: block;
+        border-bottom: 1px solid #f4f4f4;
+
+        // cursor: pointer;
+        // padding-left: 12px;
+        wi-base-treeview {
+            margin-left: unset;
+        }
+
+        // .wi-parent-node {
+        &:hover {
+            background: rgb(212, 212, 212);
+        }
+
+        // position: relative;
+        display: flex;
+        // height: 26px;
+        line-height: 26px;
+
+        // cursor: pointer;
+        &>div {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .wi-parent-unit {
+            overflow: hidden;
+            padding-top: 4px;
+            flex: 1;
+        }
+
+        .wi-parent-family {
+            overflow: hidden;
+            flex: 2;
+            padding-top: 4px;
+        }
+
+        .wi-parent-content {
+
+            display: flex;
+            flex: 3;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            align-items: center;
+
+            .icon-expanded {
+                width: 25px;
+                // padding-top: 6px;
+                color: #33333369;
+
+                &:hover {
+                    color: #0078be41
+                }
+
+                &>i {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+
+            &>div.item-content {
+                display: flex;
+                overflow: hidden;
+                .item-label {
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+                .wi-parent-icon {
+                    vertical-align: text-bottom;
+                }
+
+                .wi-parent-id {
+                    font-size: 80%;
+                    display: inline-block;
+                    line-height: 1.3em;
+                    padding: 0 3px;
+                    position: relative;
+                    right: 3px;
+                    top: 3px;
+                    border-radius: 2px;
+                    border: 1px solid;
+                    opacity: 0.6;
+                }
+
+                .image-bg {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                    opacity: 0.4
+                }
+            }
+
+            .actions>wi-button>div>button {
+                height: 26px;
+                padding: 4px;
+            }
+        }
+
+        .wi-parent-choices {
+            flex: 3;
+
+            >select,
+            >input {
+                width: 100%;
+                // border: none;
+                height: 36px;
+
+                &:hover {
+                    border: 0.5px solid #0077be;
+                }
+            }
+
+            >input::-webkit-outer-spin-button,
+            >input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+
+        // }
+
+        &.item-active {
+            color: #000;
+            font-weight: bold;
+            background: #eeeeee;
+        }
+
+        &.item-unused {
+            opacity: 0.3;
+        }
+
+        &:focus {
+            background-color: #f4f4f4;
+            // border: 1px solid #0077be;
+            box-shadow: none;
+            outline: 0;
+        }
+    }
+
+    .falsy[type=curve] {
+        color: red;
+    }
+
+    .rootview {
+        padding-left: 0;
+    }
+}

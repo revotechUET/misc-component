@@ -1,0 +1,52 @@
+<div ng-if="inited" vs-repeat="vsRepeatOptions">
+    <div ng-repeat="item in wiBaseTreeview.nodes track by $index"
+        class="wi-treeview-container {{wiBaseTreeview.isFalsy(item);}}"
+        ng-class='{"item-active": item.data.selected, "item-unused": item.data.unused}'
+        type="{{item.type}}"
+        data="{{item.id}}"
+        ng-click="!item.data.notClick && wiBaseTreeview.onClick($index, $event, item)"
+        ng-dblclick="wiBaseTreeview.onDoubleClick(item)"
+        wi-right-click="wiBaseTreeview.onClick($index, $event, item); wiBaseTreeview.showContextMenu($event, $index, item)"
+        wi-element-ready="wiBaseTreeview.onReadyFunction();"
+        ng-hide="item.data.hide || item.data.forceHide || item.data.deleted"
+        tabindex="0">
+            <div class="wi-parent-content" ng-style="item.type==='curve'?wiBaseTreeview.nameStyle:''"
+                title="{{item.data.toggle?item.data.label:item.data.tooltip||item.data.label}}">
+                <div ng-style="{width: 12 * item.level + 'px'}"></div>
+                <div class="icon-expanded"
+                    ng-click="wiBaseTreeview.onCollapse(item, $index, $event); $event.stopPropagation();">
+                    <i aria-hidden="true" class="fa"
+                        ng-class="
+                            {'fa-caret-down': item.data.childExpanded,
+                            'fa-caret-right': !item.data.childExpanded,
+                            'wi-hidden': item.children == null || item.children.length == 0}"></i>
+                </div>
+                <div class="item-content"
+                    style="position: relative;">
+                    <div class="display-inline-block margin-right-0_5em">
+                        <span class="{{item.data.icon}}" style="vertical-align: text-bottom;"></span>
+                        <div ng-if="wiBaseTreeview.showId && item.id" class='wi-parent-id'>{{item.id}}</div>
+                    </div>
+                    <span ng-if="(wiBaseTreeview.isShowParentName && item.parentData)">{{item.parentData.label}} /</span>
+                    <span ng-if="(wiBaseTreeview.isShowParentName && item.parentDataArr)" ng-repeat="parentData in item.parentDataArr">{{parentData.label}} /&nbsp;</span>
+                    <span class="item-label" ng-style="{'font-weight': item.data.imageBg ? 500 : ''}">{{item.data.toggle?item.data.tooltip:item.data.label}}</span>
+                    <div class="pull-right actions" ng-if="item.actions.length" ng-click="$event.stopPropagation()">
+                        <wi-button ng-repeat="action in item.actions" icon="{{action.icon}}" handler="action.handler" label="{{action.label}}" tooltip="{{action.tooltip}}"></wi-button>
+                    </div>
+                    <div ng-if="item.data.imageBg" class="image-bg" ng-style="{'background-image': item.data.imageBg}">
+                    </div>
+                </div>
+            </div>
+            <div class="wi-parent-family" ng-if='item.type=="curve"' ng-style="wiBaseTreeview.familyStyle">
+                <span class='display-inline-block' style='text-indent:10px;' title="{{item.data.familyName}}">{{item.data.familyName}}</span>
+            </div>
+            <div class="wi-parent-unit" ng-if='item.type=="curve"'>
+                <span class='display-inline-block' style='text-indent:10px;' title="{{item.data.unit}}">{{item.data.unit}}</span>
+            </div>
+            <div class="wi-parent-choices" ng-if='item.type.includes("choice")'>
+                <select ng-model='item.data.value' ng-if='item.data.choices'
+                ng-options="choice as choice.name for choice in item.data.choices track by choice.value"></select>
+                <input type="number" ng-model="item.data.value" ng-value="item.data.value | number: 4"ng-if="!item.data.choices" step="any">
+            </div>
+    </div>
+</div>
