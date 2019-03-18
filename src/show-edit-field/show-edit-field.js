@@ -3,18 +3,15 @@ const moduleName = 'show-edit-field';
 // var angular = require('angular');
 function ShowEditImportController() {
     let self = this;
-    // console.log(this);
-    // this.isMore = false;
     this.$onInit = function() {
-        this.showInput = this.input;
+        // this.showInput = this.input;
+        this.isArray = Array.isArray(this.input);
     }
-    this.showEdit = true;
-    this.changeValue = function() {
-        this.showEdit = !this.showEdit;
-        this.input = this.showInput;    
+    this.changeValue = function(input,index) {
+        this.showEdit[index] = !this.showEdit[index];
+        this.input[index] = input;    
     }
 }
-
 
 let app = angular.module(moduleName, []);
 
@@ -24,8 +21,7 @@ app.component(componentName, {
     controllerAs: 'self',
     bindings: {
         input: '=',
-        brand: '@',
-        isMore: '<'
+        brand: '@'
     }
 });
 app.directive('focusMe', ['$timeout', '$parse', function ($timeout, $parse) {
