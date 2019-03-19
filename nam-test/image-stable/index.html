@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+  <link rel="stylesheet" href="main.css">
+ </head>
+ <body ng-app="myApp" ng-controller="myCtrl as self">
+  
+   <image-table upload-file-list="self.data"></image-table>
+
+   <script src="../dist/main.bundle.js"></script>
+   <script src="./ng-file-upload.min.js"></script>
+   <script>
+   		// var angular = require('angular');
+		// var imageStable = require('../../image-stable/image-stable.js');
+		// var ngFileUpload = require('./ng-file-upload.min.js');
+		// var showEditField = require('../../show-edit-field/show-edit-field.js');
+		var app = angular.module('myApp',['show-edit-field','image-table','ngFileUpload']);
+
+		app.controller('myCtrl', function(){
+			var self = this;
+			this.data = [];
+		})
+   </script>
+ </body>
+ </html>

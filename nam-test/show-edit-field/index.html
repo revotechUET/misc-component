@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DDDD</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl as self">
+	<show-edit-field input='self.input' brand="qưeqweq"></show-edit-field>
+	<show-edit-field input='self.input1' brand="Array"></show-edit-field>
+	<script src="../dist/main.bundle.js"></script>
+	<script>
+		var app = angular.module('myApp',['show-edit-field']);
+		app.controller('myCtrl', function(){
+			var self = this;
+			this.input = ['Well','Name'];
+			this.input1 = 'Nam';
+		})
+	</script>
+</body>
+</html>
