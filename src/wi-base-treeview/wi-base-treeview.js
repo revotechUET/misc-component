@@ -1,7 +1,8 @@
 const componentName = 'wiBaseTreeview';
 const moduleName = 'wi-base-treeview';
 require('./wi-base-treeview.less');
-let app = angular.module(moduleName, []);
+var wiToken = require('../wi-token');
+let app = angular.module(moduleName, [wiToken.name]);
 app.component(componentName, {
     template: require('./wi-base-treeview.html'),
     controller: WiBaseTreeController,
@@ -19,7 +20,7 @@ app.component(componentName, {
         filterBy: '@',
         filterKey: '<',
         filterOptions: '<',
-        filterAll : '<',
+        filterAll: '<',
         onSelectFunction: '<',
         showId: '<',
         hightlightItemFunc: '<',
@@ -29,16 +30,19 @@ app.component(componentName, {
 // app.controller('WiBaseTreeController', WiBaseTreeController);
 exports.name = moduleName;
 
-function WiBaseTreeController($scope, $element, $timeout) {
+function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
     let self = this;
-    // const utils = wiComponentService.getComponent(wiComponentService.UTILS);
+    
     const ignoreKeys = ['$$hashKey', 'icon', 'id', 'currentState', 'createdAt', 'createdBy', 'updatedAt', 'updatedBy', 'parentDataArr'];
+
     function isColor(string) {
         return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(string);
     }
+
     function isKeyIgnored(key) {
         return ignoreKeys.includes(key) || key.includes('_');
     }
+
     function getValueArr(object) {
         if (!object) return [];
         const valueArr = [];
@@ -50,12 +54,12 @@ function WiBaseTreeController($scope, $element, $timeout) {
                 if (valueType === 'object') {
                     if (Array.isArray(value) && value.length > 10) continue;
                     valueArr.push(...getValueArr(value));
-                }
-                else if ((valueType === 'string' || valueType === 'number') && !isColor(value)) valueArr.push(value);
+                } else if ((valueType === 'string' || valueType === 'number') && !isColor(value)) valueArr.push(value);
             }
         }
         return valueArr;
     }
+
     function filterLabel(node) {
         if (self.filterKey) {
             let valueArr = [];
@@ -74,7 +78,8 @@ function WiBaseTreeController($scope, $element, $timeout) {
                     case 'unit':
                         if (node.type === 'curve') valueArr.push(_.get(node, 'properties.unit'))
                         break;
-                    default: return;
+                    default:
+                        return;
                 }
             })
             return valueArr.join(' ').toLowerCase();
@@ -82,10 +87,12 @@ function WiBaseTreeController($scope, $element, $timeout) {
         if (self.filterAll) return (getValueArr(node.data).join(' ') + getValueArr(node.properties).join(' ')).toLowerCase();
         return (node.data.toggle ? node.data.tooltip : node.data.label).toLowerCase();
     }
-    function filterType (input){
-        if(!self.filterBy || !input.type) return true;
+
+    function filterType(input) {
+        if (!self.filterBy || !input.type) return true;
         return self.filterBy.includes(input.type.toLowerCase());
     }
+
     function nodesFromConfig(config, level = 0) {
         const nodes = [];
         if (!Array.isArray(config)) return nodes;
@@ -102,58 +109,64 @@ function WiBaseTreeController($scope, $element, $timeout) {
     this.$onInit = function () {
         self.name = self.name || 'treeviewController' + Date.now();
         self.filter = self.filter || '';
-        self.filterOptions = self.filterOptions || { strict: true, keepChildren: true };
-        $timeout(() => { $scope.inited = true }, 100);
+        self.filterOptions = self.filterOptions || {
+            strict: true,
+            keepChildren: true
+        };
+        $timeout(() => {
+            $scope.inited = true
+        }, 100);
         $scope.vsRepeatOptions = {
             scrollParent: $element,
             size: 37,
         }
-            self.config = self.config || [];
-            if (self.container) self.container[self.name] = self;
-            // if (self.name) wiComponentService.putComponent(self.name, self);
-            $scope.$watch(() => this.filterBy, () => {
-                self.filterFn();
-                self.updateNodes();
-            });
-            function backupConfig(newConfig = [], oldConfig = []) {
-                for (let item of newConfig) {
-                    const oldItems = oldConfig.filter(i => i.type === item.type && ((!item.id && i.data.label === item.data.label) || (item.id && i.id === item.id)));
-                    if (oldItems.length !== 1) continue;
-                    const oldItem = oldItems[0];
-                    if (oldItem.type === item.type && oldItem.id === item.id) {
-                        item.data.selected = oldItem.data.selected;
-                        item.data.childExpanded = oldItem.data.childExpanded;
-                        item.data.prevExpanded = oldItem.data.prevExpanded;
-                        if (Array.isArray(oldItem.children) && Array.isArray(item.children)) {
-                            backupConfig(item.children, oldItem.children);
-                        }
+        self.config = self.config || [];
+        if (self.container) self.container[self.name] = self;
+        // if (self.name) wiComponentService.putComponent(self.name, self);
+        $scope.$watch(() => this.filterBy, () => {
+            self.filterFn();
+            self.updateNodes();
+        });
+
+        function backupConfig(newConfig = [], oldConfig = []) {
+            for (let item of newConfig) {
+                const oldItems = oldConfig.filter(i => i.type === item.type && ((!item.id && i.data.label === item.data.label) || (item.id && i.id === item.id)));
+                if (oldItems.length !== 1) continue;
+                const oldItem = oldItems[0];
+                if (oldItem.type === item.type && oldItem.id === item.id) {
+                    item.data.selected = oldItem.data.selected;
+                    item.data.childExpanded = oldItem.data.childExpanded;
+                    item.data.prevExpanded = oldItem.data.prevExpanded;
+                    if (Array.isArray(oldItem.children) && Array.isArray(item.children)) {
+                        backupConfig(item.children, oldItem.children);
                     }
                 }
             }
-            $scope.$watch(() => this.config, function (newConfig = [], oldConfig = []) {
-                backupConfig(newConfig, oldConfig);
-            });
-            $scope.$watchCollection(() => this.config, function () {
-                self.filterFn();
-                self.updateNodes();
-            });
-            $scope.$watch(() => [this.filter, this.filterKey, this.filterOptions], _.debounce(() => {
-                self.filterFn();
-                self.updateNodes();
-            }, 500), true);
-            // new ResizeObserver(() => setTimeout(() => $element.trigger('scroll'))).observe($element[0]);
-            const watches = [];
-            $scope.$on('vsRepeatReinitialized', function (event, startIdx, endIdx) {
-                for (const unwatch of watches) unwatch();
-                watches.length = 0;
-                for (let i = startIdx; i <= endIdx; i++) {
-                    self.nodes[i] && watches.push(
-                        $scope.$watchCollection(() => _.get(self.nodes[i], `children`), function (cur, old) {
-                            self.updateNodesDebounced();
-                        })
-                    );
-                }
-            });
+        }
+        $scope.$watch(() => this.config, function (newConfig = [], oldConfig = []) {
+            backupConfig(newConfig, oldConfig);
+        });
+        $scope.$watchCollection(() => this.config, function () {
+            self.filterFn();
+            self.updateNodes();
+        });
+        $scope.$watch(() => [this.filter, this.filterKey, this.filterOptions], _.debounce(() => {
+            self.filterFn();
+            self.updateNodes();
+        }, 500), true);
+        // new ResizeObserver(() => setTimeout(() => $element.trigger('scroll'))).observe($element[0]);
+        const watches = [];
+        $scope.$on('vsRepeatReinitialized', function (event, startIdx, endIdx) {
+            for (const unwatch of watches) unwatch();
+            watches.length = 0;
+            for (let i = startIdx; i <= endIdx; i++) {
+                self.nodes[i] && watches.push(
+                    $scope.$watchCollection(() => _.get(self.nodes[i], `children`), function (cur, old) {
+                        self.updateNodesDebounced();
+                    })
+                );
+            }
+        });
         self.onReadyFunction && onScroll();
     };
     const onReadyFunctionDebounced = _.debounce(function () {
@@ -165,6 +178,7 @@ function WiBaseTreeController($scope, $element, $timeout) {
         });
         self.onReadyFunction && self.onReadyFunction();
     }, 100);
+
     function onScroll() {
         $element.on('scroll', onReadyFunctionDebounced);
     }
@@ -175,6 +189,7 @@ function WiBaseTreeController($scope, $element, $timeout) {
     }
     this.updateNodesDebounced = _.debounce(this.updateNodes, 200);
     let _searching = false;
+
     function filterF(input) {
         if (self.filter === undefined) return;
         let queries = self.filter || '';
@@ -208,8 +223,8 @@ function WiBaseTreeController($scope, $element, $timeout) {
         if (!matches.length) return;
         let parents = [];
         matches.forEach(item => {
-            visit(input, function(_node, _opt){
-                if(_node == item) {
+            visit(input, function (_node, _opt) {
+                if (_node == item) {
                     _opt.path.slice(0, -1).forEach(n => {
                         if (parents.indexOf(n) < 0) parents.push(n);
                     })
@@ -317,9 +332,9 @@ function WiBaseTreeController($scope, $element, $timeout) {
     }
 
     function unselectAllNodes() {
-        self.config.forEach(function(item) {
-            visit(item, function(node) {
-                if(node.data) node.data.selected = false;
+        self.config.forEach(function (item) {
+            visit(item, function (node) {
+                if (node.data) node.data.selected = false;
             });
         });
     }
@@ -388,8 +403,8 @@ function WiBaseTreeController($scope, $element, $timeout) {
         console.log(node);
         typeof this.showContextMenuFunction === 'function' && this.showContextMenuFunction.apply(this, arguments);
     }
-    this.isFalsy = function(item) {
-        if(self.hightlightItemFunc) return self.hightlightItemFunc(item);
+    this.isFalsy = function (item) {
+        if (self.hightlightItemFunc) return self.hightlightItemFunc(item);
         item.falsy = '';
     }
 }
@@ -403,7 +418,7 @@ function visit(node, callback, options = {}) {
         if (callback(node, options)) {
             if (options) options.found = true
         }
-    } catch(e){}
+    } catch (e) {}
     if (node.children) {
         node.children.forEach(function (child) {
             visit(child, callback, options);
@@ -416,16 +431,22 @@ function visit(node, callback, options = {}) {
     if (options && options.path && options.path.pop)
         options.path.pop();
 }
-const pseudoParentNode = { children: [] };
-function getParentNode (node, rootNode, parentType) {
+const pseudoParentNode = {
+    children: []
+};
+
+function getParentNode(node, rootNode, parentType) {
     const path = getSelectedPath(node, rootNode);
     let parentNode = parentType ? path.find(p => p.type === parentType) : path[path.length - 2];
     if (!parentNode) {
-        if (Array.isArray(rootNode)) parentNode = Object.assign(pseudoParentNode, { children: rootNode });
+        if (Array.isArray(rootNode)) parentNode = Object.assign(pseudoParentNode, {
+            children: rootNode
+        });
         else if (typeof rootNode === 'object') parentNode = rootNode;
     }
     return parentNode;
 }
+
 function getSelectedPath(foundCB, rootNode) {
     // const wiComponentService = __GLOBAL.wiComponentService;
     if (!rootNode) {
@@ -446,7 +467,7 @@ function getSelectedPath(foundCB, rootNode) {
         }
         return false;
     }, {
-            path: new Array()
-        });
+        path: new Array()
+    });
     return selectedPath.filter(n => !Array.isArray(n));
 }

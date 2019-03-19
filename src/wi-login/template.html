@@ -1,31 +1,35 @@
-<body>
+<div class="login-icon" ng-click="self.showDialog()">
+    <i class="{{self.isOnline()}} icon fa fa-address-book"></i>
+</div>
+<script type="text/ng-template" id="templateTest">
     <div class="login">
-        <div class="login-banner">
-        </div>
-        <div class="login-screen">
-            <div class="app-title">
-                <p>Login</p>
-            </div>
-
-            <div class="login-form">
-                <div class="control-group">
-                    <input type="text" placeholder="username" ng-model="name">
+            <div class="login-screen">
+                <div class="app-title">
+                    <p>Login</p>
                 </div>
-
-                <div class="control-group">
-                    <input type="password" placeholder="password" ng-model="password">
+                <div class="login-form">
+                    <div class="control-group">
+                        <input type="text" placeholder="username" ng-model="self.name">
+                    </div>
+    
+                    <div class="control-group">
+                        <input type="password" placeholder="password" ng-model="self.password">
+                    </div>
+    
+                    <a class="btn" ng-click="self.getInfor()" href="#">Login</a>
+                    <a class="login-link" href="#">Không có account thì thôi!</a>
                 </div>
-
-                <a class="btn" ng-click="getInfor()" href="#">Login</a>
-                <a class="login-link" href="#">Không có account thì thôi!</a>
             </div>
         </div>
+    </script>
+<script type="text/ng-template" id="templateDone">
+    <div class ="success">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                <circle class="path circle" fill="none" stroke="#00be49" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
+                <polyline class="path check" fill="none" stroke="#00be49" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
+              </svg>
+              <p class="wellcome">Wellcome to WiMap!</p>
     </div>
 
-    <script type="text/ng-template" id="templateNoti">
-		<div class="ngdialog-message">
-            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
-			<p>Maybe your username and password are wrong, please try again!</h3>
-		</div>
-	</script>
-</body>
+    
+        </script>

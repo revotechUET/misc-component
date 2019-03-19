@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wi Map</title>
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.6/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.6/mapbox-gl-geocoder.css' type='text/css' />
+
+    <link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../bower_components/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../bower_components/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" href="../bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/ng-dialog/js/ngDialog.min.js"></script>
+    <script src="../bower_components/lodash/dist/lodash.min.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <script src="../dist/misc-components.js"></script>
+</head>
+<style>
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .toolbar {
+        height: 42px;
+        background: #003b5e;
+        display: flex;
+        z-index: 2;
+    }
+
+    .wimap {
+        padding-left: 20px;
+        color: white;
+        display: flex;
+        font-size: 15px;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .container {
+        margin: 0;
+        width: 100%;
+        display: contents;
+        padding: 0;
+    }
+
+    div.holder {
+        height: 100vh;
+        width: 1px;
+        margin: 0;
+        z-index: 2;
+        display: flex;
+    }
+
+    .ui-resizable-e {
+        cursor: ew-resize;
+        width: 2px;
+        right: -1px;
+        background: #0077be;
+        top: 0;
+        height: 100%;
+    }
+
+    .mapView {
+        width: 100%;
+        z-index: 1;
+    }
+
+    .leaflet-control-container {
+        display: none;
+    }
+</style>
+
+<body ng-app="myApp" ng-controller="myCtrl as self">
+    <div class="main">
+        <div class="toolbar">
+            <span class="wimap">Wi Map</span>
+
+        </div>
+        <div class="container">
+            <wi-login></wi-login>
+            <div class="holder">
+                <side-bar my-default-width="300" button-v-offset="90">
+                    <div style="overflow:hidden;">
+                        <div class="vut-di">
+                            <wi-base-treeview name="abc" config="config"></wi-base-treeview>
+                        </div>
+                    </div>
+                </side-bar>
+                <side-bar my-default-width="300">
+                    <div style="overflow:hidden;">
+                        <div class="vut-di">
+                            <wi-base-treeview name="abc" config="config"></wi-base-treeview>
+                        </div>
+                    </div>
+                </side-bar>
+            </div>
+            <map-view class="mapView" wells='wells'>
+
+            </map-view>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', ['mapView', 'sideBar', 'wi-base-treeview', 'wiLogin', 'ngDialog']);
+        app.controller('myCtrl', function ($scope) {
+            $scope.config = [{
+                "idWell": 2,
+                "name": "Lv1  ",
+                "type": "well",
+                "data": {
+                    "icon": "well-16x16",
+                    "label": "Lv1 wi-base-treeview/wi-base-treeview.less] 1.23 KiB {main} [built]",
+                    "childExpanded": false,
+                    "prevExpanded": false,
+                    "hide": false
+                },
+                "properties": {
+                    "topDepth": 1146.048,
+                    "bottomDepth": 1146.048
+                },
+                "children": [{
+                    "idWell": 2,
+                    "name": "Lv2  ",
+                    "type": "well",
+                    "data": {
+                        "icon": "well-16x16",
+                        "label": "Lv2 ",
+                        "childExpanded": false,
+                        "prevExpanded": false,
+                        "hide": false
+                    },
+                    "properties": {
+                        "topDepth": 1146.048,
+                        "bottomDepth": 1146.048
+                    },
+                    "children": [{
+                        "idWell": 2,
+                        "name": "TEST 1  ",
+                        "type": "well",
+                        "data": {
+                            "icon": "well-16x16",
+                            "label": "Lv3 ",
+                            "childExpanded": false,
+                            "prevExpanded": false,
+                            "hide": false
+                        },
+                        "properties": {
+                            "topDepth": 1146.048,
+                            "bottomDepth": 1146.048
+                        },
+                        "children": [],
+                        "level": 2,
+                        "falsy": ""
+                    }],
+                    "level": 1,
+                    "falsy": ""
+                }],
+                "level": 1,
+                "falsy": ""
+            }];
+
+        });
+    </script>
+</body>
+
+</html>
