@@ -1,7 +1,7 @@
 module.exports = {
 	mode: 'development',
 	entry: {
-		main:  "./main.js",
+		main:  "../src/main.js",
 	},
 	output: {
 		filename: '[name].bundle.js'

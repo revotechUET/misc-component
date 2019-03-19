@@ -1,5 +1,5 @@
-const componentName = 'imageStable';
-const moduleName = 'image-stable';
+const componentName = 'imageTable';
+const moduleName = 'image-table';
 var angular = require('angular');
 function ImageStableController() {
     const self = this;
@@ -156,10 +156,10 @@ function ImageStableController() {
     }
 }
 
-let app = angular.module(moduleName, ['ngFileUpload']);
+let app = angular.module(moduleName, []);
 
 app.component(componentName, {
-    template: require('html-loader!./image-stable.html'),
+    template: require('html-loader!./image-table.html'),
     controller: ImageStableController,
     controllerAs: 'self',
     bindings: {
