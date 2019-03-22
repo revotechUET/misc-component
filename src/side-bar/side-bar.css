@@ -2,7 +2,7 @@ side-bar > div {
     height: 100%;
     width: 0px;
     background: #f4f4f4;
-    /* box-shadow: 0 0 40px rgba(0, 0, 0, 0.12); */
+    box-shadow: 0 0 22px rgba(0, 0, 0, 0.12);
     position: relative;
 }
 side-bar div.handle {
@@ -10,19 +10,18 @@ side-bar div.handle {
     position: absolute;
     z-index: 401;
     right: -20px;
-    border-bottom-right-radius: 2px;
-    width: 20px;
-    border-top-right-radius: 2px;
+    border-radius: 50%;
+    width: 40px;
     height: 40px;
     cursor: pointer;
-    background-color: #0077be;
-    /* box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3); */
+    background-color: #0074c5;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
 }
 side-bar div.icon{
     color: #fff;
     position: relative;
-    top: 26%;
-    left: 25%;
+    top: 32%;
+    left: 42%;
  
 }
 side-bar .animation-enable {

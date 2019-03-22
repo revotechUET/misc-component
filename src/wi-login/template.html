@@ -1,6 +1,17 @@
-<div class="login-icon" ng-click="self.showDialog()">
-    <i class="{{self.isOnline()}} icon fa fa-address-book"></i>
+<div class="login-buttom" ng-click="self.showDialog()">
+
+    <div ng-show="self.name">
+            <p>{{self.name}}</p>
+    </div>
+    <div ng-hide="self.name" >
+            <p style="color:#0074c55c !important;">Guest</p>
+    </div>
+    
+    <div class="login-icon">
+        <i class="{{self.isOnline()}} icon fa fa-user-circle-o"></i>
+    </div>
 </div>
+
 <script type="text/ng-template" id="templateTest">
     <div class="login">
             <div class="login-screen">
@@ -16,19 +27,19 @@
                         <input type="password" placeholder="password" ng-model="self.password">
                     </div>
     
-                    <a class="btn" ng-click="self.getInfor()" href="#">Login</a>
-                    <a class="login-link" href="#">Không có account thì thôi!</a>
+                    <a class="btn" ng-click="self.getInfor()" href="#">Đừng bấm</a>
+                    <a class="login-link" href="#"> Bấm là lỗi đấy!</a>
                 </div>
             </div>
         </div>
     </script>
 <script type="text/ng-template" id="templateDone">
     <div class ="success">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+            <svg  version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
                 <circle class="path circle" fill="none" stroke="#00be49" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1"/>
                 <polyline class="path check" fill="none" stroke="#00be49" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 "/>
               </svg>
-              <p class="wellcome">Wellcome to WiMap!</p>
+              <p class="wellcome">Không có lỗi!</p>
     </div>
 
     

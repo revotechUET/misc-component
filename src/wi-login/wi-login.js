@@ -12,11 +12,7 @@ app.component(componentName, {
     controller: wiLoginController,
     controllerAs: 'self',
     bindings: {
-        testdata:"<",
-        ptop: "<",
-        pleft: "<",
-        pbottom: "<",
-        pright: "<"
+        name: '@'
     }
 });
 
@@ -41,9 +37,10 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                     password: this.password
                 },
                 headers: {}
+                
             }).then(function (response) {
                 if (response.data.code == 200) {
-                    console.log(response);
+                    console.log(response.data.content.token);
                     status = "online";
                     wiToken.setToken(response.data.content.token);
                     ngDialog.close();
@@ -55,18 +52,17 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                     setTimeout(function () {
                         ngDialog.close();
                     }, 2000);
-                    
                     $http({
                         method: 'POST',
-                        url: 'http://dev.i2g.cloud/project/fullinfo',
+                        url: 'http://dev.i2g.cloud/project/list',
                         data: {
-                            idProject: 2
                         },
                         headers: {
                             "Authorization": wiToken.getToken(),
                         }
                     }).then(function (response) {
                         console.log(response);
+                     
                     }, function (errorResponse) {
                         console.error(errorResponse);
                     });

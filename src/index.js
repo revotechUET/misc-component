@@ -6,5 +6,4 @@ module.exports = {
     wiLogin: require('./wi-login/wi-login'),
     mapView: require('./map-view/map-view'),
     wiToken: require('./wi-token/index')
-
 }
