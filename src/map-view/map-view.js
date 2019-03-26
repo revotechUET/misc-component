@@ -17,19 +17,27 @@ app.component(componentName, {
 });
 
 function mapViewController($element) {
+  let self = this;
   mapboxgl.accessToken = 'pk.eyJ1IjoiazU0aHVuZ3liIiwiYSI6ImNqdGZtNDE4ODF1OXEzeW85djJ5c29nYnoifQ.-VfHeKXV9avmbia1E7BFcQ';
   var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', //hosted style id
-    center: [95.8390896, 21.0396225], // starting position
+    center: [107, 11], // starting position
     zoom: 5, // starting zoom
     // pitch: 60, // pitch in degrees
     // bearing: 0, // bearing in degrees
   });
-
-  new mapboxgl.Marker()
-    .setLngLat([105.8090896, 21.0396225])
-    .addTo(map);
+  setTimeout(function () {
+    console.log(self.wells);
+    for (let index = 0; index < self.wells.length; index++) {
+      new mapboxgl.Marker()
+        .setLngLat([self.wells[index].lng, self.wells[index].lat])
+        .addTo(map);
+    }
+  }, 11000);
+  // new mapboxgl.Marker()
+  //   .setLngLat([105.8090896, 21.0396225])
+  //   .addTo(map);
   //SEARCH
   // map.addControl(new MapboxGeocoder({
   //   accessToken: mapboxgl.accessToken
@@ -40,17 +48,16 @@ function mapViewController($element) {
   // map.addControl(new MapboxDirections({
   //   accessToken: mapboxgl.accessToken
   // }), 'top-right');
-  map.addControl(new mapboxgl.GeolocateControl({
-    positionOptions: {
-      enableHighAccuracy: true
-    },
-    trackUserLocation: true
-  }));
-  map.addControl(new mapboxgl.FullscreenControl());
-
-
+  // map.addControl(new mapboxgl.GeolocateControl({
+  //   positionOptions: {
+  //     enableHighAccuracy: true
+  //   },
+  //   trackUserLocation: true
+  // }));
+  // map.addControl(new mapboxgl.FullscreenControl());
 
 }
+
 
 
 

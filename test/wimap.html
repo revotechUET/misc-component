@@ -37,7 +37,10 @@
     <script src="../bower_components/lodash/dist/lodash.min.js"></script>
     <link rel="stylesheet" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
     <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.5.0/proj4.js"></script>
+
     <script src="../dist/misc-components.js"></script>
+
 </head>
 <style>
     body {
@@ -45,6 +48,11 @@
         height: 100vh;
         overflow: hidden;
         font-family: Arial;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
     .main {
@@ -59,16 +67,64 @@
         background: #0074c5;
         display: flex;
         z-index: 3;
-        box-shadow: 0px -17px 8px 19px rgba(17, 17, 17, 0.32);
     }
 
-    .wimap {
-        padding-left: 9px;
-        color: white;
+    .label-list-view {
+        width: 100%;
+        height: 44px;
         display: flex;
-        font-size: 15px;
+        align-items: center;
+        padding-left: 16px;
+        font-weight: bold;
+        background: #f4f4f4;
+        color: #2d2d2d;
+        border-bottom: 1px solid #efefef;
+    }
+
+    .search-list-view {
+        width: 100%;
+        height: 44px;
+        display: flex;
         align-items: center;
         font-weight: bold;
+        background: #fff;
+        color: #2d2d2d;
+    }
+
+    .input-search-list-view {
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #ffffff4a;
+        border-bottom: 1px solid #eaeaea;
+        padding: 10px 20px 10px 15px;
+        color: #000;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    .input-search-list-view:focus {
+        outline: none;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        font-size: 17px;
+        cursor: pointer;
+        margin-left: 15px;
+        margin-right: 25px;
+    }
+
+    .menu-item>span {
+        padding-left: 9px;
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: white;
     }
 
     .container {
@@ -88,12 +144,17 @@
 
     .ui-resizable-e {
         cursor: ew-resize;
-        width: 1px;
-        right: -1px;
-        background: #0074c5;
+        width: 19px;
+        right: -9px;
         top: 0;
         height: 100%;
+
     }
+
+    /* .ui-resizable-e:hover {
+        background: #0073c585;
+        transition: 1s;
+    } */
 
     .mapView {
         width: 100%;
@@ -104,28 +165,21 @@
         display: none;
     }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        color: #fff;
-        font-size: 20px;
-        margin-left: 15px;
-    }
-
     .menu-left-top {
         width: 100%;
-        /* height: 50%; */
-        flex-grow: 1;
-        /* position: absolute; */
+        flex: 1;
+        display: flex;
+        flex-direction: column;
         overflow: scroll;
-        border-bottom: 1px solid #0074c5;
+        border-bottom: 1px solid #efefef;
+        /* border-bottom: 1px solid #0074c5; */
     }
 
     .menu-left-bottom {
         width: 100%;
-        flex-grow: 2;
+        flex: 2;
         overflow: scroll;
-        border-bottom: 1px solid #0074c5;
+        /* border-bottom: 1px solid #0074c5; */
     }
 
     .project {
@@ -152,252 +206,72 @@
 
     ::-webkit-scrollbar {
         display: none;
+        /* background: #f4f4f4; */
     }
 </style>
 
 <body ng-app="myApp" ng-controller="myCtrl as self">
     <div class="main">
         <div class="toolbar">
-            <i class="logo fa fa-globe" aria-hidden="true"></i>
-            <span class="wimap">Wi Map</span>
+            <span class="menu-item fa fa-globe">
+                <span>Wi Map</span>
+            </span>
+            <span class="menu-item fa fa-refresh" ng-click="self.refesh()">
+                <span>Refesh</span>
+            </span>
+
         </div>
         <div class="container">
             <wi-login></wi-login>
             <div class="holder">
-                <side-bar my-default-width="200" button-v-offset="90" style="z-index: 401;">
-                    <div style="overflow:hidden; height: 100vh;display: flex;
-                    flex-direction: column;">
+                <side-bar my-default-width="200" button-v-offset="0" style="z-index: 401; border-right: 1px solid #efefef;">
+                    <div style="overflow:hidden; height: 100vh;display: flex;flex-direction: column;">
                         <div class="menu-left-top">
-                            <ul class="project">
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-
-
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="label-list-view">
+                                <span>PROJECT LIST</span>
+                            </div>
+                            <div class="search-list-view">
+                                <input class="input-search-list-view" type="text" placeholder="Search your project"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search your project'">
+                            </div>
+                            <wi-base-treeview name="abc" config="projectList">
+                            </wi-base-treeview>
                         </div>
                         <div class="menu-left-bottom">
-                            <ul class="project">
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-
-
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Project hehe</p>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="label-list-view">
+                                <span>WELL LIST</span>
+                            </div>
+                            <div class="search-list-view">
+                                <input class="input-search-list-view" type="text" placeholder="Search your well"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search your well'">
+                            </div>
+                            <wi-base-treeview name="abc" config="wellList">
+                            </wi-base-treeview>
                         </div>
                     </div>
                 </side-bar>
-                <side-bar my-default-width="200">
-                    <div style="overflow:hidden; height: 100vh;">
-                        <div class="vut-di">
-                            <!-- <wi-list-view></wi-list-view> -->
-                            <!-- <wi-base-treeview name="abc" config="config"></wi-base-treeview> -->
+                <side-bar my-default-width="200" style="border-right: 1px solid #efefef;">
+                    <div style="overflow:hidden; height: 100vh; ">
+                        <div class="label-list-view">
+                            <span>SHOW TO MAP</span>
+                        </div>
+                        <div class="search-list-view">
+                            <input class="input-search-list-view" type="text" placeholder="Search well displayed"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search your well'">
+                        </div>
+                        <div>
+                            <wi-base-treeview name="abc" config="wellSelect">
+                            </wi-base-treeview>
                         </div>
                     </div>
                 </side-bar>
             </div>
-            <map-view class="mapView">
+            <map-view class="mapView" wells='wells'>
             </map-view>
         </div>
     </div>
 
-    <script>
-        var app = angular.module('myApp', ['mapView', 'sideBar', 'wi-base-treeview', 'wiLogin', 'ngDialog']);
-        app.controller('myCtrl', function ($scope) {
-            $scope.config = [{
-                "idWell": 2,
-                "name": "Lv1  ",
-                "type": "well",
-                "data": {
-                    "icon": "well-16x16",
-                    "label": "Lv1 wi-base-treeview/wi-base-treeview.less] 1.23 KiB {main} [built]",
-                    "childExpanded": false,
-                    "prevExpanded": false,
-                    "hide": false
-                },
-                "properties": {
-                    "topDepth": 1146.048,
-                    "bottomDepth": 1146.048
-                },
-                "children": [{
-                    "idWell": 2,
-                    "name": "Lv2  ",
-                    "type": "well",
-                    "data": {
-                        "icon": "well-16x16",
-                        "label": "Lv2 ",
-                        "childExpanded": false,
-                        "prevExpanded": false,
-                        "hide": false
-                    },
-                    "properties": {
-                        "topDepth": 1146.048,
-                        "bottomDepth": 1146.048
-                    },
-                    "children": [{
-                        "idWell": 2,
-                        "name": "TEST 1  ",
-                        "type": "well",
-                        "data": {
-                            "icon": "well-16x16",
-                            "label": "Lv3 ",
-                            "childExpanded": false,
-                            "prevExpanded": false,
-                            "hide": false
-                        },
-                        "properties": {
-                            "topDepth": 1146.048,
-                            "bottomDepth": 1146.048
-                        },
-                        "children": [],
-                        "level": 2,
-                        "falsy": ""
-                    }],
-                    "level": 1,
-                    "falsy": ""
-                }],
-                "level": 1,
-                "falsy": ""
-            }];
-
-        });
-    </script>
+    <script src="./main.js"></script>
 </body>
 
 </html>

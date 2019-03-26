@@ -12,30 +12,30 @@ app.component(componentName, {
     controllerAs: 'self',
     bindings: {
         myDefaultWidth: "<",
-        buttonVOffset:"<"
+        buttonVOffset: "<"
     },
     transclude: true
 });
 
 function sideBarController($element, $timeout, $scope) {
     let self = this;
-    this.toggle = function(x) {
-        $timeout(function() {
-            self.myWidth = self.myWidth===0?self.myDefaultWidth:0;
+    this.toggle = function (x) {
+        $timeout(function () {
+            self.myWidth = self.myWidth === 15 ? self.myDefaultWidth : 15;
         });
     }
-  
-    this.$onInit = function() {
+
+    this.$onInit = function () {
         this.myWidth = this.myDefaultWidth;
-        this.buttonVOffset = this.buttonVOffset || 30;
-        $timeout(function() {
+        this.buttonVOffset = this.buttonVOffset || 0;
+        $timeout(function () {
             $element.find('.side-bar').resizable({
                 handles: "e",
                 animate: false,
-                start: function(event, ui) {
+                start: function (event, ui) {
                     ui.element.removeClass('animation-enable');
                 },
-                stop: function(event, ui) {
+                stop: function (event, ui) {
                     self.myWidth = ui.element.width();
                     ui.element.addClass('animation-enable');
                 }

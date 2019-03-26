@@ -12,18 +12,48 @@ app.component(componentName, {
     controller: wiLoginController,
     controllerAs: 'self',
     bindings: {
-        name: '@'
+        name: '@',
+        password: '@'
     }
 });
 
 function wiLoginController($http, $scope, ngDialog, wiToken) {
-    var status = "offline";
-    this.showDialog = function () {
+
+    this.onLoginClick = function () {
+        if (wiToken.getToken()) {
+            wiToken.setToken(null);
+            this.showDialogLogout();
+        } else {
+            this.showDialogLogin();
+        }
+    }
+    this.showDialogLogout = function () {
+
         ngDialog.open({
-            template: 'templateTest',
+            template: 'templateLogout',
             className: 'ngdialog-theme-default',
             scope: $scope,
         });
+        setTimeout(function () {
+            ngDialog.close();
+        }, 1200);
+
+        setTimeout(function () {
+            location.reload();
+        }, 1200);
+    }
+    this.showDialogLogin = function () {
+        ngDialog.open({
+            template: 'templateLogin',
+            className: 'ngdialog-theme-default',
+            scope: $scope,
+        });
+    }
+    this.getName = function () {
+        return wiToken.getUserName();
+    }
+    this.isLogin = function () {
+        return wiToken.getToken();
     }
     this.getInfor = function () {
         if (this.name === undefined || this.password === undefined) {
@@ -37,7 +67,7 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                     password: this.password
                 },
                 headers: {}
-                
+
             }).then(function (response) {
                 if (response.data.code == 200) {
                     console.log(response.data.content.token);
@@ -51,21 +81,8 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                     });
                     setTimeout(function () {
                         ngDialog.close();
-                    }, 2000);
-                    $http({
-                        method: 'POST',
-                        url: 'http://dev.i2g.cloud/project/list',
-                        data: {
-                        },
-                        headers: {
-                            "Authorization": wiToken.getToken(),
-                        }
-                    }).then(function (response) {
-                        console.log(response);
-                     
-                    }, function (errorResponse) {
-                        console.error(errorResponse);
-                    });
+                    }, 1100);
+
                 } else if (response.data.code == 512) {
                     console.error("512");
                 }
@@ -73,12 +90,5 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                 console.error(errorResponse);
             });
         }
-    }
-    this.isOnline = function () {
-        if (status == "online") {
-            return "online";
-        }
-        return "offline"
-
     }
 }

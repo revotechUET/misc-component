@@ -355,6 +355,7 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
                 });
             });
         }
+        console.log("onClick");
     }
     this.baseClick = function ($index, $event, node) {
         const selectedNodes = self.getSelectedNodes();
@@ -383,6 +384,7 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
                 }
             }
         }
+        console.log("baseClick");
     }
     this.getSelectedNodes = function () {
         return self.nodes.filter(n => n.data.selected && !n.data.forceHide);

@@ -10,7 +10,6 @@
 
 wi-base-treeview {
     display: block;
-    background: #fff;
     font-size: 13px;
     overflow-anchor: none;
     overflow-y: auto;
@@ -20,25 +19,28 @@ wi-base-treeview {
     .wi-treeview-container {
         transition: background-color 0.1s cubic-bezier(0.54, 0.45, 0.59, 0.71);
         display: block;
+        background: #fff;
+        padding: 12px 6px;
+        margin: 0 10px;
+        cursor: pointer;
         border-bottom: 1px solid #f4f4f4;
-
-        // cursor: pointer;
-        // padding-left: 12px;
+        display: flex;
+        transition: 0.2s;
         wi-base-treeview {
             margin-left: unset;
         }
 
-        // .wi-parent-node {
         &:hover {
-            background: rgb(212, 212, 212);
+            // border-bottom: 1px solid #f4f4f4;
+            color: #0074c5;
+            background: #f4f4f4;
+            padding: 12px;
+            // border-left: 4px solid #f4f4f4;
+            margin: 0 !important;
         }
 
-        // position: relative;
         display: flex;
-        // height: 26px;
-        line-height: 26px;
 
-        // cursor: pointer;
         &>div {
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -61,14 +63,12 @@ wi-base-treeview {
 
             display: flex;
             flex: 3;
-            padding-top: 5px;
-            padding-bottom: 5px;
             align-items: center;
 
             .icon-expanded {
                 width: 25px;
-                // padding-top: 6px;
                 color: #33333369;
+                display: none;
 
                 &:hover {
                     color: #0078be41
@@ -83,10 +83,14 @@ wi-base-treeview {
             &>div.item-content {
                 display: flex;
                 overflow: hidden;
+
                 .item-label {
                     text-overflow: ellipsis;
                     overflow: hidden;
+                    padding-left: 10px;
+                    font-size: 12px;
                 }
+
                 .wi-parent-icon {
                     vertical-align: text-bottom;
                 }
@@ -126,7 +130,6 @@ wi-base-treeview {
             >select,
             >input {
                 width: 100%;
-                // border: none;
                 height: 36px;
 
                 &:hover {
@@ -141,12 +144,12 @@ wi-base-treeview {
             }
         }
 
-        // }
-
         &.item-active {
-            color: #000;
-            font-weight: bold;
-            background: #eeeeee;
+            color: #0074c5;
+            // font-weight: bold;
+            padding: 12px;
+            margin: 0 !important;
+            border-left: 4px solid #0074c5;
         }
 
         &.item-unused {
@@ -155,7 +158,6 @@ wi-base-treeview {
 
         &:focus {
             background-color: #f4f4f4;
-            // border: 1px solid #0077be;
             box-shadow: none;
             outline: 0;
         }
