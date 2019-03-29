@@ -1,19 +1,27 @@
 var app = angular.module('myApp', ['mapView', 'sideBar', 'wi-base-treeview', 'wiLogin', 'ngDialog', 'wiToken']);
 app.controller('myCtrl', function ($scope, $http, wiToken) {
+    $scope.wellList = [];
+    $scope.wellSelect = [];
+    if ((localStorage.getItem("token")) !== null) {
+        getProjectList();
+    }
+    $scope.$watch(function () {
+        return localStorage.getItem('token');
+    }, function (newValue, oldValue) {
+        console.log(newValue, oldValue);
+        if ((localStorage.getItem("token")) !== null) {
+            getProjectList();
+        }
+    });
 
     this.refesh = function () {
-        var lat,
-            lng,
-            latX,
-            lngY,
-            x,
-            y;
+        getProjectList();
+        $scope.wellList = [];
+        $scope.wellSelect = [];
+    }
+
+    function getProjectList(projectList) {
         var projectList = [];
-        var wellSelect = [];
-        var firstProjection = "+proj=utm +zone=49 +ellps=WGS84 +datum=WGS84 +units=m +no_defs";
-        var secondProjection = "+proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees";
-        $scope.wells = [];
-        //PROJECT LIST
         $http({
             method: 'POST',
             url: 'http://dev.i2g.cloud/project/list',
@@ -22,206 +30,68 @@ app.controller('myCtrl', function ($scope, $http, wiToken) {
                 "Authorization": wiToken.getToken(),
             }
         }).then(function (response) {
-            for (let index = 0; index < response.data.content.length; index++) {
+            let projects = response.data.content;
+            for (let index = 0; index < projects.length; index++) {
                 projectList.push({
                     data: {
                         icon: "project-normal-16x16",
-                        label: response.data.content[index].name,
-                    }
+                        label: projects[index].alias,
+                    },
+                    properties: projects[index]
                 });
             }
-            console.log(projectList);
         }, function (errorResponse) {
+            window.alert("Please login!");
             console.error(errorResponse);
         });
         $scope.projectList = projectList;
-        //WELLSELECT
+    }
 
+    function pushWellintoList(list, wellToPush) {
+        list.push({
+            data: {
+                icon: "well-16x16",
+                label: wellToPush.name,
+            },
+            properties: wellToPush
+        });
+    }
+    $scope.onClickPrj = function (prjIdx) {
+        let clickedPrj = $scope.projectList[prjIdx];
+        let idPrj = clickedPrj.properties.idProject;
+        var wellList = [];
         $http({
             method: 'POST',
-            url: 'http://dev.i2g.cloud/project/fullinfo',
+            url: 'http://dev.i2g.cloud/project/well/list',
             data: {
-                //GET ID PROJECT
-                idProject: 3
+                idProject: idPrj
             },
             headers: {
                 "Authorization": wiToken.getToken(),
             }
         }).then(function (response) {
-            for (let index = 0; index < response.data.content.wells.length; index++) {
-                wellSelect.push({
-                    data: {
-                        icon: "well-16x16",
-                        label: response.data.content.wells[index].name,
-                    }
-                });
-                idWell = response.data.content.wells[index].idWell;
-                //-----------------------------------------------
-                $http({
-                    method: 'POST',
-                    url: 'http://dev.i2g.cloud/project/well/info',
-                    data: {
-                        idWell: idWell
-                    },
-                    headers: {
-                        "Authorization": wiToken.getToken(),
-                    }
-                }).then(function (response) {
-
-                    //FIND NAME WELL           
-                    name = response.data.content.name;
-                    lat = 0;
-                    lng = 0;
-                    x = 0;
-                    y = 0;
-
-                    //FIND AND FILLTER LATITUS ON RESPONSE DATA
-                    for (let index = 0; index < response.data.content.well_headers.length; index++) {
-                        if (response.data.content.well_headers[index].header ===
-                            "LATI") {
-
-                            // DMS TO DD
-                            if (isNaN(response.data.content.well_headers[index]
-                                    .value)) {
-                                lat = ConvertDMSToDD(response.data.content
-                                    .well_headers[index].value);
-                                break;
-                            }
-                            // IF DD IS DEFAULT
-                            lat = response.data.content.well_headers[index]
-                                .value;
-
-                            break;
-                        }
-                        continue;
-                    }
-                    //FIND AND FILLTER LONGTITUS ON RESPONSE DATA
-                    for (let index = 0; index < response.data.content.well_headers.length; index++) {
-                        if (response.data.content.well_headers[index].header ===
-                            "LONG") {
-
-                            // DMS TO DD
-                            if (isNaN(response.data.content.well_headers[index]
-                                    .value)) {
-                                lng = ConvertDMSToDD(response.data.content
-                                    .well_headers[index].value);
-                                break;
-                            }
-                            // IF DD IS DEFAULT
-                            lng = response.data.content.well_headers[index]
-                                .value;
-                            break;
-                        }
-                        continue;
-                    }
-                    //FIND AND FILLTER X
-                    for (let index = 0; index < response.data.content.well_headers.length; index++) {
-                        if (response.data.content.well_headers[index].header ===
-                            "X") {
-                            x = Number(response.data.content.well_headers[index]
-                                .value);
-                            break;
-                        }
-                        continue;
-                    }
-                    //FIND AND FILLTER Y
-                    for (let index = 0; index < response.data.content.well_headers.length; index++) {
-                        if (response.data.content.well_headers[index].header ===
-                            "Y") {
-                            y = Number(response.data.content.well_headers[index]
-                                .value);
-                            break;
-                        }
-                        continue;
-                    }
-
-                    //PUSH LATITUS AND LONGTITUS TO WELL ARRAY
-                    // lat---0  lng---0    x---OK    y---OK
-                    if (((lat == 0) || (lng == 0)) && ((x != 0) && (y != 0))) {
-                        //CHANGE INFO INPUT
-                        // console.log("Convert UTM to Latlong");
-
-                        latX = proj4(firstProjection, secondProjection, [x, y])[
-                            1];
-                        lngY = proj4(firstProjection, secondProjection, [x, y])[
-                            0];
-
-                        $scope.wells.push({
-                            name: name,
-                            lat: latX,
-                            lng: lngY,
-                            log: "Convert UTM to Latlong"
-                        });
-                        // lat---OK  lng---OK    x---O    y---OK
-                    } else if (((lat != 0) && (lng != 0))) {
-                        // console.log("Lat and long is update");
-                        $scope.wells.push({
-                            name: name,
-                            lat: Number(lat),
-                            lng: Number(lng),
-                            log: ""
-                        });
-                    } else {
-                        // console.log("Latlong or XY is missing");
-                        $scope.wells.push({
-                            name: name,
-                            lat: 0,
-                            lng: 0,
-                            log: "Latlong or XY is missing"
-                        });
-                    }
-                }, function (errorResponse) {
-                    console.error(errorResponse);
-                });
-                //-----------------------------------------------
-                $scope.wellSelect = wellSelect;
+            let wells = response.data.content;
+            for (let index = 0; index < wells.length; index++) {
+                pushWellintoList(wellList, wells[index]);
             }
-            console.log(response);
+            $scope.wellList = wellList;
+            if ((wellList.length) === 0) {
+                window.alert("Well not found in " + clickedPrj.properties.alias + "!");
+            }
         }, function (errorResponse) {
             console.error(errorResponse);
         });
     }
-    // setTimeout(function () {
-
-    // }, 8000);
-
-    //WELLLIST
-    // $scope.wellList = [{
-    //         "data": {
-    //             "icon": "well-16x16",
-    //             "label": "Project 13333",
-
-    //         }
-    //     },
-    //     {
-    //         "data": {
-    //             "icon": "well-16x16",
-    //             "label": "Project 13322233",
-
-    //         },
-    //     },
-    //     {
-    //         "data": {
-    //             "icon": "well-16x16",
-    //             "label": "Project 13322233",
-
-    //         },
-    //     }
-    // ];
-
-
-});
-
-function ConvertDMSToDD(input) {
-    let parts = input.split(/[^\d+(\,\d+)\d+(\.\d+)?\w]+/);
-    let degrees = parseFloat(parts[0]);
-    let minutes = parseFloat(parts[1]);
-    let seconds = parseFloat(parts[2].replace(',', '.'));
-    let direction = parts[3];
-    let dd = degrees + minutes / 60 + seconds / (60 * 60);
-
-    if (direction == 'S' || direction == 'South' || direction == 'W' || direction == 'West') {
-        dd = dd * -1;
+    $scope.onClickWell = function (wellIdx) {
+        let wellId = $scope.wellList[wellIdx].properties.idWell;
+        let foundWell = $scope.wellSelect.find(function (item) {
+            return item.properties.idWell === wellId;
+        });
+        if (!foundWell) {
+            $scope.wellSelect.push($scope.wellList[wellIdx]);
+        }
     }
-    return dd;
-}
+    $scope.onClickWellonMap = function (wellSelectIdx) {
+        $scope.wellSelect.splice((wellSelectIdx), 1);
+    }
+});

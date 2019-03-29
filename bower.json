@@ -1,0 +1,27 @@
+{
+  "name": "misc-components",
+  "description": "",
+  "version": "0.0.1",
+  "main": "src/test/main.js",
+  "authors": "",
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.8",
+    "jquery": "^3.3.1",
+    "jquery-ui": "^1.12.1",
+    "bootstrap-css": "^3.3.7",
+    "proj4": "^2.5.0",
+    "ng-dialog": "^1.4.0",
+    "lodash": "^4.17.11",
+    "fontawesome": "^5.8.1"
+  }
+}

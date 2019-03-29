@@ -34,5 +34,5 @@ side-bar div.icon {
 }
 
 side-bar .animation-enable {
-    transition: width 0.5s cubic-bezier(0, 1.04, 1, 1);
+    transition: width 0.3s cubic-bezier(0, 1.04, 1, 1);
 }

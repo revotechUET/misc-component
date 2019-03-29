@@ -1,10 +1,7 @@
 var componentName = 'wiLogin';
-
 module.exports.name = componentName;
-
 require('./wi-login.less');
 var wiToken = require('../wi-token');
-
 var app = angular.module(componentName, [wiToken.name]);
 
 app.component(componentName, {
@@ -13,12 +10,13 @@ app.component(componentName, {
     controllerAs: 'self',
     bindings: {
         name: '@',
-        password: '@'
+        password: '@',
+        whoami: '@'
     }
 });
 
 function wiLoginController($http, $scope, ngDialog, wiToken) {
-
+    let self = this;
     this.onLoginClick = function () {
         if (wiToken.getToken()) {
             wiToken.setToken(null);
@@ -28,16 +26,15 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
         }
     }
     this.showDialogLogout = function () {
-
         ngDialog.open({
             template: 'templateLogout',
             className: 'ngdialog-theme-default',
             scope: $scope,
         });
+        wiToken.removeToken();
         setTimeout(function () {
             ngDialog.close();
         }, 1200);
-
         setTimeout(function () {
             location.reload();
         }, 1200);
@@ -64,15 +61,16 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                 url: 'http://admin.dev.i2g.cloud/login',
                 data: {
                     username: this.name,
-                    password: this.password
+                    password: this.password,
+                    whoami: self.whoami
                 },
                 headers: {}
 
             }).then(function (response) {
                 if (response.data.code == 200) {
-                    console.log(response.data.content.token);
                     status = "online";
                     wiToken.setToken(response.data.content.token);
+                    wiToken.saveToken(response.data.content.token)
                     ngDialog.close();
                     ngDialog.open({
                         template: 'templateDone',
@@ -82,7 +80,6 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                     setTimeout(function () {
                         ngDialog.close();
                     }, 1100);
-
                 } else if (response.data.code == 512) {
                     console.error("512");
                 }

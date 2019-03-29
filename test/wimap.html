@@ -5,226 +5,53 @@
     <meta charset="UTF-8">
     <title>Wi Map</title>
 
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.6/mapbox-gl-geocoder.min.js'>
-    </script>
-    <!-- <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v3.1.6/mapbox-gl-geocoder.css' type='text/css' /> -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js'>
-    </script>
-    <link rel='stylesheet'
-        href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css'
-        type='text/css' />
-
+    <link rel='stylesheet' href='../bower_components/mapbox/mapbox-gl.css' />
+    <link rel='stylesheet' href='../bower_components/mapbox/mapbox-gl-directions.css' />
     <link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/jquery-ui.min.css">
-    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="../bower_components/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../bower_components/ng-dialog/css/ngDialog.min.css">
     <link rel="stylesheet" href="../bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-        integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-        integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-        crossorigin=""></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="./style.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
-
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src='../bower_components/mapbox/mapbox-gl.js'></script>
+    <script src='../bower_components/mapbox/mapbox-gl-geocoder.min.js'></script>
+    <script src='../bower_components/mapbox/mapbox-gl-directions.js'></script>
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/ng-dialog/js/ngDialog.min.js"></script>
     <script src="../bower_components/lodash/dist/lodash.min.js"></script>
-    <link rel="stylesheet" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.5.0/proj4.js"></script>
-
+    <script src="../bower_components/proj4/dist/proj4.js"></script>
+    <script src="../bower_components/bootstrap-css/js/bootstrap.min.js"></script>
     <script src="../dist/misc-components.js"></script>
 
 </head>
 <style>
-    body {
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        font-family: Arial;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-
-    .main {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        font-size: 12px;
-    }
-
-    .toolbar {
-        height: 56px;
-        background: #0074c5;
-        display: flex;
-        z-index: 3;
-    }
-
-    .label-list-view {
-        width: 100%;
-        height: 44px;
-        display: flex;
-        align-items: center;
-        padding-left: 16px;
-        font-weight: bold;
-        background: #f4f4f4;
-        color: #2d2d2d;
-        border-bottom: 1px solid #efefef;
-    }
-
-    .search-list-view {
-        width: 100%;
-        height: 44px;
-        display: flex;
-        align-items: center;
-        font-weight: bold;
-        background: #fff;
-        color: #2d2d2d;
-    }
-
-    .input-search-list-view {
-        background: #fff;
-        width: 100%;
-        height: 100%;
-        border: 1px solid #ffffff4a;
-        border-bottom: 1px solid #eaeaea;
-        padding: 10px 20px 10px 15px;
-        color: #000;
-        font-weight: bold;
-        font-size: 12px;
-    }
-
-    .input-search-list-view:focus {
-        outline: none;
-    }
-
-    .menu-item {
-        display: flex;
-        align-items: center;
-        color: #fff;
-        font-size: 17px;
-        cursor: pointer;
-        margin-left: 15px;
-        margin-right: 25px;
-    }
-
-    .menu-item>span {
-        padding-left: 9px;
-        display: flex;
-        align-items: center;
-        font-size: 12px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        color: white;
-    }
-
-    .container {
-        margin: 0;
-        width: 100%;
-        display: contents;
-        padding: 0;
-    }
-
-    div.holder {
-        height: 100vh;
-        width: 1px;
-        margin: 0;
-        z-index: 2;
-        display: flex;
-    }
-
-    .ui-resizable-e {
-        cursor: ew-resize;
-        width: 19px;
-        right: -9px;
-        top: 0;
-        height: 100%;
-
-    }
-
-    /* .ui-resizable-e:hover {
-        background: #0073c585;
-        transition: 1s;
-    } */
-
-    .mapView {
-        width: 100%;
-        z-index: 1;
-    }
-
-    .leaflet-control-container {
-        display: none;
-    }
-
-    .menu-left-top {
-        width: 100%;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        overflow: scroll;
-        border-bottom: 1px solid #efefef;
-        /* border-bottom: 1px solid #0074c5; */
-    }
-
-    .menu-left-bottom {
-        width: 100%;
-        flex: 2;
-        overflow: scroll;
-        /* border-bottom: 1px solid #0074c5; */
-    }
-
-    .project {
-        margin: 0;
-        padding: 0;
-    }
-
-    .project>li {
-        padding: 10px;
-        border-radius: 3px;
-        border: 1px solid #8787872b;
-        margin: 10px;
-        cursor: pointer;
-        background: #fff;
-        list-style-type: none;
-    }
-
-    .project>li>div>p {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        padding: 0;
-    }
-
-    ::-webkit-scrollbar {
-        display: none;
-        /* background: #f4f4f4; */
-    }
 </style>
 
 <body ng-app="myApp" ng-controller="myCtrl as self">
     <div class="main">
         <div class="toolbar">
             <span class="menu-item fa fa-globe">
-                <span>Wi Map</span>
+                <span>Base Map</span>
             </span>
-            <span class="menu-item fa fa-refresh" ng-click="self.refesh()">
+            <span class="menu-item fas fa-redo-alt" ng-click="self.refesh()">
                 <span>Refesh</span>
             </span>
-
+            <span class="menu-item fas fa-compass">
+                <select class="select-proj4 form-control" id="sel1" style="width: 200px;">
+                    <option selected>Select coordinate</option>
+                  </select>
+            </span>
+            
         </div>
         <div class="container">
-            <wi-login></wi-login>
+            <wi-login whoami="main-service"></wi-login>
             <div class="holder">
-                <side-bar my-default-width="200" button-v-offset="0" style="z-index: 401; border-right: 1px solid #efefef;">
+                <side-bar my-default-width="200" button-v-offset="0"
+                    style="z-index: 401; border-right: 1px solid #dedede;">
                     <div style="overflow:hidden; height: 100vh;display: flex;flex-direction: column;">
                         <div class="menu-left-top">
                             <div class="label-list-view">
@@ -234,7 +61,7 @@
                                 <input class="input-search-list-view" type="text" placeholder="Search your project"
                                     onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search your project'">
                             </div>
-                            <wi-base-treeview name="abc" config="projectList">
+                            <wi-base-treeview name="abc" config="projectList" on-click-function="onClickPrj">
                             </wi-base-treeview>
                         </div>
                         <div class="menu-left-bottom">
@@ -245,12 +72,12 @@
                                 <input class="input-search-list-view" type="text" placeholder="Search your well"
                                     onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search your well'">
                             </div>
-                            <wi-base-treeview name="abc" config="wellList">
+                            <wi-base-treeview name="abc" config="wellList" on-click-function="onClickWell">
                             </wi-base-treeview>
                         </div>
                     </div>
                 </side-bar>
-                <side-bar my-default-width="200" style="border-right: 1px solid #efefef;">
+                <side-bar my-default-width="200" style="border-right: 1px solid #dedede;">
                     <div style="overflow:hidden; height: 100vh; ">
                         <div class="label-list-view">
                             <span>SHOW TO MAP</span>
@@ -259,14 +86,16 @@
                             <input class="input-search-list-view" type="text" placeholder="Search well displayed"
                                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search your well'">
                         </div>
-                        <div>
-                            <wi-base-treeview name="abc" config="wellSelect">
+                        <div style="overflow: scroll;height: 100vh;">
+                            <wi-base-treeview name="abc" config="wellSelect" on-click-function="onClickWellonMap">
                             </wi-base-treeview>
                         </div>
                     </div>
                 </side-bar>
             </div>
-            <map-view class="mapView" wells='wells'>
+            <map-view class="mapView"
+                mapbox-token='pk.eyJ1IjoiazU0aHVuZ3liIiwiYSI6ImNqdGZtNDE4ODF1OXEzeW85djJ5c29nYnoifQ.-VfHeKXV9avmbia1E7BFcQ'
+                wells='wellSelect'>
             </map-view>
         </div>
     </div>

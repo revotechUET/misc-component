@@ -5,7 +5,7 @@
 
 #map {
 	position: absolute;
-	top: 56px;
+	top: 44px;
 	bottom: 0;
 	width: 100%;
 }
@@ -20,4 +20,15 @@
 	right: 0;
 	bottom: 0;
 	display: none;
+}
+.switchStyle{
+	right: 10px;
+    z-index: 1;
+    padding: 6px;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 3px;
+    background: #fff;
+    position: absolute;
+    top: 148px;
 }

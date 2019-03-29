@@ -2,31 +2,42 @@ var serviceName = 'wiToken';
 var jwt = require('jsonwebtoken');
 module.exports.name = serviceName;
 
-let app = angular.module(serviceName,[]);
-app.factory(serviceName, function() {
+let app = angular.module(serviceName, []);
+app.factory(serviceName, function () {
     return new TokenService();
 });
 
 function TokenService() {
     this.token = null;
-    this.setToken = function(tokenVal) {
+    this.setToken = function (tokenVal) {
         this.token = tokenVal;
     }
-    this.getUserName = function(){
-        if( !this.token ){
-            return "GUEST";
+    this.getUserName = function () {
+        if (this.token === undefined || (localStorage.getItem("token")) === null) {
+            return "guest";
         }
-        var decoded = jwt.decode(this.token);
-        return decoded.username;
+        return localStorage.getItem("username");
     }
-    this.getCompany = function(){
-        if( !this.token ){
+    this.getCompany = function () {
+        if (!this.token) {
             return "";
         }
         var decoded = jwt.decode(this.token);
         return decoded.company;
     }
-    this.getToken = function() {
+    this.getToken = function () {
+        if (localStorage.getItem("token")) {
+            return localStorage.getItem("token");
+        }
         return this.token;
+
+    }
+    this.saveToken = function (tokenVal) {
+        var decoded = jwt.decode(this.token);
+        localStorage.setItem('token', tokenVal);
+        localStorage.setItem('username', decoded.username);
+    }
+    this.removeToken = function () {
+        localStorage.clear();
     }
 }
