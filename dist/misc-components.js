@@ -260,7 +260,7 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dis
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"<div class=\\\"side-bar animation-enable\\\" ng-style=\\\"self.myStyle()\\\">\\n    <div class='content' ng-transclude></div>\\n    <div class=\\\"handle\\\" ng-click=\\\"self.toggle();\\\">\\n        <div ng-show=\\\"self.myWidth <= 20\\\" class=\\\"icon\\\">\\n            <i class=\\\"fas fa-caret-right\\\"></i>\\n        </div>\\n        <div ng-hide=\\\"self.myWidth <= 20\\\" class=\\\"icon\\\">\\n            <i class=\\\"fas fa-caret-left\\\"></i>\\n        </div>\\n    </div>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./side-bar/template.html?");
+eval("module.exports = \"<div class=\\\"side-bar animation-enable\\\" ng-style=\\\"self.myStyle()\\\">\\n    <div class='content' ng-transclude></div>\\n    <div class=\\\"handle\\\" ng-click=\\\"self.toggle();\\\" ng-style=\\\"self.handlePosition()\\\">\\n        <div ng-show=\\\"self.myWidth <= 20\\\" class=\\\"icon\\\">\\n            <i class=\\\"fas fa-caret-right\\\"></i>\\n        </div>\\n        <div ng-hide=\\\"self.myWidth <= 20\\\" class=\\\"icon\\\">\\n            <i class=\\\"fas fa-caret-left\\\"></i>\\n        </div>\\n    </div>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./side-bar/template.html?");
 
 /***/ }),
 
