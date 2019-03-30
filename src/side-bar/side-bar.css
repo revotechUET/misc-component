@@ -4,7 +4,9 @@ side-bar>div {
     background: #ffffff;
     position: relative;
 }
-
+side-bar>div div.content {
+    overflow-x:hidden;
+}
 side-bar div.handle {
     display: inline-block;
     position: absolute;
@@ -35,7 +37,6 @@ side-bar div.icon {
 
 side-bar .animation-enable {
     transition: width 0.3s cubic-bezier(0, 1.04, 1, 1);
-    overflow-x:hidden;
 }
 
 side-bar .ui-resizable-handle {
