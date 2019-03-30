@@ -6,6 +6,7 @@ side-bar>div {
 }
 side-bar>div div.content {
     overflow-x:hidden;
+    height: 100%;
 }
 side-bar div.handle {
     display: inline-block;
