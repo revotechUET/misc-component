@@ -1,6 +1,5 @@
 const componentName = 'showEditField';
 const moduleName = 'show-edit-field';
-// var angular = require('angular');
 function ShowEditImportController() {
     let self = this;
     this.$onInit = function() {
