@@ -56,4 +56,12 @@ function sideBarController($element, $timeout, $scope) {
                 };
         }
     }
+    this.handlePosition = function() {
+        switch(this.orientation) {
+            case "e":
+                return { right: 0 };
+            case "w":
+                return { left: 0 };
+        }
+    }
 }
