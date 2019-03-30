@@ -37,3 +37,9 @@ side-bar .animation-enable {
     transition: width 0.3s cubic-bezier(0, 1.04, 1, 1);
     overflow-x:hidden;
 }
+
+side-bar .ui-resizable-handle {
+    width: 3px;
+    pointer: ew-resize;
+    background: rgba(16, 16, 16, 0.4);
+}
