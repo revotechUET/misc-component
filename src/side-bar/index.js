@@ -52,8 +52,7 @@ function sideBarController($element, $timeout, $scope) {
             case "w":
                 return { 
                     float: 'right',
-                    width: (self.myWidth + 'px'),
-                    left: 0
+                    width: (self.myWidth + 'px')
                 };
         }
     }

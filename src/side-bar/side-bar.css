@@ -52,3 +52,6 @@ side-bar .ui-resizable-e {
 side-bar .ui-resizable-w {
     border-right: 1px solid #eee;
 }
+side-bar .fix-right {
+    left: 0px !important;
+}
