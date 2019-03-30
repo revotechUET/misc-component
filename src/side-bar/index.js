@@ -30,7 +30,7 @@ function sideBarController($element, $timeout, $scope) {
         this.orientation = this.orientation || "e";
         $timeout(function () {
             $element.find('.side-bar').resizable({
-                handles: this.orientation,
+                handles: self.orientation,
                 animate: false,
                 start: function (event, ui) {
                     ui.element.removeClass('animation-enable');
