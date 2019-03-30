@@ -40,7 +40,11 @@ side-bar .animation-enable {
 }
 
 side-bar .ui-resizable-handle {
-    width: 3px;
-    pointer: ew-resize;
-    background: rgba(16, 16, 16, 0.4);
+    cursor: ew-resize;
+}
+side-bar .ui-resizable-e {
+    border-left: 1px solid #eee;
+}
+side-bar .ui-resizable-w {
+    border-right: 1px solid #eee;
 }
