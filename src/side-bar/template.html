@@ -1,6 +1,6 @@
-<div class="side-bar animation-enable" style="width:{{self.myWidth}}px; ">
+<div class="side-bar animation-enable" ng-style="self.myStyle()">
     <div class='content' ng-transclude></div>
-    <div class="handle" ng-click="self.toggle();" style="top: {{self.buttonVOffset}}px; ">
+    <div class="handle" ng-click="self.toggle();">
         <div ng-show="self.myWidth <= 20" class="icon">
             <i class="fas fa-caret-right"></i>
         </div>

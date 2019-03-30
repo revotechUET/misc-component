@@ -12,7 +12,7 @@ app.component(componentName, {
     controllerAs: 'self',
     bindings: {
         myDefaultWidth: "<",
-        buttonVOffset: "<"
+        orientation: "@"
     },
     transclude: true
 });
@@ -27,10 +27,10 @@ function sideBarController($element, $timeout, $scope) {
 
     this.$onInit = function () {
         this.myWidth = this.myDefaultWidth;
-        this.buttonVOffset = this.buttonVOffset || 0;
+        this.orientation = this.orientation || "e";
         $timeout(function () {
             $element.find('.side-bar').resizable({
-                handles: "e",
+                handles: this.orientation,
                 animate: false,
                 start: function (event, ui) {
                     ui.element.removeClass('animation-enable');
@@ -41,5 +41,19 @@ function sideBarController($element, $timeout, $scope) {
                 }
             });
         }, 300);
+    }
+    this.myStyle = function() {
+        switch (this.orientation) {
+            case "e":
+                return { 
+                    float: 'left',
+                    width: (self.myWidth + 'px')
+                };
+            case "w":
+                return { 
+                    float: 'right', 
+                    width: (self.myWidth + 'px')
+                };
+        }
     }
 }

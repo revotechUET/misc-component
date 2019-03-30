@@ -13,6 +13,7 @@ side-bar div.handle {
     display: inline-block;
     position: absolute;
     z-index: 89;
+    top: 0px;
     right: 0px;
     width: 15px;
     height: 100%;
