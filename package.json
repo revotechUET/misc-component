@@ -16,16 +16,14 @@
     "url": "https://github.com/tunghoang/misc-component/issues"
   },
   "homepage": "https://github.com/tunghoang/misc-component#readme",
-  "dependencies": {
-    "jsonwebtoken": "^8.5.1"
-  },
   "devDependencies": {
     "css-loader": "^2.1.0",
     "html-loader": "^0.5.5",
     "less-loader": "^4.1.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.28.3",
-    "webpack-cli": "^3.2.0",
     "less": "^3.9.0"
+  },
+  "dependencies": {
+    "jwt-decode": "^2.2.0"
   }
 }

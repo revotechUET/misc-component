@@ -1,5 +1,6 @@
 var serviceName = 'wiToken';
-var jwt = require('jsonwebtoken');
+//var jwt = require('jsonwebtoken');
+var jwt_decode = require('jwt-decode');
 module.exports.name = serviceName;
 
 let app = angular.module(serviceName, []);
@@ -22,7 +23,8 @@ function TokenService() {
         if (!this.token) {
             return "";
         }
-        var decoded = jwt.decode(this.token);
+        //var decoded = jwt.decode(this.token);
+        var decoded = jwt_decode(this.token);
         return decoded.company;
     }
     this.getToken = function () {
