@@ -3,10 +3,12 @@
     <div class='content' ng-transclude></div>
     <div class="handle" ng-click="self.toggle();" ng-style="self.handlePosition()">
         <div ng-show="self.myWidth <= 20" class="icon">
-            <i class="fas fa-caret-right"></i>
+            <i ng-show="self.orientation === 'e'" class="fas fa-caret-right"></i>
+            <i ng-show="self.orientation === 'w'" class="fas fa-caret-left"></i>
         </div>
         <div ng-hide="self.myWidth <= 20" class="icon">
-            <i class="fas fa-caret-left"></i>
+            <i ng-show="self.orientation === 'e'" class="fas fa-caret-left"></i>
+            <i ng-show="self.orientation === 'w'" class="fas fa-caret-right"></i>
         </div>
     </div>
 </div>
