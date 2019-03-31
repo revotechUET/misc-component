@@ -15,7 +15,7 @@ function ShowEditImportController() {
 let app = angular.module(moduleName, []);
 
 app.component(componentName, {
-    template: require('html-loader!./show-edit-field.html'),
+    template: require('./show-edit-field.html'),
     controller: ShowEditImportController,
     controllerAs: 'self',
     bindings: {

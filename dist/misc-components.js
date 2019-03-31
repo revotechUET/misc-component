@@ -142,17 +142,6 @@ eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n
 
 /***/ }),
 
-/***/ "../node_modules/html-loader/index.js!./show-edit-field/show-edit-field.html":
-/*!**************************************************************************!*\
-  !*** ../node_modules/html-loader!./show-edit-field/show-edit-field.html ***!
-  \**************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = \"module.exports = \\\"<div ng-if=\\\\\\\"!self.isArray\\\\\\\" ng-init=\\\\\\\"self.showEdit = true\\\\\\\">\\\\n\\\\t<b ng-click=\\\\\\\"self.showEdit = !self.showEdit\\\\\\\" >{{self.brand}} : </b>\\\\n\\\\t<span ng-show=\\\\\\\"self.showEdit\\\\\\\" ng-click=\\\\\\\"self.showEdit = !self.showEdit\\\\\\\">\\\\n\\\\t\\\\t{{self.input}}\\\\n\\\\t</span>\\\\n\\\\t<span>\\\\n\\\\t\\\\t<input ng-show=\\\\\\\"!self.showEdit\\\\\\\" type=\\\\\\\"text\\\\\\\" style=\\\\\\\"display: inline-block; width: auto;\\\\\\\" class=\\\\\\\"form-control\\\\\\\" ng-model=\\\\\\\"self.input\\\\\\\" ng-change=\\\\\\\"self.input = (self.input | uppercase)\\\\\\\" ng-blur=\\\\\\\"self.showEdit = !self.showEdit\\\\\\\" focus-me=\\\\\\\"!self.showEdit\\\\\\\">\\\\n\\\\t</span>\\\\n</div>\\\\n<div ng-if=\\\\\\\"self.isArray\\\\\\\">\\\\n\\\\t<b>{{self.brand}} : </b>\\\\n\\\\t<div ng-repeat=\\\\\\\"(index, value) in self.input\\\\\\\" ng-init=\\\\\\\"self.showEdit[index] = true;input = self.input[index]\\\\\\\">\\\\n\\\\t\\\\t<span ng-show=\\\\\\\"self.showEdit[index]\\\\\\\" ng-click=\\\\\\\"self.showEdit[index] = !self.showEdit[index]\\\\\\\">\\\\n\\\\t\\\\t\\\\t{{input}}\\\\n\\\\t\\\\t</span>\\\\n\\\\t\\\\t<span>\\\\n\\\\t\\\\t\\\\t<input ng-show=\\\\\\\"!self.showEdit[index]\\\\\\\" type=\\\\\\\"text\\\\\\\" style=\\\\\\\"display: inline-block; width: auto;\\\\\\\" class=\\\\\\\"form-control\\\\\\\" ng-model=\\\\\\\"input\\\\\\\" ng-change=\\\\\\\"input = (input | uppercase)\\\\\\\" ng-blur=\\\\\\\"self.changeValue(input,index)\\\\\\\" focus-me=\\\\\\\"!self.showEdit[index]\\\\\\\">\\\\n\\\\t\\\\t</span>\\\\n\\\\t</div>\\\\n</div>\\\\n\\\";\";\n\n//# sourceURL=webpack:///./show-edit-field/show-edit-field.html?../node_modules/html-loader");
-
-/***/ }),
-
 /***/ "../node_modules/jwt-decode/lib/atob.js":
 /*!**********************************************!*\
   !*** ../node_modules/jwt-decode/lib/atob.js ***!
@@ -220,6 +209,17 @@ eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.ex
 
 /***/ }),
 
+/***/ "./show-edit-field/show-edit-field.html":
+/*!**********************************************!*\
+  !*** ./show-edit-field/show-edit-field.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div ng-if=\\\"!self.isArray\\\" ng-init=\\\"self.showEdit = true\\\">\\n\\t<b ng-click=\\\"self.showEdit = !self.showEdit\\\" >{{self.brand}} : </b>\\n\\t<span ng-show=\\\"self.showEdit\\\" ng-click=\\\"self.showEdit = !self.showEdit\\\">\\n\\t\\t{{self.input}}\\n\\t</span>\\n\\t<span>\\n\\t\\t<input ng-show=\\\"!self.showEdit\\\" type=\\\"text\\\" style=\\\"display: inline-block; width: auto;\\\" class=\\\"form-control\\\" ng-model=\\\"self.input\\\" ng-change=\\\"self.input = (self.input | uppercase)\\\" ng-blur=\\\"self.showEdit = !self.showEdit\\\" focus-me=\\\"!self.showEdit\\\">\\n\\t</span>\\n</div>\\n<div ng-if=\\\"self.isArray\\\">\\n\\t<b>{{self.brand}} : </b>\\n\\t<div ng-repeat=\\\"(index, value) in self.input\\\" ng-init=\\\"self.showEdit[index] = true;input = self.input[index]\\\">\\n\\t\\t<span ng-show=\\\"self.showEdit[index]\\\" ng-click=\\\"self.showEdit[index] = !self.showEdit[index]\\\">\\n\\t\\t\\t{{input}}\\n\\t\\t</span>\\n\\t\\t<span>\\n\\t\\t\\t<input ng-show=\\\"!self.showEdit[index]\\\" type=\\\"text\\\" style=\\\"display: inline-block; width: auto;\\\" class=\\\"form-control\\\" ng-model=\\\"input\\\" ng-change=\\\"input = (input | uppercase)\\\" ng-blur=\\\"self.changeValue(input,index)\\\" focus-me=\\\"!self.showEdit[index]\\\">\\n\\t\\t</span>\\n\\t</div>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./show-edit-field/show-edit-field.html?");
+
+/***/ }),
+
 /***/ "./show-edit-field/show-edit-field.js":
 /*!********************************************!*\
   !*** ./show-edit-field/show-edit-field.js ***!
@@ -227,7 +227,7 @@ eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.ex
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const componentName = 'showEditField';\nconst moduleName = 'show-edit-field';\nfunction ShowEditImportController() {\n    let self = this;\n    this.$onInit = function() {\n        // this.showInput = this.input;\n        this.isArray = Array.isArray(this.input);\n    }\n    this.changeValue = function(input,index) {\n        this.showEdit[index] = !this.showEdit[index];\n        this.input[index] = input;    \n    }\n}\n\nlet app = angular.module(moduleName, []);\n\napp.component(componentName, {\n    template: __webpack_require__(/*! html-loader!./show-edit-field.html */ \"../node_modules/html-loader/index.js!./show-edit-field/show-edit-field.html\"),\n    controller: ShowEditImportController,\n    controllerAs: 'self',\n    bindings: {\n        input: '=',\n        brand: '@'\n    }\n});\napp.directive('focusMe', ['$timeout', '$parse', function ($timeout, $parse) {\n    return {\n        link: function (scope, element, attrs) {\n            var model = $parse(attrs.focusMe);\n            scope.$watch(model, function (value) {\n                if (value === true) {\n                    $timeout(function () {\n                        element[0].focus();\n                    });\n                }\n            });\n        }\n    };\n}]);\nexports.name = moduleName;\n\n\n//# sourceURL=webpack:///./show-edit-field/show-edit-field.js?");
+eval("const componentName = 'showEditField';\nconst moduleName = 'show-edit-field';\nfunction ShowEditImportController() {\n    let self = this;\n    this.$onInit = function() {\n        // this.showInput = this.input;\n        this.isArray = Array.isArray(this.input);\n    }\n    this.changeValue = function(input,index) {\n        this.showEdit[index] = !this.showEdit[index];\n        this.input[index] = input;    \n    }\n}\n\nlet app = angular.module(moduleName, []);\n\napp.component(componentName, {\n    template: __webpack_require__(/*! ./show-edit-field.html */ \"./show-edit-field/show-edit-field.html\"),\n    controller: ShowEditImportController,\n    controllerAs: 'self',\n    bindings: {\n        input: '=',\n        brand: '@'\n    }\n});\napp.directive('focusMe', ['$timeout', '$parse', function ($timeout, $parse) {\n    return {\n        link: function (scope, element, attrs) {\n            var model = $parse(attrs.focusMe);\n            scope.$watch(model, function (value) {\n                if (value === true) {\n                    $timeout(function () {\n                        element[0].focus();\n                    });\n                }\n            });\n        }\n    };\n}]);\nexports.name = moduleName;\n\n\n//# sourceURL=webpack:///./show-edit-field/show-edit-field.js?");
 
 /***/ }),
 
