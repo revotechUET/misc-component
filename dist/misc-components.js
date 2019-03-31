@@ -205,29 +205,7 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    showEditField: __webpack_require__(/*! ./show-edit-field/show-edit-field */ \"./show-edit-field/show-edit-field.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n//    mapView: require('./map-view/map-view'),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
-
-/***/ }),
-
-/***/ "./show-edit-field/show-edit-field.html":
-/*!**********************************************!*\
-  !*** ./show-edit-field/show-edit-field.html ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = \"<div ng-if=\\\"!self.isArray\\\" ng-init=\\\"self.showEdit = true\\\">\\n\\t<b ng-click=\\\"self.showEdit = !self.showEdit\\\" >{{self.brand}} : </b>\\n\\t<span ng-show=\\\"self.showEdit\\\" ng-click=\\\"self.showEdit = !self.showEdit\\\">\\n\\t\\t{{self.input}}\\n\\t</span>\\n\\t<span>\\n\\t\\t<input ng-show=\\\"!self.showEdit\\\" type=\\\"text\\\" style=\\\"display: inline-block; width: auto;\\\" class=\\\"form-control\\\" ng-model=\\\"self.input\\\" ng-change=\\\"self.input = (self.input | uppercase)\\\" ng-blur=\\\"self.showEdit = !self.showEdit\\\" focus-me=\\\"!self.showEdit\\\">\\n\\t</span>\\n</div>\\n<div ng-if=\\\"self.isArray\\\">\\n\\t<b>{{self.brand}} : </b>\\n\\t<div ng-repeat=\\\"(index, value) in self.input\\\" ng-init=\\\"self.showEdit[index] = true;input = self.input[index]\\\">\\n\\t\\t<span ng-show=\\\"self.showEdit[index]\\\" ng-click=\\\"self.showEdit[index] = !self.showEdit[index]\\\">\\n\\t\\t\\t{{input}}\\n\\t\\t</span>\\n\\t\\t<span>\\n\\t\\t\\t<input ng-show=\\\"!self.showEdit[index]\\\" type=\\\"text\\\" style=\\\"display: inline-block; width: auto;\\\" class=\\\"form-control\\\" ng-model=\\\"input\\\" ng-change=\\\"input = (input | uppercase)\\\" ng-blur=\\\"self.changeValue(input,index)\\\" focus-me=\\\"!self.showEdit[index]\\\">\\n\\t\\t</span>\\n\\t</div>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./show-edit-field/show-edit-field.html?");
-
-/***/ }),
-
-/***/ "./show-edit-field/show-edit-field.js":
-/*!********************************************!*\
-  !*** ./show-edit-field/show-edit-field.js ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("const componentName = 'showEditField';\nconst moduleName = 'show-edit-field';\nfunction ShowEditImportController() {\n    let self = this;\n    this.$onInit = function() {\n        this.isArray = Array.isArray(this.input);\n    }\n    this.changeValue = function(input,index) {\n        this.showEdit[index] = !this.showEdit[index];\n        this.input[index] = input;    \n    }\n}\n\nlet app = angular.module(moduleName, []);\n\napp.component(componentName, {\n    template: __webpack_require__(/*! ./show-edit-field.html */ \"./show-edit-field/show-edit-field.html\"),\n    controller: ShowEditImportController,\n    controllerAs: 'self',\n    bindings: {\n        input: '=',\n        brand: '@'\n    }\n});\napp.directive('focusMe', function ($timeout, $parse) {\n    return {\n        link: function (scope, element, attrs) {\n            var model = $parse(attrs.focusMe);\n            scope.$watch(model, function (value) {\n                if (value === true) {\n                    $timeout(function () {\n                        element[0].focus();\n                    });\n                }\n            });\n        }\n    };\n});\nexports.name = moduleName;\n\n\n//# sourceURL=webpack:///./show-edit-field/show-edit-field.js?");
+eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n//    showEditField: require('./show-edit-field/show-edit-field'),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n//    mapView: require('./map-view/map-view'),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
