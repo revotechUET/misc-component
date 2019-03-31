@@ -3,7 +3,6 @@ const moduleName = 'show-edit-field';
 function ShowEditImportController() {
     let self = this;
     this.$onInit = function() {
-        // this.showInput = this.input;
         this.isArray = Array.isArray(this.input);
     }
     this.changeValue = function(input,index) {
@@ -23,7 +22,7 @@ app.component(componentName, {
         brand: '@'
     }
 });
-app.directive('focusMe', ['$timeout', '$parse', function ($timeout, $parse) {
+app.directive('focusMe', function ($timeout, $parse) {
     return {
         link: function (scope, element, attrs) {
             var model = $parse(attrs.focusMe);
@@ -36,5 +35,5 @@ app.directive('focusMe', ['$timeout', '$parse', function ($timeout, $parse) {
             });
         }
     };
-}]);
+});
 exports.name = moduleName;
