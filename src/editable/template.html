@@ -1,0 +1,8 @@
+<label ng-if="self.itemLabel" ng-style="self.labelStyle" ng-bind="self.itemLabel"></label>
+<div ng-style="self.contentStyle" class="my-content">
+    <div ng-hide="editting" ng-bind="self.itemValue" ng-click="editting = true; temp = self.itemValue;self.focusMe();"></div>
+    <form ng-show="editting" ng-submit="self.unfocusMe()">
+        <input type="text" ng-model="temp" ng-blur="self.itemValue = temp; editting = false;">
+    </form>
+</div>
+<div style="clear:both"></div>

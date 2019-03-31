@@ -119,6 +119,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 
 /***/ }),
 
+/***/ "../node_modules/css-loader/dist/cjs.js!./editable/style.css":
+/*!*******************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!./editable/style.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"editable label {\\n    float: left;\\n    margin-right: 15px;\\n}\\neditable div.my-content {\\n    float: left;\\n}\\neditable div.my-content input {\\n    width: 100%;\\n    background:'wheat';\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./editable/style.css?../node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "../node_modules/css-loader/dist/cjs.js!./side-bar/side-bar.css":
 /*!**********************************************************************!*\
   !*** ../node_modules/css-loader/dist/cjs.js!./side-bar/side-bar.css ***!
@@ -198,6 +209,39 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 
 /***/ }),
 
+/***/ "./editable/index.js":
+/*!***************************!*\
+  !*** ./editable/index.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const moduleName = \"editable\";\nconst componentName = \"editable\";\nmodule.exports.name = moduleName;\n\nvar module = angular.module(moduleName, []);\nmodule.component(componentName, {\n    template: __webpack_require__(/*! ./template.html */ \"./editable/template.html\"),\n    controller: EditableController,\n    style: __webpack_require__(/*! ./style.css */ \"./editable/style.css\"),\n    controllerAs: 'self',\n    bindings:{\n        itemValue: \"<\",\n        itemLabel: \"<\",\n        labelStyle: \"<\",\n        contentStyle: \"<\"\n    }\n});\n\nfunction EditableController($scope, $element, $timeout) {\n    let self = this;\n    console.log(\"editable initiated\");\n    this.$onInit = function() {\n    }\n    this.focusMe = function() {\n        $timeout(() => {$element.find('form input')[0].focus();});\n    }\n    this.unfocusMe = function() {\n        $timeout(() => {$element.find('form input')[0].blur();});\n    }\n}\n\n\n//# sourceURL=webpack:///./editable/index.js?");
+
+/***/ }),
+
+/***/ "./editable/style.css":
+/*!****************************!*\
+  !*** ./editable/style.css ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./style.css */ \"../node_modules/css-loader/dist/cjs.js!./editable/style.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./editable/style.css?");
+
+/***/ }),
+
+/***/ "./editable/template.html":
+/*!********************************!*\
+  !*** ./editable/template.html ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<label ng-if=\\\"self.itemLabel\\\" ng-style=\\\"self.labelStyle\\\" ng-bind=\\\"self.itemLabel\\\"></label>\\n<div ng-style=\\\"self.contentStyle\\\" class=\\\"my-content\\\">\\n    <div ng-hide=\\\"editting\\\" ng-bind=\\\"self.itemValue\\\" ng-click=\\\"editting = true; temp = self.itemValue;self.focusMe();\\\"></div>\\n    <form ng-show=\\\"editting\\\" ng-submit=\\\"self.unfocusMe()\\\">\\n        <input type=\\\"text\\\" ng-model=\\\"temp\\\" ng-blur=\\\"self.itemValue = temp; editting = false;\\\">\\n    </form>\\n</div>\\n<div style=\\\"clear:both\\\"></div>\\n\";\n\n//# sourceURL=webpack:///./editable/template.html?");
+
+/***/ }),
+
 /***/ "./index.js":
 /*!******************!*\
   !*** ./index.js ***!
@@ -205,7 +249,7 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n//    showEditField: require('./show-edit-field/show-edit-field'),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n//    mapView: require('./map-view/map-view'),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n//    showEditField: require('./show-edit-field/show-edit-field'),\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n//    mapView: require('./map-view/map-view'),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
