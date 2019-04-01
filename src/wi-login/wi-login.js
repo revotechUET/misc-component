@@ -11,7 +11,8 @@ app.component(componentName, {
     bindings: {
         name: '@',
         password: '@',
-        whoami: '@'
+        whoami: '@',
+        registerUrl: '@'
     }
 });
 
