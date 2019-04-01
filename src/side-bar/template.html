@@ -1,7 +1,7 @@
 <div class="side-bar animation-enable" ng-style="self.myStyle()"
     ng-class="{'fix-right': self.orientation === 'w'}">
     <div class='content' ng-transclude></div>
-    <div class="handle" ng-click="self.toggle();" ng-style="self.handlePosition()">
+    <div class="handle {{self.handleOpacityClass()}}" ng-click="self.toggle();" ng-style="self.handlePosition()">
         <div ng-show="self.myWidth <= 20" class="icon">
             <i ng-show="self.orientation === 'e'" class="fas fa fa-caret-right"></i>
             <i ng-show="self.orientation === 'w'" class="fas fa fa-caret-left"></i>

@@ -25,7 +25,9 @@ side-bar div.handle {
 side-bar div.handle:hover {
     opacity: 0.5;
 }
-
+side-bar div.handle.full-opacity{
+    opacity: 1;
+}
 side-bar div.icon:hover {
     color: #0075c5;
 }

@@ -42,26 +42,37 @@ function sideBarController($element, $timeout, $scope) {
             });
         }, 300);
     }
-    this.myStyle = function() {
+    this.myStyle = function () {
         switch (this.orientation) {
             case "e":
-                return { 
+                return {
                     float: 'left',
                     width: (self.myWidth + 'px')
                 };
             case "w":
-                return { 
+                return {
                     float: 'right',
                     width: (self.myWidth + 'px')
                 };
         }
     }
-    this.handlePosition = function() {
-        switch(this.orientation) {
+    this.handlePosition = function () {
+        switch (this.orientation) {
             case "e":
-                return { right: 0 };
+                return {
+                    right: 0
+                };
             case "w":
-                return { left: 0 };
+                return {
+                    left: 0
+                };
+        }
+    }
+    this.handleOpacityClass = function () {
+        if (this.myWidth > 20) {
+            return "";
+        } else {
+            return "full-opacity";
         }
     }
 }
