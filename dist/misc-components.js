@@ -249,7 +249,7 @@ eval("module.exports = \"<label ng-if=\\\"self.itemLabel\\\" ng-style=\\\"self.l
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n//    showEditField: require('./show-edit-field/show-edit-field'),\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n//    mapView: require('./map-view/map-view'),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n//    showEditField: require('./show-edit-field/show-edit-field'),\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n//    mapView: require('./map-view/map-view'),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -371,6 +371,17 @@ eval("var componentName = 'wiLogin';\nmodule.exports.name = componentName;\n__we
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./wi-login.less */ \"../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-login/wi-login.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-login/wi-login.less?");
+
+/***/ }),
+
+/***/ "./wi-session/index.js":
+/*!*****************************!*\
+  !*** ./wi-session/index.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var serviceName = 'wiSession';\nmodule.exports.name = serviceName;\n\nlet app = angular.module(serviceName, []);\napp.factory(serviceName, function () {\n    return new SessionStorageService();\n});\n\nfunction SessionStorageService() {\n    let self = this;\n    this.putData = function(key, value){\n        window.sessionStorage.setItem(key, value);\n    }\n    this.getData = function(key){\n        return window.sessionStorage.getItem(key);\n    }\n}\n\n\n//# sourceURL=webpack:///./wi-session/index.js?");
 
 /***/ }),
 

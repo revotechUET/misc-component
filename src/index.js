@@ -6,5 +6,6 @@ module.exports = {
     wiBaseTreeview : require('./wi-base-treeview/wi-base-treeview'),
     wiLogin: require('./wi-login/wi-login'),
 //    mapView: require('./map-view/map-view'),
-    wiToken: require('./wi-token/index')
+    wiToken: require('./wi-token/index'),
+    wiSession: require('./wi-session')
 }
