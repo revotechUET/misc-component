@@ -410,6 +410,12 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
         item.falsy = '';
     }
     this.scrollToNode = function (node) {
+        const paths = getSelectedPath(n => n === node, self.config);
+        if (!Array.isArray(paths)) return;
+        for (let i = 0; i < paths.length - 1; i++) {
+            paths[i].data.childExpanded = true;
+        }
+        self.updateNodes();
         const idx = self.nodes.findIndex(n => n === node);
         $element.animate({ scrollTop: idx * itemHeight });
     }
