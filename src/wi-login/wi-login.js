@@ -71,7 +71,7 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                 if (response.data.code == 200) {
                     status = "online";
                     wiToken.setToken(response.data.content.token);
-                    wiToken.saveToken(response.data.content.token)
+                    wiToken.saveToken(response.data.content)
                     ngDialog.close();
                     ngDialog.open({
                         template: 'templateDone',

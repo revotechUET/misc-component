@@ -36,8 +36,8 @@ function TokenService() {
     }
     this.saveToken = function (tokenVal) {
         var decoded = jwt_decode(this.token);
-        localStorage.setItem('token', tokenVal);
-        localStorage.setItem('refresh_token', tokenVal);
+        localStorage.setItem('token', tokenVal.token);
+        localStorage.setItem('refresh_token', tokenVal.refresh_token);
         localStorage.setItem('username', decoded.username);
     }
     this.removeToken = function () {
