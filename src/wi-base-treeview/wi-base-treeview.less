@@ -17,15 +17,16 @@ wi-base-treeview {
     flex: 1;
 
     .wi-treeview-container {
-        transition: background-color 0.1s cubic-bezier(0.54, 0.45, 0.59, 0.71);
         display: block;
         background: #fff;
-        padding: 12px 6px;
+        // padding: 12px 6px;
         margin: 0 10px;
         cursor: pointer;
         border-bottom: 1px solid #e6e4e4;
         display: flex;
-        transition: 0.2s;
+        transition-property: padding, margin;
+        transition-duration: 0.2s;
+        line-height: 26px;
 
         wi-base-treeview {
             margin-left: unset;
@@ -34,8 +35,8 @@ wi-base-treeview {
         &:hover {
             color: #0074c5;
             background: #f4f4f4;
-            padding: 12px;
-            margin: 0 !important;
+            padding: 0 6px;
+            margin: 0;
         }
 
         display: flex;
@@ -59,29 +60,30 @@ wi-base-treeview {
         }
 
         .wi-parent-content {
-
+            padding: 8px 0;
             display: flex;
             flex: 3;
-            align-items: center;
+            align-items: stretch;
 
             .icon-expanded {
                 width: 15px;
                 color: #33333369;
-                // display: none;
+                text-align: center;
 
                 &:hover {
                     color: #0078be41
                 }
 
                 &>i {
-                    // width: 100%;
                     text-align: center;
+                    padding-top: 6px;
                 }
             }
 
             &>div.item-content {
                 display: flex;
                 overflow: hidden;
+                flex: 1;
 
                 .item-label {
                     text-overflow: ellipsis;
@@ -117,9 +119,17 @@ wi-base-treeview {
                 }
             }
 
-            .actions>wi-button>div>button {
-                height: 26px;
-                padding: 4px;
+            .actions {
+                position: absolute;
+                top: 0;
+                right: 0;
+                background: #fff;
+                border-radius: 16px;
+                >wi-button>div>button {
+                    height: 26px;
+                    padding: 4px;
+                    border-radius: 100%;
+                }
             }
         }
 
@@ -143,17 +153,23 @@ wi-base-treeview {
             }
         }
 
+        &.item-active {
+            color: #000;
+            font-weight: bold;
+            background: #eeeeee;
+            border-left: 4px solid #0074c5;
+            border-left: 4px solid #0074c5;
+            margin: 0;
+            padding: 0 6px;
+            transition: none;
+        }
         &.item-unused {
             opacity: 0.3;
         }
 
         &:focus {
-            background-color: #f4f4f4;
             box-shadow: none;
             outline: 0;
-            margin: 0 !important;
-            padding: 12px;
-            border-left: 4px solid #0074c5;
         }
     }
 

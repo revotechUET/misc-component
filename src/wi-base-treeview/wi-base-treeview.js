@@ -29,6 +29,7 @@ app.component(componentName, {
 
 exports.name = moduleName;
 
+const itemHeight = 42;
 function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
     let self = this;
     
@@ -117,7 +118,7 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
         }, 100);
         $scope.vsRepeatOptions = {
             scrollParent: $element,
-            size: 37,
+            size: itemHeight,
         }
         self.config = self.config || [];
         if (self.container) self.container[self.name] = self;
@@ -407,6 +408,16 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
     this.isFalsy = function (item) {
         if (self.hightlightItemFunc) return self.hightlightItemFunc(item);
         item.falsy = '';
+    }
+    this.scrollToNode = function (node) {
+        const paths = getSelectedPath(n => n === node, self.config);
+        if (!Array.isArray(paths)) return;
+        for (let i = 0; i < paths.length - 1; i++) {
+            paths[i].data.childExpanded = true;
+        }
+        self.updateNodes();
+        const idx = self.nodes.findIndex(n => n === node);
+        $element.animate({ scrollTop: idx * itemHeight });
     }
 }
 
