@@ -32,7 +32,7 @@ exports.name = moduleName;
 const itemHeight = 42;
 function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
     let self = this;
-    
+    window.basetreeview = this;
     const ignoreKeys = ['$$hashKey', 'icon', 'id', 'currentState', 'createdAt', 'createdBy', 'updatedAt', 'updatedBy', 'parentDataArr'];
 
     function isColor(string) {
@@ -414,12 +414,20 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
         if (self.hightlightItemFunc) return self.hightlightItemFunc(item);
         item.falsy = '';
     }
-    this.scrollToNode = function (node) {
-        const paths = getSelectedPath(n => n === node, self.config);
+    this.scrollToNode = function ({ type, id }) {
+        let node = null;
+        const paths = getSelectedPath(n => {
+            if (n.type == type && n.id == id) {
+                node = n;
+                return true;
+            }
+        }, self.config);
         if (!Array.isArray(paths)) return;
         for (let i = 0; i < paths.length - 1; i++) {
             paths[i].data.childExpanded = true;
         }
+        unselectAllNodes();
+        node.data.selected = true;
         self.updateNodes();
         const idx = self.nodes.findIndex(n => n === node);
         $element.animate({ scrollTop: idx * itemHeight });
