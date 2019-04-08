@@ -122,6 +122,11 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
         }
         self.config = self.config || [];
         if (self.container) self.container[self.name] = self;
+        else {
+            setTimeout(() => {
+                if (self.container) self.container[self.name] = self;
+            });
+        }
         // if (self.name) wiComponentService.putComponent(self.name, self);
         $scope.$watch(() => this.filterBy, () => {
             self.filterFn();
