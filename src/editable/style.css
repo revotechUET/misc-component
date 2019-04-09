@@ -9,3 +9,6 @@ editable div.my-content input {
     width: 100%;
     background:'wheat';
 }
+editable form {
+    margin-bottom: 0;
+}
