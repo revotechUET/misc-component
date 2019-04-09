@@ -32,7 +32,6 @@ exports.name = moduleName;
 const itemHeight = 42;
 function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
     let self = this;
-    window.basetreeview = this;
     const ignoreKeys = ['$$hashKey', 'icon', 'id', 'currentState', 'createdAt', 'createdBy', 'updatedAt', 'updatedBy', 'parentDataArr'];
 
     function isColor(string) {
