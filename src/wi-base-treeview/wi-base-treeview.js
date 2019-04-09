@@ -32,7 +32,6 @@ exports.name = moduleName;
 const itemHeight = 42;
 function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
     let self = this;
-    window.basetreeview = this;
     const ignoreKeys = ['$$hashKey', 'icon', 'id', 'currentState', 'createdAt', 'createdBy', 'updatedAt', 'updatedBy', 'parentDataArr'];
 
     function isColor(string) {
@@ -422,7 +421,7 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
                 return true;
             }
         }, self.config);
-        if (!Array.isArray(paths)) return;
+        if (!Array.isArray(paths) || !paths.length) return;
         for (let i = 0; i < paths.length - 1; i++) {
             paths[i].data.childExpanded = true;
         }
