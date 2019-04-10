@@ -22,6 +22,7 @@
     "proj4": "^2.5.0",
     "ng-dialog": "^1.4.0",
     "lodash": "^4.17.11",
-    "font-awesome": "4"
+    "font-awesome": "4",
+    "katex": "^0.10.1"
   }
 }

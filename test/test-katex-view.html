@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test katex view</title>
+        <link rel='stylesheet' href="../bower_components/katex/dist/katex.min.css">
+        <script src="../bower_components/katex/dist/katex.min.js"></script>
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../dist/misc-components.js"></script>
+    </head>
+    <body ng-app="myapp" style="font-size:20px;">
+        <katex-view style="font-size:3em;" latex-content="'y = \\frac{e^{-\\frac{a \\times x + b}{2}}}{5 \\times y + 67}'"></katex-view>
+        <script>
+            angular.module('myapp', ['katexView']);
+        </script>
+    </body>
+</html>
