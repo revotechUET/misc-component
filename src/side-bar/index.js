@@ -12,7 +12,8 @@ app.component(componentName, {
     controllerAs: 'self',
     bindings: {
         myDefaultWidth: "<",
-        orientation: "@"
+        orientation: "@",
+        collapsed: "<",
     },
     transclude: true
 });
@@ -26,7 +27,7 @@ function sideBarController($element, $timeout, $scope) {
     }
 
     this.$onInit = function () {
-        this.myWidth = this.myDefaultWidth;
+        this.myWidth = this.collapsed ? 15 : this.myDefaultWidth;
         this.orientation = this.orientation || "e";
         $timeout(function () {
             $element.find('.side-bar').resizable({
