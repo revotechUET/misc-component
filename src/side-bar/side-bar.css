@@ -55,9 +55,16 @@ side-bar .ui-resizable-handle {
 }
 
 side-bar .ui-resizable-w {
-    cursor: e-resize;
+    cursor: ew-resize;
     width: 7px;
     left: -5px;
+    top: 0;
+    height: 100%;
+}
+side-bar .ui-resizable-e {
+    cursor: ew-resize;
+    width: 7px;
+    right: -5px;
     top: 0;
     height: 100%;
 }
