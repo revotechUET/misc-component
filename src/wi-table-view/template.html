@@ -1,0 +1,24 @@
+<div ng-hide="self.getRows().length === 0 || self.getCols(0).length === 0" class="table" ng-keyup="self.keyUp($event)" tabindex="0"> 
+    <div class="row header" ng-if="!!self.colHeaders">
+        <div class="cell"></div>
+        <div class="cell" ng-repeat="colHeader in self.getColHeaders()">{{colHeader}}</div> 
+    </div>
+    <div class="row" ng-repeat="row in self.getRows()">
+        <div class="cell header">{{self.getRowHeader($index)}}</div>
+        <div style="position:relative;" class="cell" ng-repeat="col in self.getCols(row)" 
+            ng-click="self.cellClick(row, col);">
+                <!--
+                <span ng-hide="editting">
+                    {{self.accessor(row, col)}}
+                </span>
+                <form style="position:absolute;top:2px;left:2px;right:2px;bottom:2px;" ng-show="editting" ng-submit="editting=false">
+                    <input style="with:100%;height:100%;" type="text" ng-blur="editting=false;" ng-model="edtVal">
+                </form>
+                -->
+                <editable params="[row, col]" item-value="self.accessor" set-value="self.setter"></editable>
+        </div>
+    </div>
+    <div class="indicator" ng-style="self.indicatorStyle()">
+        <div class="handle"></div>
+    </div>
+</div>

@@ -152,6 +152,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 
 /***/ }),
 
+/***/ "../node_modules/css-loader/dist/cjs.js!./wi-table-view/style.css":
+/*!************************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!./wi-table-view/style.css ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"wi-table-view div.table {\\n    display:table;\\n    margin-top: 10px;  \\n    border: 1px solid #ccc;\\n    position: relative;\\n    outline: none;\\n}\\nwi-table-view div.header {\\n    background-color: #eee;\\n    font-weight: bold;\\n}\\nwi-table-view div.cell {\\n    display:table-cell;\\n    padding: 3px 30px;\\n    border: 1px solid #ccc;\\n    cursor: default;\\n}\\nwi-table-view div.cell input {\\n    outline:none;\\n    border:none;\\n    box-shadow: none;\\n    color: blue;\\n    position:absolute;\\n    background-color: transparent;\\n}\\nwi-table-view div.row {\\n    display: table-row;\\n}\\nwi-table-view div.indicator {\\n    border: 1px solid blue;\\n    position: absolute;\\n    overflow: visible;\\n    box-sizing: content-box;\\n}\\nwi-table-view div.handle {\\n    border: 2px solid blue;\\n    position: absolute;\\n    width: 1px;\\n    height: 1px;\\n    bottom: -3px;\\n    right: -3px;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-table-view/style.css?../node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "../node_modules/css-loader/dist/runtime/api.js":
 /*!******************************************************!*\
   !*** ../node_modules/css-loader/dist/runtime/api.js ***!
@@ -227,7 +238,7 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const moduleName = \"editable\";\nconst componentName = \"editable\";\nmodule.exports.name = moduleName;\n\nvar module = angular.module(moduleName, []);\nmodule.component(componentName, {\n    template: __webpack_require__(/*! ./template.html */ \"./editable/template.html\"),\n    controller: EditableController,\n    style: __webpack_require__(/*! ./style.css */ \"./editable/style.css\"),\n    controllerAs: 'self',\n    bindings:{\n        itemValue: \"<\",\n        itemLabel: \"<\",\n        labelStyle: \"<\",\n        contentStyle: \"<\"\n    }\n});\n\nfunction EditableController($scope, $element, $timeout) {\n    let self = this;\n    console.log(\"editable initiated\");\n    this.$onInit = function() {\n    }\n    this.focusMe = function() {\n        $timeout(() => {$element.find('form input')[0].focus();});\n    }\n    this.unfocusMe = function() {\n        $timeout(() => {$element.find('form input')[0].blur();});\n    }\n}\n\n\n//# sourceURL=webpack:///./editable/index.js?");
+eval("const moduleName = \"editable\";\nconst componentName = \"editable\";\nmodule.exports.name = moduleName;\n\nvar module = angular.module(moduleName, []);\nmodule.component(componentName, {\n    template: __webpack_require__(/*! ./template.html */ \"./editable/template.html\"),\n    controller: EditableController,\n    style: __webpack_require__(/*! ./style.css */ \"./editable/style.css\"),\n    controllerAs: 'self',\n    bindings:{\n        itemValue: \"<\",\n        setValue: \"<\",\n        itemLabel: \"<\",\n        labelStyle: \"<\",\n        contentStyle: \"<\",\n        params: \"<\"\n    }\n});\n\nfunction EditableController($scope, $element, $timeout) {\n    let self = this;\n    console.log(\"editable initiated\");\n    this.$onInit = function() {\n    }\n    this.focusMe = function() {\n        $timeout(() => {$element.find('form input')[0].focus();});\n    }\n    this.unfocusMe = function() {\n        $timeout(() => {$element.find('form input')[0].blur();});\n    }\n    this.getItemValue = function() {\n        if (typeof self.itemValue === 'function') {\n            return self.itemValue(self.params);\n        }\n        return self.itemValue;\n    }\n    this.setItemValue = function(newVal) {\n        if (typeof self.itemValue === 'function') {\n            if ( typeof self.setValue === 'function') \n                return self.setValue(self.params, newVal);\n            return;\n        }\n        return self.itemValue = temp;\n    }\n}\n\n\n//# sourceURL=webpack:///./editable/index.js?");
 
 /***/ }),
 
@@ -249,7 +260,7 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dis
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("module.exports = \"<label ng-if=\\\"self.itemLabel\\\" ng-style=\\\"self.labelStyle\\\" ng-bind=\\\"self.itemLabel\\\"></label>\\n<div ng-style=\\\"self.contentStyle\\\" class=\\\"my-content\\\">\\n    <div ng-hide=\\\"editting\\\" ng-bind=\\\"self.itemValue\\\" ng-click=\\\"editting = true; temp = self.itemValue;self.focusMe();\\\"></div>\\n    <form ng-show=\\\"editting\\\" ng-submit=\\\"self.unfocusMe()\\\">\\n        <input type=\\\"text\\\" ng-model=\\\"temp\\\" ng-blur=\\\"self.itemValue = temp; editting = false;\\\">\\n    </form>\\n</div>\\n<div style=\\\"clear:both\\\"></div>\\n\";\n\n//# sourceURL=webpack:///./editable/template.html?");
+eval("module.exports = \"<label ng-if=\\\"self.itemLabel\\\" ng-style=\\\"self.labelStyle\\\" ng-bind=\\\"self.itemLabel\\\"></label>\\n<div ng-style=\\\"self.contentStyle\\\" class=\\\"my-content\\\">\\n    <div ng-hide=\\\"editting\\\" ng-bind=\\\"self.getItemValue()\\\" \\n        ng-click=\\\"editting = true; temp = self.getItemValue();self.focusMe();\\\">\\n    </div>\\n    <form ng-show=\\\"editting\\\" ng-submit=\\\"self.unfocusMe()\\\">\\n        <input type=\\\"text\\\" ng-model=\\\"temp\\\" ng-blur=\\\"self.setItemValue(temp); editting = false;\\\">\\n    </form>\\n</div>\\n<div style=\\\"clear:both\\\"></div>\\n\";\n\n//# sourceURL=webpack:///./editable/template.html?");
 
 /***/ }),
 
@@ -260,7 +271,7 @@ eval("module.exports = \"<label ng-if=\\\"self.itemLabel\\\" ng-style=\\\"self.l
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -426,6 +437,39 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dis
 /***/ (function(module, exports) {
 
 eval("var serviceName = 'wiSession';\nmodule.exports.name = serviceName;\n\nlet app = angular.module(serviceName, []);\napp.factory(serviceName, function () {\n    return new SessionStorageService();\n});\n\nfunction SessionStorageService() {\n    let self = this;\n    this.putData = function(key, value){\n        window.sessionStorage.setItem(key, value);\n    }\n    this.getData = function(key){\n        return window.sessionStorage.getItem(key);\n    }\n}\n\n\n//# sourceURL=webpack:///./wi-session/index.js?");
+
+/***/ }),
+
+/***/ "./wi-table-view/index.js":
+/*!********************************!*\
+  !*** ./wi-table-view/index.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const name = \"wiTableView\";\nmodule.exports.name = name;\n\nvar module = angular.module(name, ['editable']);\n\n\nmodule.component(name, {\n    style: __webpack_require__(/*! ./style.css */ \"./wi-table-view/style.css\"),\n    template: __webpack_require__(/*! ./template.html */ \"./wi-table-view/template.html\"),\n    controller: Controller,\n    controllerAs: \"self\",\n    bindings: {\n        colHeaders: \"<\",\n        rowHeaders: \"<\",\n        rowCount: \"<\",\n        colCount: \"<\",\n        accessor: \"<\",\n        setter: \"<\"\n    },\n});\n\nfunction Controller($scope, $element) {\n    let self = this;\n    this.getRows = function() {\n        let rowCount = 0;\n        if (typeof self.rowCount === 'function') {\n            rowCount = self.rowCount();\n        }\n        else {\n            rowCount = self.rowCount;\n        }\n        return [...Array(rowCount).keys()];\n    }\n    this.getCols = function(row) {\n        let colCount = 0;\n        try {\n            if (typeof self.colCount === 'function') {\n                colCount = self.colCount(row);\n            }\n            else {\n                colCount = self.colCount;\n            }\n        }\n        catch(e) {\n            return [];\n        }\n        return [...Array(colCount).keys()];\n    }\n    this.getColHeaders = function() {\n        let colHeaders;\n        if (typeof self.colHeaders === 'function') {\n            colHeaders = self.colHeaders();\n        }\n        else {\n            colHeaders = self.colHeaders;\n        }\n        return colHeaders;\n    }\n    this.getRowHeader = function(index) {\n        let rowHeaders;\n        if (!self.rowHeaders) return index + 1;\n        if (typeof self.rowHeaders === 'function') {\n            rowHeaders = self.rowHeaders();\n        }\n        else {\n            rowHeaders = self.rowHeaders;\n        }\n        return rowHeaders[index];\n    }\n    this.cellClick = function(row, col) {\n        self.selectedRow = row + headerRowCount();\n        self.selectedCol = col + headerColCount();\n    }\n    this.indicatorStyle = function() {\n        let display = 'none';\n        try {\n            if (self.selectedRow !== undefined && self.selectedCol !== undefined) {\n                display = 'block';\n                let row = $element.find('.row')[self.selectedRow];\n                let cell = $(row).find('.cell')[self.selectedCol];\n                return {\n                    display: 'block',\n                    width: cell.clientWidth,\n                    height: cell.clientHeight,\n                    top: cell.offsetTop,\n                    left: cell.offsetLeft \n                }\n            }\n        }\n        catch(e) {\n            console.log(e);\n            display = 'none';\n        }\n        return {display};\n    }\n    this.keyUp = function($event) {\n        if ($event.keyCode == 27) {\n            delete self.selectedRow;\n            delete self.selectedCol;\n        }\n    }\n    function headerRowCount() {\n        return self.colHeaders ? 1:0;\n    }\n    function headerColCount() {\n        return 1;\n    }\n}\n\n\n//# sourceURL=webpack:///./wi-table-view/index.js?");
+
+/***/ }),
+
+/***/ "./wi-table-view/style.css":
+/*!*********************************!*\
+  !*** ./wi-table-view/style.css ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./style.css */ \"../node_modules/css-loader/dist/cjs.js!./wi-table-view/style.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-table-view/style.css?");
+
+/***/ }),
+
+/***/ "./wi-table-view/template.html":
+/*!*************************************!*\
+  !*** ./wi-table-view/template.html ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div ng-hide=\\\"self.getRows().length === 0 || self.getCols(0).length === 0\\\" class=\\\"table\\\" ng-keyup=\\\"self.keyUp($event)\\\" tabindex=\\\"0\\\"> \\n    <div class=\\\"row header\\\" ng-if=\\\"!!self.colHeaders\\\">\\n        <div class=\\\"cell\\\"></div>\\n        <div class=\\\"cell\\\" ng-repeat=\\\"colHeader in self.getColHeaders()\\\">{{colHeader}}</div> \\n    </div>\\n    <div class=\\\"row\\\" ng-repeat=\\\"row in self.getRows()\\\">\\n        <div class=\\\"cell header\\\">{{self.getRowHeader($index)}}</div>\\n        <div style=\\\"position:relative;\\\" class=\\\"cell\\\" ng-repeat=\\\"col in self.getCols(row)\\\" \\n            ng-click=\\\"self.cellClick(row, col);\\\">\\n                <!--\\n                <span ng-hide=\\\"editting\\\">\\n                    {{self.accessor(row, col)}}\\n                </span>\\n                <form style=\\\"position:absolute;top:2px;left:2px;right:2px;bottom:2px;\\\" ng-show=\\\"editting\\\" ng-submit=\\\"editting=false\\\">\\n                    <input style=\\\"with:100%;height:100%;\\\" type=\\\"text\\\" ng-blur=\\\"editting=false;\\\" ng-model=\\\"edtVal\\\">\\n                </form>\\n                -->\\n                <editable params=\\\"[row, col]\\\" item-value=\\\"self.accessor\\\" set-value=\\\"self.setter\\\"></editable>\\n        </div>\\n    </div>\\n    <div class=\\\"indicator\\\" ng-style=\\\"self.indicatorStyle()\\\">\\n        <div class=\\\"handle\\\"></div>\\n    </div>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./wi-table-view/template.html?");
 
 /***/ }),
 
