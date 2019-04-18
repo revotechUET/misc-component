@@ -1,0 +1,42 @@
+wi-table-view div.table {
+    display:table;
+    margin-top: 10px;  
+    border: 1px solid #ccc;
+    position: relative;
+    outline: none;
+}
+wi-table-view div.header {
+    background-color: #eee;
+    font-weight: bold;
+}
+wi-table-view div.cell {
+    display:table-cell;
+    padding: 3px 30px;
+    border: 1px solid #ccc;
+    cursor: default;
+}
+wi-table-view div.cell input {
+    outline:none;
+    border:none;
+    box-shadow: none;
+    color: blue;
+    position:absolute;
+    background-color: transparent;
+}
+wi-table-view div.row {
+    display: table-row;
+}
+wi-table-view div.indicator {
+    border: 1px solid blue;
+    position: absolute;
+    overflow: visible;
+    box-sizing: content-box;
+}
+wi-table-view div.handle {
+    border: 2px solid blue;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    bottom: -3px;
+    right: -3px;
+}

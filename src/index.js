@@ -6,5 +6,6 @@ module.exports = {
     wiLogin: require('./wi-login/wi-login'),
     wiToken: require('./wi-token/index'),
     wiSession: require('./wi-session'),
-    katexView: require('./katex-view')
+    katexView: require('./katex-view'),
+    wiTableView: require('./wi-table-view')
 }

@@ -158,7 +158,9 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
             self.filterFn();
             self.updateNodes();
         }, 500), true);
-        // new ResizeObserver(() => setTimeout(() => $element.trigger('scroll'))).observe($element[0]);
+        if (ResizeObserver) {
+            new ResizeObserver(() => setTimeout(() => $element.trigger('scroll'))).observe($element[0]);
+        }
         const watches = [];
         $scope.$on('vsRepeatReinitialized', function (event, startIdx, endIdx) {
             for (const unwatch of watches) unwatch();

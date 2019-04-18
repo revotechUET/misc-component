@@ -10,9 +10,11 @@ module.component(componentName, {
     controllerAs: 'self',
     bindings:{
         itemValue: "<",
+        setValue: "<",
         itemLabel: "<",
         labelStyle: "<",
-        contentStyle: "<"
+        contentStyle: "<",
+        params: "<"
     }
 });
 
@@ -26,5 +28,19 @@ function EditableController($scope, $element, $timeout) {
     }
     this.unfocusMe = function() {
         $timeout(() => {$element.find('form input')[0].blur();});
+    }
+    this.getItemValue = function() {
+        if (typeof self.itemValue === 'function') {
+            return self.itemValue(self.params);
+        }
+        return self.itemValue;
+    }
+    this.setItemValue = function(newVal) {
+        if (typeof self.itemValue === 'function') {
+            if ( typeof self.setValue === 'function') 
+                return self.setValue(self.params, newVal);
+            return;
+        }
+        return self.itemValue = temp;
     }
 }
