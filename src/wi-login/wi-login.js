@@ -2,7 +2,7 @@ var componentName = 'wiLogin';
 module.exports.name = componentName;
 require('./wi-login.less');
 var wiToken = require('../wi-token');
-var app = angular.module(componentName, [wiToken.name]);
+var app = angular.module(componentName, ['ngDialog', wiToken.name]);
 
 app.component(componentName, {
     template: require('./template.html'),
