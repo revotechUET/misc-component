@@ -34,6 +34,9 @@ wi-tree-node {
     .node-content {
         border-bottom: 1px solid #f0f0f0;
         position: relative;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
         &.search-mode > div {
             opacity: 0.2;
         }
@@ -44,21 +47,18 @@ wi-tree-node {
             }
         }
         &.selected {
-            background-color: #f0f0f0;
-            &::before, &::after {
+            background: linear-gradient(to left, #f0f0f0, #fff);
+            &::after {
                 background-color:blue;
             }
         }
-        &::before, &::after {
+        &::after {
             content: " ";
             display: block;
             position: absolute;
             top: 0;
             width: 2px;
             height: 1.7em;
-        }
-        &::before {
-            left: 0;
         }
         &::after {
             right: 0;

@@ -16,6 +16,7 @@ app.component('wiTreeNode', {
         getIcon: "<",
         keepChildren: "<",
         runMatch: "<",
+        clickFn: "<",
         collapsed: "<"
     },
     require: {
@@ -34,8 +35,10 @@ app.component(componentName, {
         getLabel: "<",
         getIcon: "<",
         runMatch: "<",
+        clickFn: "<",
         collapsed: "<"
-    }
+    },
+    transclude: true
 });
 function wiTreeViewController($element, $timeout, $scope) {
     let self = this;
@@ -88,5 +91,8 @@ function wiTreeNodeController($element, $timeout, $scope) {
             this.wiTreeView.deselectAllExcept(self);
         }
         $timeout(() => {self.selected = true});
+        if (self.clickFn) {
+          self.clickFn($event, self.treeRoot);
+        }
     }
 }

@@ -69,7 +69,11 @@ angular.module("myApp",['wiTreeView'])
         return node.name;
     }
     $scope.getIcon = function(node) {
-        return "fa fa-file-pdf-o";
+        if (node.id % 2) 
+            return "well-16x16";
+        else {
+            return "project-normal-16x16";
+        }
     }
     $scope.getChildren = function(node) {
         return node.children;
