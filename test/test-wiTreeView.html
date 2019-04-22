@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Test WiTreeView</title>
+        <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../dist/misc-components.js"></script>
+    </head>
+    <body ng-app = "myApp" ng-controller="MyCtr">
+        <div style="width: 500px;height:500px;border:1px solid #ccc;">
+            <wi-tree-view 
+                tree-root="[treedata]" get-label="getLabel" 
+                get-icon="getIcon" get-children="getChildren"
+                keep-children='true'
+                run-match='matchFn'>
+            </wi-tree-view>
+        </div>
+        <script>
+angular.module("myApp",['wiTreeView'])
+.controller('MyCtr',['$scope',function($scope){ 
+    $scope.data = [
+        {id: 1,name:'Jani',country:'Norway',gender: "Male"},
+        {id: 2,name:'Carl',country:'Sweden',gender: "Male"},
+        {id: 3,name:'Margareth',country:'England',gender: "Male"},
+        {id: 4,name:'Hege',country:'Norway',gender: "Male"},
+        {id: 5,name:'Joe',country:'Denmark',gender: "Male"},
+        {id: 6,name:'Gustav',country:'Sweden',gender: "Male"},
+        {id: 7,name:'Birgit',country:'Denmark',gender: "Male"},
+        {id: 8,name:'Mary',country:'England',gender: "Male"},
+        {id: 9,name:'Kai',country:'Norway',gender: "Male"}
+    ]; 
+    $scope.treedata = {
+        id: 1,name:'Jani',country:'Norway', gender: "Male",
+        children: [
+            {id: 2,name:'Carl',country:'Sweden',gender: "Male",
+                children: [
+                    {id: 2,name:'Carl',country:'Sweden',gender: "Male"},
+                    {id: 3,name:'Margareth',country:'England',gender: "Male"},
+                    {id: 4,name:'Hege',country:'Norway',gender: "Male"},
+                    {id: 5,name:'Joe',country:'Denmark',gender: "Male"},
+                    {id: 6,name:'Gustav',country:'Sweden',gender: "Male"}
+                ]
+            },
+            {id: 3,name:'Margareth',country:'England',gender: "Male",
+                children: [
+                    {id: 2,name:'Carl',country:'Sweden',gender: "Male"},
+                    {id: 3,name:'Margareth',country:'England',gender: "Male"},
+                    {id: 4,name:'Hege',country:'Norway',gender: "Male"},
+                    {id: 5,name:'Joe',country:'Denmark',gender: "Male"},
+                    {id: 6,name:'Gustav',country:'Sweden',gender: "Male"}
+                ]
+            },
+            {id: 4,name:'Hege',country:'Norway',gender: "Male",
+                children: [
+                    {id: 2,name:'Carl',country:'Sweden',gender: "Male"},
+                    {id: 3,name:'Margareth',country:'England',gender: "Male"},
+                    {id: 4,name:'Hege',country:'Norway',gender: "Male"},
+                    {id: 5,name:'Joe',country:'Denmark',gender: "Male"},
+                    {id: 6,name:'Gustav',country:'Sweden',gender: "Male"}
+                ]
+            },
+            {id: 5,name:'Joe',country:'Denmark',gender: "Male"}
+        ]
+    }
+     
+    $scope.getLabel = function(node) {
+        return node.name;
+    }
+    $scope.getIcon = function(node) {
+        return "fa fa-file-pdf-o";
+    }
+    $scope.getChildren = function(node) {
+        return node.children;
+    }
+    $scope.matchFn = function(node, criteria) {
+        if (criteria && criteria.length)
+            return node.name.includes(criteria);
+        return true;
+    }
+}]);
+        </script>
+    </body>
+</html>

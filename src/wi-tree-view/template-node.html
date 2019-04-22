@@ -1,0 +1,22 @@
+<div class='node-content' ng-class="{
+    'highlight':self.showNode(), 
+    'search-mode':self.filter.length, 
+    'selected': self.selected}" ng-click="self.onClick($event)">
+    <div class="node-caret" ng-class="{'invisible': !self.getChildren(self.treeRoot).length}" ng-click="self.collapsed = !self.collapsed;">
+        <i ng-hide="self.collapsed" class="fa fa-caret-down"></i>
+        <i ng-show="self.collapsed" class="fa fa-caret-right"></i>
+    </div>
+    <div class="node-icon"><i class="tree-icon {{self.getIcon(self.treeRoot)}}"></i></div>
+    <div class="node-label">{{self.getLabel(self.treeRoot)}}</div>
+</div>
+<div ng-if="self.getChildren(self.treeRoot).length" ng-hide="self.collapsed">
+    <wi-tree-node ng-repeat="child in self.getChildren(self.treeRoot)"
+        tree-root='child'
+        filter='self.filter1'
+        keep-children='self.keepChildren'
+        get-children='self.getChildren'
+        get-label='self.getLabel'
+        get-icon='self.getIcon'
+        run-match="self.runMatch">
+    </wi-tree-node>
+</div>

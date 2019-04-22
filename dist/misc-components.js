@@ -119,6 +119,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 
 /***/ }),
 
+/***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-tree-view/style.less":
+/*!****************************************************************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-tree-view/style.less ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"wi-tree-view div input {\\n  width: 100%;\\n  line-height: 2;\\n  padding: 5px;\\n  border: none;\\n  border-bottom: 1px solid #f0f0f0;\\n  outline: none;\\n  box-sizing: border-box;\\n}\\nwi-tree-view div input::placeholder {\\n  color: #f0f0f0;\\n  font-style: italic;\\n}\\nwi-tree-node > div {\\n  cursor: default;\\n  padding-left: 15px;\\n  line-height: 1.7;\\n}\\nwi-tree-node .node-caret,\\nwi-tree-node .node-label,\\nwi-tree-node .node-icon {\\n  display: inline-block;\\n}\\nwi-tree-node .node-caret {\\n  width: 16px;\\n  text-align: center;\\n  cursor: pointer;\\n}\\nwi-tree-node .invisible {\\n  visibility: hidden;\\n}\\nwi-tree-node .node-content {\\n  border-bottom: 1px solid #f0f0f0;\\n  position: relative;\\n}\\nwi-tree-node .node-content.search-mode > div {\\n  opacity: 0.2;\\n}\\nwi-tree-node .node-content.search-mode.highlight {\\n  color: blue;\\n}\\nwi-tree-node .node-content.search-mode.highlight > div {\\n  opacity: 1;\\n}\\nwi-tree-node .node-content.selected {\\n  background-color: #f0f0f0;\\n}\\nwi-tree-node .node-content.selected::before,\\nwi-tree-node .node-content.selected::after {\\n  background-color: blue;\\n}\\nwi-tree-node .node-content::before,\\nwi-tree-node .node-content::after {\\n  content: \\\" \\\";\\n  display: block;\\n  position: absolute;\\n  top: 0;\\n  width: 2px;\\n  height: 1.7em;\\n}\\nwi-tree-node .node-content::before {\\n  left: 0;\\n}\\nwi-tree-node .node-content::after {\\n  right: 0;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-tree-view/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "../node_modules/css-loader/dist/cjs.js!./editable/style.css":
 /*!*******************************************************************!*\
   !*** ../node_modules/css-loader/dist/cjs.js!./editable/style.css ***!
@@ -271,7 +282,7 @@ eval("module.exports = \"<label ng-if=\\\"self.itemLabel\\\" ng-style=\\\"self.l
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -481,6 +492,50 @@ eval("module.exports = \"<div ng-hide=\\\"self.getRows().length === 0 || self.ge
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("var serviceName = 'wiToken';\n//var jwt = require('jsonwebtoken');\nvar jwt_decode = __webpack_require__(/*! jwt-decode */ \"../node_modules/jwt-decode/lib/index.js\");\nmodule.exports.name = serviceName;\n\nlet app = angular.module(serviceName, []);\napp.factory(serviceName, function () {\n    return new TokenService();\n});\n\nfunction TokenService() {\n    this.token = null;\n    this.setToken = function (tokenVal) {\n        this.token = tokenVal;\n    }\n    this.getUserName = function () {\n        if (this.token === undefined || (localStorage.getItem(\"token\")) === null) {\n            return \"guest\";\n        }\n        return localStorage.getItem(\"username\");\n    }\n    this.getCompany = function () {\n        if (!this.token) {\n            return \"\";\n        }\n        //var decoded = jwt.decode(this.token);\n        var decoded = jwt_decode(this.token);\n        return decoded.company;\n    }\n    this.getToken = function () {\n        if (localStorage.getItem(\"token\")) {\n            return localStorage.getItem(\"token\");\n        }\n        return this.token;\n\n    }\n    this.saveToken = function (tokenVal) {\n        var decoded = jwt_decode(this.token);\n        localStorage.setItem('token', tokenVal.token);\n        localStorage.setItem('refresh_token', tokenVal.refresh_token);\n        localStorage.setItem('username', decoded.username);\n    }\n    this.removeToken = function () {\n        localStorage.clear();\n    }\n}\n\n\n//# sourceURL=webpack:///./wi-token/index.js?");
+
+/***/ }),
+
+/***/ "./wi-tree-view/index.js":
+/*!*******************************!*\
+  !*** ./wi-tree-view/index.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var componentName = 'wiTreeView';\nmodule.exports.name = componentName;\n\n__webpack_require__(/*! ./style.less */ \"./wi-tree-view/style.less\");\n\nvar app = angular.module(componentName, []);\napp.component('wiTreeNode', {\n    template: __webpack_require__(/*! ./template-node.html */ \"./wi-tree-view/template-node.html\"),\n    controller: wiTreeNodeController,\n    controllerAs: 'self',\n    bindings: {\n        treeRoot: \"<\",\n        filter: \"<\",\n        getChildren: \"<\",\n        getLabel: \"<\",\n        getIcon: \"<\",\n        keepChildren: \"<\",\n        runMatch: \"<\",\n        collapsed: \"<\"\n    },\n    require: {\n        wiTreeView: \"^^wiTreeView\"\n    }\n});\napp.component(componentName, {\n    template: __webpack_require__(/*! ./template.html */ \"./wi-tree-view/template.html\"),\n    controller: wiTreeViewController,\n    controllerAs: 'self',\n    bindings: {\n        treeRoot: \"<\",\n        filter: \"<\",\n        keepChildren: \"<\",\n        getChildren: \"<\",\n        getLabel: \"<\",\n        getIcon: \"<\",\n        runMatch: \"<\",\n        collapsed: \"<\"\n    }\n});\nfunction wiTreeViewController($element, $timeout, $scope) {\n    let self = this;\n    if (!window.wiTreeCtrl)\n        window.wiTreeCtrl = this;\n    this.$onInit = function () {\n        console.log(self.treeRoot);\n    }\n    this.collapseAll = function() {\n        $scope.$broadcast('collapsed-command', true);\n    }\n    this.expandAll = function() {\n        $scope.$broadcast('collapsed-command', false);\n    }\n    this.deselectAllExcept = function(nodeController) {\n        $scope.$broadcast('deselect-command', nodeController);\n    }\n}\nfunction wiTreeNodeController($element, $timeout, $scope) {\n    let self = this;\n    this.showNode = function() {\n        let matched = self.runMatch(self.treeRoot, self.filter);\n        self.filter1 = (matched && self.keepChildren) ? '' : self.filter;\n        return matched;\n    }\n    this.$onInit = function () {\n        $scope.$on('collapsed-command', function($event, collapsed) {\n            $timeout(() => {self.collapsed = collapsed});\n        });\n        $scope.$on('deselect-command', function($event, nodeController) {\n            if (self != nodeController) \n                $timeout(() => {self.selected = false});\n        });\n    }\n    this.toggleChildren = function() {\n        $timeout(() => {self.collapsed = !self.collapsed});\n    }\n    this.setCollapsed = function(collapsed) {\n        $timeout(() => {self.collapsed = collapsed});\n    }\n    this.collapseAll = function() {\n        $scope.$broadcast('collapsed-command', true);\n    }\n    this.expandAll = function() {\n        $scope.$broadcast('collapsed-command', false);\n    }\n    this.onClick = function($event) {\n        $event.preventDefault();\n        if (!$event.metaKey && !$event.ctrlKey) {\n            this.wiTreeView.deselectAllExcept(self);\n        }\n        $timeout(() => {self.selected = true});\n    }\n}\n\n\n//# sourceURL=webpack:///./wi-tree-view/index.js?");
+
+/***/ }),
+
+/***/ "./wi-tree-view/style.less":
+/*!*********************************!*\
+  !*** ./wi-tree-view/style.less ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./style.less */ \"../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-tree-view/style.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-tree-view/style.less?");
+
+/***/ }),
+
+/***/ "./wi-tree-view/template-node.html":
+/*!*****************************************!*\
+  !*** ./wi-tree-view/template-node.html ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class='node-content' ng-class=\\\"{\\n    'highlight':self.showNode(), \\n    'search-mode':self.filter.length, \\n    'selected': self.selected}\\\" ng-click=\\\"self.onClick($event)\\\">\\n    <div class=\\\"node-caret\\\" ng-class=\\\"{'invisible': !self.getChildren(self.treeRoot).length}\\\" ng-click=\\\"self.collapsed = !self.collapsed;\\\">\\n        <i ng-hide=\\\"self.collapsed\\\" class=\\\"fa fa-caret-down\\\"></i>\\n        <i ng-show=\\\"self.collapsed\\\" class=\\\"fa fa-caret-right\\\"></i>\\n    </div>\\n    <div class=\\\"node-icon\\\"><i class=\\\"tree-icon {{self.getIcon(self.treeRoot)}}\\\"></i></div>\\n    <div class=\\\"node-label\\\">{{self.getLabel(self.treeRoot)}}</div>\\n</div>\\n<div ng-if=\\\"self.getChildren(self.treeRoot).length\\\" ng-hide=\\\"self.collapsed\\\">\\n    <wi-tree-node ng-repeat=\\\"child in self.getChildren(self.treeRoot)\\\"\\n        tree-root='child'\\n        filter='self.filter1'\\n        keep-children='self.keepChildren'\\n        get-children='self.getChildren'\\n        get-label='self.getLabel'\\n        get-icon='self.getIcon'\\n        run-match=\\\"self.runMatch\\\">\\n    </wi-tree-node>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./wi-tree-view/template-node.html?");
+
+/***/ }),
+
+/***/ "./wi-tree-view/template.html":
+/*!************************************!*\
+  !*** ./wi-tree-view/template.html ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div style=\\\"display:flex;flex-direction:column;width:100%;height:100%;\\\">\\n    <div>\\n        <input type=\\\"text\\\" ng-model=\\\"self.filter\\\" placeholder=\\\"Search\\\">\\n    </div>\\n    <div style=\\\"flex:1;overflow-y: auto;\\\">\\n        <wi-tree-node ng-repeat=\\\"child in self.treeRoot\\\"\\n            tree-root='child'\\n            filter='self.filter'\\n            get-children='self.getChildren'\\n            get-label='self.getLabel'\\n            get-icon='self.getIcon'\\n            keep-children='self.keepChildren'\\n            run-match='self.runMatch'>\\n        </wi-tree-node>\\n    </div>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./wi-tree-view/template.html?");
 
 /***/ })
 
