@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 module.exports = {
 	context: __dirname + '/src',
 	mode: "development",
@@ -22,6 +24,8 @@ module.exports = {
 			}
 		],
 	},
-
+    plugins: [
+        new HardSourceWebpackPlugin()
+    ]
 	
 }
