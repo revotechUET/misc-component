@@ -17,6 +17,8 @@ app.component('wiTreeNode', {
         keepChildren: "<",
         runMatch: "<",
         clickFn: "<",
+        onDragStart: "<",
+        onDragStop: "<",
         collapsed: "<"
     },
     require: {
@@ -36,6 +38,8 @@ app.component(componentName, {
         getIcon: "<",
         runMatch: "<",
         clickFn: "<",
+        onDragStart: "<",
+        onDragStop: "<",
         collapsed: "<"
     },
     transclude: true
@@ -45,6 +49,7 @@ function wiTreeViewController($element, $timeout, $scope) {
     if (!window.wiTreeCtrl)
         window.wiTreeCtrl = this;
     this.$onInit = function () {
+        self.collapsed = (self.collapsed == undefined || self.collapsed === null)? true : self.collapsed;
         console.log(self.treeRoot);
     }
     this.collapseAll = function() {
@@ -65,12 +70,25 @@ function wiTreeNodeController($element, $timeout, $scope) {
         return matched;
     }
     this.$onInit = function () {
+        self.collapsed = (self.collapsed == undefined || self.collapsed === null)? true : self.collapsed;
         $scope.$on('collapsed-command', function($event, collapsed) {
             $timeout(() => {self.collapsed = collapsed});
         });
         $scope.$on('deselect-command', function($event, nodeController) {
             if (self != nodeController) 
                 $timeout(() => {self.selected = false});
+        });
+
+        $element.find(".node-content").draggable({
+            helper: 'clone',
+            start: function($event, ui) {
+                ui.helper.addClass('dragging');
+                ui.helper.myData = self.treeRoot;
+                self.onDragStart && self.onDragStart(self.treeRoot);
+            },
+            stop: function($event, ui){
+                self.onDragStop && self.onDragStop(self.treeRoot);
+            }
         });
     }
     this.toggleChildren = function() {

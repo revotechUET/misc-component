@@ -34,6 +34,7 @@ wi-tree-node {
         color: #cccbcb;
         font-size: 14px;
         cursor: pointer;
+        width: 10px;
     }
 
     .invisible {
@@ -92,6 +93,21 @@ wi-tree-node {
     }
     .node-content:hover {
         background: linear-gradient(to left, #f0f0f0, #fff);
+    }
+
+    .dragging {
+        border: none;
+        background-color: transparent;
+        z-index: 1;
+        &.selected {
+            background: transparent;
+            //padding: 11px;
+
+            &::after {
+                background-color: transparent;
+                line-height: 2.3em;
+            }
+        }
     }
 
 }
