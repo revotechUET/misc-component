@@ -11,7 +11,8 @@ app.component(componentName, {
         onDrop: '<',
         onOver: '<',
         onOut: '<',
-        onDeactivate: '<'
+        onDeactivate: '<',
+        containerStyle: "<"
     },
     transclude: true
 });
