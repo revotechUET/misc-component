@@ -368,11 +368,14 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
         const parentNode = getParentNode(node, self.config);
         node.$index = $index;
         if (!$event.shiftKey) {
-            if (!$event.ctrlKey || node.type != selectedNodes[0].type || parentNode != getParentNode(selectedNodes[0], self.config)) {
+            if (!$event.ctrlKey
+                || (selectedNodes[0] && node.type != selectedNodes[0].type)
+                || parentNode != getParentNode(selectedNodes[0], self.config)
+            ) {
                 if ($event.type == "contextmenu" && selectedNodes.includes(node)) return;
                 unselectAllNodes();
             }
-            node.data.selected = true;
+            node.data.selected = !node.data.selected;
         } else {
             if (!selectedNodes.length) return;
             if (selectedNodes.includes(node)) return;
