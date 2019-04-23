@@ -12,7 +12,8 @@ app.component(componentName, {
         name: '@',
         password: '@',
         whoami: '@',
-        registerUrl: '@'
+        registerUrl: '@',
+        appName:'@'
     }
 });
 
