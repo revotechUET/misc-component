@@ -1,57 +1,76 @@
 wi-tree-view {
-    & div input{
+    & div input {
         width: 100%;
         line-height: 2;
-        padding: 5px;
+        padding: 10px;
         border: none;
         border-bottom: 1px solid #f0f0f0;
         outline: none;
         box-sizing: border-box;
-        &::placeholder{
+
+        &::placeholder {
             color: #f0f0f0;
             font-style: italic;
         }
     }
 }
+
 wi-tree-node {
-    & > div {
+    &>div {
         cursor: default;
         //margin: 0 0 0 15px;
-        padding-left: 15px;
+        padding-left: 19px;
         line-height: 1.7;
     }
-    .node-caret, .node-label, .node-icon {
-        display:inline-block;
+
+    .node-caret,
+    .node-label,
+    .node-icon {
+        display: flex;
+        padding-right: 10px;
+        font-size: 13px;
     }
+
     .node-caret {
-        width: 16px;
-        text-align:center;
+        color: #cccbcb;
+        font-size: 14px;
         cursor: pointer;
     }
+
     .invisible {
         visibility: hidden;
     }
+
     .node-content {
         border-bottom: 1px solid #f0f0f0;
         position: relative;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
-        &.search-mode > div {
+        padding: 11px;
+        display: flex;
+        align-items: center;
+        &.search-mode>div {
             opacity: 0.2;
         }
+
         &.search-mode.highlight {
-            color: blue;
-            & > div {
+            color: #0077be;
+
+            &>div {
                 opacity: 1;
             }
         }
+
         &.selected {
             background: linear-gradient(to left, #f0f0f0, #fff);
+            padding: 11px;
+
             &::after {
-                background-color:blue;
+                background-color: #0077be;
             }
         }
+
         &::after {
             content: " ";
             display: block;
@@ -60,9 +79,9 @@ wi-tree-node {
             width: 2px;
             height: 1.7em;
         }
+
         &::after {
             right: 0;
         }
     }
 }
-
