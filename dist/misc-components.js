@@ -148,7 +148,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"katex-view .latex {\\n    display:inline-block;\\n    color: blue;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./katex-view/style.css?../node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"katex-view .latex {\\n    display:inline-block;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./katex-view/style.css?../node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
