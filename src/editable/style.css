@@ -2,12 +2,12 @@ editable label {
     float: left;
     margin-right: 15px;
 }
-editable div.my-content {
+/*editable div.my-content {
     float: left;
-}
+}*/
 editable div.my-content input {
     width: 100%;
-    background:'wheat';
+    background-color: wheat;
 }
 editable form {
     margin-bottom: 0;

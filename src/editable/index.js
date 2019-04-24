@@ -14,6 +14,7 @@ module.component(componentName, {
         itemLabel: "<",
         labelStyle: "<",
         contentStyle: "<",
+        enabled: "<",
         params: "<"
     }
 });
@@ -36,11 +37,10 @@ function EditableController($scope, $element, $timeout) {
         return self.itemValue;
     }
     this.setItemValue = function(newVal) {
-        if (typeof self.itemValue === 'function') {
-            if ( typeof self.setValue === 'function') 
-                return self.setValue(self.params, newVal);
-            return;
-        }
-        return self.itemValue = temp;
+        if ( typeof self.setValue === 'function') 
+            return self.setValue(self.params, newVal);
+        if (typeof self.itemValue != 'function') 
+            return self.itemValue = newVal;
+        return;
     }
 }

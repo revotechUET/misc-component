@@ -11,9 +11,13 @@
 <body ng-app = "myApp" ng-controller="MyCtr">
     
         <wi-table-view 
+            header-editable="true"
+            cell-editable="true"
+            show-origin-header="true"
             accessor="renderData" 
             setter="setData"
             row-count="rowCount"
+            col-headers="['id', 'name', 'country', 'gender']"
             col-count="colCount">
         </wi-table-view>
     <script>

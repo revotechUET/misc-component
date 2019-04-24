@@ -1,23 +1,32 @@
 <div ng-hide="self.getRows().length === 0 || self.getCols(0).length === 0" class="table" ng-keyup="self.keyUp($event)" tabindex="0"> 
     <div class="row header" ng-if="!!self.colHeaders">
         <div class="cell"></div>
-        <div class="cell" ng-repeat="colHeader in self.getColHeaders()" ng-click="self.colHeaderClick($index);">{{colHeader}}</div> 
+        <div ng-if="self.showOriginHeader" class="cell"></div>
+        <div class="cell" ng-repeat="colHeader in self.getColHeaders()">
+            <editable params="$index" item-value="colHeader" set-value="self.setColHeader" enabled="self.headerEditable"
+                    content-style="{width:'100%',height:'100%'}"></editable>
+        </div>
+    </div>
+    <div class="row header" ng-if="self.colHeaders && self.showOriginHeader">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell" ng-repeat="colHeader in self.getOriginColHeaders()">
+            <div>{{colHeader}}</div>
+        </div>
     </div>
     <div class="row" ng-repeat="row in self.getRows()">
-        <div class="cell header" ng-click="self.colHeaderClick($index);">
-            {{self.getRowHeader($index)}}
+        <div class="cell header">
+            <editable params="$index" item-value="self.getRowHeader($index)" set-value="self.setRowHeader"
+                    enabled="self.headerEditable"
+                    content-style="{width:'100%',height:'100%'}"></editable>
         </div>
-        <div style="position:relative;" class="cell" ng-repeat="col in self.getCols(row)" 
+        <div ng-if="self.showOriginHeader" class="cell header">
+            {{self.getOriginRowHeader($index)}}
+        </div>
+        <div class="cell" ng-repeat="col in self.getCols(row)" 
             ng-click="self.cellClick(row, col);">
-                <!--
-                <span ng-hide="editting">
-                    {{self.accessor(row, col)}}
-                </span>
-                <form style="position:absolute;top:2px;left:2px;right:2px;bottom:2px;" ng-show="editting" ng-submit="editting=false">
-                    <input style="with:100%;height:100%;" type="text" ng-blur="editting=false;" ng-model="edtVal">
-                </form>
-                -->
                 <editable params="[row, col]" item-value="self.accessor" set-value="self.setter"
+                    enabled="self.cellEditable"
                     content-style="{width:'100%',height:'100%'}"></editable>
         </div>
     </div>
