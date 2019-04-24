@@ -15,6 +15,8 @@ module.component(name, {
         showOriginHeader: "<",
         colHeaders: "<",
         rowHeaders: "<",
+        colLabels: "<",
+        rowLabels: "<",
         rowCount: "<",
         colCount: "<",
         accessor: "<",
@@ -24,8 +26,11 @@ module.component(name, {
 
 function Controller($scope, $element) {
     let self = this;
-    let _rowHeaders = {};
-    let _colHeaders = {};
+    
+    this.$onInit = function() {
+        this.colLabels = this.colLabels || {};
+        this.rowLabels = this.rowLabels || {};
+    }
     this.getRows = function() {
         let rowCount = 0;
         if (typeof self.rowCount === 'function') {
@@ -61,16 +66,14 @@ function Controller($scope, $element) {
         }
         return colHeaders;
     }
-    this.getColHeaders = function() {
-        let originCHs = self.getOriginColHeaders();
-        for (let och of originCHs) {
-            _colHeaders[och] = _colHeaders[och] || och;
-        }
-        return Object.values(_colHeaders);
+    this.getColHeader = function(index) {
+        let och = self.getOriginColHeaders()[index];
+        self.colLabels[och] = self.colLabels[och] || och;
+        return self.colLabels[och];
     }
     this.setColHeader = function(index, newColHeader) {
         let originColHeader = self.getOriginColHeaders()[index];
-        _colHeaders[originColHeader] = newColHeader;
+        self.colLabels[originColHeader] = newColHeader;
     }
     this.getOriginRowHeader = function(index) {
         let rowHeaders;
@@ -85,12 +88,12 @@ function Controller($scope, $element) {
     }
     this.getRowHeader = function(index) {
         let orh = self.getOriginRowHeader(index);
-        _rowHeaders[orh] = _rowHeaders[orh] || orh;
-        return _rowHeaders[orh];
+        self.rowLabels[orh] = self.rowLabels[orh] || orh;
+        return self.rowLabels[orh];
     }
     this.setRowHeader = function(index, newRowHeader) {
         let originRowHeader = self.getOriginRowHeader(index);
-        _rowHeaders[originRowHeader] = newRowHeader;
+        self.rowLabels[originRowHeader] = newRowHeader;
     }
     this.cellClick = function(row, col) {
         self.selectedRow = row + headerRowCount();
