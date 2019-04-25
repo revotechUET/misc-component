@@ -37,7 +37,11 @@
     </div>
 </script>
 <script type="text/ng-template" id="templateWarningLogout">
-    <div class ="acceptLogout" ng-click="self.acceptLogout()">Click to logout</div>
+    <div class="ngdialog-buttons">
+            <div class ="acceptLogout">Logout Base Map</div>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="self.acceptLogout()">Logout</button>
+    </div>
+    
 </script>
 <script type="text/ng-template" id="templateLogout">
     <div class ="success">
