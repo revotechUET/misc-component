@@ -53,7 +53,8 @@ angular.module("myApp",['wiTableView'])
         return data.length;
     }
     $scope.colCount = function(row) {
-        return Object.keys(data[row]).length;
+        let r = row || 0;
+        return Object.keys(data[r]).length;
     }
     $scope.colHeaders = function() {
         return Object.keys(data[0]);

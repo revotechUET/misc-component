@@ -21,7 +21,6 @@ module.component(componentName, {
 
 function EditableController($scope, $element, $timeout) {
     let self = this;
-    console.log("editable initiated");
     this.$onInit = function() {
     }
     this.focusMe = function() {
