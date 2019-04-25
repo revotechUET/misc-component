@@ -9,5 +9,6 @@ module.exports = {
     katexView: require('./katex-view'),
     wiTableView: require('./wi-table-view'),
     wiTreeView: require('./wi-tree-view'),
-    wiDroppable: require('./wi-droppable')
+    wiDroppable: require('./wi-droppable'),
+    wiDialog: require('./wi-dialog')
 }

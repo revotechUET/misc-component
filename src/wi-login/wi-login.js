@@ -13,7 +13,7 @@ app.component(componentName, {
         password: '@',
         whoami: '@',
         registerUrl: '@',
-        appName:'@'
+        appName: '@'
     }
 });
 
@@ -22,10 +22,17 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
     this.onLoginClick = function () {
         if (wiToken.getToken()) {
             wiToken.setToken(null);
-            this.showDialogLogout();
+            this.showDialogWarningLogout();
         } else {
             this.showDialogLogin();
         }
+    }
+    this.showDialogWarningLogout = function () {
+        ngDialog.open({
+            template: 'templateWarningLogout',
+            className: 'ngdialog-theme-default',
+            scope: $scope,
+        });
     }
     this.showDialogLogout = function () {
         ngDialog.open({
@@ -47,6 +54,9 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
             className: 'ngdialog-theme-default',
             scope: $scope,
         });
+    }
+    this.acceptLogout = function () {
+        this.showDialogLogout();
     }
     this.getName = function () {
         return wiToken.getUserName();
