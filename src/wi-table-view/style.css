@@ -9,6 +9,9 @@ wi-table-view div.header {
     background-color: #eee;
     font-weight: bold;
 }
+wi-table-view div.empty-header {
+    color: transparent;
+}
 wi-table-view div.cell {
     display:table-cell;
     padding: 3px;

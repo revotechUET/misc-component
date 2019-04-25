@@ -1,15 +1,17 @@
 <div ng-hide="self.getRows().length === 0 || self.getCols(0).length === 0" class="table" ng-keyup="self.keyUp($event)" tabindex="0"> 
     <div class="row header" ng-if="!!self.colHeaders">
-        <div class="cell"></div>
-        <div ng-if="self.showOriginHeader" class="cell"></div>
-        <div class="cell" ng-repeat="colHeader in self.getColHeaders()">
-            <editable params="$index" item-value="colHeader" set-value="self.setColHeader" enabled="self.headerEditable"
-                    content-style="{width:'100%',height:'100%'}"></editable>
+        <div class="cell empty-header">a</div>
+        <div ng-if="self.showOriginHeader" class="cell empty-header">a</div>
+        <div class="cell" ng-repeat="col in self.getCols()">
+            <editable params="$index" item-value="self.getColHeader($index)" set-value="self.setColHeader" 
+                    enabled="self.headerEditable"
+                    content-style="{width:'100%',height:'100%'}">
+            </editable>
         </div>
     </div>
     <div class="row header" ng-if="self.colHeaders && self.showOriginHeader">
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell empty-header">a</div>
+        <div class="cell empty-header">a</div>
         <div class="cell" ng-repeat="colHeader in self.getOriginColHeaders()">
             <div>{{colHeader}}</div>
         </div>
