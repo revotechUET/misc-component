@@ -40,17 +40,18 @@ app.component(componentName, {
         clickFn: "<",
         onDragStart: "<",
         onDragStop: "<",
+        selectedIds: "<",
         collapsed: "<"
     },
     transclude: true
 });
 function wiTreeViewController($element, $timeout, $scope) {
     let self = this;
-    this.selectedIds = {};
     if (!window.wiTreeCtrl)
         window.wiTreeCtrl = this;
     this.$onInit = function () {
         self.collapsed = (self.collapsed == undefined || self.collapsed === null)? true : self.collapsed;
+        this.selectedIds = this.selectedIds || {};
         console.log(self.treeRoot);
     }
     this.collapseAll = function() {
