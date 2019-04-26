@@ -1,1 +1,9 @@
-<div ng-transclude>HEY</div>
+<script type="text/ng-template" id='{{self.templateId}}'>
+    <div>{{self.getlabel}}</div>
+    <div ng-transclude></div>
+    <div>
+        <div ng-if="self.onDoneFn" ng-click="self.onDoneClick()">Done</div>
+        <div ng-if="self.onCancelFn" ng-click="self.onCancelClick()">Cancel</div>
+        <div ng-if="self.onApplyFn" ng-click="self.onApplyClick()">Apply</div>
+    </div>
+</script>
