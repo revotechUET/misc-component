@@ -30,7 +30,7 @@
                     <span ng-if="(wiBaseTreeview.isShowParentName && item.parentData)">{{item.parentData.label}} /</span>
                     <span ng-if="(wiBaseTreeview.isShowParentName && item.parentDataArr)" ng-repeat="parentData in item.parentDataArr">{{parentData.label}} /&nbsp;</span>
                     <span class="item-label" ng-style="{'font-weight': item.data.imageBg ? 500 : ''}">{{item.data.toggle?item.data.tooltip:item.data.label}}</span>
-                    <div class="pull-right actions" ng-if="item.actions.length" ng-click="$event.stopPropagation()">
+                    <div class="pull-right actions" ng-if="item.actions.length" ng-click="$event.stopPropagation()" style="background: none; display: flex;">
                         <wi-button ng-repeat="action in item.actions" icon="{{action.icon}}" handler="action.handler" label="{{action.label}}" tooltip="{{action.tooltip}}"></wi-button>
                     </div>
                     <div ng-if="item.data.imageBg" class="image-bg" ng-style="{'background-image': item.data.imageBg}">

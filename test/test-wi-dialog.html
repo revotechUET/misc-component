@@ -18,22 +18,20 @@
 </style>
 
 <body ng-app="myApp" ng-controller="MyCtr">
-    <wi-dialog template-id="templatehgLogout" getlabel="'HUHU'" on-done-fn="onDoneFn" on-apply-fn="onDoneFn" on-cancel-fn="onCancelFn">
-        this is my dialog content
-    </wi-dialog>
+    
     <button ng-click="openDlg()">open dlg</button>
     <!-- <wi-dialog getlabel="'HUHU'" on-done-fn="onDoneFn" on-apply-fn="onDoneFn" on-cancel-fn="onDoneFn"></wi-dialog> -->
     <script>
         angular.module("myApp", ['wiDialog', 'ngDialog'])
-            .controller('MyCtr', function ($scope, ngDialog) {
+            .controller('MyCtr', function ($scope, $rootScope, ngDialog) {
                 $scope.onDoneFn = function () {
                     console.log("onDoneFn clicked");
                 }
                 $scope.openDlg = function () {
                     ngDialog.open({
-                        template: 'templateLogout',
+                        template: '#templateLogout',
                         className: 'ngdialog-theme-default',
-                        scope: $scope,
+                        scope: $rootScope,
                     });
                 }
                 $scope.onCancelFn = function () {
@@ -42,12 +40,10 @@
             });
 
     </script>
-    
-    <script type="text/ng-template" id="templateLogout">
-        <wi-dialog getlabel="'HUHU'" on-done-fn="onDoneFn" on-apply-fn="onDoneFn" on-cancel-fn="onCancelFn">
-            this is my dialog content
-        </wi-dialog>
-    </script>
+<wi-dialog template-id="templateLogout" getlabel="'HUHU'" on-done-fn="onDoneFn" on-apply-fn="onDoneFn" on-cancel-fn="onCancelFn">
+    this is my dialog content
+</wi-dialog>
+
 </body>
 
 </html>

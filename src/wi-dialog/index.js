@@ -23,7 +23,6 @@ app.component(componentName, {
 function wiDialogController(ngDialog) {
    this.$onInit = function(){
        console.log("onInit");
-
    }
    this.onDoneClick = function(){
        onDoneFn();
