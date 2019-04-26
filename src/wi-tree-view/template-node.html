@@ -1,7 +1,7 @@
 <div class='node-content' ng-class="{
     'highlight':self.showNode(), 
     'search-mode':self.filter.length, 
-    'selected': self.selected}" ng-click="self.onClick($event)">
+    'selected': self.selected}" ng-mousedown="self.onClick($event)">
     <div class="node-caret" ng-class="{'invisible': !self.getChildren(self.treeRoot).length}" ng-click="self.collapsed = !self.collapsed;">
         <i ng-hide="self.collapsed" class="fa fa-caret-down"></i>
         <i ng-show="self.collapsed" class="fa fa-caret-right"></i>

@@ -104,7 +104,7 @@ function wiTreeNodeController($element, $timeout, $scope) {
         $element.find(".node-content").draggable({
             //helper: 'clone',
             helper: function() {
-                let wrapper = $('<div style="border:4px solid red;"></div>');
+                let wrapper = $('<div style="border:2px dotted #0077be;"></div>');
                 
                 //wrapper.append(this.cloneNode(true));
                 Object.values(self.wiTreeView.selectedIds).forEach((item) => {
