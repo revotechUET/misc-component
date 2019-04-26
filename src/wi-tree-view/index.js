@@ -46,6 +46,7 @@ app.component(componentName, {
 });
 function wiTreeViewController($element, $timeout, $scope) {
     let self = this;
+    this.selectedIds = {};
     if (!window.wiTreeCtrl)
         window.wiTreeCtrl = this;
     this.$onInit = function () {
@@ -58,8 +59,16 @@ function wiTreeViewController($element, $timeout, $scope) {
     this.expandAll = function() {
         $scope.$broadcast('collapsed-command', false);
     }
-    this.deselectAllExcept = function(nodeController) {
-        $scope.$broadcast('deselect-command', nodeController);
+    this.deselectAllExcept = function(scopeId) {
+        $scope.$broadcast('deselect-command', $scope.$id);
+    }
+    this.selectRange = function(scopeId) {
+        let [min, max] = getExtentIds(self.selectedIds);
+        $scope.$broadcast('select-range-command', [Math.min(scopeId, min), Math.max(scopeId, max)]);
+    }
+    function getExtentIds(hash) {
+        let keys = Object.keys(hash).sort();
+        return [keys[0], keys[keys.length-1]];
     }
 }
 function wiTreeNodeController($element, $timeout, $scope) {
@@ -69,25 +78,46 @@ function wiTreeNodeController($element, $timeout, $scope) {
         self.filter1 = (matched && self.keepChildren) ? '' : self.filter;
         return matched;
     }
+    this.deselect = function() {
+        $timeout(() => {self.selected = false});
+        delete self.wiTreeView.selectedIds[$scope.$id];
+    }
+    this.select = function() {
+        $timeout(() => {self.selected = true});
+        self.wiTreeView.selectedIds[$scope.$id] = {elem:$element.find('.node-content')[0], data:self.treeRoot};
+    }
     this.$onInit = function () {
         self.collapsed = (self.collapsed == undefined || self.collapsed === null)? true : self.collapsed;
         $scope.$on('collapsed-command', function($event, collapsed) {
             $timeout(() => {self.collapsed = collapsed});
         });
-        $scope.$on('deselect-command', function($event, nodeController) {
-            if (self != nodeController) 
-                $timeout(() => {self.selected = false});
+        $scope.$on('deselect-command', function($event, id) {
+            if ($scope.$id != id) 
+                self.deselect();
         });
+        $scope.$on('select-range-command', function($event, [startId, stopId]) {
+            if (($scope.$id - startId) * ($scope.$id - stopId) < 0)
+                self.select();
+        })
 
         $element.find(".node-content").draggable({
-            helper: 'clone',
+            //helper: 'clone',
+            helper: function() {
+                let wrapper = $('<div style="border:4px solid red;"></div>');
+                
+                //wrapper.append(this.cloneNode(true));
+                Object.values(self.wiTreeView.selectedIds).forEach((item) => {
+                    wrapper.append(wrapper.append(item.elem.cloneNode(true)));
+                });
+                return wrapper;
+            },
             start: function($event, ui) {
                 ui.helper.addClass('dragging');
-                ui.helper.myData = self.treeRoot;
-                self.onDragStart && self.onDragStart(self.treeRoot);
+                ui.helper.myData = Object.values(self.wiTreeView.selectedIds).map(item => item.data);
+                self.onDragStart && self.onDragStart(ui.helper.myData);
             },
             stop: function($event, ui){
-                self.onDragStop && self.onDragStop(self.treeRoot);
+                self.onDragStop && self.onDragStop(ui.helper.myData);
             }
         });
     }
@@ -105,12 +135,17 @@ function wiTreeNodeController($element, $timeout, $scope) {
     }
     this.onClick = function($event) {
         $event.preventDefault();
-        if (!$event.metaKey && !$event.ctrlKey) {
-            this.wiTreeView.deselectAllExcept(self);
+        if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
+            self.wiTreeView.deselectAllExcept(self);
         }
-        $timeout(() => {self.selected = true});
+
+        if ($event.shiftKey) {
+            self.wiTreeView.selectRange($scope.$id);
+        }
+        self.select();
+
         if (self.clickFn) {
-          self.clickFn($event, self.treeRoot);
+            self.clickFn($event, self.treeRoot);
         }
     }
 }
