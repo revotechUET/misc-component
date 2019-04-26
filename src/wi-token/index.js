@@ -13,12 +13,20 @@ function TokenService() {
     this.setToken = function (tokenVal) {
         this.token = tokenVal;
     }
+    this.setPassword = function(password){
+        return localStorage.setItem('password',password);
+    }
+
+    this.getPassword = function(){
+        return localStorage.getItem('password');
+    }
     this.getUserName = function () {
         if (this.token === undefined || (localStorage.getItem("token")) === null) {
             return "guest";
         }
         return localStorage.getItem("username");
     }
+
     this.getCompany = function () {
         if (!this.token) {
             return "";
