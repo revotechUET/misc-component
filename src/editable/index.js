@@ -18,7 +18,6 @@ module.component(componentName, {
         params: "<"
     }
 });
-
 function EditableController($scope, $element, $timeout) {
     let self = this;
     this.$onInit = function() {
@@ -28,6 +27,11 @@ function EditableController($scope, $element, $timeout) {
     }
     this.unfocusMe = function() {
         $timeout(() => {$element.find('form input')[0].blur();});
+    }
+    this.handleEmptyString = function(value) {
+        if (typeof value === 'string' && !value.length) 
+            return "[empty]";
+        return value;
     }
     this.getItemValue = function() {
         if (typeof self.itemValue === 'function') {
