@@ -429,6 +429,28 @@ eval("let helper = __webpack_require__(/*! ../DialogHelper */ \"./wi-dialog/Dial
 
 /***/ }),
 
+/***/ "./wi-dialog/image-galery/image-galery-modal.html":
+/*!********************************************************!*\
+  !*** ./wi-dialog/image-galery/image-galery-modal.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class='modal fade ' data-backdrop=\\\"static\\\" data-keyboard=\\\"false\\\">\\n\\t<div class='modal-dialog'>\\n\\t\\t<div class=\\\"modal-content modal-lg\\\">\\n\\t\\t\\t<div class=\\\"modal-header\\\">\\n\\t\\t\\t\\t<button type=\\\"button\\\" class=\\\"close\\\" ng-click=\\\"wiModal.onCancelButtonClicked()\\\" aria-hidden=\\\"true\\\">&times;</button>\\n\\t\\t\\t\\t<h4 ng-bind-html=\\\"wiModal.title\\\"></h4>\\n\\t\\t\\t</div>\\n\\t\\t\\t<div class=\\\"modal-body text-center\\\" style=\\\"display:flex;height:70vh;overflow:auto;\\\">\\n                <div style=\\\"flex:1;overflow:auto;\\\">\\n                    <wi-tree-view tree-root=\\\"wiModal.treeRoot\\\" get-label=\\\"wiModal.getLabel\\\" \\n                        click-fn=\\\"wiModal.clickFunction\\\"\\n                        run-match=\\\"wiModal.runMatch\\\">\\n                        <h4>Image List</h4>\\n                    </wi-tree-view>\\n                </div>\\n                <div style=\\\"flex:1;overflow:hidden;\\\"><div style=\\\"width:100%; padding:5px;\\\">\\n                    <img class=\\\"img-responsive\\\" ng-src=\\\"{{wiModal.imgUrl?wiModal.baseUrl + wiModal.imgUrl:null}}\\\">\\n                </div></div>\\n\\t\\t\\t</div>\\n\\t\\t\\t<div class=\\\"modal-footer\\\">\\n\\t\\t\\t\\t<button class='btn btn-default' ng-click='wiModal.onOkButtonClicked()' ng-disabled=\\\"form.$invalid\\\">\\n\\t\\t\\t\\t\\t<span class=\\\"ok-16x16\\\"></span>&nbsp;OK\\n\\t\\t\\t\\t</button>\\n\\t\\t\\t\\t<button class='btn btn-default' ng-click='wiModal.onCancelButtonClicked()'>\\n\\t\\t\\t\\t\\t<span class=\\\"cancel-16x16\\\"></span>&nbsp;Cancel\\n\\t\\t\\t\\t</button>\\n\\t\\t\\t</div>\\n\\t\\t</div>\\n\\t</div>\\n</div>\\n\\n\";\n\n//# sourceURL=webpack:///./wi-dialog/image-galery/image-galery-modal.html?");
+
+/***/ }),
+
+/***/ "./wi-dialog/image-galery/image-galery-modal.js":
+/*!******************************************************!*\
+  !*** ./wi-dialog/image-galery/image-galery-modal.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("let helper = __webpack_require__(/*! ../DialogHelper */ \"./wi-dialog/DialogHelper.js\");\n\nmodule.exports = function (ModalService, callback) {\n    function ModalController($scope, $http, wiToken, close) {\n        const self = this;\n        self.title = \"Image Galery\";\n\n        self.baseUrl = \"http://dev.i2g.cloud\";\n        self.treeRoot = undefined;\n        this.$onInit = function() {\n            $http({\n                method: \"POST\",\n                url: self.baseUrl + '/image-list',\n                data: {},\n                headers: {\n                    Authorization: wiToken.getToken()\n                }\n            }).then(function(response) {\n                if (response.data.code === 200) {\n                    self.treeRoot = response.data.content;\n                }\n            }, function(err) {\n                console.error(err);\n            });\n        }\n        this.getLabel = function(node) {\n            return node;\n        }\n        this.clickFunction = function($event, node) {\n            self.imgUrl = node;\n        }\n        this.runMatch = function(node, criteria) {\n            node.includes(criteria);\n        }\n        this.onOkButtonClicked = function () {\n            close(self.imgUrl);\n        }\n        this.onCancelButtonClicked = function () {\n            close(null);\n        }\n    }\n\n    ModalService.showModal({\n        template: __webpack_require__(/*! ./image-galery-modal.html */ \"./wi-dialog/image-galery/image-galery-modal.html\"),\n        controller: ModalController,\n        controllerAs: 'wiModal'\n    }).then(function (modal) {\n        helper.initModal(modal);\n        modal.close.then(function (ret) {\n            helper.removeBackdrop();\n            ret && callback && callback(ret);\n        });\n    });\n}\n\n\n//# sourceURL=webpack:///./wi-dialog/image-galery/image-galery-modal.js?");
+
+/***/ }),
+
 /***/ "./wi-dialog/index.js":
 /*!****************************!*\
   !*** ./wi-dialog/index.js ***!
@@ -436,7 +458,7 @@ eval("let helper = __webpack_require__(/*! ../DialogHelper */ \"./wi-dialog/Dial
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var serviceName = 'wiDialog';\nmodule.exports.name = serviceName;\n\nlet app = angular.module(serviceName, ['angularModalService']);\napp.config(function($sceProvider) {\n    $sceProvider.enabled(false);\n});\n\napp.factory(serviceName, function(ModalService, $sce) {\n    return new wiDialogService(ModalService, $sce);\n});\n\nconst promptDialog = __webpack_require__(/*! ./prompt/prompt-modal.js */ \"./wi-dialog/prompt/prompt-modal.js\");\nconst confirmDialog = __webpack_require__(/*! ./confirm/confirm-modal.js */ \"./wi-dialog/confirm/confirm-modal.js\");\n\nfunction wiDialogService(ModalService) {\n    let self = this;\n    this.setDialogUtil = function(dialogUtil) {\n        self.DialogUtil = dialogUtil;\n    }\n    this.promptDialog = function(config, cb) {\n        promptDialog(ModalService, config, cb);\n    }\n    this.confirmDialog = function(title, confirmMessage, cb) {\n        confirmDialog(ModalService, title, confirmMessage, cb);\n    }\n}\n\n\n\n//# sourceURL=webpack:///./wi-dialog/index.js?");
+eval("var serviceName = 'wiDialog';\nmodule.exports.name = serviceName;\n\nlet app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken']);\napp.config(function($sceProvider) {\n    $sceProvider.enabled(false);\n});\n\napp.factory(serviceName, function(ModalService) {\n    return new wiDialogService(ModalService);\n});\n\nconst promptDialog = __webpack_require__(/*! ./prompt/prompt-modal.js */ \"./wi-dialog/prompt/prompt-modal.js\");\nconst confirmDialog = __webpack_require__(/*! ./confirm/confirm-modal.js */ \"./wi-dialog/confirm/confirm-modal.js\");\nconst imageGaleryDialog = __webpack_require__(/*! ./image-galery/image-galery-modal.js */ \"./wi-dialog/image-galery/image-galery-modal.js\");\n\nfunction wiDialogService(ModalService) {\n    let self = this;\n    this.setDialogUtil = function(dialogUtil) {\n        self.DialogUtil = dialogUtil;\n    }\n    this.promptDialog = function(config, cb) {\n        promptDialog(ModalService, config, cb);\n    }\n    this.confirmDialog = function(title, confirmMessage, cb) {\n        confirmDialog(ModalService, title, confirmMessage, cb);\n    }\n    this.imageGaleryDialog = function(cb) {\n        imageGaleryDialog(ModalService, cb);\n    }\n}\n\n\n\n//# sourceURL=webpack:///./wi-dialog/index.js?");
 
 /***/ }),
 
