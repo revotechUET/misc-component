@@ -12,6 +12,7 @@ function TokenService() {
     this.token = null;
     this.setToken = function (tokenVal) {
         this.token = tokenVal;
+        localStorage.setItem('token',tokenVal);
     }
     this.setPassword = function(password){
         return localStorage.setItem('password',password);

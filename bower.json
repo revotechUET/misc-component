@@ -23,6 +23,8 @@
     "ng-dialog": "^1.4.0",
     "lodash": "^4.17.11",
     "font-awesome": "4",
-    "katex": "^0.10.1"
+    "katex": "^0.10.1",
+    "angular-modal-service": "^0.15.2",
+    "bootstrap": "3"
   }
 }

@@ -1,31 +1,32 @@
-var componentName = 'wiDialog';
+var serviceName = 'wiDialog';
+module.exports.name = serviceName;
 
-module.exports.name = componentName;
-
-require('./style.less');
-
-var app = angular.module(componentName, ['ngDialog']);
-
-app.component(componentName, {
-    template: require('./template.html'),
-    controller: wiDialogController,
-    controllerAs: 'self',
-    bindings: {
-        templateId: '@',
-        getlabel: '<',
-        onDoneFn: '<',
-        onCancelFn: '<',
-        onApplyFn: '<'
-    },
-    transclude: true
+let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken']);
+app.config(function($sceProvider) {
+    $sceProvider.enabled(false);
 });
 
-function wiDialogController(ngDialog) {
-   this.$onInit = function(){
-       console.log("onInit");
-   }
-   this.onDoneClick = function(){
-       onDoneFn();
-       ngDialog.close();
-   }
+app.factory(serviceName, function(ModalService) {
+    return new wiDialogService(ModalService);
+});
+
+const promptDialog = require("./prompt/prompt-modal.js");
+const confirmDialog = require("./confirm/confirm-modal.js");
+const imageGaleryDialog = require("./image-galery/image-galery-modal.js");
+
+function wiDialogService(ModalService) {
+    let self = this;
+    this.setDialogUtil = function(dialogUtil) {
+        self.DialogUtil = dialogUtil;
+    }
+    this.promptDialog = function(config, cb) {
+        promptDialog(ModalService, config, cb);
+    }
+    this.confirmDialog = function(title, confirmMessage, cb) {
+        confirmDialog(ModalService, title, confirmMessage, cb);
+    }
+    this.imageGaleryDialog = function(cb) {
+        imageGaleryDialog(ModalService, cb);
+    }
 }
+

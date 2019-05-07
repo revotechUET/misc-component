@@ -5,45 +5,34 @@
     <meta charset="UTF-8">
     <title>Wi Map</title>
 
-    <link rel="stylesheet" href="../bower_components/ng-dialog/css/ngDialog.min.css">
-    <link rel="stylesheet" href="../bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
     <link rel="stylesheet" href="./style.css">
-
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <link rel='stylesheet' href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="../bower_components/ng-dialog/js/ngDialog.min.js"></script>
+    <script src="../bower_components/angular-modal-service/dst/angular-modal-service.min.js"></script>
     <script src="../dist/misc-components.js"></script>
-
 </head>
-<style>
-</style>
 
 <body ng-app="myApp" ng-controller="MyCtr">
     
     <button ng-click="openDlg()">open dlg</button>
     <!-- <wi-dialog getlabel="'HUHU'" on-done-fn="onDoneFn" on-apply-fn="onDoneFn" on-cancel-fn="onDoneFn"></wi-dialog> -->
     <script>
-        angular.module("myApp", ['wiDialog', 'ngDialog'])
-            .controller('MyCtr', function ($scope, $rootScope, ngDialog) {
-                $scope.onDoneFn = function () {
-                    console.log("onDoneFn clicked");
-                }
+        angular.module("myApp", ['wiDialog'])
+            .controller('MyCtr', function ($scope, $rootScope, wiDialog) {
                 $scope.openDlg = function () {
-                    ngDialog.open({
-                        template: '#templateLogout',
-                        className: 'ngdialog-theme-default',
-                        scope: $rootScope,
-                    });
-                }
-                $scope.onCancelFn = function () {
-                    ngDialog.close();
+                    wiDialog.promptDialog(null, {
+                        title: "prompt test",
+                        inputName: "Name",
+                        input: "Tit"
+                    }, function(name) {
+                        console.log(name);
+                    })
                 }
             });
-
     </script>
-<wi-dialog template-id="templateLogout" getlabel="'HUHU'" on-done-fn="onDoneFn" on-apply-fn="onDoneFn" on-cancel-fn="onCancelFn">
-    this is my dialog content
-</wi-dialog>
-
 </body>
 
 </html>
