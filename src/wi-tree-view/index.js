@@ -137,7 +137,7 @@ function wiTreeNodeController($element, $timeout, $scope) {
     this.onClick = function($event) {
         $event.preventDefault();
         if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
-            self.wiTreeView.deselectAllExcept(self);
+            self.wiTreeView.deselectAllExcept($scope.$id);
         }
 
         if ($event.shiftKey) {
