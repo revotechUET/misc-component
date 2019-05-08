@@ -52,7 +52,9 @@ function wiTreeViewController($element, $timeout, $scope) {
     this.$onInit = function () {
         self.collapsed = (self.collapsed == undefined || self.collapsed === null)? true : self.collapsed;
         this.selectedIds = this.selectedIds || {};
-        console.log(self.treeRoot);
+        $scope.$watch(() => (self.treeRoot), () => {
+            this.selectedIds = {};
+        })
     }
     this.collapseAll = function() {
         $scope.$broadcast('collapsed-command', true);
