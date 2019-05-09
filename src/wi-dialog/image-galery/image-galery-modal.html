@@ -1,21 +1,22 @@
 <div class='modal fade ' data-backdrop="static" data-keyboard="false">
-	<div class='modal-dialog'>
-		<div class="modal-content modal-lg">
+	<div class='modal-dialog modal-lg'>
+		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" ng-click="wiModal.onCancelButtonClicked()" aria-hidden="true">&times;</button>
 				<h4 ng-bind-html="wiModal.title"></h4>
 			</div>
-			<div class="modal-body text-center" style="display:flex;height:70vh;overflow:auto;">
+			<div class="modal-body text-center" style="display:flex;height:70vh;overflow:auto;flex-direction:row;">
                 <div style="flex:1;overflow:auto;">
                     <wi-tree-view tree-root="wiModal.treeRoot" get-label="wiModal.getLabel" 
                         click-fn="wiModal.clickFunction"
                         run-match="wiModal.runMatch">
-                        <h4>Image List</h4>
                     </wi-tree-view>
                 </div>
-                <div style="flex:1;overflow:hidden;"><div style="width:100%; padding:5px;">
-                    <img class="img-responsive" ng-src="{{wiModal.imgUrl?wiModal.baseUrl + wiModal.imgUrl:null}}">
-                </div></div>
+                <div style="flex:1;overflow:hidden;padding:15px;">
+                    <div ng-show="wiModal.imgUrl" style="width:100%; padding:5px;border: 1px solid #ccc;">
+                        <img class="img-responsive" ng-src="{{wiModal.imgUrl?wiModal.baseUrl + wiModal.imgUrl:null}}">
+                    </div>
+                </div>
 			</div>
 			<div class="modal-footer">
 				<button class='btn btn-default' ng-click='wiModal.onOkButtonClicked()' ng-disabled="form.$invalid">

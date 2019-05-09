@@ -22,12 +22,20 @@ wi-tree-node {
 
     }
 
-    .node-caret,
-    .node-label,
     .node-icon {
         display: flex;
         padding-right: 10px;
         font-size: 13px;
+    }
+
+    .node-caret,
+    .node-label {
+        padding-right: 10px;
+        font-size: 13px;
+        white-space: nowrap;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .node-caret {
@@ -52,7 +60,9 @@ wi-tree-node {
         align-items: center;
         transition-property: padding, margin;
         transition-duration: 0.2s;
-        &, &::after {
+
+        &,
+        &::after {
             line-height: 2.3em;
         }
 
@@ -91,6 +101,7 @@ wi-tree-node {
             right: 0;
         }
     }
+
     .node-content:hover {
         background: linear-gradient(to left, #f0f0f0, #fff);
     }
@@ -99,6 +110,7 @@ wi-tree-node {
         border: none;
         background-color: transparent;
         z-index: 1;
+
         &.selected {
             background: transparent;
             //padding: 11px;

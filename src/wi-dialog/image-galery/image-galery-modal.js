@@ -7,21 +7,23 @@ module.exports = function (ModalService, callback) {
 
         self.baseUrl = "http://dev.i2g.cloud";
         self.treeRoot = undefined;
+        $http({
+            method: "POST",
+            url: self.baseUrl + '/image-list',
+            data: {},
+            headers: {
+                Authorization: wiToken.getToken()
+            }
+        }).then(function(response) {
+            if (response.data.code === 200) {
+                self.treeRoot = response.data.content;
+            }
+        }, function(err) {
+            console.error(err);
+        });
+        
         this.$onInit = function() {
-            $http({
-                method: "POST",
-                url: self.baseUrl + '/image-list',
-                data: {},
-                headers: {
-                    Authorization: wiToken.getToken()
-                }
-            }).then(function(response) {
-                if (response.data.code === 200) {
-                    self.treeRoot = response.data.content;
-                }
-            }, function(err) {
-                console.error(err);
-            });
+            console.log('On init in dialog');
         }
         this.getLabel = function(node) {
             return node;

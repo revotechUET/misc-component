@@ -13,6 +13,7 @@ app.factory(serviceName, function(ModalService) {
 const promptDialog = require("./prompt/prompt-modal.js");
 const confirmDialog = require("./confirm/confirm-modal.js");
 const imageGaleryDialog = require("./image-galery/image-galery-modal.js");
+const imageUploadDialog = require("./image-upload/image-upload-modal.js");
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -27,6 +28,9 @@ function wiDialogService(ModalService) {
     }
     this.imageGaleryDialog = function(cb) {
         imageGaleryDialog(ModalService, cb);
+    }
+    this.imageUploadDialog = function(cb) {
+        imageUploadDialog(ModalService, cb);
     }
 }
 
