@@ -19,7 +19,9 @@ app.component('wiTreeNode', {
         clickFn: "<",
         onDragStart: "<",
         onDragStop: "<",
-        collapsed: "<"
+        collapsed: "<",
+        singleNode: "<",
+        getSiblings: "<"
     },
     require: {
         wiTreeView: "^^wiTreeView"
@@ -41,7 +43,9 @@ app.component(componentName, {
         onDragStart: "<",
         onDragStop: "<",
         selectedIds: "<",
-        collapsed: "<"
+        collapsed: "<",
+        singleNode: "<",
+        getSiblings: "<"
     },
     transclude: true
 });
@@ -51,6 +55,7 @@ function wiTreeViewController($element, $timeout, $scope) {
         window.wiTreeCtrl = this;
     this.$onInit = function () {
         self.collapsed = (self.collapsed == undefined || self.collapsed === null)? true : self.collapsed;
+        self.getSiblings = self.getSiblings || function(n) {return []}
         this.selectedIds = this.selectedIds || {};
         $scope.$watch(() => (self.treeRoot), () => {
             this.selectedIds = {};
@@ -80,6 +85,12 @@ function wiTreeNodeController($element, $timeout, $scope) {
         let matched = self.runMatch(self.treeRoot, self.filter);
         self.filter1 = (matched && self.keepChildren) ? '' : self.filter;
         return matched;
+    }
+    this.getChildrenWrapper = function(node) {
+        if (!self.singleNode)
+            return self.getChildren(node);
+        if (node._active) return self.getChildren(node);
+        return [];
     }
     this.deselect = function() {
         $timeout(() => {self.selected = false});
@@ -138,6 +149,10 @@ function wiTreeNodeController($element, $timeout, $scope) {
     }
     this.onClick = function($event) {
         $event.preventDefault();
+        self.treeRoot._active = true;
+        
+        self.getSiblings(self.treeRoot).forEach(n => n._active = false);
+
         if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
             self.wiTreeView.deselectAllExcept($scope.$id);
         }
