@@ -29,7 +29,6 @@ app.component(componentName, {
 
 exports.name = moduleName;
 
-const itemHeight = 42;
 function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
     let self = this;
     const ignoreKeys = ['$$hashKey', 'icon', 'id', 'currentState', 'createdAt', 'createdBy', 'updatedAt', 'updatedBy', 'parentDataArr'];
@@ -117,7 +116,8 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
         }, 100);
         $scope.vsRepeatOptions = {
             scrollParent: $element,
-            size: itemHeight,
+            size: 37,
+            scrollMargin: 100,
         }
         self.config = self.config || [];
         if (self.container) self.container[self.name] = self;

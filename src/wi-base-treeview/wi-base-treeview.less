@@ -61,28 +61,29 @@ wi-base-treeview {
         }
 
         .wi-parent-content {
-            padding: 8px 0;
+            padding: 2px 0;
             display: flex;
+            align-items: center;
             flex: 3;
 
             .icon-expanded {
                 width: 25px;
                 color: #33333369;
                 text-align: center;
-                height: 26px;
                 &:hover {
                     color: #0078be41
                 }
 
                 &>i {
                     text-align: center;
-                    padding-top: 6px;
+                    // margin-top: 9px;
                 }
             }
 
             &>div.item-content {
                 display: flex;
                 overflow: hidden;
+                align-items: center;
                 flex: 1;
 
                 .item-label {
@@ -90,6 +91,7 @@ wi-base-treeview {
                     overflow: hidden;
                     padding-left: 10px;
                     font-size: 12px;
+                    // margin-top: 3px;
                 }
 
                 .wi-parent-icon {
@@ -129,6 +131,10 @@ wi-base-treeview {
                     height: 26px;
                     padding: 4px;
                     border-radius: 100%;
+                    margin-top: 3px;
+                    span {
+                        vertical-align: unset;
+                    }
                 }
             }
         }
