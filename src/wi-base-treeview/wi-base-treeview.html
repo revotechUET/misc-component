@@ -24,7 +24,7 @@
                 <div class="item-content"
                     style="position: relative;">
                     <div class="display-inline-block margin-right-0_5em" style="padding-top: 6px;">
-                        <span class="{{item.data.icon}}"></span>
+                        <span class="icon" ng-class="item.data.icon"></span>
                         <div ng-if="wiBaseTreeview.showId && item.id" class='wi-parent-id'>{{item.id}}</div>
                     </div>
                     <span ng-if="(wiBaseTreeview.isShowParentName && item.parentData)">{{item.parentData.label}} /</span>
