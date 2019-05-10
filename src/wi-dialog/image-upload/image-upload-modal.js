@@ -1,6 +1,6 @@
 let helper = require('../DialogHelper');
 
-module.exports = function (ModalService, callback) {
+module.exports = function (ModalService, idImage, callback) {
     function ModalController($scope, wiApi, close) {
         let self = this;
         this.percentage = 0;
@@ -12,7 +12,7 @@ module.exports = function (ModalService, callback) {
         }
         this.upload = function() {
             if (!self.file) return;
-            wiApi.uploadImage(self.file, (imgUrl) => {
+            wiApi.uploadImage(self.file, idImage, (imgUrl) => {
                 self.imageUrl = imgUrl;
                 close(self.imageUrl);
             }, (err) => console.error(err), 

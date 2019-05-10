@@ -29,8 +29,8 @@ function wiDialogService(ModalService) {
     this.imageGaleryDialog = function(cb) {
         imageGaleryDialog(ModalService, cb);
     }
-    this.imageUploadDialog = function(cb) {
-        imageUploadDialog(ModalService, cb);
+    this.imageUploadDialog = function(idImage, cb) {
+        imageUploadDialog(ModalService, idImage, cb);
     }
 }
 

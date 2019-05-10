@@ -68,13 +68,14 @@ function wiApiService($http, wiToken, Upload) {
         return postPromise('/project/well/image-set/image/edit', image)
     }
     this.uploadImage = uploadImage;
-    function uploadImage(image, successCb, errorCb, progressCb) {
+    function uploadImage(image, idImage,successCb, errorCb, progressCb) {
         return Upload.upload({
             url: self.baseUrl + '/image-upload',
             headers: {
                 Authorization: wiToken.getToken()
             },
             data: {
+                idImage: idImage,
                 file: image
             }
         }).then(
@@ -82,6 +83,10 @@ function wiApiService($http, wiToken, Upload) {
             resp => errorCb(resp), 
             evt => progressCb(parseFloat(100.0 * evt.loaded / evt.total))
         ).catch(err => errorCb(err));
+    }
+    this.deleteImageFilePromise = deleteImageFilePromise;
+    function deleteImageFilePromise(imageUrl) {
+        return postPromise('/image-delete', {imageUrl: imageUrl});
     }
 
     this.convertUnit = convertUnit;
