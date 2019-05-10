@@ -1,0 +1,33 @@
+<div class='modal fade' data-backdrop="static" data-keyboard="false">
+	<div class='modal-dialog'>
+		<div class="modal-content"><form>
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="wiModal.close(false)" aria-hidden="true">&times;</button>
+				<h4>Choose image ...</h4>
+			</div>
+            <div style="display:flex;width:100%;height:3px;">
+                <div class='done' style="background-color:#0077be" ng-style="{width:wiModal.percentage + '%'}"></div>
+                <div class='remaining' style="flex:1;"></div>
+            </div>
+			<div class="modal-body text-center">
+                <div ng-hide="wiModal.file" ngf-drop ng-model="wiModal.file" name="file" ngf-pattern="'image/*'"
+                    ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+                    style="height:300px; color:#ccc;line-height:300px;font-size:200%;text-align:center;">
+                    Image Preview
+                </div>
+                <img ngf-src="wiModal.file" class='img-responsive'>
+			</div>
+			<div class="modal-footer">
+                <button class="btn btn-default" ngf-select ng-model="wiModal.file" name="file" ngf-pattern="'image/*'"
+                    ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100">Choose image ...</button>
+				<button class='btn btn-default' ng-click='wiModal.upload()' style="color: #000">
+                    <span class="ok-16x16"></span>&nbsp;Upload
+                </button>
+				<button ng-if="!wiModal.actions" class='btn btn-default' ng-click='wiModal.close(false)'>
+                    <span class="close-16x16"></span>&nbsp;Cancel
+                </button>
+			</div>
+		</form></div>
+	</div>
+</div>
+
