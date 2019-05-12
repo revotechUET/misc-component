@@ -14,6 +14,7 @@ const promptDialog = require("./prompt/prompt-modal.js");
 const confirmDialog = require("./confirm/confirm-modal.js");
 const imageGaleryDialog = require("./image-galery/image-galery-modal.js");
 const imageUploadDialog = require("./image-upload/image-upload-modal.js");
+const importImagesDialog = require('./import-images/import-images-modal.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -31,6 +32,9 @@ function wiDialogService(ModalService) {
     }
     this.imageUploadDialog = function(idImage, cb) {
         imageUploadDialog(ModalService, idImage, cb);
+    }
+    this.importImagesDialog = function(idProject, imgSetName, cb) {
+        importImagesDialog(ModalService, idProject, imgSetName, cb);
     }
 }
 

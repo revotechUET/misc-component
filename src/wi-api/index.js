@@ -6,7 +6,7 @@ angular.module(serviceName, ['wiToken', 'ngFileUpload']).factory(serviceName, fu
 function wiApiService($http, wiToken, Upload) {
     let self = this;
     this.$http = $http;
-    this.baseUrl = 'http://dev.i2g.cloud';
+    this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
     let unitTable = undefined;
     function postPromise(url, data) {
         return new Promise(function(resolve, reject) {
@@ -46,6 +46,10 @@ function wiApiService($http, wiToken, Upload) {
     this.createImageSetPromise = createImageSetPromise;
     function createImageSetPromise(idWell, name) {
         return postPromise('/project/well/image-set/new', {name, idWell});
+    }
+    this.createOrGetImageSetPromise = createOrGetImageSetPromise;
+    function createOrGetImageSetPromise(idWell, name) {
+        return postPromise('/project/well/image-set/new-or-get', {name, idWell});
     }
     this.deleteImageSetPromise = deleteImageSetPromise;
     function deleteImageSetPromise(idImageSet) {
@@ -94,13 +98,6 @@ function wiApiService($http, wiToken, Upload) {
         if ((!Array.isArray(value) && !_.isFinite(value)) || fromUnit === destUnit) return value;
         if (!unitTable) {
             return null;
-            /*try {
-                unitTable = await getAllUnitPromise();
-            }
-            catch(err) {
-                console.error(err);
-                return null;
-            }*/
         }
 
         let startUnit = unitTable.find(u => u.name == fromUnit);
@@ -126,5 +123,20 @@ function wiApiService($http, wiToken, Upload) {
             console.error(`cannot find ${errUnit} from unit system.`, {silent: true});
             return null;
         }
+    }
+    this.bestNumberFormat = function(x, digits = 0) {
+        if (!x) return x;
+        let ex = Math.abs(x / 100);
+        let n = -Math.round(Math.log10(ex));
+        n = n>=digits?n:digits;
+        return (Math.round(x*(10**n))/(10**n)).toFixed(n);
+    }
+    this.getWellTopDepth = function(well, unit = 'm') {
+        let startHdr = well.well_headers.find((wh) => (wh.header === 'STRT'));
+        return wiApi.convertUnit(parseFloat((startHdr||{}).value || 0), startHdr.unit, unit);
+    }
+    this.getWellBottomDepth = function(well, unit = 'm') {
+        let stopHdr = well.well_headers.find((wh) => (wh.header === 'STOP'));
+        return wiApi.convertUnit(parseFloat((stopHdr || {}).value || 0), stopHdr.unit, unit);
     }
 }
