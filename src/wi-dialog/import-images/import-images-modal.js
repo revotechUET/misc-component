@@ -107,10 +107,11 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
         }
 
         function imageObject(uploadFile, idImageSet) {
+            let topDepth = uploadFile.information['TOPDEPTH'] || uploadFile.information['DEPTH'];
             return {
                 name: uploadFile.name,
-                topDepth: uploadFile.information['TOPDEPTH'] || uploadFile.information['DEPTH'],
-                bottomDepth: uploadFile.information['BOTDEPTH'] || (uploadFile.information['DEPTH'] + 10),
+                topDepth: topDepth,
+                bottomDepth: uploadFile.information['BOTDEPTH'] || (topDepth + 10),
                 idImageSet: idImageSet,
                 imageUrl: null
             }
