@@ -107,7 +107,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
         }
 
         function imageObject(uploadFile, idImageSet) {
-            let topDepth = uploadFile.information['TOPDEPTH'] || uploadFile.information['DEPTH'];
+            let topDepth = parseFloat(uploadFile.information['TOPDEPTH'] || uploadFile.information['DEPTH']);
             return {
                 name: uploadFile.name,
                 topDepth: topDepth,
