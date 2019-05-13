@@ -111,7 +111,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
             return {
                 name: uploadFile.name,
                 topDepth: topDepth,
-                bottomDepth: uploadFile.information['BOTDEPTH'] || (topDepth + 10),
+                bottomDepth: uploadFile.information['BOTDEPTH'] || (topDepth + 0.0004),
                 idImageSet: idImageSet,
                 imageUrl: null
             }
