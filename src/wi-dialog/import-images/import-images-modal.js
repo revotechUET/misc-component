@@ -110,7 +110,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
             return {
                 name: uploadFile.name,
                 topDepth: uploadFile.information['TOPDEPTH'] || uploadFile.information['DEPTH'],
-                bottomDepth: uploadFile.information['BOTTOMDEPTH'] || (uploadFile.information['DEPTH'] + 10),
+                bottomDepth: uploadFile.information['BOTDEPTH'] || (uploadFile.information['DEPTH'] + 10),
                 idImageSet: idImageSet,
                 imageUrl: null
             }
@@ -121,7 +121,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                     return image.information[brand];
                 case "DEPTH":
                 case "TOPDEPTH":
-                case "BOTTOMDEPTH":
+                case "BOTDEPTH":
                     return wiApi.bestNumberFormat(
                         wiApi.convertUnit(
                             parseFloat(image.information[brand]), 'm', self.getValue([image,'UNIT'])
@@ -139,7 +139,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                     break;
                 case "DEPTH":
                 case "TOPDEPTH":
-                case "BOTTOMDEPTH":
+                case "BOTDEPTH":
                     image.information[brand] = wiApi.convertUnit(
                         parseFloat(newValue), self.getValue([image, 'UNIT']), 'm'
                     );
@@ -161,7 +161,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                     return well?'green':'red';
                 case "DEPTH":
                 case "TOPDEPTH":
-                case "BOTTOMDEPTH":
+                case "BOTDEPTH":
                     return 'green';
                 case "UNIT":
                     let value = self.getValue([img, brand]);
