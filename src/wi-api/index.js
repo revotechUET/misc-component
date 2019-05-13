@@ -133,10 +133,10 @@ function wiApiService($http, wiToken, Upload) {
     }
     this.getWellTopDepth = function(well, unit = 'm') {
         let startHdr = well.well_headers.find((wh) => (wh.header === 'STRT'));
-        return wiApi.convertUnit(parseFloat((startHdr||{}).value || 0), startHdr.unit, unit);
+        return convertUnit(parseFloat((startHdr||{}).value || 0), startHdr.unit, unit);
     }
     this.getWellBottomDepth = function(well, unit = 'm') {
         let stopHdr = well.well_headers.find((wh) => (wh.header === 'STOP'));
-        return wiApi.convertUnit(parseFloat((stopHdr || {}).value || 0), stopHdr.unit, unit);
+        return convertUnit(parseFloat((stopHdr || {}).value || 0), stopHdr.unit, unit);
     }
 }
