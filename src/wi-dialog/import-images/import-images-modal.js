@@ -1,6 +1,6 @@
 let helper = require('../DialogHelper');
 module.exports = function (ModalService, idProject, imgSetName, callback) {
-    function ModalController($scope, $timeout, $element, wiApi, close) {
+    function ModalController($scope, $timeout, $element, wiApi, close, wiLoading) {
         const self = this;
         self.selectedIdx = -1;
         self.selectedUnit = 'm';
@@ -18,15 +18,15 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
         this.inputWellName = '';
         this.wells = null;
         wiApi.getWellsPromise(idProject).then(wells => self.wells = wells).catch(err => console.error(err));
-
+        wiLoading.Spinner();
         // setTimeout(() => {
         //     console.log(self.wells);
         // }, 1000);
 
         // this.hasChanged = function () {
-            
+
         // }
-        
+
         function getImageName(img) {
             let _DIVIDER;
             if (img.match('/') != null) {
@@ -83,7 +83,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                 this.uploadFileList[i].information.arrayPattern = [];
                 processUpdate(this.uploadFileList[i], this.inputPattern)
                 // console.log(this.uploadFileList[i]);
-                
+
                 // this.inputPattern.search("WELLNAME");
 
             }
@@ -101,45 +101,48 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                 }
             });
         }
+
+        
+        
+
         async function doUploadFiles(files, callback) {
-            async.eachSeries(files, function (file, cb) {
+            Spinner.show();
+            async.eachOfSeries(files, function (file, idx, cb) {
                 let well;
-                if(self.inputPattern.search("WELLNAME") == -1){
+                if (self.inputPattern.search("WELLNAME") == -1) {
                     well = self.inputWellName;
                     console.log(well)
-                }
-                else {
+                } else {
                     well = self.wells.find(w => w.name === file.information.WELLNAME || w.alias === file.information.WELLNAME);
                     console.log(well);
                 }
-                
+
                 if (well) {
-                    
-                        wiApi.createOrGetImageSetPromise(well.idWell, self.imgSetName).then((imageSet) => {
-                            well.imageSet = imageSet;
-                            wiApi.createImagePromise(imageObject(file, well.imageSet.idImageSet)).then((image) => {
-                                wiApi.uploadImage(file, image.idImage,
-                                    function (imgUrl) {
-                                        image.imageUrl = imgUrl;
-                                        wiApi.updateImagePromise(image).then(image => 
-                                            cb()
-                                        ).catch(err => 
-                                            cb(err)
-                                        );
-                                    },
-                                    function (err) {
-                                        console.error(err);
-                                        cb(err);
-                                    }, (evt) => {});
-                            }).catch(err => {
-                                console.log(err);
-                                cb(err);
-                            });  
+                    wiApi.createOrGetImageSetPromise(well.idWell, self.imgSetName).then((imageSet) => {
+                        well.imageSet = imageSet;
+                        wiApi.createImagePromise(imageObject(file, well.imageSet.idImageSet, idx)).then((image) => {
+                            wiApi.uploadImage(file, image.idImage,
+                                function (imgUrl) {
+                                    image.imageUrl = imgUrl;
+                                    wiApi.updateImagePromise(image).then(image =>
+                                        cb()
+                                    ).catch(err =>
+                                        cb(err)
+                                    );
+                                },
+                                function (err) {
+                                    console.error(err);
+                                    cb(err);
+                                }, (evt) => {});
                         }).catch(err => {
-                            console.error(err);
+                            console.log(err);
                             cb(err);
                         });
-                    
+                    }).catch(err => {
+                        console.error(err);
+                        cb(err);
+                    });
+
                 } else {
                     cb(new Error("No well matched"));
                 }
@@ -151,20 +154,21 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                     callback(true);
                 }
             });
-            
+
         }
 
-        function imageObject(uploadFile, idImageSet) {
+        function imageObject(uploadFile, idImageSet, orderNum) {
             let topDepth = parseFloat(uploadFile.information['TOPDEPTH'] || uploadFile.information['DEPTH']);
             let bottomDepth = parseFloat(uploadFile.information['BOTDEPTH']) || (topDepth + 0.0004);
-            topDepth = wiApi.convertUnit(topDepth, self.selectedUnit,'m');
-            bottomDepth = wiApi.convertUnit(bottomDepth, self.selectedUnit,'m');
+            topDepth = wiApi.convertUnit(topDepth, self.selectedUnit, 'm');
+            bottomDepth = wiApi.convertUnit(bottomDepth, self.selectedUnit, 'm');
 
             return {
                 name: uploadFile.name,
                 topDepth: topDepth,
                 bottomDepth: bottomDepth,
                 idImageSet: idImageSet,
+                orderNum: orderNum,
                 imageUrl: null
             }
         }

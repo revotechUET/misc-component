@@ -11,5 +11,6 @@ module.exports = {
     wiTreeView: require('./wi-tree-view'),
     wiDroppable: require('./wi-droppable'),
     wiDialog: require('./wi-dialog'),
-    wiApi: require('./wi-api')
+    wiApi: require('./wi-api'),
+    wiLoading: require('./wi-loading')
 }
