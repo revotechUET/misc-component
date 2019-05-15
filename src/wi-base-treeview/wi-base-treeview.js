@@ -104,6 +104,7 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
         }
         return nodes;
     }
+    const ITEM_HEIGHT = 37;
     this.$onInit = function () {
         self.name = self.name || 'treeviewController' + Date.now();
         self.filter = self.filter || '';
@@ -116,7 +117,7 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
         }, 100);
         $scope.vsRepeatOptions = {
             scrollParent: $element,
-            size: 37,
+            size: ITEM_HEIGHT,
             scrollMargin: 100,
         }
         self.config = self.config || [];
@@ -434,7 +435,7 @@ function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
         node.data.selected = true;
         self.updateNodes();
         const idx = self.nodes.findIndex(n => n === node);
-        $element.animate({ scrollTop: idx * itemHeight });
+        $element.animate({ scrollTop: idx * ITEM_HEIGHT });
     }
 }
 
