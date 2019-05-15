@@ -1,37 +1,173 @@
 <div class='import-images modal fade ' data-backdrop="static" data-keyboard="false" style="z-index: 10001;">
     <style>
         .import-images.modal .modal-body {
-            display:block;
+            display: block;
+            position: relative;
+            padding: 0 20px;
         }
+
         .modal-open .import-images.modal {
-            overflow:hidden;
+            overflow: hidden;
         }
-        .import-images .isHover{
+
+        .import-images.modal .form-group {
+            margin-bottom: 0;
+            border-left: 1px solid #d8d8d8;
+            border-radius: 2px;
+        }
+
+        .import-images.modal .option {
+            /* border: 1px solid #d8d8d8; */
+            border-radius: 2px;
+            flex: 1;
+            margin-right: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .import-images.modal .option-item {
+            background: #f4f4f4;
+            padding: 10px;
+            min-height: 49px;
+            margin-bottom: 15px;
+            max-width: 189px;
+            overflow: hidden;
+            font-weight: bold;
+            color: rgb(56, 56, 56);
+            border-radius: 2px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ececec;
+
+        }
+
+        .import-images.modal .list-images {
+            flex: 4;
+        }
+
+        .import-images.modal .img-list-item {
+            background: #fff;
+            padding: 5px 10px;
+            border-radius: 2px;
+            margin-right: 10px;
+        }
+
+        .import-images.modal .list-group-item {
+            margin-bottom: 15px;
+            display: flex;
+            overflow: hidden;
+            justify-content: space-between;
+            border-radius: 2px;
+            border: 1px solid #ececec;
+            padding: 10px;
+            background: #f4f4f4;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .import-images.modal .unit-option {
+            background: #fff;
+            padding: 4px 15px;
+            border-radius: 2px;
+            margin-left: 15px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.308);
+            border: 1px solid #ececec;
+        }
+
+        .import-images.modal .select-option {
+            font-size: 12px;
+            border: none;
+            box-shadow: none;
+            background: #f4f4f4;
+            color: #0077be;
+        }
+        .import-images.modal .option-imagesetname {
+            color: #0077be;
+            margin-left: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: #fff;
+            padding: 5px 15px;
+            border-radius: 2px;
+        }
+        /* .import-images.modal editable div.my-content input {
+            width: 100%;
+            color: #0077be;
+        } */
+        .import-images.modal .m-active {
+            background: #fff;
+            color: #0077be;
+        }
+
+        .import-images.modal .ft-active {
+            background: #fff;
+            color: #0077be;
+        }
+
+        .import-images.modal .input-option {
+            width: 100%;
+            border: none;
+            border-radius: 2px;
+            padding: 5px 15px;
+            outline: none;
+            margin-left: 15px;
+            text-align: right;
+            color: #0077be;
+        }
+
+        .import-images.modal .modal-header {
+            padding: 15px 15px;
+            display: flex;
+            border-bottom: 1px solid #e5e5e5;
+            min-height: 16.42857143px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .import-images.modal editable label {
+            margin: 0 15px 0 0;
+            font-weight: normal;
+        }
+
+        .import-images .isHover {
             padding: 4px 4px;
         }
+
         .import-images .isHover:hover {
-            background-color: #e3e3e3;
+            background-color: #d1d1d1;
+
         }
-        .import-images .isHover a{
+
+        .import-images .isHover a {
             text-decoration: none;
             color: #555;
             cursor: pointer;
             display: inline-block;
             width: 100%;
         }
+
         .import-images .show {
             visibility: visible;
         }
+
         .import-images .hide {
             visibility: hidden;
         }
+
         .import-images .list-group-no-line {
             font-weight: bold;
-            margin-bottom: 5px;
+            /* margin-bottom: 5px; */
         }
-        .import-images .list-hover:hover, .import-images .list-hover.selected{
+
+        .import-images .list-hover:hover,
+        .import-images .list-hover.selected {
             background-color: #1111;
         }
+
         .import-images .pattern-list {
             background-color: white;
             position: absolute;
@@ -42,6 +178,7 @@
             margin-top: 10px;
             list-style: none;
         }
+
         .import-image ul {
             margin-left: 0px;
             padding-left: 0px;
@@ -49,82 +186,104 @@
     </style>
     <div class='modal-dialog' style="width:1000px;">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" ng-click="self.closeModal()" aria-hidden="true">&times;</button>
-                <!--<h4 style="display:inline-block" class="modal-title">Import into</h4>-->
-                <div style="display:inline-block;width:800px;vertical-align:bottom;font-size:18px;line-height:1.4;">
-                    <editable item-value="self.imgSetName" enabled='true' 
-                        item-label="'Import into'" 
+            <div class="modal-header" style="border-bottom: none !important">
+
+                <!-- <h4 style="display:inline-block" class="modal-title">Import into</h4>
+                <div style="display:inline-block;width:800px;vertical-align:bottom;font-size:18px;line-height:1.4;"></div>
+                    <editable item-value="self.imgSetName" enabled='true' item-label="'Import into'"
                         set-value="self.setImgSetName" content-style="{'border':'1px dashed #ccc'}"></editable>
                 </div>
+                <button type="button" class="close" ng-click="self.closeModal()" aria-hidden="true">&times;</button> -->
             </div>
 
             <div class="modal-body container-fluid">
-                <div class="col-sm-12">
-                    <div class="form-horizontal" style="margin-bottom:15px;">
-                        <div style="display:flex;flex-direction:row;">
-                            <input type="text" style="display: inline-block;text-transform: uppercase;" class="form-control" ng-model="self.inputPattern" ng-blur="self.updateInformation()">
-                            <div style="display: inline-block; position: relative;margin-left:15px;" >
-                                <button class="btn btn-default" 
-                                    ng-click="isShow = !isShow;self.focusPatternList();">Select pattern
-                                </button>
-                                <div class='pattern-list' ng-class="{'show': isShow, 'hide':!isShow}" tabindex="0" ng-blur="isShow = false;" ng-keydown="$event.key === 'Escape'?isShow=false:null;">
-                                    <ul style="list-style: none; padding-left: 0px;" >
-                                        <li class="isHover" ng-repeat="(index, pattern) in self.patterns">
-                                            <a ng-click="self.selectPattern(pattern)">{{pattern}}</a>
-                                        </li>
-                                    </ul>
-                                </div>
+
+                <div class="form-horizontal" style="margin:20px 0;">
+                    <div style="display:flex;flex-direction:row; align-items: center;">
+                        <!-- <div>Import imageSet</div> -->
+                        <div style="display: inline-block; position: relative;margin-right:15px;">
+                            <button class="btn btn-default" style="border-radius: 2px !important; width: 189px;"
+                                ng-click="isShow = !isShow;self.focusPatternList();">Select
+                                pattern
+                            </button>
+                            <div class='pattern-list' ng-class="{'show': isShow, 'hide':!isShow}" tabindex="0"
+                                ng-blur="isShow = false;" ng-keydown="$event.key === 'Escape'?isShow=false:null;">
+                                <ul style="list-style: none; padding-left: 0px;">
+                                    <li class="isHover" ng-repeat="(index, pattern) in self.patterns">
+                                        <a ng-click="self.selectPattern(pattern)">{{pattern}}</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+                        <input type="text" style="display: inline-block;text-transform: uppercase;" class="form-control"
+                            ng-model="self.inputPattern" ng-blur="self.updateInformation()">
+
                     </div>
                 </div>
-                <div class="col-sm-8">
-                    <form enctype='multipart/form-data'>
-                        <div class="form-group col-sm-12">
-                            <div class="upload-list" style="height: 360px;overflow:auto;">
-                                <ul class="" style="padding-left: 0;">
-                                    <li class="list-group-item list-hover" ng-class="{'selected':self.selectedIdx === index}"
-                                        ng-repeat="(index, uploadFile) in self.uploadFileList"
-                                        style="margin-bottom: 10px; display: block;overflow: hidden">
-                                        <div style="width: 100%;float: left;cursor: pointer;" 
+                <div style="display: flex;">
+                    <div class="option">
+                        <div class="option-item">WELLNAME
+                            <select class="select-option" ng-options="well.name for well in self.wells"
+                                ng-model="self.inputWellName"></select>
+                        </div>
+                        <div class="option-item">IMAGESET
+                            <editable class="option-imagesetname" item-value="self.imgSetName" enabled='true' item-label="brand"
+                                set-value="self.setImgSetName">
+                            </editable>
+                        </div>
+                        <div class="option-item">UNIT
+                            <span ng-class="{'m-active':self.selectedUnit === 'm'}" ng-click="self.selectUnit('m')"
+                                class="unit-option">m</span>
+                            <span ng-class="{'ft-active':self.selectedUnit === 'ft'}" ng-click="self.selectUnit('ft')"
+                                class="unit-option">ft</span>
+                        </div>
+                        <div class="option-item">MAX INTERVAL
+                            <input class="input-option" type="text" value="2">
+                        </div>
+                    </div>
+                    <form class="list-images" enctype='multipart/form-data'>
+                        <div class="form-group">
+                            <div class="upload-list" style="height: 240px; overflow:auto;">
+                                <ul class="" style="padding-left: 15px;">
+                                    <li class="list-group-item list-hover"
+                                        ng-class="{'selected':self.selectedIdx === index}"
+                                        ng-repeat="(index, uploadFile) in self.uploadFileList">
+                                        <div style="display: flex; align-items: center; cursor: pointer;"
                                             ng-click="self.selectedIdx = index;self.showFileUpload(uploadFile.src);">
-                                            <button style="display: block;position: absolute;
-                                                       right: 10px;border: 0;z-index: 99999" 
-                                                    class="btn btn-default pull-right" 
-                                                    ng-click="self.removeFromUpload(index)">
-                                                <span class="delete-16x16"></span>
-                                            </button>
-                                            <div class="list-group-no-line">
+                                            <div class="img-list-item" style="
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;">
                                                 {{uploadFile.name}}
                                             </div>
-                                            <div ng-repeat="brand in uploadFile.information.arrayPattern">  
-                                                <editable item-value="self.getValue" 
-                                                    item-label="brand"
-                                                    params="[uploadFile,brand]"
-                                                    set-value="self.setValue"
-                                                    label-style="{'width':'100px'}"
+                                            <div class="img-list-item"
+                                                ng-repeat="brand in uploadFile.information.arrayPattern">
+                                                <editable item-value="self.getValue" item-label="brand"
+                                                    params="[uploadFile,brand]" set-value="self.setValue"
                                                     content-style="{'color':self.isValid(brand, uploadFile)}"
                                                     enabled="true"></editable>
                                             </div>
+
                                         </div>
+                                        <span class="img-list-item" ng-click="self.removeFromUpload(index)">
+                                            Delete
+                                        </span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div ng-show="self.showImage" class="col-sm-4" style="height:320px;">
+                <!-- <div ng-show="self.showImage" style="height:320px;">
                     <img style="max-height:100%;" class="img-responsive" ng-src="{{self.src}}" alt="{{self.nameImage}}">
-                </div>
+                </div> -->
             </div>
 
 
 
             <div class="modal-footer">
-                <button class="btn btn-default"
-                        ngf-select="self.addForUpload($files)"
-                        ngf-multiple="true">Select Files ...
+                <button class="btn btn-default" ngf-select="self.addForUpload($files)" ngf-multiple="true">Select Files
+                    ...
                 </button>
                 <button type="button" ng-click="self.uploadFiles()" class="btn btn-default">
                     <span class="ok-16x16"></span>&nbsp;Upload
@@ -136,4 +295,3 @@
         </div>
     </div>
 </div>
-
