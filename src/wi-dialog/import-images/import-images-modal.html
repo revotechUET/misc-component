@@ -1,9 +1,10 @@
-<div class='import-images modal fade ' data-backdrop="static" data-keyboard="false" style="z-index: 10001;">
+<div id="abc" class='import-images modal fade ' data-backdrop="static" data-keyboard="false" style="z-index: 10001;">
     <style>
         .import-images.modal .modal-body {
             display: block;
             position: relative;
             padding: 0 20px;
+            height: 333px;
         }
 
         .modal-open .import-images.modal {
@@ -46,6 +47,11 @@
         .import-images.modal .list-images {
             flex: 4;
         }
+        .import-images.modal .image-preview {
+            flex: 1;
+            max-height: 250px;
+            max-width: 100%;
+        }
 
         .import-images.modal .img-list-item {
             background: #fff;
@@ -84,6 +90,7 @@
             background: #f4f4f4;
             color: #0077be;
         }
+
         .import-images.modal .option-imagesetname {
             color: #0077be;
             margin-left: 10px;
@@ -94,6 +101,7 @@
             padding: 5px 15px;
             border-radius: 2px;
         }
+
         /* .import-images.modal editable div.my-content input {
             width: 100%;
             color: #0077be;
@@ -227,8 +235,8 @@
                                 ng-model="self.inputWellName"></select>
                         </div>
                         <div class="option-item">IMAGESET
-                            <editable class="option-imagesetname" item-value="self.imgSetName" enabled='true' item-label="brand"
-                                set-value="self.setImgSetName">
+                            <editable class="option-imagesetname" item-value="self.imgSetName" enabled='true'
+                                item-label="brand" set-value="self.setImgSetName">
                             </editable>
                         </div>
                         <div class="option-item">UNIT
@@ -238,22 +246,22 @@
                                 class="unit-option">ft</span>
                         </div>
                         <div class="option-item">MAX INTERVAL
-                            <input class="input-option" type="text" value="2">
+                            <input class="input-option" type="text" ng-model="self.maxInterval">
                         </div>
                     </div>
                     <form class="list-images" enctype='multipart/form-data'>
                         <div class="form-group">
-                            <div class="upload-list" style="height: 240px; overflow:auto;">
+                            <div class="upload-list" style="height: 241px; overflow:auto;">
                                 <ul class="" style="padding-left: 15px;">
                                     <li class="list-group-item list-hover"
                                         ng-class="{'selected':self.selectedIdx === index}"
                                         ng-repeat="(index, uploadFile) in self.uploadFileList">
-                                        <div style="display: flex; align-items: center; cursor: pointer;"
-                                            ng-click="self.selectedIdx = index;self.showFileUpload(uploadFile.src);">
+                                        <div style="display: flex; align-items: center; cursor: pointer;">
                                             <div class="img-list-item" style="
                                             white-space: nowrap;
                                             overflow: hidden;
-                                            text-overflow: ellipsis;">
+                                            text-overflow: ellipsis;
+                                            max-width: 100px;">
                                                 {{uploadFile.name}}
                                             </div>
                                             <div class="img-list-item"
@@ -263,20 +271,25 @@
                                                     content-style="{'color':self.isValid(brand, uploadFile)}"
                                                     enabled="true"></editable>
                                             </div>
-
                                         </div>
-                                        <span class="img-list-item" ng-click="self.removeFromUpload(index)">
-                                            Delete
-                                        </span>
+                                        <div style="display: flex; margin-left: 15px;">
+                                            <span class="img-list-item" ng-click="self.showFileUpload(uploadFile.src);">
+                                                Preview</span>
+                                            <span class="img-list-item" ng-click="self.removeFromUpload(index)">
+                                                Delete
+                                            </span>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </form>
+                    <div class="image-preview" ng-show="self.showImage">
+                        <img style="max-height:100%;" class="img-responsive" ng-src="{{self.src}}"
+                            alt="{{self.nameImage}}">
+                    </div>
                 </div>
-                <!-- <div ng-show="self.showImage" style="height:320px;">
-                    <img style="max-height:100%;" class="img-responsive" ng-src="{{self.src}}" alt="{{self.nameImage}}">
-                </div> -->
+
             </div>
 
 

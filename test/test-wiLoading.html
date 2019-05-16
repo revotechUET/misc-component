@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wi Map</title>
+
+    <link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/lodash/dist/lodash.min.js"></script>
+    
+    <script src="../dist/misc-components.js"></script>
+
+</head>
+<style>
+    #abc {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        border: 1px solid red;
+        background: blue;
+       
+    }
+</style>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <button ng-click="startLoading()">start</button>
+    <button ng-click="stopLoading()">stop</button>
+    <div id='abc'></div>
+    <script>
+        angular.module('myApp', ['wiLoading']).controller('myCtrl', function($scope, wiLoading) {
+            $scope.startLoading = function() {
+                wiLoading.show(document.getElementById('abc'));
+            }
+            $scope.stopLoading = function() {
+                wiLoading.hide();
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -6,8 +6,8 @@ editable div.my-content {
     float: left;
 }
 editable div.my-content input {
-    /*width: 100%;*/
-    background-color: none;
+    width: 100%;
+    background-color: transparent;
     border:none;
     box-shadow:none;
     outline:none;

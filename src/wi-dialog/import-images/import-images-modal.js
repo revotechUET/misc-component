@@ -1,6 +1,6 @@
 let helper = require('../DialogHelper');
 module.exports = function (ModalService, idProject, imgSetName, callback) {
-    function ModalController($scope, $timeout, $element, wiApi, close) {
+    function ModalController($scope, $timeout, $element, wiApi, close, wiLoading) {
         const self = this;
         self.selectedIdx = -1;
         self.selectedUnit = 'm';
@@ -17,15 +17,8 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
         this.inputPattern = '';
         this.inputWellName = '';
         this.wells = null;
+        this.maxInterval = 0;
         wiApi.getWellsPromise(idProject).then(wells => self.wells = wells).catch(err => console.error(err));
-        // wiLoading.Spinner();
-        // setTimeout(() => {
-        //     console.log(self.wells);
-        // }, 1000);
-
-        // this.hasChanged = function () {
-
-        // }
 
         function getImageName(img) {
             let _DIVIDER;
@@ -102,11 +95,8 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
             });
         }
 
-        
-        
-
         async function doUploadFiles(files, callback) {
-            Spinner.show();
+            wiLoading.show(document.getElementById('abc'));
             async.eachOfSeries(files, function (file, idx, cb) {
                 let well;
                 if (self.inputPattern.search("WELLNAME") == -1) {
@@ -142,7 +132,6 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                         console.error(err);
                         cb(err);
                     });
-
                 } else {
                     cb(new Error("No well matched"));
                 }
@@ -154,15 +143,15 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                     callback(true);
                 }
             });
-
+            // wiLoading.hide();
         }
 
         function imageObject(uploadFile, idImageSet, orderNum) {
             let topDepth = parseFloat(uploadFile.information['TOPDEPTH'] || uploadFile.information['DEPTH']);
-            let bottomDepth = parseFloat(uploadFile.information['BOTDEPTH']) || (topDepth + 0.0004);
+            let bottomDepth = parseFloat(uploadFile.information['BOTDEPTH']) || (topDepth + parseFloat(self.maxInterval));
             topDepth = wiApi.convertUnit(topDepth, self.selectedUnit, 'm');
             bottomDepth = wiApi.convertUnit(bottomDepth, self.selectedUnit, 'm');
-
+            
             return {
                 name: uploadFile.name,
                 topDepth: topDepth,

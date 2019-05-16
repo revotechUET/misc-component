@@ -1,7 +1,7 @@
 var serviceName = 'wiDialog';
 module.exports.name = serviceName;
 
-let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken']);
+let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken', 'wiLoading']);
 app.config(function($sceProvider) {
     $sceProvider.enabled(false);
 });
