@@ -1,6 +1,6 @@
 let helper = require('../DialogHelper');
 module.exports = function (ModalService, idProject, imgSetName, callback) {
-    function ModalController($scope, $timeout, $element, wiApi, close, wiLoading) {
+    function ModalController($scope, $timeout, $element, wiApi, close) {
         const self = this;
         self.selectedIdx = -1;
         self.selectedUnit = 'm';
@@ -18,7 +18,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
         this.inputWellName = '';
         this.wells = null;
         wiApi.getWellsPromise(idProject).then(wells => self.wells = wells).catch(err => console.error(err));
-        wiLoading.Spinner();
+        // wiLoading.Spinner();
         // setTimeout(() => {
         //     console.log(self.wells);
         // }, 1000);
