@@ -21,11 +21,12 @@ function wiLoadingService($timeout) {
             shadow: false,
             border: false
         });
-        _holder.innerHTML = `<div class="wi-loading spinner-background">
-            <div class="spinner-backdrop">
+        let div = document.createElement('div');
+        div.setAttribute('class', 'wi-loading spinner-background');
+        _holder.appendChild(div);
+        div.innerHTML = `<div class="spinner-backdrop">
                 <div class='spinnerHolder'></div>
-            </div>
-        </div>`;
+            </div>`;
         $(_holder).find('.spinnerHolder')[0].appendChild(_spinner.spin().el);
     }
 

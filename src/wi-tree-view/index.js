@@ -163,7 +163,7 @@ function wiTreeNodeController($element, $timeout, $scope) {
         self.select();
 
         if (self.clickFn) {
-            self.clickFn($event, self.treeRoot);
+            self.clickFn($event, self.treeRoot, self.wiTreeView.selectedIds);
         }
     }
 }

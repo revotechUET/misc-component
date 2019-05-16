@@ -1,4 +1,4 @@
-<div id="abc" class='import-images modal fade ' data-backdrop="static" data-keyboard="false" style="z-index: 10001;">
+<div class='import-images modal fade ' data-backdrop="static" data-keyboard="false" style="z-index: 10001;">
     <style>
         .import-images.modal .modal-body {
             display: block;
@@ -192,7 +192,7 @@
             padding-left: 0px;
         }
     </style>
-    <div class='modal-dialog' style="width:1000px;">
+    <div id="abc" class='modal-dialog' style="width:1000px;">
         <div class="modal-content">
             <div class="modal-header" style="border-bottom: none !important">
 
@@ -284,7 +284,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="image-preview" ng-show="self.showImage">
+                    <div style="margin-left: 15px;" class="image-preview" ng-show="self.showImage">
                         <img style="max-height:100%;" class="img-responsive" ng-src="{{self.src}}"
                             alt="{{self.nameImage}}">
                     </div>

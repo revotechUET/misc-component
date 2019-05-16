@@ -87,6 +87,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
         }
         this.uploadFiles = function () {
             doUploadFiles(this.uploadFileList, function (success) {
+                wiLoading.hide();
                 if (success) {
                     this.uploadFileList = [];
                     this.showImage = false;
@@ -143,7 +144,6 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                     callback(true);
                 }
             });
-            // wiLoading.hide();
         }
 
         function imageObject(uploadFile, idImageSet, orderNum) {
