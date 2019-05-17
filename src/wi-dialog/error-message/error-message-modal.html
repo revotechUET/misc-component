@@ -1,0 +1,19 @@
+<div class='modal fade' data-backdrop="static" data-keyboard="false">
+	<div class='modal-dialog modal-sm'>
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="wiModal.onCloseButtonClicked()" aria-hidden="true">&times;</button>
+				<h4 class="color-error">Error</h4>
+			</div>
+			<div class="modal-body text-center padding-2em"
+                style="display:block;word-break: break-word; white-space: normal; padding: 15px;" >
+				<span class="close-32x32 valign-middle"></span>
+				<span class="margin-left-0_5em color-error" ng-bind-html="wiModal.error"></span>
+			</div>
+			<div class="modal-footer">
+				<button class='btn btn-default' ng-click='wiModal.onCloseButtonClicked()'>
+					<span class="close-16x16"></span>&nbsp;Close</button>
+			</div>
+		</div>
+	</div>
+</div>

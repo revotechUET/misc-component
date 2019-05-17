@@ -44,9 +44,16 @@
 
         }
 
+        .import-images.modal .deactive-button {
+            pointer-events: none;
+            opacity: 0.5;
+
+        }
+
         .import-images.modal .list-images {
             flex: 4;
         }
+
         .import-images.modal .image-preview {
             flex: 1;
             max-height: 250px;
@@ -89,6 +96,7 @@
             box-shadow: none;
             background: #f4f4f4;
             color: #0077be;
+            width: 100%;
         }
 
         .import-images.modal .option-imagesetname {
@@ -295,11 +303,16 @@
 
 
             <div class="modal-footer">
-                <button class="btn btn-default" ngf-select="self.addForUpload($files)" ngf-multiple="true">Select Files
-                    ...
+
+                <button class="btn btn-default" ngf-select="self.addForUpload($files)" ngf-multiple="true">
+                    <span class="more-16x16"></span>&nbsp;Select Files
                 </button>
-                <button type="button" ng-click="self.uploadFiles()" class="btn btn-default">
+                <button ng-class="{'deactive-button':(self.inputWellName === '')}" type="button"
+                    ng-click="self.uploadFiles()" class="btn btn-default">
                     <span class="ok-16x16"></span>&nbsp;Upload
+                </button>
+                <button type="button" ng-click="self.clearUpload()" class="btn btn-default">
+                    <span class="close-16x16"></span>&nbsp;Delete All
                 </button>
                 <button type="button" ng-click="self.closeModal()" class="btn btn-default">
                     <span class="close-16x16"></span>&nbsp;Close

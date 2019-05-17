@@ -68,9 +68,14 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
         if (this.name === undefined || this.password === undefined) {
             console.error("error");
         } else {
+            if(!this.loginUrl){
+                console.log(this.loginUrl);
+                this.loginUrl = 'http://admin.dev.i2g.cloud/login';
+            }
             $http({
                 method: 'POST',
-                url: 'http://admin.dev.i2g.cloud/login',
+                // url: 'http://admin.dev.i2g.cloud/login',
+                url: this.loginUrl,
                 data: {
                     username: this.name,
                     password: this.password,

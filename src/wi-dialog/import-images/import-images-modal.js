@@ -12,7 +12,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
         this.showImage = false;
         this.uploadFileList = [];
         this.arrayPattern = [];
-        this.patterns = ['WELLNAME', 'FILL', 'DEPTH', 'SPEC', 'TOPDEPTH', 'BOTDEPTH', 'RIGHT', 'LEFT'];
+        this.patterns = ['WELLNAME', 'TOPDEPTH', 'BOTDEPTH'];
         // this.patterns = ['WELLNAME','FILL','DEPTH','UNIT','SPEC','TOPDEPTH','BOTDEPTH','RIGHT','LEFT'];
         this.inputPattern = '';
         this.inputWellName = '';
@@ -81,6 +81,9 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
 
             }
         }
+        this.clearUpload = function () {
+            this.uploadFileList.length = 0;
+        }
         this.removeFromUpload = function (index) {
             this.uploadFileList.splice(index, 1);
             this.showImage = false;
@@ -98,8 +101,20 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
 
         async function doUploadFiles(files, callback) {
             wiLoading.show(document.getElementById('abc'));
-            async.eachOfSeries(files, function (file, idx, cb) {
+            let newFiles = files.sort(function (f1, f2) {
+                return parseFloat(f1.information.TOPDEPTH) - parseFloat(f2.information.TOPDEPTH);
+            })
+
+            async.eachOfSeries(newFiles, function (file, idx, cb) {      
                 let well;
+                let height;
+
+                let topDepth_1 = file.information.TOPDEPTH;
+                let topDepth_2 =  ((newFiles[idx + 1] || {}).information || {}).TOPDEPTH || topDepth_1 + self.maxInterval;
+
+                let offset = Number(topDepth_2) - Number(topDepth_1);
+                height = Math.min(self.maxInterval, offset);
+
                 if (self.inputPattern.search("WELLNAME") == -1) {
                     well = self.inputWellName;
                     console.log(well)
@@ -111,7 +126,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                 if (well) {
                     wiApi.createOrGetImageSetPromise(well.idWell, self.imgSetName).then((imageSet) => {
                         well.imageSet = imageSet;
-                        wiApi.createImagePromise(imageObject(file, well.imageSet.idImageSet, idx)).then((image) => {
+                        wiApi.createImagePromise(imageObject(file, well.imageSet.idImageSet, idx, height)).then((image) => {
                             wiApi.uploadImage(file, image.idImage,
                                 function (imgUrl) {
                                     image.imageUrl = imgUrl;
@@ -146,12 +161,12 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
             });
         }
 
-        function imageObject(uploadFile, idImageSet, orderNum) {
+        function imageObject(uploadFile, idImageSet, orderNum, height) {
             let topDepth = parseFloat(uploadFile.information['TOPDEPTH'] || uploadFile.information['DEPTH']);
-            let bottomDepth = parseFloat(uploadFile.information['BOTDEPTH']) || (topDepth + parseFloat(self.maxInterval));
+            let bottomDepth = parseFloat(uploadFile.information['BOTDEPTH']) || (topDepth + height);
             topDepth = wiApi.convertUnit(topDepth, self.selectedUnit, 'm');
             bottomDepth = wiApi.convertUnit(bottomDepth, self.selectedUnit, 'm');
-            
+
             return {
                 name: uploadFile.name,
                 topDepth: topDepth,
@@ -230,7 +245,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
             // pattern = pattern.replace('more','');
             pattern = formatString(pattern);
             // if (!pattern) pattern = 'WELLNAME%DEPTH%UNIT';
-            if (!pattern) pattern = 'WELLNAME%DEPTH';
+            if (!pattern) pattern = '';
             else if (pattern[0] == '%' && pattern[pattern.length - 1] == '%') pattern = pattern.slice(1, pattern.length - 1);
             else if (pattern[0] == '%') pattern = pattern.slice(1, pattern.length);
             else if (pattern[pattern.length - 1] == '%') pattern = pattern.slice(0, pattern.length - 1);
@@ -278,7 +293,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
             // pattern = pattern.replace('more','');
             pattern = formatString(pattern);
             // if (!pattern) pattern = 'WELLNAME%DEPTH%UNIT';
-            if (!pattern) pattern = 'WELLNAME%DEPTH';
+            if (!pattern) pattern = '';
             else if (pattern[0] == '%' && pattern[pattern.length - 1] == '%') pattern = pattern.slice(1, pattern.length - 1);
             else if (pattern[0] == '%') pattern = pattern.slice(1, pattern.length);
             else if (pattern[pattern.length - 1] == '%') pattern = pattern.slice(0, pattern.length - 1);
