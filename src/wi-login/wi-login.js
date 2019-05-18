@@ -13,12 +13,16 @@ app.component(componentName, {
         password: '@',
         whoami: '@',
         registerUrl: '@',
-        appName: '@'
+        appName: '@',
+        loginUrl: '@'
     }
 });
 
 function wiLoginController($http, $scope, ngDialog, wiToken) {
     let self = this;
+    this.$onInit = function (){
+        self.loginUrl = self.loginUrl || 'http://admin.dev.i2g.cloud/login';
+    }
     this.onLoginClick = function () {
         if (wiToken.getToken()) {
             wiToken.setToken(null);
@@ -68,10 +72,6 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
         if (this.name === undefined || this.password === undefined) {
             console.error("error");
         } else {
-            if(!this.loginUrl){
-                console.log(this.loginUrl);
-                this.loginUrl = 'http://admin.dev.i2g.cloud/login';
-            }
             $http({
                 method: 'POST',
                 // url: 'http://admin.dev.i2g.cloud/login',

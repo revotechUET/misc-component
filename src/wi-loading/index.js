@@ -31,13 +31,11 @@ function wiLoadingService($timeout) {
     }
 
     function hide() {
-        $timeout(() => {
-            if (_spinner) {
-                _spinner.stop();
-                delete _spinner;
-                _spinner = null;
-                _holder.removeChild(_holder.childNodes[0]);
-            }
-        })
+        if (_spinner) {
+            _spinner.stop();
+            delete _spinner;
+            _spinner = null;
+            $(_holder).find('.wi-loading').remove();
+        }
     }
 }

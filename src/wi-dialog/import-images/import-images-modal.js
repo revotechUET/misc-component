@@ -63,7 +63,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                     preProcessImage(files[i], this.inputPattern);
                     files[i].uploaded = false;
                     this.uploadFileList.push(files[i]);
-                    // console.log(files[i]);
+                    // console.log(this.uploadFileList);
                 }
             }
         }
@@ -100,11 +100,10 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
         }
 
         async function doUploadFiles(files, callback) {
-            wiLoading.show(document.getElementById('abc'));
+            wiLoading.show($element.find('.modal-dialog')[0]);
             let newFiles = files.sort(function (f1, f2) {
                 return parseFloat(f1.information.TOPDEPTH) - parseFloat(f2.information.TOPDEPTH);
-            })
-
+            });
             async.eachOfSeries(newFiles, function (file, idx, cb) {      
                 let well;
                 let height;
@@ -137,23 +136,28 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                                     );
                                 },
                                 function (err) {
-                                    console.error(err);
+                                    // console.error(err);
                                     cb(err);
                                 }, (evt) => {});
-                        }).catch(err => {
-                            console.log(err);
-                            cb(err);
+                        }).catch(function() {
+                            // console.log(err);
+                            $timeout(() =>{
+                                cb(new Error("Reference cannot contain alphanumerical values"));
+                                self.errorMsg = err.message;
+                                callback(false);
+                            })
                         });
                     }).catch(err => {
-                        console.error(err);
+                        // console.error(err);
                         cb(err);
                     });
                 } else {
-                    cb(new Error("No well matched"));
+                    cb(new Error("Please select WELLNAME!"));
                 }
             }, function (err) {
                 if (err) {
-                    console.error(err);
+                    // console.error(err);
+                    self.errorMsg = err.message;
                     callback(false);
                 } else {
                     callback(true);
