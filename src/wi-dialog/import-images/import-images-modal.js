@@ -95,6 +95,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                     this.uploadFileList = [];
                     this.showImage = false;
                     self.closeModal();
+                    __toastr && __toastr.success("Images upload successfull");
                 }
             });
         }
@@ -139,13 +140,10 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                                     // console.error(err);
                                     cb(err);
                                 }, (evt) => {});
-                        }).catch(function() {
+                        }).catch(function(err) {
                             // console.log(err);
-                            $timeout(() =>{
-                                cb(new Error("Reference cannot contain alphanumerical values"));
-                                self.errorMsg = err.message;
-                                callback(false);
-                            })
+                            cb(new Error("Invalid depth values"));
+                            // cb(err);
                         });
                     }).catch(err => {
                         // console.error(err);
@@ -157,7 +155,9 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
             }, function (err) {
                 if (err) {
                     // console.error(err);
-                    self.errorMsg = err.message;
+                    $timeout(() => {
+                        self.errorMsg = err.message;
+                    });
                     callback(false);
                 } else {
                     callback(true);
