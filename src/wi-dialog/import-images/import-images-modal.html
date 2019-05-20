@@ -317,7 +317,7 @@
                 <span class="error-mess" ng-show="self.errorMsg">
                     <i class="fa fa-exclamation-circle" style="margin-right: 15px;"aria-hidden="true"></i>
                     {{self.errorMsg}}</span>
-                <button class="btn btn-default" ngf-select="self.addForUpload($files)" ngf-multiple="true" accept="image/x-png,image/gif,image/jpeg">
+                <button class="btn btn-default" ngf-select="self.addForUpload($files)" ngf-multiple="true" accept="image/png,image/gif,image/jpg,image/jpeg">
                     <span class="more-16x16"></span>&nbsp;Select Files
                 </button>
                 <button ng-class="{'deactive-button':((self.inputWellName === '') && (self.uploadFileList.length === 0 ))}" type="button"

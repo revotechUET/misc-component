@@ -108,8 +108,8 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                 let well;
                 let height;
 
-                let topDepth_1 = file.information.TOPDEPTH;
-                let topDepth_2 =  ((newFiles[idx + 1] || {}).information || {}).TOPDEPTH || topDepth_1 + self.maxInterval;
+                let topDepth_1 = parseFloat(file.information.TOPDEPTH);
+                let topDepth_2 =  parseFloat(((newFiles[idx + 1] || {}).information || {}).TOPDEPTH) || topDepth_1 + parseFloat(self.maxInterval);
 
                 let offset = Number(topDepth_2) - Number(topDepth_1);
                 height = Math.min(self.maxInterval, offset);
@@ -262,7 +262,10 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
 
             // console.log(arrayPatternProcess);
 
-            let arrayStringProcess = stringProcess.split('-');
+            // let arrayStringProcess = stringProcess.split('-');
+            let arrayString = stringProcess.replace(/[ #@*^$%!~_]/g, '-');
+            let arrayStringProcess = arrayString.split('-');
+            // console.log(arrayStringProcess);
             let arrayPattern = [];
             file.information = {};
             arrayPatternProcess = removeDuplicates(arrayPatternProcess);
@@ -308,8 +311,10 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
             let arrayPatternProcess = pattern.split('%');
 
             // console.log(arrayPatternProcess);
-
-            let arrayStringProcess = stringProcess.split('-');
+            let arrayString = stringProcess.replace(/[ #@*^$%!~_]/g, '-');
+            let arrayStringProcess = arrayString.split('-');
+            // console.log(arrayStringProcess);
+            // let arrayStringProcess = stringProcess.split('-');
             let arrayPattern = [];
             file.information = {};
             arrayPatternProcess = removeDuplicates(arrayPatternProcess);
