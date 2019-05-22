@@ -21,7 +21,9 @@ app.component('wiTreeNode', {
         onDragStop: "<",
         collapsed: "<",
         singleNode: "<",
-        getSiblings: "<"
+        getSiblings: "<",
+        onContextMenu: '<',
+        contextMenu: '<'
     },
     require: {
         wiTreeView: "^^wiTreeView"
@@ -45,7 +47,9 @@ app.component(componentName, {
         selectedIds: "<",
         collapsed: "<",
         singleNode: "<",
-        getSiblings: "<"
+        getSiblings: "<",
+        onContextMenu: '<',
+        contextMenu: "<"
     },
     transclude: true
 });
@@ -57,15 +61,22 @@ function wiTreeViewController($element, $timeout, $scope) {
         self.collapsed = (self.collapsed == undefined || self.collapsed === null)? true : self.collapsed;
         self.getSiblings = self.getSiblings || function(n) {return []}
         this.selectedIds = this.selectedIds || {};
+        this.onContextMenu = this.onContextMenu || function() {
+            console.log("default context menu");
+        };
         $scope.$watch(() => (self.treeRoot), () => {
-            this.selectedIds = {};
-        })
+            self.selectedIds = {};
+        });
     }
     this.collapseAll = function() {
         $scope.$broadcast('collapsed-command', true);
     }
     this.expandAll = function() {
         $scope.$broadcast('collapsed-command', false);
+    }
+    this.getChildrenWrapper = function(node) {
+        if (Array.isArray(node)) return node;
+        return self.getChildren(node);
     }
     this.deselectAllExcept = function(scopeId) {
         $scope.$broadcast('deselect-command', $scope.$id);
@@ -87,6 +98,7 @@ function wiTreeNodeController($element, $timeout, $scope) {
         return matched;
     }
     this.getChildrenWrapper = function(node) {
+        if (Array.isArray(node)) return node;
         if (!self.singleNode)
             return self.getChildren(node);
         if (node._active) return self.getChildren(node);
@@ -149,6 +161,11 @@ function wiTreeNodeController($element, $timeout, $scope) {
     }
     this.onClick = function($event) {
         $event.preventDefault();
+        $event.stopPropagation();
+        if ($event.button === 2) {
+            self.onContextMenu(self.treeRoot);
+            return;
+        }
         self.treeRoot._active = true;
         
         self.getSiblings(self.treeRoot).forEach(n => n._active = false);

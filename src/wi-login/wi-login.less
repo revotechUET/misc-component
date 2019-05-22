@@ -251,7 +251,7 @@ wi-login {
             align-items: center;
             padding: 3px 5px 3px 9px;
             border-radius: 20px;
-            border: 1px solid white;
+            // border: 1px solid white;
             background: #fff;
             color: #0078be73;
             cursor: pointer;
@@ -266,6 +266,7 @@ wi-login {
                 font-weight: bold;
                 background: none;
                 font-size: 12px;
+                pointer-events: none;
             }
 
         }
@@ -283,6 +284,10 @@ wi-login {
 
             &.logout {
                 display: none;
+            }
+            :hover{
+                background: #0077be;
+                color: #fff;
             }
         }
 
