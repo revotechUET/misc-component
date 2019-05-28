@@ -1,5 +1,5 @@
-const componentName = 'wiBaseTreeview';
-const moduleName = 'wi-base-treeview';
+const componentName = 'wiBaseTreeviewOld';
+const moduleName = 'wi-base-treeview-old';
 require('./wi-base-treeview.less');
 var wiToken = require('../wi-token');
 let app = angular.module(moduleName, [wiToken.name]);
