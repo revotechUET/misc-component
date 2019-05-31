@@ -39,6 +39,12 @@ function wiApiService($http, wiToken, Upload) {
     function getWellsPromise(idProject) {
         return postPromise('/project/well/list', {idProject: idProject});
     }
+     
+    this.getWellPromise = getWellPromise;
+    function getWellPromise(idWell) {
+        return postPromise('/project/well/info', {idWell: idWell});
+    }
+    
     this.getImageSetsPromise = getImageSetsPromise;
     function getImageSetsPromise(idWell) {
         return postPromise('/project/well/image-set/list', {idWell:idWell});
