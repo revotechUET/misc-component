@@ -13,8 +13,11 @@
 
 <body ng-app="myApp" ng-controller="MyCtr">
     <div style="width: 500px;height:500px;border:1px solid #ccc;">
-        <wi-tree-view tree-root="[treedata]" get-label="getLabel" get-icon="getIcon" get-children="getChildren" single-node="true"
-            keep-children='true' run-match='matchFn' on-drag-start='dragStart' on-drag-stop='dragStop'>
+        <wi-tree-view tree-root="[treedata]" get-label="getLabel" get-icon="getIcon" get-children="getChildren" 
+            single-node="true" hide-unmatched='false'
+            keep-children='true' run-match='matchFn' 
+            click-fn='clickFn'
+            on-drag-start='dragStart' on-drag-stop='dragStop'>
         </wi-tree-view>
     </div>
     <wi-droppable on-drop='dropFn'>
@@ -95,6 +98,9 @@
                 }
                 $scope.dragStop = function (node) {
                     console.log("dragStop", node);
+                }
+                $scope.clickFn = function(event, node) {
+                    console.log("click:", node);
                 }
                 $scope.dropFn = function(event, helper, data) {
                     console.log('dropFn',data);

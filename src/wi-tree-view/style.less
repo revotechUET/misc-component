@@ -68,15 +68,20 @@ wi-tree-node {
             line-height: 2.3em;
         }
 
-        &.search-mode>div {
-            opacity: 0.2;
-        }
-
-        &.search-mode.highlight {
-            color: #0077be;
-
+        &.search-mode {
             &>div {
-                opacity: 1;
+                opacity: 0.2;
+            }
+            &.hidden {
+                display:none;
+            }
+            &.highlight {
+                color: #0077be;
+
+                &>div {
+                    opacity: 1;
+                }
+                display:flex !important;
             }
         }
 

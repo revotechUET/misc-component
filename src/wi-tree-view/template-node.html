@@ -1,6 +1,7 @@
 <div class='node-content' ng-class="{
-    'highlight':self.showNode(), 
-    'search-mode':self.filter.length, 
+    'highlight': self.showNode(), 
+    'search-mode':self.wiTreeView.filter.length,
+    'hidden': self.hideUnmatched,
     'selected': self.selected}" ng-mousedown="self.onClick($event)" 
     oncontextmenu="(function(){event.preventDefault();return false;})()">
     <div class="node-caret" ng-class="{'invisible': !self.getChildren(self.treeRoot).length}"
@@ -14,6 +15,7 @@
 <div ng-if="self.getChildrenWrapper(self.treeRoot).length" ng-hide="self.collapsed">
     <wi-tree-node ng-repeat="child in self.getChildren(self.treeRoot)" tree-root='child' filter='self.filter1'
         keep-children='self.keepChildren' get-children='self.getChildren' get-label='self.getLabel'
+        hide-unmatched='self.hideUnmatched'
         get-icon='self.getIcon' click-fn="self.clickFn" on-drag-start='self.onDragStart' on-drag-stop='self.onDragStop'
         run-match="self.runMatch" single-node="self.singleNode" get-siblings="self.getSiblings" on-context-menu="self.onContextMenu"
         context-menu="self.contextMenu">

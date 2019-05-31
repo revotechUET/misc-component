@@ -23,7 +23,8 @@ app.component('wiTreeNode', {
         singleNode: "<",
         getSiblings: "<",
         onContextMenu: '<',
-        contextMenu: '<'
+        contextMenu: '<',
+        hideUnmatched: '<'
     },
     require: {
         wiTreeView: "^^wiTreeView"
@@ -49,7 +50,8 @@ app.component(componentName, {
         singleNode: "<",
         getSiblings: "<",
         onContextMenu: '<',
-        contextMenu: "<"
+        contextMenu: "<",
+        hideUnmatched: '<'
     },
     transclude: true
 });
@@ -66,6 +68,23 @@ function wiTreeViewController($element, $timeout, $scope) {
         };
         $scope.$watch(() => (self.treeRoot), () => {
             self.selectedIds = {};
+        });
+        $scope.$watch(() => (self.filter), () => {
+            for (let n of self.treeRoot) {
+                visit(n, (node) => {
+                    node._hidden = false;
+                    return false;
+                }, null, 0);
+                visit(n, (node) => {
+                    let matched = self.runMatch(node, self.filter);
+                    node._hidden = !matched;
+                    return self.keepChildren && matched;
+                }, (node, result) => {
+                    console.log('result', result);
+                    node._hidden = !result;
+                }, 0);
+            }
+            $timeout(() => {});
         });
     }
     this.collapseAll = function() {
@@ -89,13 +108,30 @@ function wiTreeViewController($element, $timeout, $scope) {
         let keys = Object.keys(hash).sort();
         return [keys[0], keys[keys.length-1]];
     }
+    function visit(node, cb, cb1, depth) {
+        if (!node) return false;
+        console.log(`visit (${depth}): ${self.getLabel(node)} hidden: ${node._hidden}`);
+        
+        let stop = cb(node);
+
+        if (stop) return true;
+        let children = self.getChildren(node);
+        if (!children || !children.length) return false;
+        let result = false;
+        for (let child of children) {
+            let result1 = visit(child, cb, cb1, depth + 1);
+            result = result || result1;
+        }
+        cb1 && cb1(node, result);
+
+        console.log(`exit (${depth}):${self.getLabel(node)} hidden: ${node._hidden}`);
+        return result;
+    }
 }
 function wiTreeNodeController($element, $timeout, $scope) {
     let self = this;
     this.showNode = function() {
-        let matched = self.runMatch(self.treeRoot, self.filter);
-        self.filter1 = (matched && self.keepChildren) ? '' : self.filter;
-        return matched;
+        return !self.treeRoot._hidden;
     }
     this.getChildrenWrapper = function(node) {
         if (Array.isArray(node)) return node;
@@ -124,7 +160,7 @@ function wiTreeNodeController($element, $timeout, $scope) {
         $scope.$on('select-range-command', function($event, [startId, stopId]) {
             if (($scope.$id - startId) * ($scope.$id - stopId) < 0)
                 self.select();
-        })
+        });
 
         $element.find(".node-content").draggable({
             //helper: 'clone',
