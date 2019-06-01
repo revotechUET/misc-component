@@ -8,6 +8,7 @@ function wiApiService($http, wiToken, Upload) {
     this.$http = $http;
     this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
     let unitTable = undefined;
+    let familyTable;
     function postPromise(url, data) {
         return new Promise(function(resolve, reject) {
             $http({
@@ -27,6 +28,7 @@ function wiApiService($http, wiToken, Upload) {
     }
 
     getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
+    getAllFamilyPromise().then(familytable => familyTable = familytable).catch(err => console.error(err));
 
     this.setBaseUrl = function(baseUrl) {
         self.baseUrl = baseUrl;
@@ -34,7 +36,10 @@ function wiApiService($http, wiToken, Upload) {
     function getAllUnitPromise() {
         return postPromise('/family/all-unit', {});
     }
-
+    function getAllFamilyPromise() {
+        return postPromise('/family/list', {});
+    }
+    
     this.getWellsPromise = getWellsPromise;
     function getWellsPromise(idProject) {
         return postPromise('/project/well/list', {idProject: idProject});
