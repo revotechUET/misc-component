@@ -29,7 +29,10 @@ function wiApiService($http, wiToken, Upload) {
 
     getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
     getAllFamilyPromise().then(familytable => familyTable = familytable).catch(err => console.error(err));
-
+    
+    this.getFamily = function(idFamily) {
+        return familyTable.find(family => family.idFamily === idFamily);
+    }
     this.setBaseUrl = function(baseUrl) {
         self.baseUrl = baseUrl;
     }
@@ -39,7 +42,7 @@ function wiApiService($http, wiToken, Upload) {
     function getAllFamilyPromise() {
         return postPromise('/family/list', {});
     }
-    
+
     this.getWellsPromise = getWellsPromise;
     function getWellsPromise(idProject) {
         return postPromise('/project/well/list', {idProject: idProject});
