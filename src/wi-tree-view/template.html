@@ -1,6 +1,6 @@
 <div style="display:flex;flex-direction:column;width:100%;height:100%;">
     <div ng-transclude></div>
-    <div>
+    <div ng-hide="self.hideSearch">
         <input type="text" ng-model="self.filter" placeholder="Search">
     </div>
     <div style="flex:1;overflow-y: auto;">
@@ -19,6 +19,7 @@
             get-siblings="self.getSiblings"
             on-context-menu="self.onContextMenu"
             hide-unmatched='self.hideUnmatched'
+            uncollapsible='self.uncollapsible'
             context-menu="self.contextMenu">
         </wi-tree-node>
     </div>

@@ -1,11 +1,11 @@
 <div class='node-content' ng-class="{
-    'highlight': self.showNode(), 
+    'not-matched': !self.showNode(), 
     'search-mode':self.wiTreeView.filter.length,
-    'hidden': self.hideUnmatched,
+    'not-show': self.hideUnmatched,
     'selected': self.selected}" ng-mousedown="self.onClick($event)" 
     oncontextmenu="(function(){event.preventDefault();return false;})()">
     <div class="node-caret" ng-class="{'invisible': !self.getChildren(self.treeRoot).length}"
-        ng-click="self.collapsed = !self.collapsed;">
+        ng-click="self.toggleChildren()">
         <i ng-hide="self.collapsed" class="fa fa-caret-down"></i>
         <i ng-show="self.collapsed" class="fa fa-caret-right"></i>
     </div>
@@ -18,6 +18,8 @@
         hide-unmatched='self.hideUnmatched'
         get-icon='self.getIcon' click-fn="self.clickFn" on-drag-start='self.onDragStart' on-drag-stop='self.onDragStop'
         run-match="self.runMatch" single-node="self.singleNode" get-siblings="self.getSiblings" on-context-menu="self.onContextMenu"
+        uncollapsible='self.uncollapsible'
         context-menu="self.contextMenu">
     </wi-tree-node>
 </div>
+<div style="clear:both;"></div>

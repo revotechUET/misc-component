@@ -20,6 +20,7 @@ app.component('wiTreeNode', {
         onDragStart: "<",
         onDragStop: "<",
         collapsed: "<",
+        uncollapsible: "<",
         singleNode: "<",
         getSiblings: "<",
         onContextMenu: '<',
@@ -47,11 +48,13 @@ app.component(componentName, {
         onDragStop: "<",
         selectedIds: "<",
         collapsed: "<",
+        uncollapsible: "<",
         singleNode: "<",
         getSiblings: "<",
         onContextMenu: '<',
         contextMenu: "<",
-        hideUnmatched: '<'
+        hideUnmatched: '<',
+        hideSearch: "<"
     },
     transclude: true
 });
@@ -61,6 +64,8 @@ function wiTreeViewController($element, $timeout, $scope) {
         window.wiTreeCtrl = this;
     this.$onInit = function () {
         self.collapsed = (self.collapsed == undefined || self.collapsed === null)? true : self.collapsed;
+        if (self.uncollapsible) self.collapsed = false;
+        self.keepChildren = (self.keepChildren === undefined || self.keepChildren === null)? true : self.keepChildren;
         self.getSiblings = self.getSiblings || function(n) {return []}
         this.selectedIds = this.selectedIds || {};
         this.onContextMenu = this.onContextMenu || function() {
@@ -75,6 +80,7 @@ function wiTreeViewController($element, $timeout, $scope) {
                     node._hidden = false;
                     return false;
                 }, null, 0);
+                if (!self.filter || !self.filter.length) continue;
                 visit(n, (node) => {
                     let matched = self.runMatch(node, self.filter);
                     node._hidden = !matched;
@@ -88,9 +94,11 @@ function wiTreeViewController($element, $timeout, $scope) {
         });
     }
     this.collapseAll = function() {
+        if (self.uncollapsible) return;
         $scope.$broadcast('collapsed-command', true);
     }
     this.expandAll = function() {
+        if (self.uncollapsible) return;
         $scope.$broadcast('collapsed-command', false);
     }
     this.getChildrenWrapper = function(node) {
@@ -150,6 +158,8 @@ function wiTreeNodeController($element, $timeout, $scope) {
     }
     this.$onInit = function () {
         self.collapsed = (self.collapsed == undefined || self.collapsed === null)? true : self.collapsed;
+        if (self.uncollapsible) self.collapsed = false;
+        self.keepChildren = (self.keepChildren === undefined || self.keepChildren === null)? true : self.keepChildren;
         $scope.$on('collapsed-command', function($event, collapsed) {
             $timeout(() => {self.collapsed = collapsed});
         });
@@ -184,15 +194,25 @@ function wiTreeNodeController($element, $timeout, $scope) {
         });
     }
     this.toggleChildren = function() {
+        if (self.uncollapsible) {
+            self.collapsed = false;
+            return;
+        }
         $timeout(() => {self.collapsed = !self.collapsed});
     }
     this.setCollapsed = function(collapsed) {
+        if (self.uncollapsible) {
+            self.collapsed = false;
+            return;
+        }
         $timeout(() => {self.collapsed = collapsed});
     }
     this.collapseAll = function() {
+        if (self.uncollapsible) return;
         $scope.$broadcast('collapsed-command', true);
     }
     this.expandAll = function() {
+        if (self.uncollapsible) return;
         $scope.$broadcast('collapsed-command', false);
     }
     this.onClick = function($event) {

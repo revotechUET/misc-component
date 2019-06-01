@@ -63,25 +63,18 @@ wi-tree-node {
         transition-property: padding, margin;
         transition-duration: 0.2s;
 
-        &,
-        &::after {
+        &, &::after {
             line-height: 2.3em;
         }
 
+
         &.search-mode {
-            &>div {
-                opacity: 0.2;
-            }
-            &.hidden {
+            color: #0077be;
+            &.not-matched.not-show {
                 display:none;
             }
-            &.highlight {
-                color: #0077be;
-
-                &>div {
-                    opacity: 1;
-                }
-                display:flex !important;
+            &.not-matched > div {
+                opacity: 1;
             }
         }
 
@@ -91,7 +84,6 @@ wi-tree-node {
 
             &::after {
                 background-color: #0077be;
-                line-height: 2.3em;
             }
         }
 
