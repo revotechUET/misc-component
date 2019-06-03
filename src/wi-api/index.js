@@ -75,6 +75,26 @@ function wiApiService($http, wiToken, Upload) {
         return postPromise('/project/well/dataset/curve/getData', {idCurve})
     }
 
+    const __CACHE = {};
+    const CACHE_LIFE_TIME = 10 * 1000;
+    this.getCachedCurveDataPromise = getCachedCurveDataPromise;
+    function getCachedCurveDataPromise(idCurve) {
+        let cachedItem = __CACHE[idCurve];
+        if (!cachedItem || ( Date.now() - cachedItem.ts ) > CACHE_LIFE_TIME ) {
+            cachedItem = cachedItem || {};
+            return postPromise('/project/well/dataset/curve/getData', {idCurve}).then((dataCurve) => {
+                cachedItem.ts = Date.now();
+                cachedItem.dataCurve = dataCurve;
+                __CACHE[idCurve] = cachedItem;
+                return dataCurve;
+            });
+        }
+        return new Promise(function(resolve) {
+            cachedItem.ts = Date.now();
+            resolve(cachedItem.dataCurve);
+        });
+    }
+
     this.getImageSetsPromise = getImageSetsPromise;
     function getImageSetsPromise(idWell) {
         return postPromise('/project/well/image-set/list', {idWell:idWell});
