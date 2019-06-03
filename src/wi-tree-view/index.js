@@ -16,7 +16,7 @@ app.component('wiTreeNode', {
         getIcon: "<",
         keepChildren: "<",
         runMatch: "<",
-        clickFn: "<",
+//        clickFn: "<",
         onDragStart: "<",
         onDragStop: "<",
         collapsed: "<",
@@ -75,7 +75,7 @@ function wiTreeViewController($element, $timeout, $scope) {
             self.selectedIds = {};
         });
         $scope.$watch(() => (self.filter), () => {
-            for (let n of self.treeRoot) {
+            for (let n of self.getChildrenWrapper(self.treeRoot)) {
                 visit(n, (node) => {
                     node._hidden = false;
                     return false;
@@ -101,9 +101,11 @@ function wiTreeViewController($element, $timeout, $scope) {
         if (self.uncollapsible) return;
         $scope.$broadcast('collapsed-command', false);
     }
+    const _treeRoot = [];
     this.getChildrenWrapper = function(node) {
         if (Array.isArray(node)) return node;
-        return self.getChildren(node);
+        _treeRoot[0] = node;
+        return _treeRoot;
     }
     this.deselectAllExcept = function(scopeId) {
         $scope.$broadcast('deselect-command', $scope.$id);
@@ -116,9 +118,8 @@ function wiTreeViewController($element, $timeout, $scope) {
         let keys = Object.keys(hash).sort();
         return [keys[0], keys[keys.length-1]];
     }
-    function visit(node, cb, cb1, depth) {
+    function visit(node, cb, cb1, depth = 0) {
         if (!node) return false;
-        console.log(`visit (${depth}): ${self.getLabel(node)} hidden: ${node._hidden}`);
         
         let stop = cb(node);
 
@@ -132,8 +133,20 @@ function wiTreeViewController($element, $timeout, $scope) {
         }
         cb1 && cb1(node, result);
 
-        console.log(`exit (${depth}):${self.getLabel(node)} hidden: ${node._hidden}`);
         return result;
+    }
+    this.getParent = getParent;
+    function getParent(root, node) {
+        let path = [];
+        visit(root, function(n) {
+            return n === node;
+        }, function(n, result) {
+            if (result) {
+                path.push(n);
+            }
+        });
+        console.log(path);
+        return path[0];
     }
 }
 function wiTreeNodeController($element, $timeout, $scope) {
@@ -149,11 +162,11 @@ function wiTreeNodeController($element, $timeout, $scope) {
         return [];
     }
     this.deselect = function() {
-        $timeout(() => {self.selected = false});
+        $timeout(() => {self.treeRoot._selected = false});
         delete self.wiTreeView.selectedIds[$scope.$id];
     }
     this.select = function() {
-        $timeout(() => {self.selected = true});
+        $timeout(() => {self.treeRoot._selected = true});
         self.wiTreeView.selectedIds[$scope.$id] = {elem:$element.find('.node-content')[0], data:self.treeRoot};
     }
     this.$onInit = function () {
@@ -171,7 +184,6 @@ function wiTreeNodeController($element, $timeout, $scope) {
             if (($scope.$id - startId) * ($scope.$id - stopId) < 0)
                 self.select();
         });
-
         $element.find(".node-content").draggable({
             //helper: 'clone',
             helper: function() {
@@ -235,8 +247,8 @@ function wiTreeNodeController($element, $timeout, $scope) {
         }
         self.select();
 
-        if (self.clickFn) {
-            self.clickFn($event, self.treeRoot, self.wiTreeView.selectedIds);
+        if (self.wiTreeView.clickFn) {
+            self.wiTreeView.clickFn($event, self.treeRoot, self.wiTreeView.selectedIds, self.wiTreeView.treeRoot);
         }
     }
 }

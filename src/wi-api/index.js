@@ -28,9 +28,13 @@ function wiApiService($http, wiToken, Upload) {
     }
 
     getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
-    getAllFamilyPromise().then(familytable => familyTable = familytable).catch(err => console.error(err));
+    getAllFamilyPromise()
+        .then(familytable => (
+            familyTable = familytable
+        )).catch(err => console.error(err));
     
     this.getFamily = function(idFamily) {
+        if (!familyTable) return null;
         return familyTable.find(family => family.idFamily === idFamily);
     }
     this.setBaseUrl = function(baseUrl) {
@@ -52,7 +56,25 @@ function wiApiService($http, wiToken, Upload) {
     function getWellPromise(idWell) {
         return postPromise('/project/well/info', {idWell: idWell});
     }
+
+    this.getZonesetsPromise = getZonesetsPromise;
+    function getZonesetsPromise(idWell) {
+        return postPromise('/project/well/zone-set/list', {idWell: idWell})
+            .then( zonesets => zonesets.map( zs => ({
+                ...zs,
+                name: zs.zone_set_template.name
+            })));
+    }
+    this.getZonesPromise = getZonesPromise;
+    function getZonesPromise(idZoneSet) {
+        return postPromise('/project/well/zone-set/info', {idZoneSet: idZoneSet});
+    }
     
+    this.getCurveDataPromise = getCurveDataPromise;
+    function getCurveDataPromise(idCurve) {
+        return postPromise('/project/well/dataset/curve/getData', {idCurve})
+    }
+
     this.getImageSetsPromise = getImageSetsPromise;
     function getImageSetsPromise(idWell) {
         return postPromise('/project/well/image-set/list', {idWell:idWell});

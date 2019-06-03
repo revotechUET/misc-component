@@ -12,5 +12,6 @@ module.exports = {
     wiDroppable: require('./wi-droppable'),
     wiDialog: require('./wi-dialog'),
     wiApi: require('./wi-api'),
-    wiLoading: require('./wi-loading')
+    wiLoading: require('./wi-loading'),
+    wiDropdownList: require('./wi-dropdown-list')
 }
