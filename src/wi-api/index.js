@@ -57,6 +57,25 @@ function wiApiService($http, wiToken, Upload) {
     function getWellsPromise(idProject) {
         return postPromise('/project/well/list', {idProject: idProject});
     }
+	this.newAssetPromise = newAssetPromise;
+	function newAssetPromise(idProject, name, type, content) {
+		let payload = {
+			name: name,
+			type: type,
+			idProject: idProject,
+			content: JSON.stringify(content)
+		}
+		return postPromise('/project/parameter-set/new', payload);
+	}
+
+	this.editAssetPromise = editAssetPromise;
+	function editAssetPromise(idParameterSet, content) {
+		let payload = {
+			idParameterSet: idParameterSet,
+			content: JSON.stringify(content)
+		}
+		return postPromise('/project/parameter-set/edit', payload);
+	}
      
     this.getWellPromise = getWellPromise;
     function getWellPromise(idWell) {
