@@ -152,7 +152,7 @@ function wiTreeViewController($element, $timeout, $scope) {
 function wiTreeNodeController($element, $timeout, $scope) {
     let self = this;
     this.showNode = function() {
-        return !self.treeRoot._hidden;
+        return !(self.treeRoot || {})._hidden;
     }
     this.getChildrenWrapper = function(node) {
         if (Array.isArray(node)) return node;
