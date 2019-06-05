@@ -34,7 +34,13 @@ function wiApiService($http, wiToken, Upload) {
         )).catch(err => console.error(err));
     
     this.getFamily = function(idFamily) {
-        if (!familyTable) return null;
+        if (!familyTable) {
+            getAllFamilyPromise()
+                .then(familytable => (
+                    familyTable = familytable
+                )).catch(err => console.error(err));
+            return null;
+        }
         return familyTable.find(family => family.idFamily === idFamily);
     }
     this.setBaseUrl = function(baseUrl) {
@@ -153,6 +159,7 @@ function wiApiService($http, wiToken, Upload) {
     function convertUnit(value, fromUnit, destUnit) {
         if ((!Array.isArray(value) && !_.isFinite(value)) || fromUnit === destUnit) return value;
         if (!unitTable) {
+            getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
             return null;
         }
 
