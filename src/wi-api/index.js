@@ -62,6 +62,24 @@ function wiApiService($http, wiToken, Upload) {
     function getWellPromise(idWell) {
         return postPromise('/project/well/info', {idWell: idWell});
     }
+    const __CACHE_WELL = {};
+    this.getCachedWellPromise = getCachedWellPromise;
+    function getCachedWellPromise(idWell) {
+        let cachedItem = __CACHE_WELL[idWell];
+        if (!cachedItem || ( Date.now() - cachedItem.ts ) > CACHE_LIFE_TIME ) {
+            cachedItem = cachedItem || {};
+            return postPromise('/project/well/info', {idWell}).then((well) => {
+                cachedItem.ts = Date.now();
+                cachedItem.well = well;
+                __CACHE_WELL[idWell] = cachedItem;
+                return well;
+            });
+        }
+        return new Promise(function(resolve) {
+            cachedItem.ts = Date.now();
+            resolve(cachedItem.well);
+        });
+    }
 
     this.getZonesetsPromise = getZonesetsPromise;
     function getZonesetsPromise(idWell) {
@@ -81,17 +99,17 @@ function wiApiService($http, wiToken, Upload) {
         return postPromise('/project/well/dataset/curve/getData', {idCurve})
     }
 
-    const __CACHE = {};
+    const __CACHE_CURVE = {};
     const CACHE_LIFE_TIME = 10 * 1000;
     this.getCachedCurveDataPromise = getCachedCurveDataPromise;
     function getCachedCurveDataPromise(idCurve) {
-        let cachedItem = __CACHE[idCurve];
+        let cachedItem = __CACHE_CURVE[idCurve];
         if (!cachedItem || ( Date.now() - cachedItem.ts ) > CACHE_LIFE_TIME ) {
             cachedItem = cachedItem || {};
             return postPromise('/project/well/dataset/curve/getData', {idCurve}).then((dataCurve) => {
                 cachedItem.ts = Date.now();
                 cachedItem.dataCurve = dataCurve;
-                __CACHE[idCurve] = cachedItem;
+                __CACHE_CURVE[idCurve] = cachedItem;
                 return dataCurve;
             });
         }
