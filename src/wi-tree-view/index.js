@@ -15,6 +15,7 @@ app.component('wiTreeNode', {
         getLabel: "<",
         getIcon: "<",
         getIcons: "<",
+        iconStyle: "<",
         keepChildren: "<",
         runMatch: "<",
 //        clickFn: "<",
@@ -44,6 +45,7 @@ app.component(componentName, {
         getLabel: "<",
         getIcon: "<",
         getIcons: "<",
+        iconStyle: "<",
         runMatch: "<",
         clickFn: "<",
         onDragStart: "<",
@@ -57,6 +59,7 @@ app.component(componentName, {
         contextMenu: "<",
         hideUnmatched: '<',
         hideSearch: "<"
+
     },
     transclude: true
 });
@@ -69,6 +72,7 @@ function wiTreeViewController($element, $timeout, $scope) {
         if (self.uncollapsible) self.collapsed = false;
         self.keepChildren = (self.keepChildren === undefined || self.keepChildren === null)? true : self.keepChildren;
         self.getSiblings = self.getSiblings || function(n) {return []}
+        this.iconStyle = this.iconStyle || {};
         this.selectedIds = this.selectedIds || {};
         this.onContextMenu = this.onContextMenu || function() {
             console.log("default context menu");
@@ -88,7 +92,7 @@ function wiTreeViewController($element, $timeout, $scope) {
                     node._hidden = !matched;
                     return self.keepChildren && matched;
                 }, (node, result) => {
-                    console.log('result', result);
+                    // console.log('result', result);
                     node._hidden = !result;
                 }, 0);
             }
@@ -155,6 +159,12 @@ function wiTreeNodeController($element, $timeout, $scope) {
     let self = this;
     this.showNode = function() {
         return !(self.treeRoot || {})._hidden;
+    }
+    this.getIconStyle = function (){
+        if(typeof self.iconStyle == 'function') {
+            return self.iconStyle(self.treeRoot);
+        }
+        return self.iconStyle;
     }
     this.getChildrenWrapper = function(node) {
         if (Array.isArray(node)) return node;

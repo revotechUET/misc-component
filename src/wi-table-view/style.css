@@ -5,6 +5,14 @@ wi-table-view div.table {
     position: relative;
     outline: none;
 }
+wi-table-view .icon-array {
+    display: flex;
+    margin-right: 10px;
+}
+wi-table-view .cell-col-1{
+    display: flex;
+    align-items: center;
+}
 wi-table-view div.header {
     background-color: #eee;
     font-weight: bold;

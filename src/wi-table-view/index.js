@@ -20,7 +20,9 @@ module.component(name, {
         rowCount: "<",
         colCount: "<",
         accessor: "<",
-        setter: "<"
+        setter: "<",
+        getRowIcons: "<",
+        getRowIconStyle: "<"
     },
 });
 
@@ -30,6 +32,8 @@ function Controller($scope, $element) {
     this.$onInit = function() {
         this.colLabels = this.colLabels || {};
         this.rowLabels = this.rowLabels || {};
+        this.getRowIcons = this.getRowIcons || function() { return [] };
+        this.getRowIconStyle = this.getRowIconStyle || function() { return {} };
     }
     this.getRows = function() {
         let rowCount = 0;
