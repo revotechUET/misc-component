@@ -32,8 +32,8 @@ function Controller($scope) {
         let selectedNode;
         let parentNode = null;
 
-        if (!self.conditionTree) {
-            self.conditionTree = {
+        if (!self.conditionTree || !Object.keys(self.conditionTree).length) {
+            self.conditionTree = Object.assign(self.conditionTree || {}, {
                 comparison: '>',
                 left: {
                     type: 'curve',
@@ -43,7 +43,7 @@ function Controller($scope) {
                     type: 'value',
                     value: 0
                 }
-            };
+            });
             self.conditionExpr = parse(self.conditionTree);
             return;
         }
@@ -55,7 +55,7 @@ function Controller($scope) {
         let newNode = {
             operator: 'and',
             children: [
-                selectedNode,
+                Object.assign({}, selectedNode),
                 {
                     comparison: '>',
                     left: {
@@ -75,7 +75,8 @@ function Controller($scope) {
             parentNode.children[selectedIdx] = newNode;
         }
         else {
-            self.conditionTree = newNode;
+            for (let prop in self.conditionTree) delete self.conditionTree[prop];
+            Object.assign(self.conditionTree, newNode);
         }
         self.conditionExpr = parse(self.conditionTree);
 
@@ -100,11 +101,13 @@ function Controller($scope) {
                 let selectedNode = path[0];
                 let parentNode = path[1];
                 let selectedIdx = parentNode.children.indexOf(selectedNode);
-                let theOtherNode = parentNode.children[(selectedIdx + 1) % 2];
-                self.conditionTree = theOtherNode;
+                let theOtherNode = Object.assign({}, parentNode.children[(selectedIdx + 1) % 2]);
+                for (let prop in self.conditionTree) delete self.conditionTree[prop];
+                Object.assign(self.conditionTree, theOtherNode);
             }
             else if (path.length === 1) {
-                self.conditionTree = null;
+                for (let prop in self.conditionTree) delete self.conditionTree[prop];
+                //self.conditionTree = null;
             }
             else {
                 errorMessageDialog(ModalService, "Never happen!!");
@@ -113,7 +116,7 @@ function Controller($scope) {
         }
     }
     function visit(node, visitedPath, matchFunc) {
-        if (!node) return false;
+        if (!node || !Object.keys(node).length) return false;
         visitedPath.unshift(node);
         if (matchFunc(node)) {
             return true;

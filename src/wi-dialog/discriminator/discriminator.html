@@ -2,18 +2,18 @@
 	<div class='modal-dialog modal-lg'>
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" ng-click='self.closeModal()' aria-hidden="true">&times;</button>
+				<button type="button" class="close" ng-click='self.closeModal(false)' aria-hidden="true">&times;</button>
 				<h4 >Discriminator</h4>
 			</div>
 			<div class="modal-body" style="overflow-x: visible; overflow-y: visible;">
-                <wi-discriminator curves-arr="[{type:'curve', name: 'curve1'},{type:'curve', name: 'curve2'}]">
+                <wi-discriminator curves-arr="self.curvesArr" condition-tree="self.conditionTree">
 				</wi-discriminator>
 			</div>
 			<div class="modal-footer">
-				<button class='btn btn-default' ng-click='' ng-disabled="form.$invalid">
+				<button class='btn btn-default' ng-click='self.closeModal(true)' ng-disabled="form.$invalid">
 					<span class="ok-16x16"></span>&nbsp;OK
 				</button>
-				<button class='btn btn-default' ng-click='self.closeModal()'>
+				<button class='btn btn-default' ng-click='self.closeModal(false)'>
 					<span class="cancel-16x16"></span>&nbsp;Cancel
 				</button>
 			</div>

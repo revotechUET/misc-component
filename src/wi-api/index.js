@@ -245,4 +245,95 @@ function wiApiService($http, wiToken, Upload) {
         }
         return convertUnit(parseFloat((stopHdr || {}).value || 0), stopHdr.unit, unit);
     }
+    this.evalDiscriminatorPromise = async function(dataset, discriminator) {
+        let result = [];
+        let length = (dataset.bottom - dataset.top) / dataset.step;
+        let curveSet = new Set();
+        let curvesData = [];
+
+        let curvesInDataset = dataset.curves;
+        if (!curvesInDataset || !discriminator ) return result;
+
+        try {
+            findCurve(discriminator, curveSet);
+
+            let curveArr = curvesInDataset.filter(c => Array.from(curveSet).includes(c.name));
+            for (let curve of curveArr) {
+                let cData = await getCachedCurveDataPromise(curve.idCurve);
+                curvesData.push({
+                    idCurve: curve.idCurve,
+                    name: curve.name,
+                    data: cData.map(d => d.x)
+                });
+            }
+
+            for (let i = 0; i < length; i++) {
+                result.push(evaluate(discriminator, i));
+            }
+            return result;
+        }
+        catch(e) {
+            return Promise.reject(e);
+        }
+        
+        function findCurve(condition, curveSet) {
+            if (condition && condition.children && condition.children.length) {
+                condition.children.forEach(function (child) {
+                    findCurve(child, curveSet);
+                })
+            } else if (condition && condition.left && condition.right) {
+                curveSet.add(condition.left.value);
+                if (condition.right.type == 'curve') {
+                    curveSet.add(condition.right.value);
+                }
+            } 
+        }
+
+        function evaluate(condition, index) {
+            if (condition && condition.children && condition.children.length) {
+                let left = evaluate(condition.children[0], index);
+                let right = evaluate(condition.children[1], index);
+                switch (condition.operator) {
+                    case 'and':
+                        return left && right;
+                    case 'or':
+                        return left || right;
+                }
+            }
+            else if (condition && condition.left && condition.right) {
+                let leftCurve = curvesData.find(function (curve) {
+                    return curve.name == condition.left.value;
+                });
+
+                let left = leftCurve ? parseFloat(leftCurve.data[index]) : null;
+
+                let right = condition.right.value;
+                if (condition.right.type == 'curve') {
+                    let rightCurve = curvesData.find(function (curve) {
+                        return curve.name == condition.right.value;
+                    })
+                    right = rightCurve ? parseFloat(rightCurve.data[index]) : null;
+                }
+
+                if (left != null && right != null) {
+                    switch (condition.comparison) {
+                        case '<':
+                            return left < right;
+                        case '>':
+                            return left > right;
+                        case '=':
+                            return left == right;
+                        case '<=':
+                            return left <= right;
+                        case '>=':
+                            return left >= right;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        }
+    }
 }

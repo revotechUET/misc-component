@@ -1,8 +1,12 @@
 let helper = require('../DialogHelper');
-module.exports = function (ModalService, callback) {
-    function ModalController(close) {
-        this.closeModal = function () {
-            close(null);
+module.exports = function (ModalService, discrmnt = {}, curvesArr, callback) {
+    function ModalController(close, $scope) {
+        let self = this;
+        this.curvesArr = curvesArr;
+        this.conditionTree = discrmnt;
+        this.closeModal = function (ret) {
+            if (!ret) return close(null);
+            close(self.conditionTree);
         }
     }
     ModalService.showModal({

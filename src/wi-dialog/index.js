@@ -41,8 +41,8 @@ function wiDialogService(ModalService) {
     this.importImagesDialog = function(idProject, imgSetName, cb) {
         importImagesDialog(ModalService, idProject, imgSetName, cb);
     }
-    this.discriminator = function(cb) {
-        discriminator(ModalService, cb);
+    this.discriminator = function(discrmnt, curvesArr, cb) {
+        discriminator(ModalService, discrmnt, curvesArr, cb);
     }
 }
 
