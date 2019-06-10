@@ -1,4 +1,4 @@
-const name = 'wiMultiInput';
+const name = 'wiDualInput';
 const moduleName = 'wiDiscriminator';
 
 let app = angular.module(moduleName);

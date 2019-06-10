@@ -16,6 +16,7 @@ const confirmDialog = require("./confirm/confirm-modal.js");
 const imageGaleryDialog = require("./image-galery/image-galery-modal.js");
 const imageUploadDialog = require("./image-upload/image-upload-modal.js");
 const importImagesDialog = require('./import-images/import-images-modal.js');
+const discriminator = require('./discriminator/discriminator.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -39,6 +40,9 @@ function wiDialogService(ModalService) {
     }
     this.importImagesDialog = function(idProject, imgSetName, cb) {
         importImagesDialog(ModalService, idProject, imgSetName, cb);
+    }
+    this.discriminator = function(cb) {
+        discriminator(ModalService, cb);
     }
 }
 

@@ -2,8 +2,8 @@ const name = 'wiDiscriminator';
 
 let app = angular.module(name, ['ui.select', 'ui.bootstrap']);
 
-const wiConditionNode = require('./wi-condition-node');
-const wiMultiInput = require('./wi-multi-Input');
+const wiConditionNode = require('./wi-cond-node');
+const wiMultiInput = require('./wi-dual-Input');
 
 app.component(name, {
     template: require('./template.html'),

@@ -1,0 +1,23 @@
+<div class='modal fade ' data-backdrop="static" data-keyboard="false">
+	<div class='modal-dialog modal-lg'>
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click='self.closeModal()' aria-hidden="true">&times;</button>
+				<h4 >Discriminator</h4>
+			</div>
+			<div class="modal-body" style="overflow-x: visible; overflow-y: visible;">
+                <wi-discriminator curves-arr="[{type:'curve', name: 'curve1'},{type:'curve', name: 'curve2'}]">
+				</wi-discriminator>
+			</div>
+			<div class="modal-footer">
+				<button class='btn btn-default' ng-click='' ng-disabled="form.$invalid">
+					<span class="ok-16x16"></span>&nbsp;OK
+				</button>
+				<button class='btn btn-default' ng-click='self.closeModal()'>
+					<span class="cancel-16x16"></span>&nbsp;Cancel
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+

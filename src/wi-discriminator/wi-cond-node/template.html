@@ -26,16 +26,16 @@
             </ui-select>
         </div>
         <div style="flex:1;">
-            <wi-multi-input ng-model='self.item.right' model='self.item.right' curves-list='self.curveOptions'
-            ng-change='self.update()' value-only='self.item.left.value'></wi-multi-input>
+            <wi-dual-input ng-model='self.item.right' model='self.item.right' curves-list='self.curveOptions'
+            ng-change='self.update()' value-only='self.item.left.value'></wi-dual-input>
         </div>
     </div>
     <div ng-if="!self.isNull() && self.item.children" class='condition-node'
         >
         <div class="condition-operands">
             <div ng-repeat="childNode in self.item.children">
-                <wi-condition-node item='childNode' curve-options='self.curveOptions' root='self.root'>
-                </wi-condition-node>
+                <wi-cond-node item='childNode' curve-options='self.curveOptions' root='self.root'>
+                </wi-cond-node>
             </div>
         </div>
         <div class="condition-operator">

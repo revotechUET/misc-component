@@ -1,0 +1,36 @@
+<div class="dropdown" uib-dropdown auto-close="outsideClick">
+    <button style="line-height:2;min-height: 34px;" class="btn btn-default dropdown-toggle multi-input-selected" uib-dropdown-toggle id="dropdownMenu">
+        <span ng-if="wiDualInput.model.type == 'value'">
+            {{wiDualInput.SelectedValue}}
+        </span>
+        <span ng-if="wiDualInput.model.type == 'curve'">
+            {{wiDualInput.SelectedCurve.name}}
+        </span>
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu multi-input-menu" aria-labelledby="dropdownMenu" uib-dropdown-menu role="menu">
+        <li style="margin-bottom: 7px">
+            <label>
+                <input type="radio" name='{{wiDualInput.name}}' value="value" ng-model="wiDualInput.model.type" style="vertical-align:top"
+                ng-click="wiDualInput.onValueChange()">
+                Value
+            </label>
+            <input type="number" ng-model="wiDualInput.SelectedValue" ng-disabled="wiDualInput.model.type == 'curve'" class="form-control wi-form-control" ng-change='wiDualInput.onValueChange()'>
+        </li>
+        <li ng-if="wiDualInput.valueOnly">
+            <label>
+                <input type="radio" name='{{wiDualInput.name}}' value="curve" ng-model="wiDualInput.model.type" style="vertical-align:top"
+                ng-click="wiDualInput.onSelectCurve()">
+                Curve
+            </label>
+            <ui-select ng-model="wiDualInput.SelectedCurve" ng-change="wiDualInput.onSelectCurveChange()" class="normal-text"
+            ng-disabled="wiDualInput.model.type == 'value'" class="form-control wi-form-control">
+                <ui-select-match placeholder='Select a curve'>{{wiDualInput.SelectedCurve.name}}</ui-select-match>
+                <ui-select-choices group-by="wiDualInput.groupFn"
+                repeat='curve in wiDualInput.curvesList | filter:{name:$select.search} track by curve.name'>
+                    <div class="padding-left-20px">{{curve.name}}</div>
+                </ui-select-choices>
+        </ui-select>
+        </li>
+    </ul>
+</div>

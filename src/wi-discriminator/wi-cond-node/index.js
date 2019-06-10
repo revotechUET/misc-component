@@ -1,4 +1,4 @@
-const name = 'wiConditionNode';
+const name = 'wiCondNode';
 const moduleName = 'wiDiscriminator';
 
 let app = angular.module(moduleName);
