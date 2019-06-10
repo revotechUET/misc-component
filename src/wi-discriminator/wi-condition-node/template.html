@@ -1,0 +1,47 @@
+<div class='condition-item'
+    ng-class="{'condition-item-selected': self.item.selected}"
+    ng-click="self.doSelect($event)">
+
+    <div ng-if="!self.isNull() && !self.item.children" style="display:flex;flex-direction:row;">
+        <div style="flex:1;">
+            <ui-select ng-model='self.item.left.value' ng-change="self.update()">
+                <ui-select-match placeholder='Select a curve'>{{$select.selected.name}}</ui-select-match>
+                <ui-select-choices group-by="self.groupFn"
+                repeat='curve.name as curve in self.curveOptions | filter:{name:$select.search} track by curve.name'>
+                <div class="padding-left-20px">{{curve.name}}</div>
+            </ui-select-choices>
+            </ui-select>
+        </div>
+        <div style="flex-basis:40px;">
+<!--
+            <select class='form-control width-auto' ng-model="self.item.comparison"
+                ng-options="com for com in self.comparisons"
+                ng-change="self.update()"></select>
+-->
+            <ui-select ng-model='self.item.comparison'
+                ng-change="self.update()"
+                search-enabled='false'>
+                <ui-select-match>{{$select.selected}}</ui-select-match>
+                <ui-select-choices repeat='com in self.comparisons'>{{com}}</ui-select-choices>
+            </ui-select>
+        </div>
+        <div style="flex:1;">
+            <wi-multi-input ng-model='self.item.right' model='self.item.right' curves-list='self.curveOptions'
+            ng-change='self.update()' value-only='self.item.left.value'></wi-multi-input>
+        </div>
+    </div>
+    <div ng-if="!self.isNull() && self.item.children" class='condition-node'
+        >
+        <div class="condition-operands">
+            <div ng-repeat="childNode in self.item.children">
+                <wi-condition-node item='childNode' curve-options='self.curveOptions' root='self.root'>
+                </wi-condition-node>
+            </div>
+        </div>
+        <div class="condition-operator">
+            <select class='form-control width-auto' ng-model="self.item.operator"
+                ng-options="op for op in self.operators"
+                ng-change="self.update()"></select>
+        </div>
+    </div>
+</div>

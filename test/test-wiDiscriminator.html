@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Test WiTreeView</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../bower_components/angular-ui-select/dist/select.min.css">
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="../bower_components/angular-ui-select/dist/select.min.js"></script>
+    <script src="../dist/misc-components.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="MyCtr">
+    <div style="width: 500px;height:500px;border:1px solid #ccc;">
+        <wi-discriminator curves-arr="[{type:'curve', name: 'curve1'},{type:'curve', name: 'curve2'}]">
+        </wi-discriminator>
+    </div>
+    <script>
+        angular.module("myApp", ['wiDiscriminator']).controller('MyCtr', function($scope) {
+            $scope.myVar = 10;
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<div style="text-align: right;">
+    <button class="btn btn-default" ng-click="self.deleteCondition()">Delete</button>
+    <button class="btn btn-default" ng-click="self.addCondition()">Add</button>
+</div>
+
+<div style="padding: 0.5em; border: 2px solid black">
+    <wi-condition-node 
+        item='self.conditionTree' 
+        curve-options='self.curvesArr' 
+        root="self.conditionTree">
+    </wi-condition-node>
+</div>
+
+<div class='form-group'>
+    <textarea class='form-control' disabled ng-model="self.conditionExpr"></textarea>
+</div>

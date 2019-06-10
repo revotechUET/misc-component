@@ -97,6 +97,39 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 
 /***/ }),
 
+/***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-discriminator/style.less":
+/*!********************************************************************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-discriminator/style.less ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-discriminator/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-discriminator/wi-condition-node/style.less":
+/*!**************************************************************************************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-discriminator/wi-condition-node/style.less ***!
+  \**************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"wi-condition-node .condition-node {\\n  display: flex;\\n}\\nwi-condition-node .condition-operands {\\n  flex: 1;\\n}\\nwi-condition-node .condition-operator {\\n  text-align: center;\\n  flex-basis: 90px;\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: center;\\n  margin-left: 5px;\\n}\\nwi-condition-node .condition-item {\\n  padding: 3px;\\n  min-height: 2em;\\n  display: block;\\n  border: 1px solid #d1caca;\\n}\\nwi-condition-node .condition-item-selected {\\n  background: steelblue;\\n}\\nwi-condition-node wi-multi-input .multi-input-selected {\\n  height: auto;\\n  padding: 2px 8px;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-discriminator/wi-condition-node/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-discriminator/wi-multi-Input/style.less":
+/*!***********************************************************************************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-discriminator/wi-multi-Input/style.less ***!
+  \***********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"wi-multi-input .multi-input-selected {\\n  width: 100%;\\n}\\nwi-multi-input .multi-input-menu {\\n  padding: 1em;\\n  min-width: -webkit-fill-available;\\n}\\nwi-multi-input .caret {\\n  position: absolute;\\n  right: 10px;\\n  margin-top: -2px;\\n  top: 50%;\\n  height: 10px;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-discriminator/wi-multi-Input/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-dropdown-list/style.less":
 /*!********************************************************************************************************************!*\
   !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-dropdown-list/style.less ***!
@@ -315,7 +348,7 @@ eval("module.exports = \"<label ng-if=\\\"self.itemLabel\\\" ng-style=\\\"self.l
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\"),\n    wiDroppable: __webpack_require__(/*! ./wi-droppable */ \"./wi-droppable/index.js\"),\n    wiDialog: __webpack_require__(/*! ./wi-dialog */ \"./wi-dialog/index.js\"),\n    wiApi: __webpack_require__(/*! ./wi-api */ \"./wi-api/index.js\"),\n    wiLoading: __webpack_require__(/*! ./wi-loading */ \"./wi-loading/index.js\"),\n    wiDropdownList: __webpack_require__(/*! ./wi-dropdown-list */ \"./wi-dropdown-list/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\"),\n    wiDroppable: __webpack_require__(/*! ./wi-droppable */ \"./wi-droppable/index.js\"),\n    wiDialog: __webpack_require__(/*! ./wi-dialog */ \"./wi-dialog/index.js\"),\n    wiApi: __webpack_require__(/*! ./wi-api */ \"./wi-api/index.js\"),\n    wiLoading: __webpack_require__(/*! ./wi-loading */ \"./wi-loading/index.js\"),\n    wiDropdownList: __webpack_require__(/*! ./wi-dropdown-list */ \"./wi-dropdown-list/index.js\"),\n    wiDiscriminator: __webpack_require__(/*! ./wi-discriminator */ \"./wi-discriminator/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -580,6 +613,105 @@ eval("module.exports = \"<div class='modal fade ' data-backdrop=\\\"static\\\" d
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("let helper = __webpack_require__(/*! ../DialogHelper */ \"./wi-dialog/DialogHelper.js\");\n\nmodule.exports = function (ModalService, promptConfig, callback) {\n    function ModalController($scope, close) {\n        const self = this;\n        this.title = promptConfig.title;\n        this.inputs = promptConfig.inputs; // multi inputs\n        this.inputName = promptConfig.inputName;\n        this.input = promptConfig.input;\n        // type: [select, text]\n        this.type = promptConfig.type;\n        this.options = promptConfig.options;\n        this.onOkButtonClicked = function () {\n            close(self.input || self.inputs);\n        }\n        this.onCancelButtonClicked = function () {\n            close(null);\n        }\n    }\n\n    ModalService.showModal({\n        template: __webpack_require__(/*! ./prompt-modal.html */ \"./wi-dialog/prompt/prompt-modal.html\"),\n        controller: ModalController,\n        controllerAs: 'wiModal'\n    }).then(function (modal) {\n        helper.initModal(modal);\n        modal.close.then(function (ret) {\n            helper.removeBackdrop();\n            ret && callback && callback(ret);\n        });\n    });\n}\n\n\n//# sourceURL=webpack:///./wi-dialog/prompt/prompt-modal.js?");
+
+/***/ }),
+
+/***/ "./wi-discriminator/index.js":
+/*!***********************************!*\
+  !*** ./wi-discriminator/index.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const name = 'wiDiscriminator';\n\nlet app = angular.module(name, ['ui.select', 'ui.bootstrap']);\n\nconst wiConditionNode = __webpack_require__(/*! ./wi-condition-node */ \"./wi-discriminator/wi-condition-node/index.js\");\nconst wiMultiInput = __webpack_require__(/*! ./wi-multi-Input */ \"./wi-discriminator/wi-multi-Input/index.js\");\n\napp.component(name, {\n    template: __webpack_require__(/*! ./template.html */ \"./wi-discriminator/template.html\"),\n    style: __webpack_require__(/*! ./style.less */ \"./wi-discriminator/style.less\"),\n    controller: Controller,\n    controllerAs: 'self',\n    bindings: {\n        conditionTree: \"<\",\n        curvesArr: \"<\"\n    }\n});\n\nexports.name = name;\nfunction Controller($scope) {\n    let self = this;\n    $scope.$on('discriminator-update', function($event) {\n        $event.stopPropagation();\n        $event.preventDefault();\n        self.conditionExpr = parse(self.conditionTree);\n    });\n    this.addCondition = function () {\n        let path = new Array();\n        let retVal = visit(self.conditionTree, path, function (aNode) {\n            return aNode.selected;\n        });\n        let selectedNode;\n        let parentNode = null;\n\n        if (!self.conditionTree) {\n            self.conditionTree = {\n                comparison: '>',\n                left: {\n                    type: 'curve',\n                    value: getFirstCurve()\n                },\n                right: {\n                    type: 'value',\n                    value: 0\n                }\n            };\n            self.conditionExpr = parse(self.conditionTree);\n            return;\n        }\n\n        if (!retVal) selectedNode = self.conditionTree;\n\n        if (retVal) selectedNode = path[0];\n\n        let newNode = {\n            operator: 'and',\n            children: [\n                selectedNode,\n                {\n                    comparison: '>',\n                    left: {\n                        type: 'curve',\n                        value: getFirstCurve()\n                    },\n                    right: {\n                        type: 'value',\n                        value: 0\n                    }\n                }\n            ]\n        };\n        if (path.length > 1) {\n            parentNode = path[1];\n            let selectedIdx = parentNode.children.indexOf(selectedNode);\n            parentNode.children[selectedIdx] = newNode;\n        }\n        else {\n            self.conditionTree = newNode;\n        }\n        self.conditionExpr = parse(self.conditionTree);\n\n    }\n    this.deleteCondition = function () {\n        let path = new Array();\n        let retVal = visit(self.conditionTree, path, function (aNode) {\n            return aNode.selected;\n        });\n        if (retVal) {\n            if (path.length >= 3) {\n                let selectedNode = path[0];\n                let parentNode = path[1];\n                let gParentNode = path[2];\n\n                let parentIdx = gParentNode.children.indexOf(parentNode);\n                let selectedIdx = parentNode.children.indexOf(selectedNode);\n                let theOtherNode = parentNode.children[(selectedIdx + 1) % 2];\n                gParentNode.children[parentIdx] = theOtherNode;\n            }\n            else if (path.length === 2) {\n                let selectedNode = path[0];\n                let parentNode = path[1];\n                let selectedIdx = parentNode.children.indexOf(selectedNode);\n                let theOtherNode = parentNode.children[(selectedIdx + 1) % 2];\n                self.conditionTree = theOtherNode;\n            }\n            else if (path.length === 1) {\n                self.conditionTree = null;\n            }\n            else {\n                errorMessageDialog(ModalService, \"Never happen!!\");\n            }\n            self.conditionExpr = parse(self.conditionTree);\n        }\n    }\n    function visit(node, visitedPath, matchFunc) {\n        if (!node) return false;\n        visitedPath.unshift(node);\n        if (matchFunc(node)) {\n            return true;\n        }\n        else {\n            if (node.children && node.children.length) {\n                for (let childNode of node.children) {\n                    if (visit(childNode, visitedPath, matchFunc)) {\n                        return true;\n                    }\n                    visitedPath.shift();\n                }\n            }\n        }\n        return false;\n    }\n    function parse(tree) {\n        let str = \"\";\n        if (!tree) return \"\";\n        if (tree.children && tree.children.length) {\n            return \"( \" + parse(tree.children[0]) + \" \" + tree.operator.toUpperCase() + \" \" + parse(tree.children[1]) + \" )\";\n        }\n        else if (tree.left && tree.right && tree.comparison) {\n            let left = tree.left.value;\n            // let right = tree.right.type=='value'? tree.right.value: getCurveName(tree.right.value);\n            let right = tree.right.value;\n            return \"( \" + left + \" \" + tree.comparison + \" \" + right + \" )\";\n        }\n\n        return str;\n    }\n    function getFirstCurve() {\n        return self.curvesArr[0].name;\n    }\n}\n\n\n//# sourceURL=webpack:///./wi-discriminator/index.js?");
+
+/***/ }),
+
+/***/ "./wi-discriminator/style.less":
+/*!*************************************!*\
+  !*** ./wi-discriminator/style.less ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./style.less */ \"../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-discriminator/style.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-discriminator/style.less?");
+
+/***/ }),
+
+/***/ "./wi-discriminator/template.html":
+/*!****************************************!*\
+  !*** ./wi-discriminator/template.html ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div style=\\\"text-align: right;\\\">\\n    <button class=\\\"btn btn-default\\\" ng-click=\\\"self.deleteCondition()\\\">Delete</button>\\n    <button class=\\\"btn btn-default\\\" ng-click=\\\"self.addCondition()\\\">Add</button>\\n</div>\\n\\n<div style=\\\"padding: 0.5em; border: 2px solid black\\\">\\n    <wi-condition-node \\n        item='self.conditionTree' \\n        curve-options='self.curvesArr' \\n        root=\\\"self.conditionTree\\\">\\n    </wi-condition-node>\\n</div>\\n\\n<div class='form-group'>\\n    <textarea class='form-control' disabled ng-model=\\\"self.conditionExpr\\\"></textarea>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./wi-discriminator/template.html?");
+
+/***/ }),
+
+/***/ "./wi-discriminator/wi-condition-node/index.js":
+/*!*****************************************************!*\
+  !*** ./wi-discriminator/wi-condition-node/index.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const name = 'wiConditionNode';\nconst moduleName = 'wiDiscriminator';\n\nlet app = angular.module(moduleName);\n\napp.component(name, {\n    template: __webpack_require__(/*! ./template.html */ \"./wi-discriminator/wi-condition-node/template.html\"),\n    style: __webpack_require__(/*! ./style.less */ \"./wi-discriminator/wi-condition-node/style.less\"),\n    controller: Controller,\n    controllerAs: \"self\",\n    bindings: {\n        item: '<',\n        curveOptions: '<',\n        onDelete: '<',\n        root: '<'\n    }\n});\n\nfunction Controller($scope, $timeout) {\n    let self = this;\n    this.$onInit = function () {\n        console.log( self.root);\n        console.log(self.item);\n        console.log(self.onDelete);\n        $timeout(function () {\n            self.curveOptionsWithDepth = self.curveOptions;\n        }, 500);\n    }\n\n    this.groupFn = function (item) {\n        return item.parent;\n    }\n\n    this.comparisons = ['<', '>', '=', '<=', '>='];\n    this.operators = ['and', 'or'];\n\n    this.update = function () {\n    }\n\n    this.isNull = function () {\n        return !self.item || Object.keys(self.item).length == 0;\n    }\n    function clearSelectedItem(node) {\n        if (!node) return;\n        node.selected = false;\n        if (node.children && node.children.length) {\n            for (let childNode of node.children) {\n                clearSelectedItem(childNode);\n            }\n        }\n\n    }\n    this.update = () => {\n        $scope.$emit('discriminator-update', {});\n    }\n    this.doSelect = function ($event) {\n        $event.stopPropagation();\n        clearSelectedItem(self.root);\n        if (self.item)\n            self.item.selected = true;\n    }\n}\n\n\n//# sourceURL=webpack:///./wi-discriminator/wi-condition-node/index.js?");
+
+/***/ }),
+
+/***/ "./wi-discriminator/wi-condition-node/style.less":
+/*!*******************************************************!*\
+  !*** ./wi-discriminator/wi-condition-node/style.less ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/less-loader/dist/cjs.js!./style.less */ \"../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-discriminator/wi-condition-node/style.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-discriminator/wi-condition-node/style.less?");
+
+/***/ }),
+
+/***/ "./wi-discriminator/wi-condition-node/template.html":
+/*!**********************************************************!*\
+  !*** ./wi-discriminator/wi-condition-node/template.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class='condition-item'\\n    ng-class=\\\"{'condition-item-selected': self.item.selected}\\\"\\n    ng-click=\\\"self.doSelect($event)\\\">\\n\\n    <div ng-if=\\\"!self.isNull() && !self.item.children\\\" style=\\\"display:flex;flex-direction:row;\\\">\\n        <div style=\\\"flex:1;\\\">\\n            <ui-select ng-model='self.item.left.value' ng-change=\\\"self.update()\\\">\\n                <ui-select-match placeholder='Select a curve'>{{$select.selected.name}}</ui-select-match>\\n                <ui-select-choices group-by=\\\"self.groupFn\\\"\\n                repeat='curve.name as curve in self.curveOptions | filter:{name:$select.search} track by curve.name'>\\n                <div class=\\\"padding-left-20px\\\">{{curve.name}}</div>\\n            </ui-select-choices>\\n            </ui-select>\\n        </div>\\n        <div style=\\\"flex-basis:40px;\\\">\\n<!--\\n            <select class='form-control width-auto' ng-model=\\\"self.item.comparison\\\"\\n                ng-options=\\\"com for com in self.comparisons\\\"\\n                ng-change=\\\"self.update()\\\"></select>\\n-->\\n            <ui-select ng-model='self.item.comparison'\\n                ng-change=\\\"self.update()\\\"\\n                search-enabled='false'>\\n                <ui-select-match>{{$select.selected}}</ui-select-match>\\n                <ui-select-choices repeat='com in self.comparisons'>{{com}}</ui-select-choices>\\n            </ui-select>\\n        </div>\\n        <div style=\\\"flex:1;\\\">\\n            <wi-multi-input ng-model='self.item.right' model='self.item.right' curves-list='self.curveOptions'\\n            ng-change='self.update()' value-only='self.item.left.value'></wi-multi-input>\\n        </div>\\n    </div>\\n    <div ng-if=\\\"!self.isNull() && self.item.children\\\" class='condition-node'\\n        >\\n        <div class=\\\"condition-operands\\\">\\n            <div ng-repeat=\\\"childNode in self.item.children\\\">\\n                <wi-condition-node item='childNode' curve-options='self.curveOptions' root='self.root'>\\n                </wi-condition-node>\\n            </div>\\n        </div>\\n        <div class=\\\"condition-operator\\\">\\n            <select class='form-control width-auto' ng-model=\\\"self.item.operator\\\"\\n                ng-options=\\\"op for op in self.operators\\\"\\n                ng-change=\\\"self.update()\\\"></select>\\n        </div>\\n    </div>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./wi-discriminator/wi-condition-node/template.html?");
+
+/***/ }),
+
+/***/ "./wi-discriminator/wi-multi-Input/index.js":
+/*!**************************************************!*\
+  !*** ./wi-discriminator/wi-multi-Input/index.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const name = 'wiMultiInput';\nconst moduleName = 'wiDiscriminator';\n\nlet app = angular.module(moduleName);\n\napp.component(name, {\n    template: __webpack_require__(/*! ./template.html */ \"./wi-discriminator/wi-multi-Input/template.html\"),\n    style: __webpack_require__(/*! ./style.less */ \"./wi-discriminator/wi-multi-Input/style.less\"),\n    controller: Controller,\n    controllerAs: name,\n    require: 'ngModel',\n    bindings: {\n        model: '<',\n        curvesList: '<',\n        ngChange: '<',\n        valueOnly: '<'\n    }\n});\n\nfunction Controller() {\n    let self = this;\n\n    this.$onInit = function () {\n        self.name = 'inputType' + Math.random();\n        self.model = self.model || {};\n        if (self.model.type == 'value') {\n            self.SelectedValue = self.model.value;\n        } else if (self.model.type == 'curve') {\n            self.SelectedCurve = self.curvesList.find(curve => {\n                return curve.name == self.model.value;\n            })\n        } else {\n            return;\n        }\n    }\n\n    this.groupFn = function (item) {\n        return item.parent;\n    }\n\n    this.onValueChange = function () {\n        self.model.value = self.SelectedValue;\n    }\n\n    this.onSelectCurve = function () {\n        if (!self.SelectedCurve) {\n            self.SelectedCurve = self.curvesList[0];\n        }\n        self.model.value = self.SelectedCurve.name;\n    }\n    this.onSelectCurveChange = function () {\n        if (self.SelectedCurve) {\n            self.model.value = self.SelectedCurve.name;\n        }\n    }\n}\n\n\n//# sourceURL=webpack:///./wi-discriminator/wi-multi-Input/index.js?");
+
+/***/ }),
+
+/***/ "./wi-discriminator/wi-multi-Input/style.less":
+/*!****************************************************!*\
+  !*** ./wi-discriminator/wi-multi-Input/style.less ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/less-loader/dist/cjs.js!./style.less */ \"../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-discriminator/wi-multi-Input/style.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-discriminator/wi-multi-Input/style.less?");
+
+/***/ }),
+
+/***/ "./wi-discriminator/wi-multi-Input/template.html":
+/*!*******************************************************!*\
+  !*** ./wi-discriminator/wi-multi-Input/template.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class=\\\"dropdown\\\" uib-dropdown auto-close=\\\"outsideClick\\\">\\n    <button style=\\\"line-height:2;min-height: 34px;\\\" class=\\\"btn btn-default dropdown-toggle multi-input-selected\\\" uib-dropdown-toggle id=\\\"dropdownMenu\\\">\\n        <span ng-if=\\\"wiMultiInput.model.type == 'value'\\\">\\n            {{wiMultiInput.SelectedValue}}\\n        </span>\\n        <span ng-if=\\\"wiMultiInput.model.type == 'curve'\\\">\\n            {{wiMultiInput.SelectedCurve.name}}\\n        </span>\\n        <span class=\\\"caret\\\"></span>\\n    </button>\\n    <ul class=\\\"dropdown-menu multi-input-menu\\\" aria-labelledby=\\\"dropdownMenu\\\" uib-dropdown-menu role=\\\"menu\\\">\\n        <li style=\\\"margin-bottom: 7px\\\">\\n            <label>\\n                <input type=\\\"radio\\\" name='{{wiMultiInput.name}}' value=\\\"value\\\" ng-model=\\\"wiMultiInput.model.type\\\" style=\\\"vertical-align:top\\\"\\n                ng-click=\\\"wiMultiInput.onValueChange()\\\">\\n                Value\\n            </label>\\n            <input type=\\\"number\\\" ng-model=\\\"wiMultiInput.SelectedValue\\\" ng-disabled=\\\"wiMultiInput.model.type == 'curve'\\\" class=\\\"form-control wi-form-control\\\" ng-change='wiMultiInput.onValueChange()'>\\n        </li>\\n        <li ng-if=\\\"wiMultiInput.valueOnly\\\">\\n            <label>\\n                <input type=\\\"radio\\\" name='{{wiMultiInput.name}}' value=\\\"curve\\\" ng-model=\\\"wiMultiInput.model.type\\\" style=\\\"vertical-align:top\\\"\\n                ng-click=\\\"wiMultiInput.onSelectCurve()\\\">\\n                Curve\\n            </label>\\n            <ui-select ng-model=\\\"wiMultiInput.SelectedCurve\\\" ng-change=\\\"wiMultiInput.onSelectCurveChange()\\\" class=\\\"normal-text\\\"\\n            ng-disabled=\\\"wiMultiInput.model.type == 'value'\\\" class=\\\"form-control wi-form-control\\\">\\n                <ui-select-match placeholder='Select a curve'>{{wiMultiInput.SelectedCurve.name}}</ui-select-match>\\n                <ui-select-choices group-by=\\\"wiMultiInput.groupFn\\\"\\n                repeat='curve in wiMultiInput.curvesList | filter:{name:$select.search} track by curve.name'>\\n                    <div class=\\\"padding-left-20px\\\">{{curve.name}}</div>\\n                </ui-select-choices>\\n        </ui-select>\\n        </li>\\n    </ul>\\n</div>\\n\";\n\n//# sourceURL=webpack:///./wi-discriminator/wi-multi-Input/template.html?");
 
 /***/ }),
 
