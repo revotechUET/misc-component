@@ -67,7 +67,13 @@ function wiApiService($http, wiToken, Upload) {
 		}
 		return postPromise('/project/parameter-set/new', payload);
 	}
-
+	this.getAssetPromise = getAssetPromise;
+	function getAssetPromise(idParameterSet) {
+		let payload = {
+			idParameterSet: idParameterSet,
+		}
+		return postPromise('/project/parameter-set/info', payload);
+	}
 	this.editAssetPromise = editAssetPromise;
 	function editAssetPromise(idParameterSet, content) {
 		let payload = {
