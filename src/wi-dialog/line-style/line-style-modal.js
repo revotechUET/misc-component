@@ -19,9 +19,9 @@ module.exports = function (ModalService, options, callback) {
 
         this.lineColor = function () {
 			console.log('---chosing color');
-			colorPickerDialog(ModalService, self.options.lineStyle.lineColor, function (colorStr) {
-				self.options.lineStyle.lineColor = colorStr;
-			});
+			// colorPickerDialog(ModalService, self.options.lineStyle.lineColor, function (colorStr) {
+			// 	self.options.lineStyle.lineColor = colorStr;
+			// });
         }
         this.onOkButtonClicked = function () {
             close(self.options);
