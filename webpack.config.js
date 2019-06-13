@@ -8,7 +8,7 @@ module.exports = {
 	},
 	output: {
 		path: __dirname + '/dist',
-		// path: __dirname + '../../multi-well-histogram/bower_components/misc-component/dist',
+		// path: __dirname + '../../multi-well-crossplot/bower_components/misc-component/dist',
 		filename: 'misc-components.js'
 	},
 	module: {

@@ -1,0 +1,70 @@
+<div class='modal fade ' data-backdrop="static" data-keyboard="false">
+	<div class='modal-dialog'>
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="wiModal.onCancelButtonClicked()" aria-hidden="true">&times;</button>
+				<h4 ng-bind-html="wiModal.title"></h4>
+			</div>
+			<div class="modal-body text-center" ng-form="form">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3 normal-text" for="style">Line Style</label>
+                                <div class="col-sm-9">
+                                    <ui-select theme="bootstrap" ng-model="wiModal.options.lineStyle.lineStyle">
+                                        <ui-select-match>
+                                            <svg height="10" width="100%" class="col-sm-12">
+                                                <line x1="0" y1="5" x2="100%" y2="5" stroke-dasharray="{{$select.selected.join(',')}}"
+                                                      style="stroke: {{wiModal.options.lineStyle.lineColor}}; stroke-width: 1}"></line>
+                                            </svg>
+                                        </ui-select-match>
+                                        <ui-select-choices repeat="style in wiModal.styles" class="text-left">
+                                            <div class="container-fluid">
+                                                <svg height="10" width="100%" class="col-sm-12">
+                                                    <line x1="0" y1="5" x2="100%" y2="5" stroke-dasharray="{{style.join(',')}}"
+                                                          style="stroke: {{wiModal.options.lineStyle.lineColor}}; stroke-width: 1"></line>
+                                                </svg>
+                                            </div>
+
+                                        </ui-select-choices>
+                                    </ui-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label col-sm-6" for="line-width">Line Width</label>
+                                <div class="col-sm-6">
+                                    <input type="number" id="line-width"
+                                        min="1" max="10"
+                                        class="form-control"
+                                        ng-model="wiModal.options.lineStyle.lineWidth">
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Line Color</label>
+                                <div class="col-sm-9">
+                                    <div class="valign-middle pull-left" style="height: 23px; width: 90%; border: 1px solid #000;" ng-style="{'background-color':wiModal.options.lineStyle.lineColor}"></div>
+                                    <button ng-click="wiModal.lineColor();" class="wi-form-control">...</button>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class='btn btn-default' ng-click='wiModal.onOkButtonClicked()' ng-disabled="form.$invalid">
+					<span class="ok-16x16"></span>&nbsp;OK
+				</button>
+				<button class='btn btn-default' ng-click='wiModal.onCancelButtonClicked()'>
+					<span class="cancel-16x16"></span>&nbsp;Cancel
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
