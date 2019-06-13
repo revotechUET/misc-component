@@ -1,9 +1,18 @@
-<div style="text-align: right;">
-    <button class="btn btn-default" ng-click="self.deleteCondition()">Delete</button>
-    <button class="btn btn-default" ng-click="self.addCondition()">Add</button>
+
+<div style="display: flex; justify-content: space-between;">
+    <button class="btn btn-default" ng-click="self.activeDiscriminator(); self.active = !self.active;" style=" display: flex; align-items: center;">
+        <span ng-class="{'active-discriminator': self.active}"
+        style="width: 12px; margin-right: 7px; height: 12px; background: #cdcdcd; border-radius: 50%;"></span>
+        <span ng-show="self.active">Activated</span>
+        <span ng-show="!self.active">Inactive</span>
+        </button>
+    <div>
+        <button class="btn btn-default" ng-click="self.deleteCondition()">Delete</button>
+        <button class="btn btn-default" ng-click="self.addCondition()" style="margin-left: 7px;">Add</button>
+    </div>
 </div>
 
-<div style="padding: 0.5em; border: 2px solid black">
+<div style="padding: 20px 0;">
     <wi-cond-node 
         item='self.conditionTree' 
         curve-options='self.curvesArr' 
