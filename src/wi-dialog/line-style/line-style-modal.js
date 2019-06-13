@@ -1,11 +1,11 @@
 let helper = require('../DialogHelper');
 let colorPickerDialog = require('../color-picker/color-picker-modal.js');
 
-module.exports = function (ModalService, options, callback) {
+module.exports = function (ModalService, lineStyle, callback) {
     function ModalController($scope, close) {
 		let self = this;
 
-        this.options = options;
+        this.lineStyle = lineStyle;
 
         this.styles = [
         [0, 10],
@@ -24,7 +24,7 @@ module.exports = function (ModalService, options, callback) {
 			// });
         }
         this.onOkButtonClicked = function () {
-            close(self.options);
+            close(self.lineStyle);
         };
 		this.onCancelButtonClicked = () => {
 			close(null);

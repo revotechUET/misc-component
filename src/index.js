@@ -2,6 +2,7 @@ require('./wi-icons');
 module.exports = {
     editable: require('./editable'),
     sideBar : require('./side-bar/index'),
+	lineStyle: require('./line-style/index'),
     wiBaseTreeview : require('./wi-base-treeview/wi-base-treeview'),
     wiLogin: require('./wi-login/wi-login'),
     wiToken: require('./wi-token/index'),
