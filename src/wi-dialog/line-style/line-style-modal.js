@@ -1,11 +1,12 @@
 let helper = require('../DialogHelper');
+let colorPickerDialog = require('../color-picker/color-picker-modal.js');
+
 module.exports = function (ModalService, options, callback) {
     function ModalController($scope, close) {
-        let self = this;
+		let self = this;
 
         this.options = options;
 
-        console.log("Op", this.options);
         this.styles = [
         [0, 10],
         [10, 0],
@@ -16,26 +17,29 @@ module.exports = function (ModalService, options, callback) {
         ];
         this.widthes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-        // this.lineColor = function () {
-        //     DialogUtils.colorPickerDialog(ModalService, self.options.lineStyle.lineColor, function (colorStr) {
-        //         self.options.lineStyle.lineColor = colorStr;
-        //     });
-        // }
+        this.lineColor = function () {
+			console.log('---chosing color');
+			colorPickerDialog(ModalService, self.options.lineStyle.lineColor, function (colorStr) {
+				self.options.lineStyle.lineColor = colorStr;
+			});
+        }
         this.onOkButtonClicked = function () {
-            console.log("optionsss: ", self.options);
             close(self.options);
         };
+		this.onCancelButtonClicked = () => {
+			close(null);
+		}
     }
 
     ModalService.showModal({
-        templateUrl: "line-style-modal.html",
+        template: require("./line-style-modal.html"),
         controller: ModalController,
-        controllerAs: "wiModal"
+        controllerAs: 'wiModal'
     }).then(function (modal) {
         helper.initModal(modal);
         modal.close.then(function (ret) {
             helper.removeBackdrop();
-            if (ret) callback(ret);
+            ret && callback && callback(ret);
         });
     });
 }

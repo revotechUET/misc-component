@@ -1,37 +1,14 @@
-<div class='modal fade' data-backdrop="static" data-keyboard="false">
-    <div class='modal-dialog'>
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" ng-click="wiModal.onOkButtonClicked()" aria-hidden="true">&times;</button>
-                <h4>Line Style</h4>
-            </div>
-            <div class="modal-body text-center small-text">
-                <form class="form-horizontal" action="" name="modalLineStyle">
-                    <div class="row">
-                        <!-- <div class="col-sm-12">
-                            <div class="form-group">
-                                <label class="control-label col-sm-4 normal-text" for="style">Line Width</label>
-                                <div class="col-sm-8">
-                                    <ui-select theme="bootstrap" ng-model="wiModal.options.lineStyle.lineWidth">
-                                        <ui-select-match>
-                                            <div class="col-sm-2 text-left">{{$select.selected}}</div>
-                                            <svg height="10" width="100%" class="col-sm-10">
-                                                <line x1="0" y1="5" x2="100%" y2="5"
-                                                      style="stroke: {{wiModal.options.lineStyle.lineColor}}; stroke-width: {{$select.selected}}"></line>
-                                            </svg>
-                                        </ui-select-match>
-                                        <ui-select-choices repeat="width in wiModal.widthes">
-                                            <div class="col-sm-2 text-left">{{width}}</div>
-                                            <svg height="10" width="100%" class="col-sm-10">
-                                                <line x1="0" y1="5" x2="100%" y2="5"
-                                                      style="stroke: {{wiModal.options.lineStyle.lineColor}}; stroke-width: {{width}}"></line>
-                                            </svg>
-                                        </ui-select-choices>
-                                    </ui-select>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="col-sm-8">
+<div class='modal fade ' data-backdrop="static" data-keyboard="false">
+	<div class='modal-dialog'>
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="wiModal.onCancelButtonClicked()" aria-hidden="true">&times;</button>
+				<h4 ng-bind-html="wiModal.title"></h4>
+			</div>
+			<div class="modal-body text-center" ng-form="form">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<div class="col-sm-8">
                             <div class="form-group">
                                 <label class="control-label col-sm-3 normal-text" for="style">Line Style</label>
                                 <div class="col-sm-9">
@@ -44,7 +21,6 @@
                                         </ui-select-match>
                                         <ui-select-choices repeat="style in wiModal.styles" class="text-left">
                                             <div class="container-fluid">
-                                                <!--<div class="col-sm-2 text-left"></div>-->
                                                 <svg height="10" width="100%" class="col-sm-12">
                                                     <line x1="0" y1="5" x2="100%" y2="5" stroke-dasharray="{{style.join(',')}}"
                                                           style="stroke: {{wiModal.options.lineStyle.lineColor}}; stroke-width: 1"></line>
@@ -67,10 +43,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-12">
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">
                             <div class="form-group">
                                 <label class="control-label col-sm-2">Line Color</label>
                                 <div class="col-sm-9">
@@ -79,13 +54,17 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button class='btn btn-default' ng-click='wiModal.onOkButtonClicked()'><span class="ok-16x16"></span>&nbsp;Ok</button>
-                <!-- <button class='btn btn-default' ng-click='wiModal.onCancelButtonClicked()'><span class="close-16x16"></span>&nbsp;Cancel</button> -->
-            </div>
-        </div>
-    </div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class='btn btn-default' ng-click='wiModal.onOkButtonClicked()' ng-disabled="form.$invalid">
+					<span class="ok-16x16"></span>&nbsp;OK
+				</button>
+				<button class='btn btn-default' ng-click='wiModal.onCancelButtonClicked()'>
+					<span class="cancel-16x16"></span>&nbsp;Cancel
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
