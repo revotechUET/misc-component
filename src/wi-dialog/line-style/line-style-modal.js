@@ -17,7 +17,6 @@ module.exports = function (ModalService, lineStyle, wiDialog, callback) {
         this.widthes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
         this.lineColor = function () {
-			console.log('---chosing color');
 			wiDialog.colorPickerDialog(self.lineStyle.lineColor, {}, function (colorStr) {
 				self.lineStyle.lineColor = colorStr;
 			});
