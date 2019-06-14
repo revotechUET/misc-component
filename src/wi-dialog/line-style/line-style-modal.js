@@ -1,7 +1,6 @@
 let helper = require('../DialogHelper');
-let colorPickerDialog = require('../color-picker/color-picker-modal.js');
 
-module.exports = function (ModalService, lineStyle, callback) {
+module.exports = function (ModalService, lineStyle, wiDialog, callback) {
     function ModalController($scope, close) {
 		let self = this;
 
@@ -19,9 +18,9 @@ module.exports = function (ModalService, lineStyle, callback) {
 
         this.lineColor = function () {
 			console.log('---chosing color');
-			// colorPickerDialog(ModalService, self.options.lineStyle.lineColor, function (colorStr) {
-			// 	self.options.lineStyle.lineColor = colorStr;
-			// });
+			wiDialog.colorPickerDialog(self.lineStyle.lineColor, {}, function (colorStr) {
+				self.lineStyle.lineColor = colorStr;
+			});
         }
         this.onOkButtonClicked = function () {
             close(self.lineStyle);

@@ -18,6 +18,7 @@ const imageUploadDialog = require("./image-upload/image-upload-modal.js");
 const importImagesDialog = require('./import-images/import-images-modal.js');
 const discriminator = require('./discriminator/discriminator.js');
 const lineStyleDialog = require('./line-style/line-style-modal.js');
+const colorPickerDialog = require('./color-picker/color-picker-modal.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -46,7 +47,10 @@ function wiDialogService(ModalService) {
         discriminator(ModalService, discrmnt, curvesArr, cb);
     }
 	this.lineStyleDialog = function(lineStyle, cb) {
-		lineStyleDialog(ModalService, lineStyle, cb)
+		lineStyleDialog(ModalService, lineStyle, self, cb)
+	}
+	this.colorPickerDialog = function(curColor, options, cb) {
+		colorPickerDialog(ModalService, curColor, options, cb);
 	}
 }
 
