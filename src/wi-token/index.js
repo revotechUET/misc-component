@@ -17,6 +17,12 @@ function TokenService() {
     this.setPassword = function(password){
         return localStorage.setItem('password',password);
     }
+    this.setCurrentProjectName = function(currentProjectName){
+        return localStorage.setItem('currentProjectName',currentProjectName);
+    }
+    this.getCurrentProjectName = function(){
+        return localStorage.getItem('currentProjectName');
+    }
 
     this.getPassword = function(){
         return localStorage.getItem('password');
