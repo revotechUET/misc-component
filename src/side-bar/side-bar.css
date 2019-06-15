@@ -20,13 +20,19 @@ side-bar div.handle {
     cursor: pointer;
     background-color: #eee;
     opacity: 0.1;
+    transition      : all 0.2s ease-in;
+
 }
 
 side-bar div.handle:hover {
     opacity: 1;
+    transition      : all 0.2s ease-in;
+
 }
 side-bar div.handle.full-opacity{
     opacity: 1;
+    transition      : all 0.2s ease-in;
+
 }
 side-bar div.icon:hover {
     color: #0075c5;

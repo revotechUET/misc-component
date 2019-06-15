@@ -152,6 +152,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 
 /***/ }),
 
+/***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-float-button/style.less":
+/*!*******************************************************************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-float-button/style.less ***!
+  \*******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"wi-float-button .button-icon {\\n  color: blue;\\n}\\nwi-float-button .button-content {\\n  display: none;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-float-button/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-icons/sprite.less":
 /*!*************************************************************************************************************!*\
   !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-icons/sprite.less ***!
@@ -236,7 +247,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"side-bar>div {\\n    height: 100%;\\n    width: 0px;\\n    background: #ffffff;\\n    position: relative;\\n}\\nside-bar>div div.content {\\n    overflow-x:hidden;\\n    height: 100%;\\n    /* padding-left: 15px; */\\n}\\nside-bar div.handle {\\n    display: inline-block;\\n    z-index: 89;\\n    position: absolute;\\n    top: 0px;\\n    /*right: 0px;*/\\n    width: 15px;\\n    height: 100%;\\n    cursor: pointer;\\n    background-color: #eee;\\n    opacity: 0.1;\\n}\\n\\nside-bar div.handle:hover {\\n    opacity: 1;\\n}\\nside-bar div.handle.full-opacity{\\n    opacity: 1;\\n}\\nside-bar div.icon:hover {\\n    color: #0075c5;\\n}\\n\\nside-bar div.icon {\\n    color: #000;\\n    position: relative;\\n    top: 50%;\\n    text-align: center;\\n    /*font-size: 150%;*/\\n}\\n\\nside-bar .animation-enable {\\n    transition: width 0.3s cubic-bezier(0, 1.04, 1, 1);\\n}\\n\\nside-bar .ui-resizable-handle {\\n    cursor: ew-resize;\\n    width: 4px;\\n    position: absolute;\\n    font-size: 0.1px;\\n    display: block;\\n    -ms-touch-action: none;\\n    touch-action: none;\\n}\\n\\nside-bar .ui-resizable-w {\\n    cursor: ew-resize;\\n    width: 7px;\\n    left: -5px;\\n    top: 0;\\n    height: 100%;\\n}\\nside-bar .ui-resizable-e {\\n    cursor: ew-resize;\\n    width: 7px;\\n    right: -5px;\\n    top: 0;\\n    height: 100%;\\n}\\nside-bar .fix-right {\\n    left: 0px !important;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./side-bar/side-bar.css?../node_modules/css-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"side-bar>div {\\n    height: 100%;\\n    width: 0px;\\n    background: #ffffff;\\n    position: relative;\\n}\\nside-bar>div div.content {\\n    overflow-x:hidden;\\n    height: 100%;\\n    /* padding-left: 15px; */\\n}\\nside-bar div.handle {\\n    display: inline-block;\\n    z-index: 89;\\n    position: absolute;\\n    top: 0px;\\n    /*right: 0px;*/\\n    width: 15px;\\n    height: 100%;\\n    cursor: pointer;\\n    background-color: #eee;\\n    opacity: 0.1;\\n    transition      : all 0.2s ease-in;\\n\\n}\\n\\nside-bar div.handle:hover {\\n    opacity: 1;\\n    transition      : all 0.2s ease-in;\\n\\n}\\nside-bar div.handle.full-opacity{\\n    opacity: 1;\\n    transition      : all 0.2s ease-in;\\n\\n}\\nside-bar div.icon:hover {\\n    color: #0075c5;\\n}\\n\\nside-bar div.icon {\\n    color: #000;\\n    position: relative;\\n    top: 50%;\\n    text-align: center;\\n    /*font-size: 150%;*/\\n}\\n\\nside-bar .animation-enable {\\n    transition: width 0.3s cubic-bezier(0, 1.04, 1, 1);\\n}\\n\\nside-bar .ui-resizable-handle {\\n    cursor: ew-resize;\\n    width: 4px;\\n    position: absolute;\\n    font-size: 0.1px;\\n    display: block;\\n    -ms-touch-action: none;\\n    touch-action: none;\\n}\\n\\nside-bar .ui-resizable-w {\\n    cursor: ew-resize;\\n    width: 7px;\\n    left: -5px;\\n    top: 0;\\n    height: 100%;\\n}\\nside-bar .ui-resizable-e {\\n    cursor: ew-resize;\\n    width: 7px;\\n    right: -5px;\\n    top: 0;\\n    height: 100%;\\n}\\nside-bar .fix-right {\\n    left: 0px !important;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./side-bar/side-bar.css?../node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -359,7 +370,11 @@ eval("module.exports = \"<label ng-if=\\\"self.itemLabel\\\" ng-style=\\\"self.l
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< Updated upstream
 eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n\tlineStyle: __webpack_require__(/*! ./line-style/index */ \"./line-style/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\"),\n    wiDroppable: __webpack_require__(/*! ./wi-droppable */ \"./wi-droppable/index.js\"),\n    wiDialog: __webpack_require__(/*! ./wi-dialog */ \"./wi-dialog/index.js\"),\n    wiApi: __webpack_require__(/*! ./wi-api */ \"./wi-api/index.js\"),\n    wiLoading: __webpack_require__(/*! ./wi-loading */ \"./wi-loading/index.js\"),\n    wiDropdownList: __webpack_require__(/*! ./wi-dropdown-list */ \"./wi-dropdown-list/index.js\"),\n    wiDiscriminator: __webpack_require__(/*! ./wi-discriminator */ \"./wi-discriminator/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+=======
+eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\"),\n    wiDroppable: __webpack_require__(/*! ./wi-droppable */ \"./wi-droppable/index.js\"),\n    wiDialog: __webpack_require__(/*! ./wi-dialog */ \"./wi-dialog/index.js\"),\n    wiApi: __webpack_require__(/*! ./wi-api */ \"./wi-api/index.js\"),\n    wiLoading: __webpack_require__(/*! ./wi-loading */ \"./wi-loading/index.js\"),\n    wiDropdownList: __webpack_require__(/*! ./wi-dropdown-list */ \"./wi-dropdown-list/index.js\"),\n    wiDiscriminator: __webpack_require__(/*! ./wi-discriminator */ \"./wi-discriminator/index.js\"),\n    wiFloatButton: __webpack_require__(/*! ./wi-float-button */ \"./wi-float-button/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+>>>>>>> Stashed changes
 
 /***/ }),
 
@@ -888,6 +903,39 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dis
 /***/ (function(module, exports) {
 
 eval("module.exports = \"<div ng-transclude ng-style=\\\"self.containerStyle\\\"></div>\\n\";\n\n//# sourceURL=webpack:///./wi-droppable/template.html?");
+
+/***/ }),
+
+/***/ "./wi-float-button/index.js":
+/*!**********************************!*\
+  !*** ./wi-float-button/index.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var componentName = 'wiFloatButton';\nmodule.exports.name = componentName;\n__webpack_require__(/*! ./style.less */ \"./wi-float-button/style.less\");\nvar app = angular.module(componentName, []);\n\napp.component(componentName, {\n    template: __webpack_require__(/*! ./template.html */ \"./wi-float-button/template.html\"),\n    controller: wiFloatButtonController,\n    controllerAs: 'self',\n    bindings: {\n        top:'<',\n        bottom:'<',\n        right:'<',\n        left:'<'\n    },\n    transclude: true\n\n});\n\nfunction wiFloatButtonController($scope) {\n    let self = this;\n    self.listConfig = [\n        \"Alfreds \",\n        \"Berglunds \",\n        \"Centro  \",\n        \"Ernst \"]\n  \n}\n\n\n//# sourceURL=webpack:///./wi-float-button/index.js?");
+
+/***/ }),
+
+/***/ "./wi-float-button/style.less":
+/*!************************************!*\
+  !*** ./wi-float-button/style.less ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./style.less */ \"../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-float-button/style.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-float-button/style.less?");
+
+/***/ }),
+
+/***/ "./wi-float-button/template.html":
+/*!***************************************!*\
+  !*** ./wi-float-button/template.html ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class=\\\"button-icon fa fa-bars\\\">\\n    <div class=\\\"button-content\\\" ng-repeat=\\\"item in self.listConfig\\\">\\n        <div>{{item}}</div>\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./wi-float-button/template.html?");
 
 /***/ }),
 

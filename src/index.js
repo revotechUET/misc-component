@@ -15,5 +15,6 @@ module.exports = {
     wiApi: require('./wi-api'),
     wiLoading: require('./wi-loading'),
     wiDropdownList: require('./wi-dropdown-list'),
-    wiDiscriminator: require('./wi-discriminator')
+    wiDiscriminator: require('./wi-discriminator'),
+    wiFloatButton: require('./wi-float-button')
 }

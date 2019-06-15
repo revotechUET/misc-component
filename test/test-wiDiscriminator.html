@@ -16,15 +16,14 @@
     <script src="../dist/misc-components.js"></script>
 </head>
 
-<body ng-app="myApp" ng-controller="MyCtr">
-    <div style="width: 500px;height:500px;border:1px solid #ccc;">
-        <wi-discriminator curves-arr="[{type:'curve', name: 'curve1'},{type:'curve', name: 'curve2'}]">
-        </wi-discriminator>
+<body ng-app="myApp" >
+    <div style="width: 500px;height:500px;border:1px solid #ccc; position: relative;">
+        <wi-float-button>
+
+        </wi-float-button>
     </div>
     <script>
-        angular.module("myApp", ['wiDiscriminator']).controller('MyCtr', function($scope) {
-            // $scope.myVar = 10;
-        })
+        angular.module("myApp", ['wiFloatButton']);
     </script>
 </body>
 </html>
