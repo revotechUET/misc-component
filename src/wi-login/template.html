@@ -13,16 +13,18 @@
                     <p>Login to {{self.appName}}</p>
                 </div>
                 <div class="login-form">
-                    <div class="control-group">
-                        <input type="text" placeholder="username" ng-model="self.name">
-                    </div>
-    
-                    <div class="control-group">
-                        <input type="password" placeholder="password" ng-model="self.password">
-                    </div>
-    
-                    <a class="btn" ng-click="self.getInfor()" href="#">Login</a>
-                    <a class="login-link" target="_blank" href="{{self.registerUrl}}">Register now!</a>
+                    <form>
+                        <div class="control-group">
+                            <input type="text" placeholder="username" ng-model="self.name">
+                        </div>
+        
+                        <div class="control-group">
+                            <input type="password" placeholder="password" ng-model="self.password">
+                        </div>
+        
+                        <input class="btn" type="submit" value="Login" ng-click="self.getInfor()" href="#">
+                        <a class="login-link" target="_blank" href="{{self.registerUrl}}">Register now!</a>
+                    </form>
                 </div>
         </div>
     </div>
