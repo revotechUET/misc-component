@@ -22,10 +22,13 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
     let self = this;
     this.$onInit = function (){
         self.loginUrl = self.loginUrl || 'http://admin.dev.i2g.cloud/login';
+        if(!wiToken.getToken()) {
+            this.showDialogLogin();
+        }
     }
+
     this.onLoginClick = function () {
         if (wiToken.getToken()) {
-            wiToken.setToken(null);
             this.showDialogWarningLogout();
         } else {
             this.showDialogLogin();
