@@ -14,7 +14,8 @@ app.component(componentName, {
         whoami: '@',
         registerUrl: '@',
         appName: '@',
-        loginUrl: '@'
+        loginUrl: '@',
+        queryString: '<'
     }
 });
 
@@ -22,7 +23,11 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
     let self = this;
     this.$onInit = function (){
         self.loginUrl = self.loginUrl || 'http://admin.dev.i2g.cloud/login';
-        if(!wiToken.getToken()) {
+        if (self.queryString.token) {
+            wiToken.setToken(self.queryString.token);
+            wiToken.saveToken({ token: self.queryString.token });
+        }
+        if (!wiToken.getToken()) {
             this.showDialogLogin();
         }
     }
@@ -53,6 +58,7 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
         }, 1200);
         setTimeout(function () {
             location.reload();
+            window.location.href = window.location.origin;
         }, 1200);
     }
     this.showDialogLogin = function () {
