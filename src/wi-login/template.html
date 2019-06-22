@@ -55,3 +55,20 @@
             <p class="wellcome">Logout success!</p>
     </div>
 </script>
+<script type="text/ng-template" id="templateLoginFailed">
+    <div class="try-again">
+        <p style="font-size: 25px;margin: 20px 0 10px;font-weight: bold;">Try again!</p>
+        <p class="wellcome" style="margin: 0 0 20px;">The username or password is incorrect!</p>
+        <span ng-click="self.acceptReLogin()" 
+        style="border: 1px solid #0077be;
+        width: 60px;
+        cursor: pointer;
+        height: 40px;
+        display: flex;
+        color: #0077be;
+        border-radius: 30px;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;"><i class="fa fa-long-arrow-left"></i></span>
+    </div>
+</script>

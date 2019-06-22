@@ -110,6 +110,15 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                     }, 1100);
                 } else if (response.data.code == 512) {
                     console.error("512");
+                    ngDialog.open({
+                        template: 'templateLoginFailed',
+                        className: 'ngdialog-theme-default',
+                        scope: $scope,
+                    });
+                    self.acceptReLogin = function () {
+                        ngDialog.close();
+                        self.showDialogLogin();
+                    }
                 }
             }, function (errorResponse) {
                 console.error(errorResponse);
