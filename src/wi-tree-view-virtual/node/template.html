@@ -1,0 +1,22 @@
+<div ng-if="self.treeRoot" class='node-content' ng-class="{
+  'not-matched': !self.showNode(), 
+  'search-mode':self.wiTreeView.filter.length,
+  'not-show': self.hideUnmatched,
+  'selected': self.treeRoot._selected}"
+  ng-mousedown="self.onClick($event)" 
+  oncontextmenu="(function(){event.preventDefault();return false;})()"
+  ng-style="{'padding-left': self.getPadding()}">
+  <div class="node-caret" ng-class="{'invisible': !self.getChildren(self.treeRoot).length}"
+      ng-click="self.toggleChildrenFn(self.treeRoot)">
+      <i ng-show="self.treeRoot._isUncollapse" class="fa fa-caret-down"></i>
+      <i ng-hide="self.treeRoot._isUncollapse" class="fa fa-caret-right"></i>
+  </div>
+  <div ng-if="self.getIcon" class="node-icon"><i class="tree-icon {{self.getIcon(self.treeRoot)}}"></i></div>
+  <div ng-if="self.getIcons" class="node-icon"><i ng-style="self.getIconStyle()" class="tree-icon {{icon}}"
+      ng-repeat="icon in self.getIcons(self.treeRoot) track by $index"></i>
+  </div>
+  <div class="node-label">
+      {{self.getLabel(self.treeRoot)}}
+  </div>
+</div>
+<div style="clear:both;"></div>
