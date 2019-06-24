@@ -15,7 +15,7 @@
 
 <body ng-app="myApp" ng-controller="MyCtr">
     <div style="width: 500px;height:500px;border:1px solid #ccc;">
-        <wi-tree-view-virtual tree-root="[treedata]" get-label="getLabel" get-icon='getIcon' get-icons="getIcons"
+        <wi-tree-view-virtual tree-root="treedata" get-label="getLabel" get-icon='getIcon' get-icons="getIcons"
             get-children="getChildren" single-node="true" hide-unmatched='true' keep-children='true' run-match='matchFn'
             click-fn='clickFn' uncollapsible='false' on-drag-start='dragStart' on-drag-stop='dragStop'>
         </wi-tree-view-virtual>
@@ -34,7 +34,7 @@
                     { id: 8, name: 'Mary', country: 'England', gender: "Male" },
                     { id: 9, name: 'Kai', country: 'Norway', gender: "Male" }
                 ];
-                $scope.treedata = {
+                $scope.treedata = [{
                     id: 1, name: '1Jani', country: 'Norway', gender: "Male",
                     children: [
                         {
@@ -68,7 +68,41 @@
                         },
                         { id: 19, name: '19Joe', country: 'Denmark', gender: "Male" }
                     ]
-                }
+                },{
+                    id: 1, name: '1Jani', country: 'Norway', gender: "Male",
+                    children: [
+                        {
+                            id: 2, name: '2Carl', country: 'Sweden', gender: "Male",
+                            children: [
+                                { id: 3, name: '3Margareth', country: 'England', gender: "Male" },
+                                { id: 4, name: '4Hege', country: 'Norway', gender: "Male" },
+                                { id: 5, name: '5Joe', country: 'Denmark', gender: "Male" },
+                                { id: 6, name: '6Gustav', country: 'Sweden', gender: "Male" }
+                            ]
+                        },
+                        {
+                            id: 7, name: '7Margareth', country: 'England', gender: "Male",
+                            children: [
+                                { id: 8, name: '7Carl', country: 'Sweden', gender: "Male" },
+                                { id: 9, name: '8Margareth', country: 'England', gender: "Male" },
+                                { id: 10, name: '10Hege', country: 'Norway', gender: "Male" },
+                                { id: 11, name: '11Joe', country: 'Denmark', gender: "Male" },
+                                { id: 12, name: '12Gustav', country: 'Sweden', gender: "Male" }
+                            ]
+                        },
+                        {
+                            id: 13, name: '13Hege', country: 'Norway', gender: "Male",
+                            children: [
+                                { id: 14, name: '14Carl', country: 'Sweden', gender: "Male" },
+                                { id: 15, name: '15Margareth', country: 'England', gender: "Male" },
+                                { id: 16, name: '16Hege', country: 'Norway', gender: "Male" },
+                                { id: 17, name: '17Joe', country: 'Denmark', gender: "Male" },
+                                { id: 18, name: '18Gustav', country: 'Sweden', gender: "Male" }
+                            ]
+                        },
+                        { id: 19, name: '19Joe', country: 'Denmark', gender: "Male" }
+                    ]
+                }]
 
                 $scope.getLabel = function (node) {
                     return node.name;

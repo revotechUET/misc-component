@@ -98,6 +98,7 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
   self.$onInit = function () {
     self.vListWrapper = createVirtualListWrapper();
     self.treeAlgorithmsWrapper = {};
+    self.selectedNodes = [];
   }
 
   $scope.safeApply = function (fn) {
@@ -137,8 +138,29 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
     //update lv of node
     //lv define padding of node
     node._lv = node._lv || 0
-    for(const child of node.children) {
+    for (const child of node.children) {
       child._lv = node._lv + 1
+    }
+  }
+
+  //pass to node
+  self.nodeOnClick = function (node, $event) {
+    node._selected = true;
+    // self.selectedNodes.push(node);
+    
+    if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
+      // deselect all execpt the current node
+      for(const selectedNode of self.selectedNodes) {
+
+        //avoid double click current node, select go away
+        if(selectedNode.id !== node.id){
+          selectedNode._selected = false;
+        }
+      }
+      self.selectedNodes = [node];
+      
+    } else {
+      self.selectedNodes.push(node)
     }
   }
 
@@ -153,7 +175,7 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
         if (row < 0) return document.createElement('div');
         const foundedNode = utils.createNodeTreeElement(row, self.treeRoot);
         if (foundedNode) return $compile(foundedNode)($scope)[0];
-        
+
         return document.createElement('div');
       }
     });

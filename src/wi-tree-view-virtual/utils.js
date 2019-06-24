@@ -62,6 +62,7 @@ module.exports.createNodeTreeElement = function createNodeTreeElement(idx, treeR
   vTreeNode.setAttribute('uncollapsible', 'self.uncollapsible');
   vTreeNode.setAttribute('context-menu', 'self.contextMenu');
   vTreeNode.setAttribute('toggle-children-fn', 'self.toggleChildrenFn');
+  vTreeNode.setAttribute('node-on-click', 'self.nodeOnClick');
 
   return vTreeNode;
 }

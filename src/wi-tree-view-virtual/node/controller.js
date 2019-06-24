@@ -112,6 +112,7 @@ module.exports = function controller($element, $timeout, $scope) {
     const self = this;
 
     self.$onInit = function () {
+        // self.idScope = $scope.$id;
         // console.log(self.treeRoot)
         // self.collapsed = (self.collapsed == undefined || self.collapsed === null) ? true : self.collapsed;
         // $element.find(".node-content").draggable({
