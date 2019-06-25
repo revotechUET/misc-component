@@ -27,8 +27,10 @@ angular.module(componentName, [])
       onContextMenu: '<',
       contextMenu: '<',
       hideUnmatched: '<',
+
       toggleChildrenFn: '<',
-      nodeOnClick: '<'
+      nodeOnClick: '<',
+      getSelectedNode: '<'
     },
     // require: {
     //   wiTreeViewVirtual: "^^wiTreeViewVirtual"

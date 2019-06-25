@@ -41,7 +41,7 @@ module.exports.TreeAlgorithmsWrapper = class TreeAlgorithmsWrapper {
   }
 }
 
-module.exports.createNodeTreeElement = function createNodeTreeElement(idx, treeRoots) {
+module.exports.createNodeTreeElement = function createNodeTreeElement(idx) {
   const vTreeNode = document.createElement('wi-tree-node-virtual');
 
   vTreeNode.setAttribute('tree-root', `self.findChildAtIdx(${idx})`);
@@ -63,6 +63,7 @@ module.exports.createNodeTreeElement = function createNodeTreeElement(idx, treeR
   vTreeNode.setAttribute('context-menu', 'self.contextMenu');
   vTreeNode.setAttribute('toggle-children-fn', 'self.toggleChildrenFn');
   vTreeNode.setAttribute('node-on-click', 'self.nodeOnClick');
+  vTreeNode.setAttribute('get-selected-node', 'self.getSelectedNode');
 
   return vTreeNode;
 }

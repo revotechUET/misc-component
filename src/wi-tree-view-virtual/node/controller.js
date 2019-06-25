@@ -107,7 +107,7 @@
 //       }
 //   }
 // }
-
+const utils = require('../utils')
 module.exports = function controller($element, $timeout, $scope) {
     const self = this;
 
@@ -135,12 +135,39 @@ module.exports = function controller($element, $timeout, $scope) {
         //         self.onDragStop && self.onDragStop(ui.helper.myData);
         //     }
         // });
+
+        // if(!window.a) window.a = []
+        // window.a.push($element)
+                
+        $element.draggable({
+            helper: function () {
+                const wrapper = $('<div style="border:2px dotted #0077be;"></div>');
+                const selectedNodes = self.getSelectedNode();
+                
+                for(const node of selectedNodes) {
+                    //fake node just for satifying css
+                    const insertNode = utils.createNodeTreeElement(0);
+                    insertNode.appendChild($element.find('.node-content')[0].cloneNode(true));
+                    wrapper.append(insertNode)
+                }
+                return wrapper;
+            },
+            start: function ($event, ui) {
+
+                ui.helper.addClass('dragging');
+                ui.helper.myData = self.getSelectedNode();
+                self.onDragStart && self.onDragStart(ui.helper.myData);
+            },
+            stop: function ($event, ui) {
+                self.onDragStop && self.onDragStop(ui.helper.myData);
+            }
+        });
     }
 
     self.showNode = function () {
-        return !(self.treeRoot || {})._hidden;
+        return !(self.treeRoot || {})._hidden;npx 
     }
-    
+
 
     // self.toggleChildren = function () {
     //     if (self.uncollapsible) {
@@ -150,15 +177,15 @@ module.exports = function controller($element, $timeout, $scope) {
     //     $timeout(() => { self.collapsed = !self.collapsed });
     // }
 
-    self.onClick = function ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-        if ($event.button === 2) {
-            self.onContextMenu(self.treeRoot);
-            return;
-        }
-        self.select();
-    }
+    // self.onClick = function ($event) {
+    //     $event.preventDefault();
+    //     $event.stopPropagation();
+    //     if ($event.button === 2) {
+    //         self.onContextMenu(self.treeRoot);
+    //         return;
+    //     }
+    //     self.select();
+    // }
 
     self.getIconStyle = function () {
         if (typeof self.iconStyle == 'function') {
@@ -167,17 +194,17 @@ module.exports = function controller($element, $timeout, $scope) {
         return self.iconStyle;
     }
 
-    self.deselect = function () {
-        $timeout(() => { self.treeRoot._selected = false });
-        // delete self.wiTreeView.selectedIds[$scope.$id];
-    }
+    // self.deselect = function () {
+    //     $timeout(() => { self.treeRoot._selected = false });
+    //     // delete self.wiTreeView.selectedIds[$scope.$id];
+    // }
 
-    self.select = function () {
-        $timeout(() => { self.treeRoot._selected = true });
-        // self.wiTreeView.selectedIds[$scope.$id] = { elem: $element.find('.node-content')[0], data: self.treeRoot };
-    }
+    // self.select = function () {
+    //     $timeout(() => { self.treeRoot._selected = true });
+    //     // self.wiTreeView.selectedIds[$scope.$id] = { elem: $element.find('.node-content')[0], data: self.treeRoot };
+    // }
 
-    self.getPadding = function() {
-        return `${parseInt(self.treeRoot._lv) * 19}px` 
+    self.getPadding = function () {
+        return `${parseInt(self.treeRoot._lv) * 19}px`
     }
 }

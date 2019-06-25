@@ -112,6 +112,10 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
     }
   };
 
+  self.getSelectedNode = function () {
+    return self.selectedNodes;
+  }
+
   self.findChildAtIdx = function (idx) {
 
     //create a new tree every time find
@@ -146,20 +150,18 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
   //pass to node
   self.nodeOnClick = function (node, $event) {
     node._selected = true;
-    // self.selectedNodes.push(node);
-    
     if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
       // deselect all execpt the current node
-      for(const selectedNode of self.selectedNodes) {
+      for (const selectedNode of self.selectedNodes) {
 
         //avoid double click current node, select go away
-        if(selectedNode.id !== node.id){
+        if (selectedNode.id !== node.id) {
           selectedNode._selected = false;
         }
       }
       self.selectedNodes = [node];
-      
-    } else {
+
+    } else if (!self.selectedNodes.includes(node)) {
       self.selectedNodes.push(node)
     }
   }
@@ -173,7 +175,7 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
       totalRows: utils.toArray(self.treeRoot).length, //initial
       generatorFn: row => {
         if (row < 0) return document.createElement('div');
-        const foundedNode = utils.createNodeTreeElement(row, self.treeRoot);
+        const foundedNode = utils.createNodeTreeElement(row);
         if (foundedNode) return $compile(foundedNode)($scope)[0];
 
         return document.createElement('div');
