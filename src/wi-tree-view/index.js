@@ -75,7 +75,7 @@ function wiTreeViewController($element, $timeout, $scope) {
         this.iconStyle = this.iconStyle || {};
         this.selectedIds = this.selectedIds || {};
         this.onContextMenu = this.onContextMenu || function() {
-            console.log("default context menu");
+            // console.log("default context menu");
         };
         $scope.$watch(() => (self.treeRoot), () => {
             self.selectedIds = {};
