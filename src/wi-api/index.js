@@ -9,6 +9,10 @@ function wiApiService($http, wiToken, Upload) {
     this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
     let unitTable = undefined;
     let familyTable;
+    
+    this.getUnitTable = () => unitTable
+    this.getFamilyTable = () => familyTable
+
     function postPromise(url, data) {
         return new Promise(function(resolve, reject) {
             $http({
