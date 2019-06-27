@@ -126,6 +126,10 @@ function wiApiService($http, wiToken, Upload) {
     function getCurveInfoPromise(idCurve) {
         return postPromise('/project/well/dataset/curve/info', {idCurve});
     }
+    this.getDatasetInfoPromise = getDatasetInfoPromise;
+    function getDatasetInfoPromise(idDataset) {
+        return postPromise('/project/well/dataset/info', {idDataset});
+    }
     this.getCurveDataPromise = getCurveDataPromise;
     function getCurveDataPromise(idCurve) {
         return postPromise('/project/well/dataset/curve/getData', {idCurve})
