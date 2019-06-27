@@ -122,7 +122,10 @@ function wiApiService($http, wiToken, Upload) {
     function getZonesPromise(idZoneSet) {
         return postPromise('/project/well/zone-set/info', {idZoneSet: idZoneSet});
     }
-    
+    this.getCurveInfoPromise = getCurveInfoPromise;
+    function getCurveInfoPromise(idCurve) {
+        return postPromise('/project/well/dataset/curve/info', {idCurve});
+    }
     this.getCurveDataPromise = getCurveDataPromise;
     function getCurveDataPromise(idCurve) {
         return postPromise('/project/well/dataset/curve/getData', {idCurve})
