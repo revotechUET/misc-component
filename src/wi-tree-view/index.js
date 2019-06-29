@@ -167,11 +167,13 @@ function wiTreeNodeController($element, $timeout, $scope) {
         return self.iconStyle;
     }
     this.getChildrenWrapper = function(node) {
-        if (Array.isArray(node)) return node;
-        if (!self.singleNode)
-            return self.getChildren(node);
-        if (node._active) return self.getChildren(node);
-        return [];
+        if(node){
+            if (Array.isArray(node)) return node;
+            if (!self.singleNode)
+                return self.getChildren(node);
+            if (node._active) return self.getChildren(node);
+            return [];
+        }
     }
     this.deselect = function() {
         $timeout(() => {self.treeRoot._selected = false});
