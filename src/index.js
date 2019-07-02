@@ -16,5 +16,6 @@ module.exports = {
     wiLoading: require('./wi-loading'),
     wiDropdownList: require('./wi-dropdown-list'),
     wiDiscriminator: require('./wi-discriminator'),
-    wiFloatButton: require('./wi-float-button')
+    wiFloatButton: require('./wi-float-button'),
+    wiTreeViewVirtual: require('./wi-tree-view-virtual')
 }

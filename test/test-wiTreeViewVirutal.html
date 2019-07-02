@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Test WiTreeView</title>
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/virtual-list/vlist.js"></script>
+    <script src="../bower_components/wi-vlist/index.js"></script>
+    <script src="../dist/misc-components.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="MyCtr">
+    <!-- <button ng-click="addNode()">Add Node</button>
+    <button ng-click="removeNode()">Remove Node</button> -->
+    <div style="width: 500px;height:500px;border:1px solid #ccc;">
+        <wi-tree-view-virtual tree-root="treedata" get-label="getLabel" get-icon='getIcon' get-icons="getIcons"
+            get-children="getChildren" single-node="true" hide-unmatched='true' keep-children='true' run-match='matchFn'
+            click-fn='clickFn' uncollapsible='false' on-drag-start='dragStart' on-drag-stop='dragStop'>
+        </wi-tree-view-virtual>
+        <wi-droppable on-drop='dropFn'>
+            <div style="width:500px; height:500px; border: 1px solid black;">
+            </div>
+        </wi-droppable>
+    </div>
+    <script>
+        angular.module("myApp", ['wiTreeViewVirtual', 'wiDroppable'])
+            .controller('MyCtr', ['$scope', function ($scope) {
+                $scope.data = [
+                    { id: 1, name: 'Jani', country: 'Norway', gender: "Male" },
+                    { id: 2, name: 'Carl', country: 'Sweden', gender: "Male" },
+                    { id: 3, name: 'Margareth', country: 'England', gender: "Male" },
+                    { id: 4, name: 'Hege', country: 'Norway', gender: "Male" },
+                    { id: 5, name: 'Joe', country: 'Denmark', gender: "Male" },
+                    { id: 6, name: 'Gustav', country: 'Sweden', gender: "Male" },
+                    { id: 7, name: 'Birgit', country: 'Denmark', gender: "Male" },
+                    { id: 8, name: 'Mary', country: 'England', gender: "Male" },
+                    { id: 9, name: 'Kai', country: 'Norway', gender: "Male" }
+                ];
+                $scope.treedata = [{
+                    id: 1, name: '1Jani', country: 'Norway', gender: "Male",
+                    children: [
+                        {
+                            id: 2, name: '2Carl', country: 'Sweden', gender: "Male",
+                            children: [
+                                { id: 3, name: '3Margareth', country: 'England', gender: "Male" },
+                                { id: 4, name: '4Hege', country: 'Norway', gender: "Male" },
+                                { id: 5, name: '5Joe', country: 'Denmark', gender: "Male" },
+                                { id: 6, name: '6Gustav', country: 'Sweden', gender: "Male" }
+                            ]
+                        },
+                        {
+                            id: 7, name: '7Margareth', country: 'England', gender: "Male",
+                            children: [
+                                { id: 8, name: '7Carl', country: 'Sweden', gender: "Male" },
+                                { id: 9, name: '8Margareth', country: 'England', gender: "Male" },
+                                { id: 10, name: '10Hege', country: 'Norway', gender: "Male" },
+                                { id: 11, name: '11Joe', country: 'Denmark', gender: "Male" },
+                                { id: 12, name: '12Gustav', country: 'Sweden', gender: "Male" }
+                            ]
+                        },
+                        {
+                            id: 13, name: '13Hege', country: 'Norway', gender: "Male",
+                            children: [
+                                { id: 14, name: '14Carl', country: 'Sweden', gender: "Male" },
+                                { id: 15, name: '15Margareth', country: 'England', gender: "Male" },
+                                { id: 16, name: '16Hege', country: 'Norway', gender: "Male" },
+                                { id: 17, name: '17Joe', country: 'Denmark', gender: "Male" },
+                                { id: 18, name: '18Gustav', country: 'Sweden', gender: "Male" }
+                            ]
+                        },
+                        { id: 19, name: '19Joe', country: 'Denmark', gender: "Male" }
+                    ]
+                }]
+
+                //quite good at 1000
+                //but not good at 10000 (slow)
+                const numFakeNodes = 10000
+                for(let i=20;i<numFakeNodes;++i){
+                    $scope.treedata[0].children.push({ id: i, name: i + 'Margareth', country: 'England', gender: "Male" })
+                }
+
+                console.log($scope.treedata)
+
+                $scope.getLabel = function (node) {
+                    return node.name;
+                }
+                $scope.getIcon = function (node) {
+                    if (node.id % 2)
+                        return "well-16x16";
+                    else {
+                        return "project-normal-16x16";
+                    }
+                }
+                $scope.getIcons = function (node) {
+                    if (node.id % 2)
+                        return ["well-16x16", "fa fa-close"];
+                    else {
+                        return ["project-normal-16x16", "fa fa-close"];
+                    }
+                }
+                $scope.getChildren = function (node) {
+                    return node.children;
+                }
+                $scope.matchFn = function (node, criteria) {
+                    if (criteria && criteria.length)
+                        return node.name.includes(criteria);
+                    return true;
+                }
+                $scope.dragStart = function (node) {
+                    console.log("dragStart", node);
+                }
+                $scope.dragStop = function (node) {
+                    console.log("dragStop", node);
+                }
+                $scope.clickFn = function (event, node) {
+                    console.log("click:", node);
+                }
+                $scope.dropFn = function (event, helper, data) {
+                    console.log('dropFn', data);
+                }
+                $scope.dropEndFn = function (event, helper, data) {
+                    console.log('dropEndFn', data);
+                }
+                // $scope.addNode = function() {
+                //     $scope.$broadcast('TREE_DATA_CHANGE')
+                //     $scope.treedata.push({id: 1000, name: '1Jani', country: 'Norway', gender: "Male", children:[]})
+                //     // console.log($scope.treedata.length)
+                // }
+                // $scope.removeNode = function() {
+                //     $scope.$broadcast('TREE_DATA_CHANGE');
+                //     $scope.treedata.pop();
+                // }
+            }]);
+
+    </script>
+</body>
+
+</html>

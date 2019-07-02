@@ -1,0 +1,27 @@
+<div style="display:flex;flex-direction:column;width:100%;height:100%;">
+  <div ng-transclude></div>
+  <div ng-hide="self.hideSearch">
+      <input type="text" ng-model="self.filter" placeholder="Search">
+  </div>
+  <div class="tree-view-container" style="flex:1;overflow-y:hidden">
+      <!-- <wi-tree-node-virtual ng-repeat="child in self.getChildrenWrapper(self.treeRoot)"
+          tree-root='child'
+          filter='self.filter'
+          get-children='self.getChildren'
+          get-label='self.getLabel'
+          get-icon='self.getIcon'
+          get-icons='self.getIcons'
+          icon-style='self.iconStyle'
+          keep-children='self.keepChildren'
+          on-drag-start='self.onDragStart'
+          on-drag-stop='self.onDragStop'
+          run-match='self.runMatch'
+          single-node="self.singleNode"
+          get-siblings="self.getSiblings"
+          on-context-menu="self.onContextMenu"
+          hide-unmatched='self.hideUnmatched'
+          uncollapsible='self.uncollapsible'
+          context-menu="self.contextMenu">
+      </wi-tree-node-virtual> -->
+  </div>
+</div>
