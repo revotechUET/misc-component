@@ -14,6 +14,8 @@
 </head>
 
 <body ng-app="myApp" ng-controller="MyCtr">
+    <!-- <button ng-click="addNode()">Add Node</button>
+    <button ng-click="removeNode()">Remove Node</button> -->
     <div style="width: 500px;height:500px;border:1px solid #ccc;">
         <wi-tree-view-virtual tree-root="treedata" get-label="getLabel" get-icon='getIcon' get-icons="getIcons"
             get-children="getChildren" single-node="true" hide-unmatched='true' keep-children='true' run-match='matchFn'
@@ -74,6 +76,15 @@
                     ]
                 }]
 
+                //quite good at 1000
+                //but not good at 10000 (slow)
+                const numFakeNodes = 10000
+                for(let i=20;i<numFakeNodes;++i){
+                    $scope.treedata[0].children.push({ id: i, name: i + 'Margareth', country: 'England', gender: "Male" })
+                }
+
+                console.log($scope.treedata)
+
                 $scope.getLabel = function (node) {
                     return node.name;
                 }
@@ -114,6 +125,15 @@
                 $scope.dropEndFn = function (event, helper, data) {
                     console.log('dropEndFn', data);
                 }
+                // $scope.addNode = function() {
+                //     $scope.$broadcast('TREE_DATA_CHANGE')
+                //     $scope.treedata.push({id: 1000, name: '1Jani', country: 'Norway', gender: "Male", children:[]})
+                //     // console.log($scope.treedata.length)
+                // }
+                // $scope.removeNode = function() {
+                //     $scope.$broadcast('TREE_DATA_CHANGE');
+                //     $scope.treedata.pop();
+                // }
             }]);
 
     </script>

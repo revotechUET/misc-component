@@ -9,7 +9,7 @@ angular.module(componentName, [])
     controller: require('./node/controller'),
     controllerAs: 'self',
     bindings: {
-      treeRoot: "<",
+      // treeRoot: "<",
       filter: "<",
       getChildren: "<",
       getLabel: "<",
@@ -28,9 +28,14 @@ angular.module(componentName, [])
       contextMenu: '<',
       hideUnmatched: '<',
 
+      //diff from origin
       toggleChildrenFn: '<',
       nodeOnClick: '<',
-      getSelectedNode: '<'
+      getSelectedNode: '<',
+      createNodeTreeElement: '<',
+      idx: '<',
+      findChildAtIdx:'<',
+      inSearchMode: '<'
     },
     // require: {
     //   wiTreeViewVirtual: "^^wiTreeViewVirtual"
@@ -61,7 +66,7 @@ angular.module(componentName, [])
       onContextMenu: '<',
       contextMenu: "<",
       hideUnmatched: '<',
-      hideSearch: "<"
+      hideSearch: "<",
     },
     transclude: true
   });

@@ -1,104 +1,29 @@
-// module.exports = function controller($element, $timeout, $scope) {
-//   let self = this;
-//   if (!window.wiTreeCtrl) window.wiTreeCtrl = this;
-//   this.$onInit = function () {
-//     self.collapsed = (self.collapsed == undefined || self.collapsed === null) ? true : self.collapsed;
-//     if (self.uncollapsible) self.collapsed = false;
-//     self.keepChildren = (self.keepChildren === undefined || self.keepChildren === null) ? true : self.keepChildren;
-//     self.getSiblings = self.getSiblings || function (n) { return [] }
-//     this.iconStyle = this.iconStyle || {};
-//     this.selectedIds = this.selectedIds || {};
-//     this.onContextMenu = this.onContextMenu || function () {
-//       console.log("default context menu");
-//     };
-//     $scope.$watch(() => (self.treeRoot), () => {
-//       self.selectedIds = {};
-//     });
-//     $scope.$watch(() => (self.filter), () => {
-//       for (let n of self.getChildrenWrapper(self.treeRoot)) {
-//         visit(n, (node) => {
-//           node._hidden = false;
-//           return false;
-//         }, null, 0);
-//         if (!self.filter || !self.filter.length) continue;
-//         visit(n, (node) => {
-//           let matched = self.runMatch(node, self.filter);
-//           node._hidden = !matched;
-//           return self.keepChildren && matched;
-//         }, (node, result) => {
-//           // console.log('result', result);
-//           node._hidden = !result;
-//         }, 0);
-//       }
-//       $timeout(() => { });
-//     });
-//   }
-//   this.collapseAll = function () {
-//     if (self.uncollapsible) return;
-//     $scope.$broadcast('collapsed-command', true);
-//   }
-//   this.expandAll = function () {
-//     if (self.uncollapsible) return;
-//     $scope.$broadcast('collapsed-command', false);
-//   }
-//   const _treeRoot = [];
-//   this.getChildrenWrapper = function (node) {
-//     if (Array.isArray(node)) return node;
-//     _treeRoot[0] = node;
-//     return _treeRoot;
-//   }
-//   this.deselectAllExcept = function (scopeId) {
-//     $scope.$broadcast('deselect-command', $scope.$id);
-//   }
-//   this.selectRange = function (scopeId) {
-//     let [min, max] = getExtentIds(self.selectedIds);
-//     $scope.$broadcast('select-range-command', [Math.min(scopeId, min), Math.max(scopeId, max)]);
-//   }
-//   function getExtentIds(hash) {
-//     let keys = Object.keys(hash).sort();
-//     return [keys[0], keys[keys.length - 1]];
-//   }
-//   function visit(node, cb, cb1, depth = 0) {
-//     if (!node) return false;
-
-//     let stop = cb(node);
-
-//     if (stop) return true;
-//     let children = self.getChildren(node);
-//     if (!children || !children.length) return false;
-//     let result = false;
-//     for (let child of children) {
-//       let result1 = visit(child, cb, cb1, depth + 1);
-//       result = result || result1;
-//     }
-//     cb1 && cb1(node, result);
-
-//     return result;
-//   }
-//   this.getParent = getParent;
-//   function getParent(root, node) {
-//     let path = [];
-//     visit(root, function (n) {
-//       return n === node;
-//     }, function (n, result) {
-//       if (result) {
-//         path.push(n);
-//       }
-//     });
-//     console.log(path);
-//     return path[0];
-//   }
-// }
-
-const utils = require('../utils')
-
-module.exports = function controller($element, $timeout, $scope, $compile) {
+module.exports = function treeController($scope, $compile, $element, $timeout) {
   const self = this;
 
   self.$onInit = function () {
     self.vListWrapper = createVirtualListWrapper();
-    self.treeAlgorithmsWrapper = {};
     self.selectedNodes = [];
+
+    $scope.$watch(() => (self.filter), () => {
+      for (let n of toArray(self.treeRoot)) {
+        visit(n, (node) => {
+          node._hidden = false;
+          return false;
+        }, null, 0);
+        if (!self.filter || !self.filter.length) continue;
+        visit(n, (node) => {
+          let matched = self.runMatch(node, self.filter);
+          node._hidden = !matched;
+          return self.keepChildren && matched;
+        }, (node, result) => {
+          // console.log('result', result);
+          node._hidden = !result;
+        }, 0);
+      }
+      updateTotalRows();
+      $timeout(() => { });
+    });
   }
 
   $scope.safeApply = function (fn) {
@@ -117,27 +42,34 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
   }
 
   self.findChildAtIdx = function (idx) {
+    let foundedNode = null;
+    let curNodeIdx = -1;
+    for (const childNode of toArray(self.treeRoot)) {
+      visit(childNode, (node) => {
+        if (node._hidden) return true;
 
-    //create a new tree every time find
-    //to keep getCurrentShowNodeLength() consitent with the data
-    const tree = new utils.TreeAlgorithmsWrapper(
-      self.treeRoot,
-      node => !node._hidden,
-      node => !node._isUncollapse
-    );
+        ++curNodeIdx;
+        node._idx = curNodeIdx;
+        if (curNodeIdx === idx) {
+          foundedNode = node;
+          return true
+        }
 
-    self.treeAlgorithmsWrapper = tree;
-
-    return tree.getChild(idx);
+        if (!node._expand) return true;
+        return false;
+      })
+    }
+    return foundedNode;
   }
 
   //pass to node
   self.toggleChildrenFn = function (node) {
-    const nodeLen = self.treeAlgorithmsWrapper.getCurrentShowNodeLength;
-    node._isUncollapse = !node._isUncollapse
 
-    // update scroller height
-    self.vListWrapper.setTotalRows(nodeLen);
+    // node._isUncollapse = !node._isUncollapse
+    node._expand = !node._expand;
+
+    // update node._expand first, calcuate nodeLen after
+    updateTotalRows();
 
     //update lv of node
     //lv define padding of node
@@ -147,9 +79,14 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
     }
   }
 
-  //pass to node
+  //just for passing to node
   self.nodeOnClick = function (node, $event) {
     node._selected = true;
+    node._htmlElement = document
+      .querySelector(`wi-tree-node-virtual[idx="${node._idx}"] .node-content`)
+      .cloneNode(true);
+    node._htmlElement.classList.add('selected');
+      
     if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
       // deselect all execpt the current node
       for (const selectedNode of self.selectedNodes) {
@@ -162,8 +99,44 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
       self.selectedNodes = [node];
 
     } else if (!self.selectedNodes.includes(node)) {
-      self.selectedNodes.push(node)
+      self.selectedNodes.push(node);
     }
+
+    if(self.clickFn) {
+      self.clickFn($event, node, self.selectedNodes, self.treeRoot)
+    }
+  }
+
+  self.createNodeTreeElement = function (idx) {
+    const node = `<wi-tree-node-virtual
+              
+              filter="self.filter"
+              get-children="self.getChildren"
+              get-label="self.getLabel"
+              get-icon="self.getIcon"
+              get-icons="self.getIcons"
+              icon-style="self.iconStyle"
+              keep-children="self.keepChildren"
+              on-drag-start="self.onDragStart"
+              on-drag-stop="self.onDragStop"
+              run-match="self.runMatch"
+              single-node="self.singleNode"
+              get-siblings="self.getSiblings"
+              on-context-menu="self.onContextMenu"
+              hide-unmatched="self.hideUnmatched"
+              uncollapsible="self.uncollapsible"
+              context-menu="self.contextMenu" 
+              toggle-children-fn="self.toggleChildrenFn"
+              node-on-click="self.nodeOnClick"
+              get-selected-node="self.getSelectedNode"
+              create-node-tree-element="self.createNodeTreeElement"
+              idx="${idx}"
+              find-child-at-idx="self.findChildAtIdx"
+              in-search-mode="!!self.filter"
+              >
+            </wi-tree-node-virtual>`
+
+    return $compile(node)($scope)[0]
   }
 
   function createVirtualListWrapper() {
@@ -171,14 +144,11 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
       height: 460, // height of tree - height of search 
       width: 500, //width of tree
       itemHeight: 37,
-      htmlContainerSelector: `#tree-view`, //TODO: improve in the future: pass htmlElement
-      totalRows: utils.toArray(self.treeRoot).length, //initial
+      htmlContainerElement: $element.find('.tree-view-container')[0],
+      totalRows: toArray(self.treeRoot).length, //initial
       generatorFn: row => {
         if (row < 0) return document.createElement('div');
-        const foundedNode = utils.createNodeTreeElement(row);
-        if (foundedNode) return $compile(foundedNode)($scope)[0];
-
-        return document.createElement('div');
+        return self.createNodeTreeElement(row);
       }
     });
 
@@ -187,5 +157,41 @@ module.exports = function controller($element, $timeout, $scope, $compile) {
     });
     vListWrapper.vList.container.addEventListener('scroll', e => $scope.safeApply())
     return vListWrapper;
+  }
+
+  function updateTotalRows() {
+    let len = 0;
+    for (const childNode of toArray(self.treeRoot)) {
+      visit(childNode, (node) => {
+        if (node._hidden) return true;
+
+        ++len;
+        if (!node._expand) return true;
+        return false;
+      })
+    }
+    self.vListWrapper.setTotalRows(len);
+  }
+
+  function toArray(item) {
+    if (Array.isArray(item)) return item
+    return [item]
+  }
+
+  function visit(node, cb, cb1, depth = 0) {
+    if (!node) return false;
+
+    let stop = cb(node);
+    if (stop) return true;
+    let children = self.getChildren(node);
+    if (!children || !children.length) return false;
+    let result = false;
+    for (let child of children) {
+      let result1 = visit(child, cb, cb1, depth + 1);
+      result = result || result1;
+    }
+    cb1 && cb1(node, result);
+
+    return result;
   }
 }

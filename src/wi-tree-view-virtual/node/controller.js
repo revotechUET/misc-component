@@ -1,155 +1,32 @@
-// module.exports = function controller($element, $timeout, $scope) {
-//   let self = this;
-//   this.showNode = function() {
-//       return !(self.treeRoot || {})._hidden;
-//   }
-//   this.getIconStyle = function (){
-//       if(typeof self.iconStyle == 'function') {
-//           return self.iconStyle(self.treeRoot);
-//       }
-//       return self.iconStyle;
-//   }
-//   this.getChildrenWrapper = function(node) {
-//       if (Array.isArray(node)) return node;
-//       if (!self.singleNode)
-//           return self.getChildren(node);
-//       if (node._active) return self.getChildren(node);
-//       return [];
-//   }
-//   this.deselect = function() {
-//       $timeout(() => {self.treeRoot._selected = false});
-//       delete self.wiTreeView.selectedIds[$scope.$id];
-//   }
-//   this.select = function() {
-//       $timeout(() => {self.treeRoot._selected = true});
-//       self.wiTreeView.selectedIds[$scope.$id] = {elem:$element.find('.node-content')[0], data:self.treeRoot};
-//   }
-//   this.$onInit = function () {
-//       self.collapsed = (self.collapsed == undefined || self.collapsed === null)? true : self.collapsed;
-//       if (self.uncollapsible) self.collapsed = false;
-//       self.keepChildren = (self.keepChildren === undefined || self.keepChildren === null)? true : self.keepChildren;
-//       $scope.$on('collapsed-command', function($event, collapsed) {
-//           $timeout(() => {self.collapsed = collapsed});
-//       });
-//       $scope.$on('deselect-command', function($event, id) {
-//           if ($scope.$id != id) 
-//               self.deselect();
-//       });
-//       $scope.$on('select-range-command', function($event, [startId, stopId]) {
-//           if (($scope.$id - startId) * ($scope.$id - stopId) < 0)
-//               self.select();
-//       });
-//       $element.find(".node-content").draggable({
-//           //helper: 'clone',
-//           helper: function() {
-//               let wrapper = $('<div style="border:2px dotted #0077be;"></div>');
-
-//               //wrapper.append(this.cloneNode(true));
-//               Object.values(self.wiTreeView.selectedIds).forEach((item) => {
-//                   wrapper.append(wrapper.append(item.elem.cloneNode(true)));
-//               });
-//               return wrapper;
-//           },
-//           start: function($event, ui) {
-//               ui.helper.addClass('dragging');
-//               ui.helper.myData = Object.values(self.wiTreeView.selectedIds).map(item => item.data);
-//               self.onDragStart && self.onDragStart(ui.helper.myData);
-//           },
-//           stop: function($event, ui){
-//               self.onDragStop && self.onDragStop(ui.helper.myData);
-//           }
-//       });
-//   }
-//   this.toggleChildren = function() {
-//       if (self.uncollapsible) {
-//           self.collapsed = false;
-//           return;
-//       }
-//       $timeout(() => {self.collapsed = !self.collapsed});
-//   }
-//   this.setCollapsed = function(collapsed) {
-//       if (self.uncollapsible) {
-//           self.collapsed = false;
-//           return;
-//       }
-//       $timeout(() => {self.collapsed = collapsed});
-//   }
-//   this.collapseAll = function() {
-//       if (self.uncollapsible) return;
-//       $scope.$broadcast('collapsed-command', true);
-//   }
-//   this.expandAll = function() {
-//       if (self.uncollapsible) return;
-//       $scope.$broadcast('collapsed-command', false);
-//   }
-//   this.onClick = function($event) {
-//       $event.preventDefault();
-//       $event.stopPropagation();
-//       if ($event.button === 2) {
-//           self.onContextMenu(self.treeRoot);
-//           return;
-//       }
-//       self.treeRoot._active = true;
-
-//       self.getSiblings(self.treeRoot).forEach(n => n._active = false);
-
-//       if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
-//           self.wiTreeView.deselectAllExcept($scope.$id);
-//       }
-
-//       if ($event.shiftKey) {
-//           self.wiTreeView.selectRange($scope.$id);
-//       }
-//       self.select();
-
-//       if (self.wiTreeView.clickFn) {
-//           self.wiTreeView.clickFn($event, self.treeRoot, self.wiTreeView.selectedIds, self.wiTreeView.treeRoot);
-//       }
-//   }
-// }
-const utils = require('../utils')
-module.exports = function controller($element, $timeout, $scope) {
+module.exports = function nodeController($element) {
     const self = this;
-
     self.$onInit = function () {
-        // self.idScope = $scope.$id;
-        // console.log(self.treeRoot)
-        // self.collapsed = (self.collapsed == undefined || self.collapsed === null) ? true : self.collapsed;
-        // $element.find(".node-content").draggable({
-        //     helper: function () {
-        //         let wrapper = $('<div style="border:2px dotted #0077be;"></div>');
-
-        //         //// wrapper.append(this.cloneNode(true));
-        //         // Object.values(self.wiTreeView.selectedIds).forEach((item) => {
-        //         //     wrapper.append(wrapper.append(item.elem.cloneNode(true)));
-        //         // });
-        //         return wrapper;
-        //     },
-        //     start: function ($event, ui) {
-        //         ui.helper.addClass('dragging');
-        //         // ui.helper.myData = Object.values(self.wiTreeView.selectedIds).map(item => item.data);
-        //         ui.helper.myData = self.treeRoot;
-        //         self.onDragStart && self.onDragStart(ui.helper.myData);
-        //     },
-        //     stop: function ($event, ui) {
-        //         self.onDragStop && self.onDragStop(ui.helper.myData);
-        //     }
-        // });
-
-        // if(!window.a) window.a = []
-        // window.a.push($element)
-                
+        self.treeRoot = self.findChildAtIdx(self.idx);
         $element.draggable({
+            appendTo: 'body',
             helper: function () {
                 const wrapper = $('<div style="border:2px dotted #0077be;"></div>');
                 const selectedNodes = self.getSelectedNode();
+                const dragElements = []
+                
                 
                 for(const node of selectedNodes) {
                     //fake node just for satifying css
-                    const insertNode = utils.createNodeTreeElement(0);
-                    insertNode.appendChild($element.find('.node-content')[0].cloneNode(true));
-                    wrapper.append(insertNode)
+                    const insertNode = self.createNodeTreeElement(self.idx);
+                    insertNode.appendChild(node._htmlElement);
+
+                    //avoid duplication
+                    if(!dragElements.find(e => e.innerHTML === insertNode.innerHTML)) {
+                        dragElements.push(insertNode)
+                    }
                 }
+                for(const el of dragElements) {
+                    wrapper.append(el);
+                }
+                console.log({
+                    data: selectedNodes,
+                    html: dragElements
+                })
                 return wrapper;
             },
             start: function ($event, ui) {
@@ -165,27 +42,8 @@ module.exports = function controller($element, $timeout, $scope) {
     }
 
     self.showNode = function () {
-        return !(self.treeRoot || {})._hidden;npx 
+        return !(self.treeRoot || {})._hidden;
     }
-
-
-    // self.toggleChildren = function () {
-    //     if (self.uncollapsible) {
-    //         self.collapsed = false;
-    //         return;
-    //     }
-    //     $timeout(() => { self.collapsed = !self.collapsed });
-    // }
-
-    // self.onClick = function ($event) {
-    //     $event.preventDefault();
-    //     $event.stopPropagation();
-    //     if ($event.button === 2) {
-    //         self.onContextMenu(self.treeRoot);
-    //         return;
-    //     }
-    //     self.select();
-    // }
 
     self.getIconStyle = function () {
         if (typeof self.iconStyle == 'function') {
@@ -194,17 +52,7 @@ module.exports = function controller($element, $timeout, $scope) {
         return self.iconStyle;
     }
 
-    // self.deselect = function () {
-    //     $timeout(() => { self.treeRoot._selected = false });
-    //     // delete self.wiTreeView.selectedIds[$scope.$id];
-    // }
-
-    // self.select = function () {
-    //     $timeout(() => { self.treeRoot._selected = true });
-    //     // self.wiTreeView.selectedIds[$scope.$id] = { elem: $element.find('.node-content')[0], data: self.treeRoot };
-    // }
-
     self.getPadding = function () {
-        return `${parseInt(self.treeRoot._lv) * 19}px`
+        return `${(parseInt(self.treeRoot._lv) + 1) * 19}px`
     }
 }
