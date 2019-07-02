@@ -75,7 +75,7 @@ function wiTreeViewController($element, $timeout, $scope) {
         this.iconStyle = this.iconStyle || {};
         this.selectedIds = this.selectedIds || {};
         this.onContextMenu = this.onContextMenu || function() {
-            console.log("default context menu");
+            // console.log("default context menu");
         };
         $scope.$watch(() => (self.treeRoot), () => {
             self.selectedIds = {};
@@ -160,18 +160,20 @@ function wiTreeNodeController($element, $timeout, $scope) {
     this.showNode = function() {
         return !(self.treeRoot || {})._hidden;
     }
-    this.getIconStyle = function (){
+    this.getIconStyle = function (index){
         if(typeof self.iconStyle == 'function') {
-            return self.iconStyle(self.treeRoot);
+            return self.iconStyle(self.treeRoot, index);
         }
         return self.iconStyle;
     }
     this.getChildrenWrapper = function(node) {
-        if (Array.isArray(node)) return node;
-        if (!self.singleNode)
-            return self.getChildren(node);
-        if (node._active) return self.getChildren(node);
-        return [];
+        if(node){
+            if (Array.isArray(node)) return node;
+            if (!self.singleNode)
+                return self.getChildren(node);
+            if (node._active) return self.getChildren(node);
+            return [];
+        }
     }
     this.deselect = function() {
         $timeout(() => {self.treeRoot._selected = false});

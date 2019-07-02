@@ -1,10 +1,10 @@
 
 <div style="display: flex; justify-content: space-between;">
-    <button class="btn btn-default" ng-click="self.activeDiscriminator(); self.active = !self.active;" style=" display: flex; align-items: center;">
-        <span ng-class="{'active-discriminator': self.active}"
+    <button class="btn btn-default" ng-click="self.conditionTree.active = !self.conditionTree.active" style=" display: flex; align-items: center;">
+        <span ng-class="{'active-discriminator': self.conditionTree.active}"
         style="width: 12px; margin-right: 7px; height: 12px; background: #cdcdcd; border-radius: 50%;"></span>
-        <span ng-show="self.active">Activated</span>
-        <span ng-show="!self.active">Inactive</span>
+        <span ng-show="self.conditionTree.active">Activated</span>
+        <span ng-show="!self.conditionTree.active">Inactive</span>
         </button>
     <div>
         <button class="btn btn-default" ng-click="self.deleteCondition()">Delete</button>

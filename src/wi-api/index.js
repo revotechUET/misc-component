@@ -9,6 +9,10 @@ function wiApiService($http, wiToken, Upload) {
     this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
     let unitTable = undefined;
     let familyTable;
+    
+    this.getUnitTable = () => unitTable
+    this.getFamilyTable = () => familyTable
+
     function postPromise(url, data) {
         return new Promise(function(resolve, reject) {
             $http({
@@ -118,7 +122,14 @@ function wiApiService($http, wiToken, Upload) {
     function getZonesPromise(idZoneSet) {
         return postPromise('/project/well/zone-set/info', {idZoneSet: idZoneSet});
     }
-    
+    this.getCurveInfoPromise = getCurveInfoPromise;
+    function getCurveInfoPromise(idCurve) {
+        return postPromise('/project/well/dataset/curve/info', {idCurve});
+    }
+    this.getDatasetInfoPromise = getDatasetInfoPromise;
+    function getDatasetInfoPromise(idDataset) {
+        return postPromise('/project/well/dataset/info', {idDataset});
+    }
     this.getCurveDataPromise = getCurveDataPromise;
     function getCurveDataPromise(idCurve) {
         return postPromise('/project/well/dataset/curve/getData', {idCurve})

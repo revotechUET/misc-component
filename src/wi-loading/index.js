@@ -13,7 +13,8 @@ function wiLoadingService($timeout) {
     let _spinner = null;
     let _holder = null;
 
-    function show(holder) {
+    function show(holder, silent) {
+        if(silent) return;
         if (!holder) return;
         _holder = holder;
         _spinner = new Spinner({
