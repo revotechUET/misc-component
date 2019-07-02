@@ -85,7 +85,11 @@ function wiApiService($http, wiToken, Upload) {
 			content: JSON.stringify(content)
 		}
 		return postPromise('/project/parameter-set/edit', payload);
-	}
+    }
+    this.getListOverlayLine = getListOverlayLine;
+    function getListOverlayLine(idCurveX, idCurveY){
+        return postPromise('/project/cross-plot/overlay-line/list/', {idCurveX: idCurveX, idCurveY: idCurveY});
+    }
      
     this.getWellPromise = getWellPromise;
     function getWellPromise(idWell) {
@@ -128,7 +132,7 @@ function wiApiService($http, wiToken, Upload) {
     }
     this.getDatasetInfoPromise = getDatasetInfoPromise;
     function getDatasetInfoPromise(idDataset) {
-        return postPromise('/project/well/dataset/info', {idDataset});
+        return postPromise('/project/well/datase/info', {idDataset});
     }
     this.getCurveDataPromise = getCurveDataPromise;
     function getCurveDataPromise(idCurve) {
