@@ -160,9 +160,9 @@ function wiTreeNodeController($element, $timeout, $scope) {
     this.showNode = function() {
         return !(self.treeRoot || {})._hidden;
     }
-    this.getIconStyle = function (){
+    this.getIconStyle = function (index){
         if(typeof self.iconStyle == 'function') {
-            return self.iconStyle(self.treeRoot);
+            return self.iconStyle(self.treeRoot, index);
         }
         return self.iconStyle;
     }
