@@ -85,7 +85,15 @@ function wiApiService($http, wiToken, Upload) {
 			content: JSON.stringify(content)
 		}
 		return postPromise('/project/parameter-set/edit', payload);
-	}
+    }
+    this.getOverlayLinesPromise = getOverlayLinesPromise;
+    function getOverlayLinesPromise(idCurveX, idCurveY){
+        return postPromise('/project/cross-plot/overlay-line/list/', {idCurveX, idCurveY});
+    }
+    this.getOverlayLinePromise = getOverlayLinePromise;
+    function getOverlayLinePromise(idOverlayLine){
+        return postPromise('/project/cross-plot/overlay-line/info/', {idOverlayLine});
+    }
      
     this.getWellPromise = getWellPromise;
     function getWellPromise(idWell) {
