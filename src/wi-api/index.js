@@ -86,8 +86,8 @@ function wiApiService($http, wiToken, Upload) {
 		}
 		return postPromise('/project/parameter-set/edit', payload);
     }
-    this.getListOverlayLine = getListOverlayLine;
-    function getListOverlayLine(idCurveX, idCurveY){
+    this.getOverlayLinesPromise = getOverlayLinesPromise;
+    function getOverlayLinesPromise(idCurveX, idCurveY){
         return postPromise('/project/cross-plot/overlay-line/list/', {idCurveX: idCurveX, idCurveY: idCurveY});
     }
      
