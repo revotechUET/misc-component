@@ -2,9 +2,9 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   const self = this;
 
   self.$onInit = function () {
+    console.log(self.treeRoot);
     self.vListWrapper = createVirtualListWrapper();
     self.selectedNodes = [];
-
     $scope.$watch(() => (self.filter), () => {
       for (let n of toArray(self.treeRoot)) {
         visit(n, (node) => {
@@ -74,25 +74,23 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     //update lv of node
     //lv define padding of node
     node._lv = node._lv || 0
-    for (const child of node.children) {
+    for (const child of self.getChildren(node)) {
       child._lv = node._lv + 1
     }
   }
 
   //just for passing to node
-  self.nodeOnClick = function (node, $event) {
+  self.nodeOnClick = function (node, $event, nodeHtmlElement) {
     node._selected = true;
-    node._htmlElement = document
-      .querySelector(`wi-tree-node-virtual[idx="${node._idx}"] .node-content`)
-      .cloneNode(true);
-    node._htmlElement.classList.add('selected');
-      
+    node._htmlElement = nodeHtmlElement
+    // node._htmlElement.classList.add('selected');
+
     if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
       // deselect all execpt the current node
       for (const selectedNode of self.selectedNodes) {
 
         //avoid double click current node, select go away
-        if (selectedNode.id !== node.id) {
+        if (selectedNode !== node) {
           selectedNode._selected = false;
         }
       }
@@ -142,10 +140,10 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   function createVirtualListWrapper() {
     const vListWrapper = new WiVirtualList({
       height: 460, // height of tree - height of search 
-      width: 500, //width of tree
+      // width: 500, //width of tree
       itemHeight: 37,
       htmlContainerElement: $element.find('.tree-view-container')[0],
-      totalRows: toArray(self.treeRoot).length, //initial
+      totalRows: toArray(self.treeRoot).length || 1, //initial
       generatorFn: row => {
         if (row < 0) return document.createElement('div');
         return self.createNodeTreeElement(row);
