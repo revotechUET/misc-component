@@ -148,7 +148,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"wi-droppable .drag-over {\\n  border: 2px dashed #0077be;\\n  background-color: rgba(209, 209, 209, 0.5);\\n}\\nwi-droppable > div {\\n  float: left;\\n  margin: -2px;\\n  border: 2px dashed transparent;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-droppable/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"wi-droppable {\\n  transition: all 0.2s ease-in;\\n}\\nwi-droppable .drag-over {\\n  margin: 10px;\\n  transition: all 0.2s ease-in;\\n  border: 2px dashed #0077be;\\n  background-color: rgba(255, 255, 255, 0.5);\\n}\\nwi-droppable > div {\\n  float: left;\\n  margin: -2px;\\n  border: 2px dashed transparent;\\n  transition: all 0.2s ease-in;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-droppable/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
 
 /***/ }),
 
