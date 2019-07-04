@@ -3,7 +3,7 @@
   'search-mode':self.inSearchMode,
   'not-show': self.hideUnmatched,
   'selected': self.treeRoot._selected}"
-  ng-mousedown="self.nodeOnClick(self.treeRoot, $event)" 
+  ng-mousedown="self.onClick($event)" 
   oncontextmenu="(function(){event.preventDefault();return false;})()"
   ng-style="{'padding-left': self.getPadding()}">
   <div class="node-caret" ng-class="{'invisible': !self.getChildren(self.treeRoot).length}"
