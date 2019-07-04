@@ -39,10 +39,10 @@ function wiApiService($http, wiToken, Upload) {
     
     this.getFamily = function(idFamily) {
         if (!familyTable) {
-            getAllFamilyPromise()
-                .then(familytable => (
-                    familyTable = familytable
-                )).catch(err => console.error(err));
+            //getAllFamilyPromise()
+                //.then(familytable => (
+                    //familyTable = familytable
+                //)).catch(err => console.error(err));
             return null;
         }
         return familyTable.find(family => family.idFamily === idFamily);
