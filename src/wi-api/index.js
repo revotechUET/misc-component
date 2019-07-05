@@ -8,7 +8,7 @@ function wiApiService($http, wiToken, Upload) {
     this.$http = $http;
     this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
     let unitTable = undefined;
-    let familyTable = [];
+    let familyTable = undefined;
     
     this.getUnitTable = () => unitTable
     this.getFamilyTable = () => familyTable
@@ -38,6 +38,9 @@ function wiApiService($http, wiToken, Upload) {
         )).catch(err => console.error(err));
     
     this.getFamily = function(idFamily) {
+        if (!familyTable) {
+            return null;
+        }
         return familyTable.find(family => family.idFamily === idFamily);
     }
     this.setBaseUrl = function(baseUrl) {
