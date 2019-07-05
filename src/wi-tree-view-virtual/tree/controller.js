@@ -157,7 +157,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   self.getVlistHeight = function () {
     const h = $element.find('.tree-view-container').height();
     // console.log(h);
-    return h || self.vlistHeight;
+    return h || 100;
   }
 
   function createVirtualListWrapper(height) {

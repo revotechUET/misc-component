@@ -19,7 +19,7 @@
     <button ng-click="increaseHeight()">+ height</button>
     <button ng-click="decreaseHeight()">- height</button>
     <div style="width: 500px;height:{{height}}px;border:1px solid #ccc;overflow: hidden;">
-        <wi-tree-view-virtual vlist-height="height" tree-root="treedata" get-label="getLabel" get-icon='getIcon' get-icons="getIcons"
+        <wi-tree-view-virtual tree-root="treedata" get-label="getLabel" get-icon='getIcon' get-icons="getIcons"
             get-children="getChildren" single-node="true" hide-unmatched='true' keep-children='true' run-match='matchFn'
             click-fn='clickFn' uncollapsible='false' on-drag-start='dragStart' on-drag-stop='dragStop'>
         </wi-tree-view-virtual>
