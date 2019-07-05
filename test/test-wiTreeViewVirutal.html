@@ -16,15 +16,17 @@
 <body ng-app="myApp" ng-controller="MyCtr">
     <!-- <button ng-click="addNode()">Add Node</button>
     <button ng-click="removeNode()">Remove Node</button> -->
-    <div style="width: 500px;height:500px;border:1px solid #ccc;">
-        <wi-tree-view-virtual tree-root="treedata" get-label="getLabel" get-icon='getIcon' get-icons="getIcons"
+    <button ng-click="increaseHeight()">+ height</button>
+    <button ng-click="decreaseHeight()">- height</button>
+    <div style="width: 500px;height:{{height}}px;border:1px solid #ccc;overflow: hidden;">
+        <wi-tree-view-virtual vlist-height="height" tree-root="treedata" get-label="getLabel" get-icon='getIcon' get-icons="getIcons"
             get-children="getChildren" single-node="true" hide-unmatched='true' keep-children='true' run-match='matchFn'
             click-fn='clickFn' uncollapsible='false' on-drag-start='dragStart' on-drag-stop='dragStop'>
         </wi-tree-view-virtual>
-        <wi-droppable on-drop='dropFn'>
+        <!-- <wi-droppable on-drop='dropFn'>
             <div style="width:500px; height:500px; border: 1px solid black;">
             </div>
-        </wi-droppable>
+        </wi-droppable> -->
     </div>
     <script>
         angular.module("myApp", ['wiTreeViewVirtual', 'wiDroppable'])
@@ -84,7 +86,13 @@
                 }
 
                 console.log($scope.treedata)
-
+                $scope.height = 460;
+                $scope.increaseHeight = function() {
+                    $scope.height += 100;
+                }
+                $scope.decreaseHeight = function() {
+                    $scope.height -= 100;
+                }
                 $scope.getLabel = function (node) {
                     return node.name;
                 }

@@ -67,6 +67,7 @@ angular.module(componentName, [])
       contextMenu: "<",
       hideUnmatched: '<',
       hideSearch: "<",
+      vlistHeight: '<'
     },
     transclude: true
   });
