@@ -1,5 +1,5 @@
 let helper = require('../DialogHelper');
-module.exports = function (ModalService, discrmnt = {}, curvesArr, callback) {
+module.exports = function (ModalService, discrmnt = {right:{}}, curvesArr, callback) {
     function ModalController(close, $scope) {
         let self = this;
         this.curvesArr = curvesArr;
