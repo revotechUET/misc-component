@@ -3,7 +3,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   const ITEM_HEIGHT = 37;
 
   self.$onInit = function () {
-    // self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
+    self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
     self.selectedNodes = [];
 
     $scope.$watch(() => (self.treeRoot), () => {
@@ -15,7 +15,6 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     });
 
     $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
-      console.log({newValue, oldValue});
       if (newValue !== oldValue) {
         destroyTree();
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
@@ -79,17 +78,10 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     return foundedNode;
   }
 
-  //pass to node
   self.toggleChildrenFn = function (node) {
-
-    // node._isUncollapse = !node._isUncollapse
     node._expand = !node._expand;
-
-    // update node._expand first, calcuate nodeLen after
     updateVList();
 
-    //update lv of node
-    //lv define padding of node
     node._lv = node._lv || 0
     for (const child of self.getChildren(node)) {
       child._lv = node._lv + 1
@@ -100,7 +92,6 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   self.nodeOnClick = function (node, $event, nodeHtmlElement) {
     node._selected = true;
     node._htmlElement = nodeHtmlElement
-    // node._htmlElement.classList.add('selected');
 
     if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
       // deselect all execpt the current node
@@ -123,8 +114,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   }
 
   self.createNodeTreeElement = function (idx) {
-    const node = `<wi-tree-node-virtual
-              
+    const node = `<wi-tree-node-virtual  
               filter="self.filter"
               get-children="self.getChildren"
               get-label="self.getLabel"
@@ -170,7 +160,6 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
         return self.createNodeTreeElement(row);
       }
     });
-
     vListWrapper.setContainerStyle({
       'border': 'none'
     });
@@ -200,8 +189,8 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   }
 
   function toArray(item) {
-    if (Array.isArray(item)) return item
-    return [item]
+    if (Array.isArray(item)) return item;
+    return [item];
   }
 
   function visit(node, cb, cb1, depth = 0) {
