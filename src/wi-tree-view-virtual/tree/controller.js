@@ -9,12 +9,13 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     $scope.$watch(() => (self.treeRoot), () => {
       self.selectedNodes = [];
       if (!self.vListWrapper) {
-        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
-      }
+        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());				      }
       updateVList();
     });
 
     $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
+			
+
       if (newValue !== oldValue) {
         destroyTree();
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
@@ -109,6 +110,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     }
 
     if (self.clickFn) {
+			//console.log(self.selectedNodes)
       self.clickFn($event, node, self.selectedNodes, self.treeRoot)
     }
   }
