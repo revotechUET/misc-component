@@ -10,7 +10,7 @@
         <i ng-show="self.collapsed" class="fa fa-caret-right"></i>
     </div>
     <div ng-if="self.getIcon" class="node-icon"><i class="tree-icon {{self.getIcon(self.treeRoot)}}"></i></div>
-    <div ng-if="self.getIcons" class="node-icon"><i ng-style="self.getIconStyle()" class="tree-icon {{icon}}"
+    <div ng-if="self.getIcons" class="node-icon"><i ng-style="self.getIconStyle($index)" style='margin-right: 5px;' class="tree-icon {{icon}}"
         ng-repeat="icon in self.getIcons(self.treeRoot) track by $index"></i>
     </div>
     <div class="node-label">

@@ -1,9 +1,9 @@
 const serviceName = 'wiApi';
-angular.module(serviceName, ['wiToken', 'ngFileUpload']).factory(serviceName, function($http, wiToken, Upload) {
-    return new wiApiService($http, wiToken, Upload);
+angular.module(serviceName, ['wiToken', 'ngFileUpload']).factory(serviceName, function($http, wiToken, Upload, $timeout) {
+    return new wiApiService($http, wiToken, Upload, $timeout);
 });
 
-function wiApiService($http, wiToken, Upload) {
+function wiApiService($http, wiToken, Upload, $timeout) {
     let self = this;
     this.$http = $http;
     this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
@@ -31,17 +31,12 @@ function wiApiService($http, wiToken, Upload) {
 
     getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
     getAllFamilyPromise()
-        .then(familytable => (
-            familyTable = familytable
-        )).catch(err => console.error(err));
+        .then(familytable => {
+						familyTable = familytable;
+        }).catch(err => console.error(err));
     
     this.getFamily = function(idFamily) {
         if (!familyTable) {
-            /*getAllFamilyPromise()
-                .then(familytable => (
-                    familyTable = familytable
-                )).catch(err => console.error(err));
-            */
             return null;
         }
         return familyTable.find(family => family.idFamily === idFamily);
@@ -84,7 +79,15 @@ function wiApiService($http, wiToken, Upload) {
 			content: JSON.stringify(content)
 		}
 		return postPromise('/project/parameter-set/edit', payload);
-	}
+    }
+    this.getOverlayLinesPromise = getOverlayLinesPromise;
+    function getOverlayLinesPromise(idCurveX, idCurveY){
+        return postPromise('/project/cross-plot/overlay-line/list/', {idCurveX, idCurveY});
+    }
+    this.getOverlayLinePromise = getOverlayLinePromise;
+    function getOverlayLinePromise(idOverlayLine){
+        return postPromise('/project/cross-plot/overlay-line/info/', {idOverlayLine});
+    }
      
     this.getWellPromise = getWellPromise;
     function getWellPromise(idWell) {

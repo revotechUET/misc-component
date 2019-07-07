@@ -34,9 +34,6 @@ function Controller($scope, $timeout) {
     this.comparisons = ['<', '>', '=', '<=', '>='];
     this.operators = ['and', 'or'];
 
-    this.update = function () {
-    }
-
     this.isNull = function () {
         return !self.item || Object.keys(self.item).length == 0;
     }
@@ -56,7 +53,7 @@ function Controller($scope, $timeout) {
     this.doSelect = function ($event) {
         $event.stopPropagation();
         clearSelectedItem(self.root);
-        if (self.item)
+        if (self.item && Object.keys(self.item).length)
             self.item.selected = true;
     }
 }

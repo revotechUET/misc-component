@@ -30,6 +30,7 @@
     "spin.js": "^2.0.0",
     "angular-ui-select": "^0.19.8",
     "angular-sanitize": "^1.7.8",
-    "angular-bootstrap": "^2.5.0"
+    "angular-bootstrap": "^2.5.0",
+    "wi-vlist": "https://github.com/tunghoang/wi-vlist.git"
   }
 }
