@@ -41,7 +41,7 @@ function Controller($scope, $timeout) {
         return !self.item || Object.keys(self.item).length == 0;
     }
     function clearSelectedItem(node) {
-        if (!node) return;
+        if (!node || !Object.keys(node).length) return;
         node.selected = false;
         if (node.children && node.children.length) {
             for (let childNode of node.children) {
