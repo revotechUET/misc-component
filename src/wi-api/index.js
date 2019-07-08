@@ -55,6 +55,14 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function getWellsPromise(idProject) {
         return postPromise('/project/well/list', {idProject: idProject});
     }
+    this.listAssetsPromise = listAssetsPromise;
+    function listAssetsPromise(idProject, assetType) {
+        let payload = {
+            idProject: idProject,
+            type: assetType
+        }
+        return postPromise('/project/parameter-set/list', payload);
+    }
 	this.newAssetPromise = newAssetPromise;
 	function newAssetPromise(idProject, name, type, content) {
 		let payload = {

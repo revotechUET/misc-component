@@ -19,6 +19,7 @@ const importImagesDialog = require('./import-images/import-images-modal.js');
 const discriminator = require('./discriminator/discriminator.js');
 const lineStyleDialog = require('./line-style/line-style-modal.js');
 const colorPickerDialog = require('./color-picker/color-picker-modal.js');
+const promptListDialog =require('./prompt-list/prompt-list.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -52,5 +53,8 @@ function wiDialogService(ModalService) {
 	this.colorPickerDialog = function(curColor, options, cb) {
 		colorPickerDialog(ModalService, curColor, options, cb);
 	}
+    this.promptListDialog = function(config, cb) {
+        promptListDialog(ModalService, config, cb);
+    }
 }
 
