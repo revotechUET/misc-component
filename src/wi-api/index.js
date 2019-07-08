@@ -8,13 +8,9 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     this.$http = $http;
     this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
     let unitTable = undefined;
-    let familyTable = undefined;
-    
-    this.getUnitTable = () => unitTable
-		this.getFamilyTable = function() {
-				return familyTable;
-		}
-
+    let familyTable;
+    this.getFamilyTable = () => familyTable
+    this.getUnitTable = () => unitTable;
     function postPromise(url, data) {
         return new Promise(function(resolve, reject) {
             $http({
@@ -58,6 +54,14 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     this.getWellsPromise = getWellsPromise;
     function getWellsPromise(idProject) {
         return postPromise('/project/well/list', {idProject: idProject});
+    }
+    this.listAssetsPromise = listAssetsPromise;
+    function listAssetsPromise(idProject, assetType) {
+        let payload = {
+            idProject: idProject,
+            type: assetType
+        }
+        return postPromise('/project/parameter-set/list', payload);
     }
 	this.newAssetPromise = newAssetPromise;
 	function newAssetPromise(idProject, name, type, content) {
