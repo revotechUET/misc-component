@@ -1,10 +1,28 @@
 module.exports = function treeController($scope, $compile, $element, $timeout) {
   const self = this;
+  const ITEM_HEIGHT = 37;
 
   self.$onInit = function () {
-    console.log(self.treeRoot);
-    self.vListWrapper = createVirtualListWrapper();
+    self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
     self.selectedNodes = [];
+
+    $scope.$watch(() => (self.treeRoot), () => {
+      self.selectedNodes = [];
+      if (!self.vListWrapper) {
+        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());				      }
+      updateVList();
+    });
+
+    $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
+			
+
+      if (newValue !== oldValue) {
+        destroyTree();
+        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
+        updateVList();
+      }
+    })
+
     $scope.$watch(() => (self.filter), () => {
       for (let n of toArray(self.treeRoot)) {
         visit(n, (node) => {
@@ -17,11 +35,10 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
           node._hidden = !matched;
           return self.keepChildren && matched;
         }, (node, result) => {
-          // console.log('result', result);
           node._hidden = !result;
         }, 0);
       }
-      updateTotalRows();
+      updateVList();
       $timeout(() => { });
     });
   }
@@ -62,17 +79,10 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     return foundedNode;
   }
 
-  //pass to node
   self.toggleChildrenFn = function (node) {
-
-    // node._isUncollapse = !node._isUncollapse
     node._expand = !node._expand;
+    updateVList();
 
-    // update node._expand first, calcuate nodeLen after
-    updateTotalRows();
-
-    //update lv of node
-    //lv define padding of node
     node._lv = node._lv || 0
     for (const child of self.getChildren(node)) {
       child._lv = node._lv + 1
@@ -83,7 +93,6 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   self.nodeOnClick = function (node, $event, nodeHtmlElement) {
     node._selected = true;
     node._htmlElement = nodeHtmlElement
-    // node._htmlElement.classList.add('selected');
 
     if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
       // deselect all execpt the current node
@@ -100,14 +109,14 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       self.selectedNodes.push(node);
     }
 
-    if(self.clickFn) {
+    if (self.clickFn) {
+			//console.log(self.selectedNodes)
       self.clickFn($event, node, self.selectedNodes, self.treeRoot)
     }
   }
 
   self.createNodeTreeElement = function (idx) {
-    const node = `<wi-tree-node-virtual
-              
+    const node = `<wi-tree-node-virtual  
               filter="self.filter"
               get-children="self.getChildren"
               get-label="self.getLabel"
@@ -137,11 +146,15 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     return $compile(node)($scope)[0]
   }
 
-  function createVirtualListWrapper() {
+  self.getVlistHeight = function () {
+    const h = $element.find('.tree-view-container').height();
+    return h || 100;
+  }
+
+  function createVirtualListWrapper(height) {
     const vListWrapper = new WiVirtualList({
-      height: 460, // height of tree - height of search 
-      // width: 500, //width of tree
-      itemHeight: 37,
+      height: height, //initial
+      itemHeight: ITEM_HEIGHT,
       htmlContainerElement: $element.find('.tree-view-container')[0],
       totalRows: toArray(self.treeRoot).length || 1, //initial
       generatorFn: row => {
@@ -149,7 +162,6 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
         return self.createNodeTreeElement(row);
       }
     });
-
     vListWrapper.setContainerStyle({
       'border': 'none'
     });
@@ -157,7 +169,12 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     return vListWrapper;
   }
 
-  function updateTotalRows() {
+  function destroyTree() {
+    $element.find('.tree-view-container')[0].innerHTML = '';
+    delete self.vListWrapper;
+  }
+
+  function updateVList() {
     let len = 0;
     for (const childNode of toArray(self.treeRoot)) {
       visit(childNode, (node) => {
@@ -168,12 +185,14 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
         return false;
       })
     }
+    // const newHeight = len * ITEM_HEIGHT;
+
     self.vListWrapper.setTotalRows(len);
   }
 
   function toArray(item) {
-    if (Array.isArray(item)) return item
-    return [item]
+    if (Array.isArray(item)) return item;
+    return [item];
   }
 
   function visit(node, cb, cb1, depth = 0) {

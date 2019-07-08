@@ -1,18 +1,16 @@
 const serviceName = 'wiApi';
-angular.module(serviceName, ['wiToken', 'ngFileUpload']).factory(serviceName, function($http, wiToken, Upload) {
-    return new wiApiService($http, wiToken, Upload);
+angular.module(serviceName, ['wiToken', 'ngFileUpload']).factory(serviceName, function($http, wiToken, Upload, $timeout) {
+    return new wiApiService($http, wiToken, Upload, $timeout);
 });
 
-function wiApiService($http, wiToken, Upload) {
+function wiApiService($http, wiToken, Upload, $timeout) {
     let self = this;
     this.$http = $http;
     this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
     let unitTable = undefined;
     let familyTable;
-    
-    this.getUnitTable = () => unitTable
     this.getFamilyTable = () => familyTable
-
+    this.getUnitTable = () => unitTable;
     function postPromise(url, data) {
         return new Promise(function(resolve, reject) {
             $http({
@@ -33,16 +31,12 @@ function wiApiService($http, wiToken, Upload) {
 
     getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
     getAllFamilyPromise()
-        .then(familytable => (
-            familyTable = familytable
-        )).catch(err => console.error(err));
+        .then(familytable => {
+						familyTable = familytable;
+        }).catch(err => console.error(err));
     
     this.getFamily = function(idFamily) {
         if (!familyTable) {
-            getAllFamilyPromise()
-                .then(familytable => (
-                    familyTable = familytable
-                )).catch(err => console.error(err));
             return null;
         }
         return familyTable.find(family => family.idFamily === idFamily);

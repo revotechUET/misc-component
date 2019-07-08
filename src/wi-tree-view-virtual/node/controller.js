@@ -25,6 +25,7 @@ module.exports = function nodeController($element) {
                 ui.helper.addClass('dragging');
                 ui.helper.myData = self.getSelectedNode();
                 self.onDragStart && self.onDragStart(ui.helper.myData);
+								console.log(ui.helper.myData)
             },
             stop: function ($event, ui) {
                 self.onDragStop && self.onDragStop(ui.helper.myData);
