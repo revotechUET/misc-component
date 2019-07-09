@@ -35,7 +35,8 @@ angular.module(componentName, [])
       createNodeTreeElement: '<',
       idx: '<',
       findChildAtIdx:'<',
-      inSearchMode: '<'
+      inSearchMode: '<',
+      noDrag: '<'
     },
     // require: {
     //   wiTreeViewVirtual: "^^wiTreeViewVirtual"
@@ -67,7 +68,8 @@ angular.module(componentName, [])
       contextMenu: "<",
       hideUnmatched: '<',
       hideSearch: "<",
-      vlistHeight: '<'
+      vlistHeight: '<',
+      noDrag: '<'
     },
     transclude: true
   });
