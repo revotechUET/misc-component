@@ -30,8 +30,7 @@
             ng-change='self.update()' value-only='self.item.left.value'></wi-dual-input>
         </div>
     </div>
-    <div ng-if="!self.isNull() && self.item.children" class='condition-node'
-        >
+    <div ng-if="!self.isNull() && self.item.children" class='condition-node'>
         <div class="condition-operands">
             <div ng-repeat="childNode in self.item.children">
                 <wi-cond-node item='childNode' curve-options='self.curveOptions' root='self.root'>
