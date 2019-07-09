@@ -10,11 +10,16 @@ module.exports = function nodeController($element) {
                 if (!wrapper.children().length) {
                     for (const node of selectedNodes) {
                         //fake node just for satifying css
-                    //     const insertNode = self.createNodeTreeElement(self.idx);
+                         const insertNode = self.createNodeTreeElement(self.idx);
+                            const content = $element.find('.node-content')[0].cloneNode(true);
+                            
+                            content.classList.add('selected');
+                            insertNode.appendChild(content);
                     //     insertNode.appendChild(node._htmlElement);
                     //     wrapper.append(insertNode);
 
-                        wrapper.append(node._htmlElement)
+                        //wrapper.append(JSON.parse(node._htmlElement))
+                        wrapper.append(insertNode);
                     }
                 }
 

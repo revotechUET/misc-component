@@ -9,13 +9,12 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     $scope.$watch(() => (self.treeRoot), () => {
       self.selectedNodes = [];
       if (!self.vListWrapper) {
-        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());				      }
+        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());				      
+      }
       updateVList();
     });
 
     $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
-			
-
       if (newValue !== oldValue) {
         destroyTree();
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
@@ -66,7 +65,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
         if (node._hidden) return true;
 
         ++curNodeIdx;
-        node._idx = curNodeIdx;
+        //node._idx = curNodeIdx;
         if (curNodeIdx === idx) {
           foundedNode = node;
           return true
@@ -78,6 +77,43 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     }
     return foundedNode;
   }
+
+  self.findIdxOfChild = function (node) {
+    let idx = -1;
+    let foundedNodeIdx = -1;
+    for (const childNode of toArray(self.treeRoot)) {
+      visit(childNode, (curNode) => {
+        if(node._hidden) return true;
+        
+        ++idx;
+        if(curNode === node) {
+          foundedNodeIdx = idx;
+          return true;
+        }
+        
+        if(!curNode._expand) return true;
+        return false;
+      })
+    }
+
+    return foundedNodeIdx;
+  }
+  
+  //self.findIdxOfChild = function(node) {
+  //  let idx = -1;
+  //  for (const childNode of toArray(self.treeRoot)) {
+  //    let ret = visit(childNode, (curNode) => {
+  //      if(!curNode) return false;
+  //      if (curNode._hidden) return false;
+        
+  //      ++idx;
+  //      if(curNode === node) return true;
+  //      return false;
+  //    }, () => {}, 0, true);
+  //    if(ret) break;
+  //  }
+  //  return idx;
+  //}
 
   self.toggleChildrenFn = function (node) {
     node._expand = !node._expand;
@@ -92,25 +128,53 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   //just for passing to node
   self.nodeOnClick = function (node, $event, nodeHtmlElement) {
     node._selected = true;
-    node._htmlElement = nodeHtmlElement
+    //node._htmlElement = JSON.stringify(nodeHtmlElement);
+      //node = {
+          //...node,
+          //'_htmlElement': nodeHtmlElement
+      //}
+    //node._htmlElem = $element.find('.node-content')[0]
 
     if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
       // deselect all execpt the current node
-      for (const selectedNode of self.selectedNodes) {
+          for (const selectedNode of self.selectedNodes) {
 
-        //avoid double click current node, select go away
-        if (selectedNode !== node) {
-          selectedNode._selected = false;
-        }
+            //avoid double click current node, select go away
+            if (selectedNode !== node) {
+              selectedNode._selected = false;
+            }
+          }
+          //self.selectedNodes = [node];
+    //      for(let selectNode of self.selectedNodes) {
+    //        selectNode._selected = false;
+    //      }
+          self.selectedNodes.length = 0;
+    } 
+    else if ($event.shiftKey) {
+      const nodeIdx = self.findIdxOfChild(node);
+      const indexes = [];
+      for(const node of self.selectedNodes) {
+        const index = self.findIdxOfChild(node);
+        indexes.push(index);
       }
-      self.selectedNodes = [node];
+      
+      const maxIdx = Math.max(...indexes, nodeIdx);
+      const minIdx = Math.min(...indexes, nodeIdx);
 
-    } else if (!self.selectedNodes.includes(node)) {
+      for(let i = minIdx; i <= maxIdx; ++i) {
+        const selectNode = self.findChildAtIdx(i);
+        self.selectedNodes.push(selectNode)
+        selectNode._selected = true;
+      }
+    }
+
+    if (!self.selectedNodes.includes(node)) {
       self.selectedNodes.push(node);
     }
 
+    console.log(self.selectedNodes)
+
     if (self.clickFn) {
-			//console.log(self.selectedNodes)
       self.clickFn($event, node, self.selectedNodes, self.treeRoot)
     }
   }
@@ -195,7 +259,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     return [item];
   }
 
-  function visit(node, cb, cb1, depth = 0) {
+  function visit(node, cb, cb1, depth = 0, stopOnMatch = false) {
     if (!node) return false;
 
     let stop = cb(node);
@@ -204,8 +268,9 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     if (!children || !children.length) return false;
     let result = false;
     for (let child of children) {
-      let result1 = visit(child, cb, cb1, depth + 1);
+      let result1 = visit(child, cb, cb1, depth + 1, stopOnMatch);
       result = result || result1;
+      if (stopOnMatch && result) return true;
     }
     cb1 && cb1(node, result);
 
