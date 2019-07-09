@@ -8,14 +8,16 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     self.selectedNodes = [];
     self.selectedNodeHtmls = [];
 
+    if(!self.collapsed) {
+      self.expandAllChild()
+    }
+
     $scope.$watch(() => (self.treeRoot), () => {
       self.selectedNodes = [];
       if (!self.vListWrapper) {
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());				      
       }
       updateVList();
-      
-      console.log(self.treeRoot)
     });
 
     $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
@@ -64,15 +66,33 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     }
   }
 
+  //BFS
+  self.findLvOfNode = function(node) {
+    let lv = -1;
+    for (const n of toArray(self.treeRoot)) {
+      visit(n, (curNode, depth) => {
+        if(curNode === node) {
+          lv = depth;
+          return true;
+        }
+
+        return false;
+      })
+    }
+
+    return lv;
+  }
+  
+
   self.findChildAtIdx = function (idx) {
     let foundedNode = null;
     let curNodeIdx = -1;
     for (const childNode of toArray(self.treeRoot)) {
       visit(childNode, (node) => {
         if (node._hidden) return true;
-
-        ++curNodeIdx;
         //node._idx = curNodeIdx;
+        
+        ++curNodeIdx;
         if (curNodeIdx === idx) {
           foundedNode = node;
           return true
@@ -105,6 +125,14 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
 
     return foundedNodeIdx;
   }
+
+  self.expandAllChild = function() {
+    for(const childNode of toArray(self.treeRoot)) {
+      visit(childNode, (curNode) => {
+        curNode._expand = true;
+      })
+    }
+  }
   
   //self.findIdxOfChild = function(node) {
   //  let idx = -1;
@@ -128,7 +156,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
 
     node._lv = node._lv || 0
     for (const child of self.getChildren(node)) {
-      child._lv = node._lv + 1
+      child._lv = node._lv + 1;
     }
   }
 
@@ -203,6 +231,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     if (self.clickFn) {
       self.clickFn($event, node, self.selectedNodes, self.treeRoot)
     }
+    // console.log({treeRoot: self.treeRoot})
   }
 
   self.createNodeTreeElement = function (idx) {
@@ -231,6 +260,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
               find-child-at-idx="self.findChildAtIdx"
               in-search-mode="!!self.filter"
               no-drag="self.noDrag"
+              find-lv-of-node="self.findLvOfNode"
               >
             </wi-tree-node-virtual>`
 
@@ -289,8 +319,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
 
   function visit(node, cb, cb1, depth = 0, stopOnMatch = false) {
     if (!node) return false;
-
-    let stop = cb(node);
+    let stop = cb(node, depth);
     if (stop) return true;
     let children = self.getChildren(node);
     if (!children || !children.length) return false;

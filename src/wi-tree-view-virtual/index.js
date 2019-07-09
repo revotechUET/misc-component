@@ -36,7 +36,8 @@ angular.module(componentName, [])
       idx: '<',
       findChildAtIdx:'<',
       inSearchMode: '<',
-      noDrag: '<'
+      noDrag: '<',
+      findLvOfNode: '<',
     },
     // require: {
     //   wiTreeViewVirtual: "^^wiTreeViewVirtual"

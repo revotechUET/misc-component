@@ -62,18 +62,18 @@ module.exports = function nodeController($element) {
     }
 
     self.getPadding = function () {
-        return `${(parseInt(self.treeRoot._lv) + 1) * 19}px`
+        return `${(parseInt(self.findLvOfNode(self.treeRoot)) + 1) * 19}px`
     }
 
-    function cloneCurDOM() {
-        // const wrapper = document.createElement('wi-tree-node-virtual');
-        // wrapper.style.position = 'absolute';
-        const wrapper = self.createNodeTreeElement(-1);
-        const content = $element.find('.node-content')[0].cloneNode(true);
+    // function cloneCurDOM() {
+    //     // const wrapper = document.createElement('wi-tree-node-virtual');
+    //     // wrapper.style.position = 'absolute';
+    //     const wrapper = self.createNodeTreeElement(-1);
+    //     const content = $element.find('.node-content')[0].cloneNode(true);
         
-        content.classList.add('selected');
-        wrapper.appendChild(content);
+    //     content.classList.add('selected');
+    //     wrapper.appendChild(content);
 
-        return wrapper;
-    }
+    //     return wrapper;
+    // }
 }
