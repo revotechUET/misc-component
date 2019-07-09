@@ -1,6 +1,7 @@
 module.exports = function treeController($scope, $compile, $element, $timeout) {
   const self = this;
   const ITEM_HEIGHT = 37;
+  const DEFAULT_VLIST_HEIGHT = 120;
 
   self.$onInit = function () {
     self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
@@ -15,7 +16,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     });
 
     $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
-      if (newValue !== oldValue) {
+      if (newValue !== (self.vListHeight || DEFAULT_VLIST_HEIGHT)) {
         destroyTree();
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
         updateVList();
@@ -212,7 +213,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
 
   self.getVlistHeight = function () {
       const h = $element.find('.tree-view-container').height();
-      return h || self.vlistHeight || 120;
+      return h || self.vlistHeight || DEFAULT_VLIST_HEIGHT;
   }
 
   function createVirtualListWrapper(height) {
