@@ -8,14 +8,14 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     self.selectedNodes = [];
     self.selectedNodeHtmls = [];
 
-    if(!self.collapsed) {
+    if (!self.collapsed) {
       self.expandAllChild()
     }
 
     $scope.$watch(() => (self.treeRoot), () => {
       self.selectedNodes = [];
       if (!self.vListWrapper) {
-        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());				      
+        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
       }
       updateVList();
     });
@@ -67,11 +67,11 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   }
 
   //BFS
-  self.findLvOfNode = function(node) {
-    let lv = -1;
+  self.findLvOfNode = function (node) {
+    let lv;
     for (const n of toArray(self.treeRoot)) {
       visit(n, (curNode, depth) => {
-        if(curNode === node) {
+        if (curNode === node) {
           lv = depth;
           return true;
         }
@@ -82,7 +82,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
 
     return lv;
   }
-  
+
 
   self.findChildAtIdx = function (idx) {
     let foundedNode = null;
@@ -91,7 +91,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       visit(childNode, (node) => {
         if (node._hidden) return true;
         //node._idx = curNodeIdx;
-        
+
         ++curNodeIdx;
         if (curNodeIdx === idx) {
           foundedNode = node;
@@ -110,15 +110,15 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     let foundedNodeIdx = -1;
     for (const childNode of toArray(self.treeRoot)) {
       visit(childNode, (curNode) => {
-        if(node._hidden) return true;
-        
+        if (node._hidden) return true;
+
         ++idx;
-        if(curNode === node) {
+        if (curNode === node) {
           foundedNodeIdx = idx;
           return true;
         }
-        
-        if(!curNode._expand) return true;
+
+        if (!curNode._expand) return true;
         return false;
       })
     }
@@ -126,21 +126,21 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     return foundedNodeIdx;
   }
 
-  self.expandAllChild = function() {
-    for(const childNode of toArray(self.treeRoot)) {
+  self.expandAllChild = function () {
+    for (const childNode of toArray(self.treeRoot)) {
       visit(childNode, (curNode) => {
         curNode._expand = true;
       })
     }
   }
-  
+
   //self.findIdxOfChild = function(node) {
   //  let idx = -1;
   //  for (const childNode of toArray(self.treeRoot)) {
   //    let ret = visit(childNode, (curNode) => {
   //      if(!curNode) return false;
   //      if (curNode._hidden) return false;
-        
+
   //      ++idx;
   //      if(curNode === node) return true;
   //      return false;
@@ -154,77 +154,77 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     node._expand = !node._expand;
     updateVList();
 
-    node._lv = node._lv || 0
-    for (const child of self.getChildren(node)) {
-      child._lv = node._lv + 1;
-    }
+    // node._lv = node._lv || 0
+    // console.log({child: self.findLvOfNode(self.getChildren(node)[0]), parent: self.findLvOfNode(node)})
+
+    
   }
 
   //just for passing to node
   self.nodeOnClick = function (node, $event) {
     node._selected = true;
     //node._htmlElement = JSON.stringify(nodeHtmlElement);
-      //node = {
-          //...node,
-          //'_htmlElement': nodeHtmlElement
-      //}
+    //node = {
+    //...node,
+    //'_htmlElement': nodeHtmlElement
+    //}
     //node._htmlElem = $element.find('.node-content')[0]
 
     if (!$event.metaKey && !$event.shiftKey) {
       // deselect all execpt the current node
-          for (const selectedNode of self.selectedNodes) {
+      for (const selectedNode of self.selectedNodes) {
 
-            //avoid double click current node, select go away
-            if (selectedNode !== node) {
-              selectedNode._selected = false;
-            }
-          }
-          //self.selectedNodes = [node];
-    //      for(let selectNode of self.selectedNodes) {
-    //        selectNode._selected = false;
-    //      }
-          self.selectedNodes.length = 0;
-          //self.selectedNodeHtmls.length = 0;
-          
-          if (!self.selectedNodes.includes(node)) {           
-            self.selectedNodes.push(node);
-            //self.selectedNodeHtmls.push(nodeHtmlElement)
-          }
-    } 
+        //avoid double click current node, select go away
+        if (selectedNode !== node) {
+          selectedNode._selected = false;
+        }
+      }
+      //self.selectedNodes = [node];
+      //      for(let selectNode of self.selectedNodes) {
+      //        selectNode._selected = false;
+      //      }
+      self.selectedNodes.length = 0;
+      //self.selectedNodeHtmls.length = 0;
+
+      if (!self.selectedNodes.includes(node)) {
+        self.selectedNodes.push(node);
+        //self.selectedNodeHtmls.push(nodeHtmlElement)
+      }
+    }
     else if ($event.shiftKey) {
       const nodeIdx = self.findIdxOfChild(node);
       const indexes = [];
-      for(const node of self.selectedNodes) {
+      for (const node of self.selectedNodes) {
         const index = self.findIdxOfChild(node);
         indexes.push(index);
       }
-      
+
       const maxIdx = Math.max(...indexes, nodeIdx);
       const minIdx = Math.min(...indexes, nodeIdx);
 
-      for(let i = minIdx; i <= maxIdx; ++i) {
+      for (let i = minIdx; i <= maxIdx; ++i) {
         const selectNode = self.findChildAtIdx(i);
 
-        if(!self.selectedNodes.includes(selectNode)){
+        if (!self.selectedNodes.includes(selectNode)) {
           self.selectedNodes.push(selectNode);
           //self.selectedNodeHtmls.push(nodeHtmlElement)
           selectNode._selected = true;
         }
-      } 
+      }
     }
 
-    $timeout(() => {        
+    $timeout(() => {
       self.selectedNodeHtmls.length = 0;
       const selectedNodeHtmls = $element.find('.tree-view-container .node-content.selected')
-      for(const e of selectedNodeHtmls) {
+      for (const e of selectedNodeHtmls) {
         const wrapper = self.createNodeTreeElement(-1);
         e.classList.add('selected');
         wrapper.appendChild(e.cloneNode(true))
         self.selectedNodeHtmls.push(e.cloneNode(true));
       }
     })
-    
-    
+
+
 
     //console.log(self.selectedNodes)
 
@@ -268,8 +268,8 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   }
 
   self.getVlistHeight = function () {
-      const h = $element.find('.tree-view-container').height();
-      return h || self.vlistHeight || DEFAULT_VLIST_HEIGHT;
+    const h = $element.find('.tree-view-container').height();
+    return h || self.vlistHeight || DEFAULT_VLIST_HEIGHT;
   }
 
   function createVirtualListWrapper(height) {
@@ -307,7 +307,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       })
     }
     // const newHeight = len * ITEM_HEIGHT;
-    
+
     self.vListWrapper.setTotalRows(len);
     window.treeRoot = self.treeRoot
   }
