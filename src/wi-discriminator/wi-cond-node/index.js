@@ -13,6 +13,9 @@ app.component(name, {
         curveOptions: '<',
         onDelete: '<',
         root: '<'
+    },
+    require: {
+        wiDiscriminatorCtrl: "^^wiDiscriminator"
     }
 });
 
@@ -35,7 +38,7 @@ function Controller($scope, $timeout) {
     this.operators = ['and', 'or'];
 
     this.isNull = function () {
-        return !self.item || Object.keys(self.item).length == 0;
+        return self.wiDiscriminatorCtrl.isNull(self.item);
     }
     function clearSelectedItem(node) {
         if (!node || !Object.keys(node).length) return;

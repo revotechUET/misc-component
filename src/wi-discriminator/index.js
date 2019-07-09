@@ -25,6 +25,13 @@ function Controller($scope) {
         self.conditionExpr = parse(self.conditionTree);
         self.conditionTree.conditionExpr = self.conditionExpr;
     });
+    this.isConditionTreeActive = () => (self.conditionTree.active);
+    this.toggleConditionTree = () => {
+        self.conditionTree.active = !self.conditionTree.active;
+    }
+    this.isNull = function (node) {
+        return !(node && (node.operator || node.comparison));
+    }
     this.addCondition = function () {
         let path = new Array();
         let retVal = visit(self.conditionTree, path, function (aNode) {
@@ -33,7 +40,7 @@ function Controller($scope) {
         let selectedNode;
         let parentNode = null;
 
-        if (!self.conditionTree || !Object.keys(self.conditionTree).length) {
+        if (!self.conditionTree || self.isNull(self.conditionTree)) {
             self.conditionTree = Object.assign(self.conditionTree || {}, {
                 comparison: '>',
                 left: {
@@ -120,7 +127,7 @@ function Controller($scope) {
         }
     }
     function visit(node, visitedPath, matchFunc) {
-        if (!node || !Object.keys(node).length) return false;
+        if (!node || self.isNull(node)) return false;
         visitedPath.unshift(node);
         if (matchFunc(node)) {
             return true;
