@@ -6,20 +6,21 @@ module.exports = function nodeController($element) {
             appendTo: 'body',
             helper: function () {
                 const wrapper = $('<div style="border:2px dotted #0077be;"></div>');
-                const selectedNodes = self.getSelectedNode();
+                // const selectedNodes = self.getSelectedNode();
                 if (!wrapper.children().length) {
-                    for (const node of selectedNodes) {
+                    for (const node of self.getSelectedNode().html) {
                         //fake node just for satifying css
-                         const insertNode = self.createNodeTreeElement(self.idx);
-                            const content = $element.find('.node-content')[0].cloneNode(true);
+                        // const insertNode = self.createNodeTreeElement(self.idx);
+                        // const content = $element.find('.node-content')[0].cloneNode(true);
                             
-                            content.classList.add('selected');
-                            insertNode.appendChild(content);
+                        // content.classList.add('selected');
+                        // insertNode.appendChild(content);
                     //     insertNode.appendChild(node._htmlElement);
                     //     wrapper.append(insertNode);
 
                         //wrapper.append(JSON.parse(node._htmlElement))
-                        wrapper.append(insertNode);
+                        //wrapper.append(insertNode);
+                        wrapper.append(node)
                     }
                 }
 
@@ -28,9 +29,9 @@ module.exports = function nodeController($element) {
             start: function ($event, ui) {
 
                 ui.helper.addClass('dragging');
-                ui.helper.myData = self.getSelectedNode();
+                ui.helper.myData = self.getSelectedNode().data;
                 self.onDragStart && self.onDragStart(ui.helper.myData);
-								console.log(ui.helper.myData)
+								//console.log(ui.helper.myData)
             },
             stop: function ($event, ui) {
                 self.onDragStop && self.onDragStop(ui.helper.myData);
@@ -41,9 +42,9 @@ module.exports = function nodeController($element) {
     self.onClick = function ($event) {
         // const thisHtml = $element.find('.node-content')[0].cloneNode(true)
         // const thisHtml = $element[0].cloneNode(true)
-        const thisHtml = cloneCurDOM()
+//        const thisHtml = cloneCurDOM()
         //from parrent
-        self.nodeOnClick(self.treeRoot, $event, thisHtml)
+        self.nodeOnClick(self.treeRoot, $event)
     }
 
     self.showNode = function () {
