@@ -14,6 +14,8 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());				      
       }
       updateVList();
+      
+      console.log(self.treeRoot)
     });
 
     $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
@@ -190,7 +192,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
         const wrapper = self.createNodeTreeElement(-1);
         e.classList.add('selected');
         wrapper.appendChild(e.cloneNode(true))
-        self.selectedNodeHtmls.push(wrapper);
+        self.selectedNodeHtmls.push(e.cloneNode(true));
       }
     })
     
@@ -228,6 +230,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
               idx="${idx}"
               find-child-at-idx="self.findChildAtIdx"
               in-search-mode="!!self.filter"
+              no-drag="self.noDrag"
               >
             </wi-tree-node-virtual>`
 
@@ -274,8 +277,9 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       })
     }
     // const newHeight = len * ITEM_HEIGHT;
-
+    
     self.vListWrapper.setTotalRows(len);
+    window.treeRoot = self.treeRoot
   }
 
   function toArray(item) {

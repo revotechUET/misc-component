@@ -2,7 +2,8 @@ module.exports = function nodeController($element) {
     const self = this;
     self.$onInit = function () {
         self.treeRoot = self.findChildAtIdx(self.idx);
-        $element.draggable({
+        if(!self.noDrag) {
+          $element.draggable({
             appendTo: 'body',
             helper: function () {
                 const wrapper = $('<div style="border:2px dotted #0077be;"></div>');
@@ -37,6 +38,8 @@ module.exports = function nodeController($element) {
                 self.onDragStop && self.onDragStop(ui.helper.myData);
             }
         });
+
+        }    
     }
 
     self.onClick = function ($event) {
