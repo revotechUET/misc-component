@@ -128,10 +128,12 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   //just for passing to node
   self.nodeOnClick = function (node, $event, nodeHtmlElement) {
     node._selected = true;
-      node = {
-          ...node,
-          '_htmlElement': nodeHtmlElement
-      }
+    //node._htmlElement = JSON.stringify(nodeHtmlElement);
+      //node = {
+          //...node,
+          //'_htmlElement': nodeHtmlElement
+      //}
+    //node._htmlElem = $element.find('.node-content')[0]
 
     if (!$event.metaKey && !$event.ctrlKey && !$event.shiftKey) {
       // deselect all execpt the current node
