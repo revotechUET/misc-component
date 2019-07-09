@@ -23,6 +23,7 @@ function Controller($scope) {
         $event.stopPropagation();
         $event.preventDefault();
         self.conditionExpr = parse(self.conditionTree);
+        self.conditionTree.conditionExpr = self.conditionExpr;
     });
     this.addCondition = function () {
         let path = new Array();
@@ -45,6 +46,7 @@ function Controller($scope) {
                 }
             });
             self.conditionExpr = parse(self.conditionTree);
+            self.conditionTree.conditionExpr = self.conditionExpr;
             return;
         }
 
@@ -79,6 +81,7 @@ function Controller($scope) {
             Object.assign(self.conditionTree, newNode);
         }
         self.conditionExpr = parse(self.conditionTree);
+        self.conditionTree.conditionExpr = self.conditionExpr;
 
     }
     this.deleteCondition = function () {
@@ -113,6 +116,7 @@ function Controller($scope) {
                 errorMessageDialog(ModalService, "Never happen!!");
             }
             self.conditionExpr = parse(self.conditionTree);
+            self.conditionTree.conditionExpr = self.conditionExpr;
         }
     }
     function visit(node, visitedPath, matchFunc) {
