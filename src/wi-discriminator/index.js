@@ -62,6 +62,7 @@ function Controller($scope) {
         if (retVal) selectedNode = path[0];
 
         let newNode = {
+            active: selectedNode.active,
             operator: 'and',
             children: [
                 Object.assign({}, selectedNode),
@@ -112,11 +113,16 @@ function Controller($scope) {
                 let parentNode = path[1];
                 let selectedIdx = parentNode.children.indexOf(selectedNode);
                 let theOtherNode = Object.assign({}, parentNode.children[(selectedIdx + 1) % 2]);
-                for (let prop in self.conditionTree) delete self.conditionTree[prop];
+                for (let prop in self.conditionTree) {
+                    if (prop !== "active")
+                        delete self.conditionTree[prop];
+                }
                 Object.assign(self.conditionTree, theOtherNode);
             }
             else if (path.length === 1) {
-                for (let prop in self.conditionTree) delete self.conditionTree[prop];
+                for (let prop in self.conditionTree) 
+                    if (prop !== "active")
+                        delete self.conditionTree[prop];
                 //self.conditionTree = null;
             }
             else {
