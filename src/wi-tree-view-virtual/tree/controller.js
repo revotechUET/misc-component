@@ -134,41 +134,16 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     }
   }
 
-  //self.findIdxOfChild = function(node) {
-  //  let idx = -1;
-  //  for (const childNode of toArray(self.treeRoot)) {
-  //    let ret = visit(childNode, (curNode) => {
-  //      if(!curNode) return false;
-  //      if (curNode._hidden) return false;
-
-  //      ++idx;
-  //      if(curNode === node) return true;
-  //      return false;
-  //    }, () => {}, 0, true);
-  //    if(ret) break;
-  //  }
-  //  return idx;
-  //}
-
   self.toggleChildrenFn = function (node) {
-    node._expand = !node._expand;
-    updateVList();
-
-    // node._lv = node._lv || 0
-    // console.log({child: self.findLvOfNode(self.getChildren(node)[0]), parent: self.findLvOfNode(node)})
-
-    
+    $timeout(() => {
+      node._expand = !node._expand;
+      updateVList();
+    })
   }
 
   //just for passing to node
   self.nodeOnClick = function (node, $event) {
     node._selected = true;
-    //node._htmlElement = JSON.stringify(nodeHtmlElement);
-    //node = {
-    //...node,
-    //'_htmlElement': nodeHtmlElement
-    //}
-    //node._htmlElem = $element.find('.node-content')[0]
 
     if (!$event.metaKey && !$event.shiftKey) {
       // deselect all execpt the current node
@@ -179,10 +154,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
           selectedNode._selected = false;
         }
       }
-      //self.selectedNodes = [node];
-      //      for(let selectNode of self.selectedNodes) {
-      //        selectNode._selected = false;
-      //      }
+
       self.selectedNodes.length = 0;
       //self.selectedNodeHtmls.length = 0;
 
@@ -224,14 +196,9 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       }
     })
 
-
-
-    //console.log(self.selectedNodes)
-
     if (self.clickFn) {
       self.clickFn($event, node, self.selectedNodes, self.treeRoot)
     }
-    // console.log({treeRoot: self.treeRoot})
   }
 
   self.createNodeTreeElement = function (idx) {
@@ -309,7 +276,6 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     // const newHeight = len * ITEM_HEIGHT;
 
     self.vListWrapper.setTotalRows(len);
-    window.treeRoot = self.treeRoot
   }
 
   function toArray(item) {
