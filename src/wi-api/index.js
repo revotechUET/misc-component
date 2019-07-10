@@ -9,6 +9,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
     let unitTable = undefined;
     let familyTable;
+    let paletteTable;
     this.getFamilyTable = () => familyTable
     this.getUnitTable = () => unitTable;
     function postPromise(url, data) {
@@ -30,16 +31,27 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     }
 
     getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
+
+    getPalettesPromise().then(paltable => paletteTable = paltable).catch(err => console.error(err));
+    
     getAllFamilyPromise()
         .then(familytable => {
 						familyTable = familytable;
         }).catch(err => console.error(err));
     
+    this.getPalette = function(palName) {
+        if (paletteTable) 
+            return paletteTable[palName];
+    }
     this.getFamily = function(idFamily) {
         if (!familyTable) {
             return null;
         }
         return familyTable.find(family => family.idFamily === idFamily);
+    }
+    this.getPalettesPromise = getPalettesPromise;
+    function getPalettesPromise() {
+        return postPromise('/pal/all', {});
     }
     this.setBaseUrl = function(baseUrl) {
         self.baseUrl = baseUrl;
