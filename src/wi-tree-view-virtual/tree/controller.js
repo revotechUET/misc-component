@@ -197,7 +197,13 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     })
 
     if (self.clickFn) {
-      self.clickFn($event, node, self.selectedNodes, self.treeRoot)
+      self.clickFn($event, node, 
+                self.selectedNodes.map(n => ({data:n})),
+                self.treeRoot)
+      //console.log(node)
+      //console.log(self.selectedNodes)
+     // if (!window.t) window.t = []
+     // else window.t.push(self.treeRoot)
     }
   }
 
