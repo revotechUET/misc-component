@@ -15,7 +15,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function postPromise(url, data) {
         return new Promise(function(resolve, reject) {
             const salt = "wi-hash";
-            const payloadHash = genPayloadHash(data, SHA256(salt + wiToken.getToken()));
+            const payloadHash = genPayloadHash((data || {}), SHA256(salt + wiToken.getToken()));
             $http({
                 method: 'POST',
                 url: self.baseUrl + url + `?wiid=${payloadHash}`,
