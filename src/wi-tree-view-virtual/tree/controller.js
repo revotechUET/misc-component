@@ -173,14 +173,17 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
 
       const maxIdx = Math.max(...indexes, nodeIdx);
       const minIdx = Math.min(...indexes, nodeIdx);
+      
+      if(maxIdx !== -1 && minIdx !== -1) {
+        
+        for (let i = minIdx; i <= maxIdx; ++i) {
+          const selectNode = self.findChildAtIdx(i);
 
-      for (let i = minIdx; i <= maxIdx; ++i) {
-        const selectNode = self.findChildAtIdx(i);
-
-        if (!self.selectedNodes.includes(selectNode)) {
-          self.selectedNodes.push(selectNode);
+          if (!self.selectedNodes.includes(selectNode)) {
+            self.selectedNodes.push(selectNode);
           //self.selectedNodeHtmls.push(nodeHtmlElement)
-          selectNode._selected = true;
+            selectNode._selected = true;
+          }
         }
       }
     }
