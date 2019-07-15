@@ -377,6 +377,15 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             }
         }
     }
+    this.getListProjects = function () {
+        return postPromise('/project/list', {})
+    }
+    this.getListWells = function(idProject){
+        return postPromise('/project/well/list', {idProject})
+    }
+    this.getListDatasets = function(idWell){
+        return postPromise('/project/well/info', {idWell})
+    }
 }
 
 function SHA256(s){
