@@ -45,6 +45,9 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         if (paletteTable) 
             return paletteTable[palName];
     }
+    this.getPalettes = function() {
+        return paletteTable;
+    }
     this.getFamily = function(idFamily) {
         if (!familyTable) {
             return null;
