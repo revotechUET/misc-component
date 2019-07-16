@@ -192,9 +192,9 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       self.selectedNodeHtmls.length = 0;
       const selectedNodeHtmls = $element.find('.tree-view-container .node-content.selected')
       for (const e of selectedNodeHtmls) {
-        const wrapper = self.createNodeTreeElement(-1);
+        //const wrapper = self.createNodeTreeElement(-1);
         e.classList.add('selected');
-        wrapper.appendChild(e.cloneNode(true))
+        //wrapper.appendChild(e.cloneNode(true))
         self.selectedNodeHtmls.push(e.cloneNode(true));
       }
     })

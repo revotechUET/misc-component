@@ -10,18 +10,12 @@ module.exports = function nodeController($element) {
                 // const selectedNodes = self.getSelectedNode();
                 if (!wrapper.children().length) {
                     for (const node of self.getSelectedNode().html) {
-                        //fake node just for satifying css
-                        // const insertNode = self.createNodeTreeElement(self.idx);
-                        // const content = $element.find('.node-content')[0].cloneNode(true);
-                            
-                        // content.classList.add('selected');
-                        // insertNode.appendChild(content);
-                    //     insertNode.appendChild(node._htmlElement);
-                    //     wrapper.append(insertNode);
-
-                        //wrapper.append(JSON.parse(node._htmlElement))
-                        //wrapper.append(insertNode);
-                        wrapper.append(node)
+                        //this node is only for satisfying css
+                        //const fakeWiVirtualHtmlNode = self.createNodeTreeElement(-1);
+                        const fakeWiVirtualHtmlNode = document.createElement('wi-tree-node-virtual')
+                        fakeWiVirtualHtmlNode.appendChild(node);
+                        wrapper.append(fakeWiVirtualHtmlNode)
+                        //wrapper.append(node)
                     }
                 }
 
@@ -64,16 +58,4 @@ module.exports = function nodeController($element) {
     self.getPadding = function () {
         return `${(parseInt(self.findLvOfNode(self.treeRoot)) + 1) * 19}px`
     }
-
-    // function cloneCurDOM() {
-    //     // const wrapper = document.createElement('wi-tree-node-virtual');
-    //     // wrapper.style.position = 'absolute';
-    //     const wrapper = self.createNodeTreeElement(-1);
-    //     const content = $element.find('.node-content')[0].cloneNode(true);
-        
-    //     content.classList.add('selected');
-    //     wrapper.appendChild(content);
-
-    //     return wrapper;
-    // }
 }
