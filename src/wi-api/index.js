@@ -34,7 +34,14 @@ function wiApiService($http, wiToken, Upload, $timeout) {
 
     getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
 
-    getPalettesPromise().then(paltable => paletteTable = paltable).catch(err => console.error(err));
+    this.updatePalettes = updatePalettes;
+    function updatePalettes(cb) {
+        getPalettesPromise().then(paltable => {
+            paletteTable = paltable;
+            cb && cb();
+        }).catch(err => console.error(err));
+    }
+    updatePalettes();
     
     getAllFamilyPromise()
         .then(familytable => {
