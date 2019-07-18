@@ -7,7 +7,9 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
     self.selectedNodes = [];
     self.selectedNodeHtmls = [];
-
+    
+    if(!self.keepChildren) self.keepChildren = true;
+  
     if (!self.collapsed) {
       self.expandAllChild()
     }
