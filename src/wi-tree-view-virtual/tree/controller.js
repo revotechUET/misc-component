@@ -7,6 +7,14 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
     self.selectedNodes = [];
     self.selectedNodeHtmls = [];
+
+    self.resizeSensor = new ResizeSensor($element[0], () => {
+      $timeout(() => {
+        destroyTree();
+        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
+        updateVList();
+      })
+    })
     
     if(!self.keepChildren) self.keepChildren = true;
   
@@ -22,13 +30,14 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       updateVList();
     });
 
-    //$scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
-    //  if (newValue !== (self.vListHeight || DEFAULT_VLIST_HEIGHT)) {
-    //    destroyTree();
-    //    self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
-    //    updateVList();
-    //  }
-    //})
+//    $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
+//      if (newValue !== (self.vListHeight || DEFAULT_VLIST_HEIGHT)) {
+//        destroyTree();
+//        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
+//        updateVList();
+//      }
+//    })
+
 
     $scope.$watch(() => (self.filter), () => {
       for (let n of toArray(self.treeRoot)) {
