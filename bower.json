@@ -32,6 +32,6 @@
     "angular-sanitize": "^1.7.8",
     "angular-bootstrap": "^2.5.0",
     "wi-vlist": "https://github.com/tunghoang/wi-vlist.git",
-    "resize-sensor":"https://github.com/normanzb/resize-sensor"
+    "resize-sensor":"https://github.com/normanzb/resize-sensor.git"
   }
 }
