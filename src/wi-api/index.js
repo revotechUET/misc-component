@@ -34,7 +34,14 @@ function wiApiService($http, wiToken, Upload, $timeout) {
 
     getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
 
-    getPalettesPromise().then(paltable => paletteTable = paltable).catch(err => console.error(err));
+    this.updatePalettes = updatePalettes;
+    function updatePalettes(cb) {
+        getPalettesPromise().then(paltable => {
+            paletteTable = paltable;
+            cb && cb();
+        }).catch(err => console.error(err));
+    }
+    updatePalettes();
     
     getAllFamilyPromise()
         .then(familytable => {
@@ -389,6 +396,33 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     this.getListDatasets = function(idWell){
         return postPromise('/project/well/info', {idWell})
     }
+    this.binarySearch = binarySearch;
+    function binarySearch(arr, compareFn, start, end) {
+        if (start > end) return null;
+        let mid=Math.floor((start + end)/2);
+        if (compareFn(arr[mid]) == 0) return arr[mid];
+        if(compareFn(arr[mid]) < 0)
+            return binarySearch(arr, compareFn, start, mid-1);
+        else
+            return binarySearch(arr, compareFn, mid+1, end);
+    }
+    //function binarySearch(array, compareFn, startIdx, endIdx) {
+        //if (startIdx === endIdx) {
+            //if (compareFn(array[startIdx]) === 0) return array[startIdx];
+            //return null;
+        //}
+        //let selectedIdx = Math.floor((startIdx + endIdx)/2);
+        //let result = compareFn(array[selectedIdx]);
+        //if ( result > 0 ) {
+            //return binarySearch(array, compareFn, selectedIdx, endIdx);
+        //}
+        //else if (result < 0) {
+            //return binarySearch(array, compareFn, startIdx, selectedIdx);
+        //}
+        //else {
+            //return array[selectedIdx];
+        //}
+    //}
 }
 
 function SHA256(s){
