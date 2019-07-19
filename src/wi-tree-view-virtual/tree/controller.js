@@ -121,7 +121,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     let foundedNodeIdx = -1;
     for (const childNode of toArray(self.treeRoot)) {
       visit(childNode, (curNode) => {
-        if (node._hidden) return true;
+        if (curNode._hidden) return true;
 
         ++idx;
         if (curNode === node) {
