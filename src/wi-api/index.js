@@ -406,23 +406,28 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         else
             return binarySearch(arr, compareFn, mid+1, end);
     }
-    //function binarySearch(array, compareFn, startIdx, endIdx) {
-        //if (startIdx === endIdx) {
-            //if (compareFn(array[startIdx]) === 0) return array[startIdx];
-            //return null;
-        //}
-        //let selectedIdx = Math.floor((startIdx + endIdx)/2);
-        //let result = compareFn(array[selectedIdx]);
-        //if ( result > 0 ) {
-            //return binarySearch(array, compareFn, selectedIdx, endIdx);
-        //}
-        //else if (result < 0) {
-            //return binarySearch(array, compareFn, startIdx, selectedIdx);
-        //}
-        //else {
-            //return array[selectedIdx];
-        //}
-    //}
+    this.indexZonesForCorrelation = indexZonesForCorrelation;
+    function indexZonesForCorrelation(zones) {
+        let keys = {};
+        for(let z of zones) {
+            let idx = keys[z.idZoneTemplate];
+            if(idx == undefined) idx = 0;
+            else idx ++;
+            z._idx = idx;
+            keys[z.idZoneTemplate] = idx;
+        }
+    }
+    this.indexWellSpecsForCorrelation = indexWellSpecsForCorrelation;
+    function indexWellSpecsForCorrelation(wellSpec) {
+        let keys = {};
+        for(let well of wellSpec) {
+            let idx = keys[well.idWell];
+            if(idx == undefined) idx = 0;
+            else idx ++;
+            well._idx = idx;
+            keys[well.idWell] = idx;
+        }
+    }
 }
 
 function SHA256(s){
