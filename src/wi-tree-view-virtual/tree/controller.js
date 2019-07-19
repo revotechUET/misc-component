@@ -8,7 +8,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     self.selectedNodes = [];
     self.selectedNodeHtmls = [];
 
-    self.resizeSensor = new ResizeSensor($element[0], () => {
+    self.resizeSensor = new ResizeSensor($element.find('.tree-view-container')[0], () => {
       $timeout(() => {
         destroyTree();
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
