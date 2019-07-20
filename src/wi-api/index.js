@@ -396,6 +396,38 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     this.getListDatasets = function(idWell){
         return postPromise('/project/well/info', {idWell})
     }
+    this.binarySearch = binarySearch;
+    function binarySearch(arr, compareFn, start, end) {
+        if (start > end) return null;
+        let mid=Math.floor((start + end)/2);
+        if (compareFn(arr[mid]) == 0) return arr[mid];
+        if(compareFn(arr[mid]) < 0)
+            return binarySearch(arr, compareFn, start, mid-1);
+        else
+            return binarySearch(arr, compareFn, mid+1, end);
+    }
+    this.indexZonesForCorrelation = indexZonesForCorrelation;
+    function indexZonesForCorrelation(zones) {
+        let keys = {};
+        for(let z of zones) {
+            let idx = keys[z.idZoneTemplate];
+            if(idx == undefined) idx = 0;
+            else idx ++;
+            z._idx = idx;
+            keys[z.idZoneTemplate] = idx;
+        }
+    }
+    this.indexWellSpecsForCorrelation = indexWellSpecsForCorrelation;
+    function indexWellSpecsForCorrelation(wellSpec) {
+        let keys = {};
+        for(let well of wellSpec) {
+            let idx = keys[well.idWell];
+            if(idx == undefined) idx = 0;
+            else idx ++;
+            well._idx = idx;
+            keys[well.idWell] = idx;
+        }
+    }
 }
 
 function SHA256(s){

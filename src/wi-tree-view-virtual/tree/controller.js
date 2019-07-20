@@ -8,6 +8,16 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     self.selectedNodes = [];
     self.selectedNodeHtmls = [];
 
+    self.resizeSensor = new ResizeSensor($element.find('.tree-view-container')[0], () => {
+      $timeout(() => {
+        destroyTree();
+        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
+        updateVList();
+      })
+    })
+    
+    if(!self.keepChildren) self.keepChildren = true;
+  
     if (!self.collapsed) {
       self.expandAllChild()
     }
@@ -20,13 +30,14 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       updateVList();
     });
 
-    $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
-      if (newValue !== (self.vListHeight || DEFAULT_VLIST_HEIGHT)) {
-        destroyTree();
-        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
-        updateVList();
-      }
-    })
+//    $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
+//      if (newValue !== (self.vListHeight || DEFAULT_VLIST_HEIGHT)) {
+//        destroyTree();
+//        self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
+//        updateVList();
+//      }
+//    })
+
 
     $scope.$watch(() => (self.filter), () => {
       for (let n of toArray(self.treeRoot)) {
@@ -110,7 +121,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     let foundedNodeIdx = -1;
     for (const childNode of toArray(self.treeRoot)) {
       visit(childNode, (curNode) => {
-        if (node._hidden) return true;
+        if (curNode._hidden) return true;
 
         ++idx;
         if (curNode === node) {
@@ -245,6 +256,8 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
 
   self.getVlistHeight = function () {
     const h = $element.find('.tree-view-container').height();
+   // console.log({h:h || self.vlistHeight || DEFAULT_VLIST_HEIGHT})
+    //if(self.vlistHeight && h && h < self.vlistHeight) return self.vlistHeight;
     return h || self.vlistHeight || DEFAULT_VLIST_HEIGHT;
   }
 

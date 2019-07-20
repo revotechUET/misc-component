@@ -15,7 +15,10 @@ module.component(componentName, {
         labelStyle: "<",
         contentStyle: "<",
         enabled: "<",
-        params: "<"
+        params: "<",
+        editType: '<',
+        minValue: '<',
+        maxValue: '<'
     }
 });
 function EditableController($scope, $element, $timeout) {
@@ -40,6 +43,18 @@ function EditableController($scope, $element, $timeout) {
         return self.itemValue;
     }
     this.setItemValue = function(newVal) {
+        if (self.editType === 'number' && !isNaN(self.minValue) && newVal < self.minValue) {
+            let msg = `Min value is ${self.minValue}`;
+            if (__toastr) __toastr.warning(msg);
+            console.warn(msg);
+            return;
+        }
+        if (self.editType === 'number' && !isNaN(self.maxValue) && newVal > self.maxValue) {
+            let msg = `Max value is ${self.maxValue}`;
+            if (__toastr) __toastr.warning(msg);
+            console.warn(msg);
+            return;
+        }
         if ( typeof self.setValue === 'function') 
             return self.setValue(self.params, newVal);
         if (typeof self.itemValue != 'function') 
