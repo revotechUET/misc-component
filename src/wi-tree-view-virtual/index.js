@@ -70,7 +70,8 @@ angular.module(componentName, [])
       hideUnmatched: '<',
       hideSearch: "<",
       vlistHeight: '<',
-      noDrag: '<'
+      noDrag: '<',
+      autoScrollToSelectedNode: '<',
     },
     transclude: true
   });

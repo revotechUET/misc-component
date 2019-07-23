@@ -22,6 +22,10 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       self.expandAllChild()
     }
 
+    if (self.autoScrollToSelectedNode) {
+      self.scrollToSelectedNode();
+    }
+
     $scope.$watch(() => (self.treeRoot), () => {
       self.selectedNodes = [];
       if (!self.vListWrapper) {
@@ -143,6 +147,21 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
         curNode._expand = true;
       })
     }
+  }
+
+  self.scrollToSelectedNode = function() {
+    let selectedNodeIdx = -1;
+
+    for(const childNode of toArray(self.treeRoot)) {
+      visit(childNode, curNode => {
+        ++selectedNodeIdx;
+
+        if (curNode._selected) return true;
+        return false;
+      })
+    }
+    
+    self.vListWrapper.scrollToIdx(selectedNodeIdx);
   }
 
   self.toggleChildrenFn = function (node) {
