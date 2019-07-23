@@ -32,6 +32,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
       }
       updateVList();
+      self.scrollToSelectedNode();
     });
 
 //    $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
@@ -150,6 +151,9 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   }
 
   self.scrollToSelectedNode = function() {
+
+    if(self._alreadyScrollOnInit) return;
+
     let selectedNodeIdx = -1;
     let isScroll = false;
 
@@ -165,7 +169,10 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       })
     }
     
-    if(isScroll) self.vListWrapper.scrollToIdx(selectedNodeIdx);
+    if(isScroll) {
+      self.vListWrapper.scrollToIdx(selectedNodeIdx);
+      self._alreadyScrollOnInit = true;
+    }
   }
 
   self.toggleChildrenFn = function (node) {
