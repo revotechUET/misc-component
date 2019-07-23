@@ -61,6 +61,22 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         }
         return familyTable.find(family => family.idFamily === idFamily);
     }
+    this.getFullInfoPromise = getFullInfoPromise;
+    function getFullInfoPromise(idProject, owner = null, name = null) {
+        let payload = {
+            idProject: idProject
+        }
+        if(owner && name) {
+            payload.owner = owner;
+            payload.name = name;
+            payload.shared = true;
+        }
+        return postPromise('/project/fullinfo', payload);
+    }
+    this.getProjectsPromise = getProjectsPromise;
+    function getProjectsPromise() {
+        return postPromise('/project/list', {});
+    }
     this.getPalettesPromise = getPalettesPromise;
     function getPalettesPromise() {
         return postPromise('/pal/all', {});
@@ -408,7 +424,6 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     }
     this.indexZonesForCorrelation = indexZonesForCorrelation;
     function indexZonesForCorrelation(zones) {
-        if (!zones || !zones.length) return;
         let keys = {};
         for(let z of zones) {
             let idx = keys[z.idZoneTemplate];
@@ -420,7 +435,6 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     }
     this.indexWellSpecsForCorrelation = indexWellSpecsForCorrelation;
     function indexWellSpecsForCorrelation(wellSpec) {
-        if (!wellSpec || !wellSpec.length) return;
         let keys = {};
         for(let well of wellSpec) {
             let idx = keys[well.idWell];
