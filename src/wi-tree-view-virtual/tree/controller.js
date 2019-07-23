@@ -151,17 +151,21 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
 
   self.scrollToSelectedNode = function() {
     let selectedNodeIdx = -1;
+    let isScroll = false;
 
     for(const childNode of toArray(self.treeRoot)) {
       visit(childNode, curNode => {
         ++selectedNodeIdx;
 
-        if (curNode._selected) return true;
+        if (curNode._selected) {
+          isScroll = true;
+          return true;
+        }
         return false;
       })
     }
     
-    self.vListWrapper.scrollToIdx(selectedNodeIdx);
+    if(isScroll) self.vListWrapper.scrollToIdx(selectedNodeIdx);
   }
 
   self.toggleChildrenFn = function (node) {
