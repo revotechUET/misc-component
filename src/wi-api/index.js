@@ -408,6 +408,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     }
     this.indexZonesForCorrelation = indexZonesForCorrelation;
     function indexZonesForCorrelation(zones) {
+        if (!zones || !zones.length) return;
         let keys = {};
         for(let z of zones) {
             let idx = keys[z.idZoneTemplate];
@@ -419,6 +420,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     }
     this.indexWellSpecsForCorrelation = indexWellSpecsForCorrelation;
     function indexWellSpecsForCorrelation(wellSpec) {
+        if (!wellSpec || !wellSpec.length) return;
         let keys = {};
         for(let well of wellSpec) {
             let idx = keys[well.idWell];
