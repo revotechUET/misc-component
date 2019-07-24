@@ -8,6 +8,9 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     self.selectedNodes = [];
     self.selectedNodeHtmls = [];
 
+    window.t = self;
+    window.$scope = $scope;
+
     self.resizeSensor = new ResizeSensor($element.find('.tree-view-container')[0], () => {
       $timeout(() => {
         destroyTree();
@@ -155,23 +158,34 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     if(self._alreadyScrollOnInit) return;
 
     let selectedNodeIdx = -1;
-    let isScroll = false;
+    //let isScroll = false;
+    let i = -1;
 
     for(const childNode of toArray(self.treeRoot)) {
       visit(childNode, curNode => {
-        ++selectedNodeIdx;
+        ++i;
 
         if (curNode._selected) {
-          isScroll = true;
+          //isScroll = true;
+          console.log({curNode})
+          selectedNodeIdx = i;
           return true;
         }
         return false;
       })
     }
+
     
-    if(isScroll) {
-      self.vListWrapper.scrollToIdx(selectedNodeIdx);
-      self._alreadyScrollOnInit = true;
+    if(selectedNodeIdx !== -1) {
+    //  $timeout(() => {      
+    //    self.vListWrapper.scrollToIdx(selectedNodeIdx);
+    //    self._alreadyScrollOnInit = true;
+    //  })
+      // const pos = parseFloat($element.find('.node-content')[0].offsetHeight) * selectedNodeIdx
+      // console.log({pos, e: $element.find('.node-content')[0], h: $element.find('.node-content')[0].offsetHeight}, selectedNodeIdx)
+      const borderWidth = 1;
+      const pos = (ITEM_HEIGHT + borderWidth / 2) * selectedNodeIdx;
+      self.vListWrapper.vList.container.scrollTo(0, pos);
     }
   }
 
