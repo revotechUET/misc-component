@@ -176,7 +176,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     }
 
     
-    if(selectedNodeIdx !== -1) {
+    if(selectedNodeIdx > 0) {
     //  $timeout(() => {      
     //    self.vListWrapper.scrollToIdx(selectedNodeIdx);
     //    self._alreadyScrollOnInit = true;
@@ -184,8 +184,10 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       // const pos = parseFloat($element.find('.node-content')[0].offsetHeight) * selectedNodeIdx
       // console.log({pos, e: $element.find('.node-content')[0], h: $element.find('.node-content')[0].offsetHeight}, selectedNodeIdx)
       const borderWidth = 1;
-      const pos = (ITEM_HEIGHT + borderWidth / 2) * selectedNodeIdx;
-      self.vListWrapper.vList.container.scrollTo(0, pos);
+      const pos = ITEM_HEIGHT * (selectedNodeIdx - 1);
+      $timeout(()=>{
+        self.vListWrapper.vList.container.scrollTo(0, pos);  
+      }, 300);
     }
   }
 
