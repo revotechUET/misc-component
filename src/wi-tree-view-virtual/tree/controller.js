@@ -8,9 +8,6 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     self.selectedNodes = [];
     self.selectedNodeHtmls = [];
 
-    window.t = self;
-    window.$scope = $scope;
-
     self.resizeSensor = new ResizeSensor($element.find('.tree-view-container')[0], () => {
       $timeout(() => {
         destroyTree();
@@ -167,7 +164,6 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
 
         if (curNode._selected) {
           //isScroll = true;
-          console.log({curNode})
           selectedNodeIdx = i;
           return true;
         }
