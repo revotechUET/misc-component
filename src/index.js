@@ -18,5 +18,6 @@ module.exports = {
     wiDiscriminator: require('./wi-discriminator'),
     wiFloatButton: require('./wi-float-button'),
     wiTreeViewVirtual: require('./wi-tree-view-virtual'),
-    wiNeuralNetwork: require('./wi-neural-network')
+    wiNeuralNetwork: require('./wi-neural-network'),
+    wiPrintTable: require('./wi-printable')
 }

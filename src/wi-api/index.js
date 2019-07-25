@@ -446,6 +446,10 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             keys[well.idWell] = idx;
         }
     }
+    this.mmToPixel = mmToPixel;
+    function mmToPixel(mmValue, dpi = 96) {
+        return mmValue * dpi / 25.4;
+    }
 }
 
 function SHA256(s){
