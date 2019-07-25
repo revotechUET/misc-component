@@ -41,20 +41,30 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
         * {
             visibility: hidden;
         }
-        .${cssClassName} ~ .print-cmd-panel {
+        .${cssClassName} > .print-cmd-panel {
             position: fixed;
-            bottom: 0;
-            right: 0;
+            top: 0;
+            left: 0;
         }
-        .${cssClassName} ~ .print-cmd-panel > button{
+        .${cssClassName} > .print-cmd-panel > button{
             visibility: initial;
         }
     `;
+    const printStyleText = `
+        @page {
+            size: A4 landscape;
+            margin: 5px;
+        }
+        html, body {
+            width: 200px ;
+        }
+    `
     this.doInit = function() {
         self.orientation = self.orientation || "landscape";
         self.aspectRatio = self.aspectRatio || "4:3";
         self.alignment = self.alignment || "left";
         self.printWidth = self.printWidth || 200; // in millimeters
+        self.printHeight = calcPrintHeight(self.printWidth, self.aspectRatio);
         self.verticalMargin = self.verticalMargin || 20; // in millimeters
         self.horizontalMargin = self.horizontalMargin || 20; // in millimeters
         self.printElement = self.printElement || ".main-body-center";
@@ -76,8 +86,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
         }
 
         const printElem = $element.find(self.printElement);
-        self.preWidth = printElem[0].offsetWidth;
-        self.preHeight = printElem[0].offsetHeight;
+        self.originalWidth = printElem[0].offsetWidth;
+        self.originalHeight = printElem[0].offsetHeight;
 
         let styleElem = document.createElement("style");
         self.styleElem = styleElem;
@@ -85,10 +95,15 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
         styleElem.appendChild(document.createTextNode(cssText));
         document.head.appendChild(styleElem);
 
+        let printStyleElem = document.createElement("style");
+        printStyleElem.type = "text/css";
+        printStyleElem.setAttribute('media', 'print');
+        printStyleElem.appendChild(document.createTextNode(printStyleText));
+        document.head.appendChild(printStyleElem);
+
         printElem.addClass(cssClassName);
         printElem.width(wiApi.mmToPixel(self.printWidth));
-        let mmHeight = calcPrintHeight(self.printWidth, self.aspectRatio);
-        printElem.height(wiApi.mmToPixel(mmHeight));
+        printElem.height(wiApi.mmToPixel(self.printHeight));
         self.printElem = printElem;
 
         const pcpElem = document.createElement('div');
@@ -96,7 +111,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
         $(pcpElem).addClass('print-cmd-panel');
         const pcpContent = `<button ng-click="$ctrl.exitPreview()">Close</button> <button ng-click="$ctrl.doPrint()">Print</button>`;
         $(pcpElem).append($compile(pcpContent)(previewScope));
-        printElem.parent()[0].appendChild(pcpElem);
+        $(printElem).prepend(pcpElem);
     }
     function calcPrintHeight(w, ratio) {
         switch (ratio) {
@@ -108,18 +123,15 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
     }
     this.exitPreview = exitPreview;
     function exitPreview() {
-        console.log("exit Preview");
         self.styleElem.remove();
         self.pcpElem.remove();
-        self.printElem.width(self.preWidth);
-        self.printElem.height(self.preHeight);
+        self.printElem.width(self.originalWidth);
+        self.printElem.height(self.originalHeight);
     }
     this.doPrint = doPrint;
     function doPrint() {
-        console.log("doPrint");
-
         self.pcpElem.remove();
         window.print();
-        self.printElem.parent()[0].appendChild(self.pcpElem);
+        $(self.printElem).prepend(self.pcpElem);
     }
 }
