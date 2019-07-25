@@ -20,6 +20,7 @@ function component(componentData) {
             verticalMargin: "<",
             horizontalMargin: "<",
             printElement: "@",
+            printMode: "<",
             ...componentData.bindings
         },
         transclude: componentData.transclude || false
@@ -68,6 +69,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
         self.verticalMargin = self.verticalMargin || 20; // in millimeters
         self.horizontalMargin = self.horizontalMargin || 20; // in millimeters
         self.printElement = self.printElement || ".main-body-center";
+        self.printMode = self.printMode || "image";
         self.defaultBindings();
     }
     this.defaultBindings = function() {
@@ -130,8 +132,17 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
     }
     this.doPrint = doPrint;
     function doPrint() {
-        self.pcpElem.remove();
-        window.print();
-        $(self.printElem).prepend(self.pcpElem);
+        switch(self.printMode) {
+            case "image":
+                html2canvas(self.printElem[0]).then(canvas => {
+                    console.log(canvas);
+                })
+                break;
+            case "printer":
+                self.pcpElem.remove();
+                window.print();
+                $(self.printElem).prepend(self.pcpElem);
+                break;
+        }
     }
 }
