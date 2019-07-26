@@ -11,6 +11,7 @@ function component(componentData) {
     return {
         controller: componentData.controller,
         controllerAs: componentData.controllerAs || 'self',
+        templateUrl: componentData.templateUrl,
         template: componentData.template,
         bindings: {
             orientation: "<",
