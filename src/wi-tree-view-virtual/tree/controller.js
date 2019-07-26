@@ -198,7 +198,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   self.nodeOnClick = function (node, $event) {
     node._selected = true;
 
-    if (!$event.metaKey && !$event.shiftKey) {
+    if (!$event.metaKey && !$event.shiftKey && !$event.ctrlKey) {
       // deselect all execpt the current node
       for (const selectedNode of self.selectedNodes) {
 
@@ -238,6 +238,12 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
             selectNode._selected = true;
           }
         }
+      }
+    }
+    else if($event.ctrlKey) {
+      if (!self.selectedNodes.includes(node)) {
+        self.selectedNodes.push(node);
+        //self.selectedNodeHtmls.push(nodeHtmlElement)
       }
     }
 
