@@ -1,3 +1,4 @@
+let html2canvas = require('../../dist/html2canvas.min.js');
 window.Printable = {
     component: component,
     klass: PrintableCtrl
@@ -21,6 +22,7 @@ function component(componentData) {
             horizontalMargin: "<",
             printElement: "@",
             printMode: "<",
+            paperSize: "<",
             ...componentData.bindings
         },
         transclude: componentData.transclude || false
@@ -31,10 +33,13 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
     let cssClassName = `print-${Date.now()}`;
     const cssText = `
         .${cssClassName} {
+            border: 1px solid black !important;
             position: fixed !important;
             z-index: 999;
             top: 0;
             left: 0;
+            visibility: visible;
+            background-color: #ffffff;
         }
         .${cssClassName} * {
             visibility: visible;
@@ -51,25 +56,23 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
             visibility: initial;
         }
     `;
-    const printStyleText = `
-        @page {
-            size: A4 landscape;
-            margin: 5px;
-        }
-        html, body {
-            width: 200px ;
-        }
-    `
+    let printStyleText;
     this.doInit = function() {
         self.orientation = self.orientation || "landscape";
         self.aspectRatio = self.aspectRatio || "4:3";
         self.alignment = self.alignment || "left";
         self.printWidth = self.printWidth || 200; // in millimeters
-        self.printHeight = calcPrintHeight(self.printWidth, self.aspectRatio);
         self.verticalMargin = self.verticalMargin || 20; // in millimeters
         self.horizontalMargin = self.horizontalMargin || 20; // in millimeters
-        self.printElement = self.printElement || ".main-body-center";
+        self.printElement = self.printElement || ".printable";
         self.printMode = self.printMode || "image";
+        self.paperSize = 'A4';
+        self.paperSizeList = [
+            // in millimeters
+            {data:{label:'A3'}, properties:{name:'A3', width:297, height: 420}},
+            {data:{label:'A4'}, properties:{name:'A4', width:210, height: 297}},
+            {data:{label:'A5'}, properties:{name:'A5', width:148, height: 210}}
+        ],
         self.defaultBindings();
     }
     this.defaultBindings = function() {
@@ -81,6 +84,12 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
     }
     
     function preview4Print() {
+        printStyleText = `
+            @page {
+                size: ${self.paperSize} ${self.orientation};
+                margin: ${self.horizontalMargin}mm;
+            }
+        `;
         previewScope = $scope.$new();
         previewScope.$ctrl = {
             exitPreview:  exitPreview,
@@ -88,8 +97,20 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
         }
 
         const printElem = $element.find(self.printElement);
+        self.printElem = printElem;
         self.originalWidth = printElem[0].offsetWidth;
         self.originalHeight = printElem[0].offsetHeight;
+        //self.originalMarginTop = printElem[0].style.marginTop;
+        //self.originalMarginBottom = printElem[0].style.marginBottom;
+        //self.originalMarginLeft = printElem[0].style.marginLeft;
+        //self.originalMarginRight = printElem[0].style.marginRight;
+
+        //if (self.printMode === 'image') {
+            //self.printElem[0].style.marginTop = `${self.verticalMargin}mm`;
+            //self.printElem[0].style.marginBottom = `${self.verticalMargin}mm`;
+            //self.printElem[0].style.marginLeft = `${self.horizontalMargin}mm`;
+            //self.printElem[0].style.marginRight = `${self.horizontalMargin}mm`;
+        //}
 
         let styleElem = document.createElement("style");
         self.styleElem = styleElem;
@@ -105,8 +126,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
 
         printElem.addClass(cssClassName);
         printElem.width(wiApi.mmToPixel(self.printWidth));
+        self.printHeight = calcPrintHeight(self.printWidth, self.aspectRatio);
         printElem.height(wiApi.mmToPixel(self.printHeight));
-        self.printElem = printElem;
 
         const pcpElem = document.createElement('div');
         self.pcpElem = pcpElem;
@@ -129,20 +150,52 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
         self.pcpElem.remove();
         self.printElem.width(self.originalWidth);
         self.printElem.height(self.originalHeight);
+        //self.printElem[0].style.marginTop = self.originalMarginTop;
+        //self.printElem[0].style.marginBottom = self.originalMarginBottom;
+        //self.printElem[0].style.marginLeft = self.originalMarginLeft;
+        //self.printElem[0].style.marginRight = self.originalMarginRight;
     }
     this.doPrint = doPrint;
     function doPrint() {
         switch(self.printMode) {
             case "image":
-                html2canvas(self.printElem[0]).then(canvas => {
-                    console.log(canvas);
+                self.pcpElem.remove();
+                html2canvas(self.printElem[0], {
+                    allowTaint: true,
+                    foreignObjectRendering:true
+                }).then(canvas => {
+                    let image = new Image();
+                    image.src = canvas.toDataURL("image/png");
+
+                    let a = document.createElement('a');
+                    a.addEventListener('click', function(ev) {
+                        a.href = image.src;
+                        a.download = "mypainting.png";
+                    }, false);
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    //var w = window.open("");
+                    //w.document.write(image.outerHTML);
+                    //w.document.close();
                 })
+                $(self.printElem).prepend(self.pcpElem);
                 break;
-            case "printer":
+            case "pdf":
                 self.pcpElem.remove();
                 window.print();
                 $(self.printElem).prepend(self.pcpElem);
                 break;
         }
+    }
+
+    this.setPrintWidth = setPrintWidth;
+    function setPrintWidth(notUse, newValue) {
+        self.printWidth = parseFloat(newValue);
+    }
+
+    this.onZonesetSelectionChanged = onZonesetSelectionChanged;
+    function onZonesetSelectionChanged(selectedItemProps) {
+        self.paperSize = (selectedItemProps || {}).name;
     }
 }
