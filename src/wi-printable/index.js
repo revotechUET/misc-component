@@ -29,15 +29,16 @@ function component(componentData) {
         transclude: componentData.transclude || false
     }
 }
-function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
+function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     let self = this;
     let cssClassName = `print-${Date.now()}`;
+    let pcpElemHeight = "25px";
     const cssText = `
         .${cssClassName} {
             border: 1px solid black !important;
             position: fixed !important;
             z-index: 999;
-            top: 25px;
+            top: ${pcpElemHeight};
             left: 0;
             visibility: visible;
             background-color: #ffffff;
@@ -73,7 +74,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
             {data:{label:'A5'}, properties:{name:'A5', width:148, height: 210}},
             {data:{label:'A4'}, properties:{name:'A4', width:210, height: 297}},
             {data:{label:'A3'}, properties:{name:'A3', width:297, height: 420}}
-        ],
+        ];
+        self.aspectRatioList = ['4:3', '16:9'];
         self.defaultBindings();
     }
     this.defaultBindings = function() {
@@ -134,7 +136,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
         self.pcpElem = pcpElem;
         $(pcpElem).addClass('print-cmd-panel');
         const pcpContent = `
-            <div style="height: 25px;">
+            <div style="height: ${pcpElemHeight};">
                 <button ng-click="$ctrl.exitPreview()">Close</button>
                 <button ng-click="$ctrl.doPrint()">Print</button>
             </div>
@@ -166,7 +168,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
     function doPrint() {
         switch(self.printMode) {
             case "image":
-                self.pcpElem.remove();
+                self.printElem[0].style.top = 0;
                 html2canvas(self.printElem[0], {
                     allowTaint: true,
                     foreignObjectRendering:true,
@@ -190,16 +192,17 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
                     let a = document.createElement('a');
                     a.addEventListener('click', function(ev) {
                         a.href = image.src;
-                        a.download = "mypainting.png";
+                        a.download = `${(self.getConfigTitle && self.getConfigTitle())
+                        || 'myPNG'}.png`;
                     }, false);
                     document.body.appendChild(a);
                     a.click();
                     a.remove();
-                    let w = window.open("");
-                    w.document.write(image.outerHTML);
-                    w.document.close();
+                    //let w = window.open("");
+                    //w.document.write(image.outerHTML);
+                    //w.document.close();
                 })
-                self.printElem.parent()[0].append(self.pcpElem);
+                self.printElem[0].style.top = pcpElemHeight;
                 break;
             case "pdf":
                 self.pcpElem.remove();
@@ -212,6 +215,18 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi) {
     this.setPrintWidth = setPrintWidth;
     function setPrintWidth(notUse, newValue) {
         self.printWidth = parseFloat(newValue);
+    }
+    this.setVerticalMargin = setVerticalMargin;
+    function setVerticalMargin(notUse, newValue) {
+        self.verticalMargin = parseFloat(newValue);
+    }
+    this.setHorizontalMargin = setHorizontalMargin;
+    function setHorizontalMargin(notUse, newValue) {
+        self.horizontalMargin = parseFloat(newValue);
+    }
+    this.changeAspectRatio = changeAspectRatio;
+    function changeAspectRatio(aspectRatio) {
+        self.aspectRatio = aspectRatio;
     }
 
     this.onZonesetSelectionChanged = onZonesetSelectionChanged;
