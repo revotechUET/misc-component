@@ -450,6 +450,10 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function mmToPixel(mmValue, dpi = 96) {
         return mmValue * dpi / 25.4;
     }
+    this.pixelTomm = pixelTomm;
+    function pixelTomm(pixel, dpi = 96) {
+        return pixel * 25.4 / dpi;
+    }
 }
 
 function SHA256(s){
