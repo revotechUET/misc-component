@@ -1,4 +1,5 @@
 let html2canvas = require('../../dist/html2canvas.js');
+let jsPDF = require('../../dist/jspdf.debug.js');
 window.Printable = {
     component: component,
     klass: PrintableCtrl
@@ -119,10 +120,10 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         printElem.width(wiApi.mmToPixel(self.printWidth));
         self.printHeight = calcPrintHeight(self.printWidth, self.aspectRatio);
         printElem.height(wiApi.mmToPixel(self.printHeight));
-        if (self.printMode === 'pdf') {
-            printElem.width(`${calcExactlyPrintWidth(self.printWidth, self.paperSize)}mm`);
-            printElem.height(`${calcExactlyPrintHeight(self.printHeight, self.paperSize)}mm`);
-        }
+        //if (self.printMode === 'pdf') {
+            //printElem.width(`${calcExactlyPrintWidth(self.printWidth, self.paperSize)}mm`);
+            //printElem.height(`${calcExactlyPrintHeight(self.printHeight, self.paperSize)}mm`);
+        //}
 
         const pcpElem = document.createElement('div');
         self.pcpElem = pcpElem;
@@ -204,9 +205,10 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.printElem[0].style.top = 0;
         html2Canvas(self.printElem[0], canvas => {
             let imgData = canvas.toDataURL("image/png");
-            let pdf = new jsPDF('p', 'mm');
-            pdf.addImage(imgData, 'PNG', 10, 10);
-            pdf.save('sample-file.pdf');
+            let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
+            pdf.addImage(imgData, 'PNG', 0, 0);
+            pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
+                        || 'myPDF'}.pdf`);
         })
         self.printElem[0].style.top = pcpElemHeight;
         //printStyleText = `
