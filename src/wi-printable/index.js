@@ -1,6 +1,6 @@
 require('./print-settings');
-let html2canvas = require('../../dist/html2canvas.js');
-let jsPDF = require('../../dist/jspdf.debug.js');
+let html2canvas = require('../../vendor/html2canvas.js');
+let jsPDF = require('../../vendor/jspdf.debug.js');
 window.Printable = {
     component: component,
     klass: PrintableCtrl
@@ -69,7 +69,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.verticalMargin = self.verticalMargin || 20; // in millimeters
         self.horizontalMargin = self.horizontalMargin || 15; // in millimeters
         self.printElement = self.printElement || ".printable";
-        self.printMode = self.printMode || "pdf";
+        self.printMode = self.printMode || "image";
         self.paperSize = 'A4';
         self.paperSizeList = [
             // in millimeters
@@ -187,18 +187,18 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             let image = new Image();
             image.src = canvas.toDataURL("image/png");
 
-            let a = document.createElement('a');
-            a.addEventListener('click', function(ev) {
-                a.href = image.src;
-                a.download = `${(self.getConfigTitle && self.getConfigTitle())
-                        || 'myPNG'}.png`;
-            }, false);
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            //let w = window.open("");
-            //w.document.write(image.outerHTML);
-            //w.document.close();
+            //let a = document.createElement('a');
+            //a.addEventListener('click', function(ev) {
+                //a.href = image.src;
+                //a.download = `${(self.getConfigTitle && self.getConfigTitle())
+                        //|| 'myPNG'}.png`;
+            //}, false);
+            //document.body.appendChild(a);
+            //a.click();
+            //a.remove();
+            let w = window.open("");
+            w.document.write(image.outerHTML);
+            w.document.close();
         })
         self.printElem[0].style.top = pcpElemHeight;
     }
