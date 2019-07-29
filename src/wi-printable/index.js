@@ -119,6 +119,10 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         printElem.width(wiApi.mmToPixel(self.printWidth));
         self.printHeight = calcPrintHeight(self.printWidth, self.aspectRatio);
         printElem.height(wiApi.mmToPixel(self.printHeight));
+        if (self.printMode === 'pdf') {
+            printElem.width(`${calcExactlyPrintWidth(self.printWidth, self.paperSize)}mm`);
+            printElem.height(`${calcExactlyPrintHeight(self.printHeight, self.paperSize)}mm`);
+        }
 
         const pcpElem = document.createElement('div');
         self.pcpElem = pcpElem;
@@ -154,25 +158,30 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             self.printElem[0].style.marginRight = self.originalMarginRight;
         }
     }
-    function exportAsImage() {
-        self.printElem[0].style.top = 0;
-        html2canvas(self.printElem[0], {
+    function html2Canvas(htmlElem, callback) {
+        html2canvas(htmlElem, {
             allowTaint: true,
             foreignObjectRendering:true,
-            x: (self.printElem[0].offsetLeft - wiApi.mmToPixel(self.horizontalMargin)) / 2,
-            y: (self.printElem[0].offsetTop - wiApi.mmToPixel(self.verticalMargin)) / 2,
+            x: (htmlElem.offsetLeft - wiApi.mmToPixel(self.horizontalMargin)) / 2,
+            y: (htmlElem.offsetTop - wiApi.mmToPixel(self.verticalMargin)) / 2,
             scale: 1,
             width: _.max([
-                self.printElem[0].scrollWidth,
-                self.printElem[0].offsetWidth,
-                self.printElem[0].clientWidth
+                htmlElem.scrollWidth,
+                htmlElem.offsetWidth,
+                htmlElem.clientWidth
             ]) + wiApi.mmToPixel(self.horizontalMargin) * 2,
             height: _.max([
-                self.printElem[0].scrollHeight,
-                self.printElem[0].offsetHeight,
-                self.printElem[0].clientHeight
+                htmlElem.scrollHeight,
+                htmlElem.offsetHeight,
+                htmlElem.clientHeight
             ]) + wiApi.mmToPixel(self.verticalMargin) * 2
         }).then(canvas => {
+            callback && callback(canvas);
+        })
+    }
+    function exportAsImage() {
+        self.printElem[0].style.top = 0;
+        html2Canvas(self.printElem[0], canvas => {
             let image = new Image();
             image.src = canvas.toDataURL("image/png");
 
@@ -192,46 +201,53 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.printElem[0].style.top = pcpElemHeight;
     }
     function exportAsPDF() {
-        printStyleText = `
-            @media print {
-                ${self.printElement} {
-                    top: 0;
-                    width: ${calcExactlyPrintWidth(self.printWidth, self.paperSize)}mm !important;
-                    height: ${calcExactlyPrintHeight(self.printHeight, self.paperSize)}mm !important;
-                }
-                .${cssClassName} ~ .print-cmd-panel button{
-                    visibility: hidden;
-                }
-                @page {
-                    size: ${self.paperSize} ${self.orientation};
-                    margin: ${self.verticalMargin}mm ${self.horizontalMargin}mm;
-                }
-            }
-        `;
-        let printStyleElem = document.createElement("style");
-        printStyleElem.type = "text/css";
-        printStyleElem.appendChild(document.createTextNode(printStyleText));
-        document.head.appendChild(printStyleElem);
-
-        window.print();
-        printStyleElem.remove();
-
-        function calcExactlyPrintWidth(printWidth, paperSize) {
-            let paperProps = self.paperSizeList.find(paper => paper.properties.name == paperSize).properties;
-            let paperHorizontalSize = paperProps.height;
-            if (self.orientation === 'portrait') {
-                paperHorizontalSize = paperProps.width;
-            }
-            return printWidth * wiApi.pixelTomm($(window).width()) / (paperHorizontalSize - self.horizontalMargin * 2);
+        self.printElem[0].style.top = 0;
+        html2Canvas(self.printElem[0], canvas => {
+            let imgData = canvas.toDataURL("image/png");
+            let pdf = new jsPDF('p', 'mm');
+            pdf.addImage(imgData, 'PNG', 10, 10);
+            pdf.save('sample-file.pdf');
+        })
+        self.printElem[0].style.top = pcpElemHeight;
+        //printStyleText = `
+            //@media print {
+                //${self.printElement} {
+                    //top: 0;
+                    //width: ${calcExactlyPrintWidth(self.printWidth, self.paperSize)}mm !important;
+                    //height: ${calcExactlyPrintHeight(self.printHeight, self.paperSize)}mm !important;
+                //}
+                //.${cssClassName} ~ .print-cmd-panel button{
+                    //visibility: hidden;
+                //}
+                //@page {
+                    //size: ${self.paperSize} ${self.orientation};
+                    //margin: ${self.verticalMargin}mm ${self.horizontalMargin}mm;
+                //}
+            //}
+        //`;
+        //let printStyleElem = document.createElement("style");
+        //printStyleElem.type = "text/css";
+        //printStyleElem.appendChild(document.createTextNode(printStyleText));
+        //document.head.appendChild(printStyleElem);
+//
+        //window.print();
+        //printStyleElem.remove();
+    }
+    function calcExactlyPrintWidth(printWidth, paperSize) {
+        let paperProps = self.paperSizeList.find(paper => paper.properties.name == paperSize).properties;
+        let paperHorizontalSize = paperProps.height;
+        if (self.orientation === 'portrait') {
+            paperHorizontalSize = paperProps.width;
         }
-        function calcExactlyPrintHeight(printHeight, paperSize) {
-            let paperProps = self.paperSizeList.find(paper => paper.properties.name == paperSize).properties;
-            let paperVerticalSize = paperProps.width;
-            if (self.orientation === 'portrait') {
-                paperVerticalSize = paperProps.height;
-            }
-            return printHeight * wiApi.pixelTomm($(window).height()) / (paperVerticalSize - self.verticalMargin * 2);
+        return printWidth * wiApi.pixelTomm($(window).width()) / (paperHorizontalSize - self.horizontalMargin * 2);
+    }
+    function calcExactlyPrintHeight(printHeight, paperSize) {
+        let paperProps = self.paperSizeList.find(paper => paper.properties.name == paperSize).properties;
+        let paperVerticalSize = paperProps.width;
+        if (self.orientation === 'portrait') {
+            paperVerticalSize = paperProps.height;
         }
+        return printHeight * wiApi.pixelTomm($(window).height()) / (paperVerticalSize - self.verticalMargin * 2);
     }
     this.doPrint = doPrint;
     function doPrint() {
