@@ -33,7 +33,7 @@
     "angular-bootstrap": "^2.5.0",
     "wi-vlist": "https://github.com/tunghoang/wi-vlist.git",
     "resize-sensor": "https://github.com/normanzb/resize-sensor.git",
-    "d3": "^5.9.7"
+    "d3": "^5.9.7",
     "jsPDF": "https://github.com/MrRio/jsPDF.git"
   }
 }
