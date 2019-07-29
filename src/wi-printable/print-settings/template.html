@@ -1,0 +1,121 @@
+<div class="label-option-sidebar"
+    style="padding: 20px 20px; display: flex; justify-content: space-between;  flex-direction: column;">
+    <div style="display: flex;margin-bottom: 16px;">Print Mode
+        <div
+            style="border-bottom: 1px solid #e4e4e4;flex: 1;margin-left: 15px;margin-bottom: 6px;">
+        </div>
+    </div>
+    <div>
+        <span ng-class="{'active' : self.plotCtrl.printMode === 'image'}"
+            style="margin-right: 8px;" ng-click="self.plotCtrl.printMode='image'"
+            class="button-with-label">Image</span>
+        <span ng-class="{'active' : self.plotCtrl.printMode === 'pdf'}"
+            ng-click="self.plotCtrl.printMode='pdf'" class="button-with-label"
+            style="margin-right: 8px;">PDF</span>
+    </div>
+</div>
+<div class="label-option-sidebar"
+    ng-if="self.plotCtrl.printMode === 'pdf'"
+    style="padding: 20px 20px; display: flex; justify-content: space-between;  flex-direction: column;">
+    <div style="display: flex;margin-bottom: 16px;">Orientation
+        <div
+            style="border-bottom: 1px solid #e4e4e4;flex: 1;margin-left: 15px;margin-bottom: 6px;">
+        </div>
+    </div>
+    <div>
+        <span ng-class="{'active' : self.plotCtrl.orientation === 'landscape'}"
+            style="margin-right: 8px;" ng-click="self.plotCtrl.orientation='landscape'"
+            class="button-with-label">Landscape</span>
+        <span ng-class="{'active' : self.plotCtrl.orientation === 'portrait'}"
+            ng-click="self.plotCtrl.orientation='portrait'" class="button-with-label"
+            style="margin-right: 8px;">Portrait</span>
+    </div>
+</div>
+<div class="label-option-sidebar"
+    style="padding: 20px 20px; display: flex; justify-content: space-between;  flex-direction: column;">
+    <div style="display: flex;margin-bottom: 16px;">Aspect Ratio
+        <div
+            style="border-bottom: 1px solid #e4e4e4;flex: 1;margin-left: 15px;margin-bottom: 6px;">
+        </div>
+    </div>
+    <div>
+        <span ng-class="{'active' : self.plotCtrl.aspectRatio === aspectRatio}"
+            ng-repeat="aspectRatio in self.plotCtrl.aspectRatioList"
+            style="margin-right: 8px;" ng-click="self.plotCtrl.changeAspectRatio(aspectRatio)"
+            class="button-with-label">{{ aspectRatio }}</span>
+    </div>
+</div>
+<div class="label-option-sidebar"
+    ng-if="self.plotCtrl.printMode === 'pdf'"
+    style="padding: 20px 20px; display: flex; justify-content: space-between;  flex-direction: column;">
+    <div class="selection-sidebar">
+        <span>Paper Size</span>
+        <wi-dropdown-list style="flex:1; margin-left: 10px;" items='self.plotCtrl.paperSizeList'
+            current-select="self.plotCtrl.paperSize" on-item-changed="self.plotCtrl.onPaperSizeChange">
+        </wi-dropdown-list>
+    </div>
+</div>
+<div class="label-option-sidebar"
+    style="padding: 20px 20px; display: flex; justify-content: space-between;  flex-direction: column;">
+    <div class="selection-sidebar" style="padding: 9px 10px 5px 10px;">
+        <editable style="flex:1;display:flex;flex-direction:row;overflow:hidden;"
+            item-label="'Width(mm)'" item-value="self.plotCtrl.printWidth"
+            set-value="self.plotCtrl.setPrintWidth" enabled="true" label-style="{}"
+            content-style="{flex:1,float:'none','text-align':'right'}">
+        </editable>
+    </div>
+</div>
+<div class="label-option-sidebar"
+    ng-if="self.plotCtrl.printMode === 'image'"
+    style="padding: 20px 20px; display: flex; justify-content: space-between;  flex-direction: column;">
+    <div style="display: flex;margin-bottom: 16px;">Margin
+        <div
+            style="border-bottom: 1px solid #e4e4e4;flex: 1;margin-left: 15px;margin-bottom: 6px;">
+        </div>
+    </div>
+    <!--<div>-->
+        <!--<div class="switch-label">-->
+            <!--Use Border-->
+            <!--<label class="switch">-->
+                    <!--<input type="checkbox" checked>-->
+                    <!--<span class="slider round" ng-click="self.plotCtrl.border = !self.plotCtrl.border"></span>-->
+            <!--</label>-->
+        <!--</div>-->
+       <!---->
+    <!--</div>-->
+    <!--<div style="margin-bottom: 15px; "></div>-->
+    <div class="selection-sidebar" style="padding: 9px 10px 5px 10px;">
+        <editable style="flex:1;display:flex;flex-direction:row;overflow:hidden;"
+            item-label="'Vertical Margin(mm)'" item-value="self.plotCtrl.verticalMargin"
+            set-value="self.plotCtrl.setVerticalMargin" enabled="true" label-style="{}"
+            content-style="{flex:1,float:'none','text-align':'right'}">
+        </editable>
+    </div>
+    <div style="margin-bottom: 15px; "></div>
+    <div class="selection-sidebar" style="padding: 9px 10px 5px 10px;">
+        <editable style="flex:1;display:flex;flex-direction:row;overflow:hidden;"
+            item-label="'Horizontal Margin(mm)'" item-value="self.plotCtrl.horizontalMargin"
+            set-value="self.plotCtrl.setHorizontalMargin" enabled="true" label-style="{}"
+            content-style="{flex:1,float:'none','text-align':'right'}">
+        </editable>
+    </div>
+</div>
+<!--<div class="label-option-sidebar"-->
+    <!--style="padding: 20px 20px; display: flex; justify-content: space-between;  flex-direction: column;">-->
+    <!--<div style="display: flex;margin-bottom: 16px;">Alignment-->
+        <!--<div-->
+            <!--style="border-bottom: 1px solid #e4e4e4;flex: 1;margin-left: 15px;margin-bottom: 6px;">-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<span ng-class="{'active' : self.plotCtrl.alignment === 'left'}"-->
+            <!--ng-click="self.plotCtrl.alignment='left'" class="button-with-label"-->
+            <!--style="margin-right: 8px;">Left</span>-->
+        <!--<span ng-class="{'active' : self.plotCtrl.alignment === 'center'}"-->
+            <!--style="margin-right: 8px;" ng-click="self.plotCtrl.alignment='center'"-->
+            <!--class="button-with-label">Center</span>-->
+        <!--<span ng-class="{'active' : self.plotCtrl.alignment === 'right'}"-->
+            <!--style="margin-right: 8px;" ng-click="self.plotCtrl.alignment='right'"-->
+            <!--class="button-with-label">Right</span>-->
+    <!--</div>-->
+<!--</div>-->

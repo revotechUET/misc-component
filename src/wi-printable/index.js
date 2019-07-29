@@ -1,3 +1,4 @@
+require('./print-settings');
 let html2canvas = require('../../dist/html2canvas.js');
 let jsPDF = require('../../dist/jspdf.debug.js');
 window.Printable = {
