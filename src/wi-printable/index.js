@@ -1,6 +1,6 @@
 require('./print-settings');
-let html2canvas = require('../../dist/html2canvas.js');
-let jsPDF = require('../../dist/jspdf.debug.js');
+let html2canvas = require('../../vendor/html2canvas.js');
+let jsPDF = require('../../vendor/jspdf.debug.js');
 window.Printable = {
     component: component,
     klass: PrintableCtrl
@@ -69,7 +69,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.verticalMargin = self.verticalMargin || 20; // in millimeters
         self.horizontalMargin = self.horizontalMargin || 15; // in millimeters
         self.printElement = self.printElement || ".printable";
-        self.printMode = self.printMode || "pdf";
+        self.printMode = self.printMode || "image";
         self.paperSize = 'A4';
         self.paperSizeList = [
             // in millimeters
