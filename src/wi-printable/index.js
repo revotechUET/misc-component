@@ -62,6 +62,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     `;
 
     this.getCssText = getCssTextDefault;
+    this.getCssTextDefault = getCssTextDefault;
     function getCssTextDefault() {
         return cssText;
     }
@@ -75,7 +76,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.verticalMargin = self.verticalMargin || 20; // in millimeters
         self.horizontalMargin = self.horizontalMargin || 15; // in millimeters
         self.printElement = self.printElement || ".printable";
-        self.printMode = self.printMode || "image";
+        self.printMode = self.printMode || "pdf";
         self.paperSize = 'A4';
         self.paperSizeList = [
             // in millimeters
@@ -192,21 +193,21 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     function exportAsImage() {
         self.printElem[0].style.top = 0;
         html2Canvas(self.printElem[0], canvas => {
-            let image = new Image();
-            image.src = canvas.toDataURL("image/png");
+            let a = document.createElement('a');
+            a.addEventListener('click', function(ev) {
+                a.href = canvas.toDataURL("image/png");
+                a.download = `${(self.getConfigTitle && self.getConfigTitle())
+                        || 'myPNG'}.png`;
+            }, false);
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
 
-            //let a = document.createElement('a');
-            //a.addEventListener('click', function(ev) {
-                //a.href = image.src;
-                //a.download = `${(self.getConfigTitle && self.getConfigTitle())
-                        //|| 'myPNG'}.png`;
-            //}, false);
-            //document.body.appendChild(a);
-            //a.click();
-            //a.remove();
-            let w = window.open("");
-            w.document.write(image.outerHTML);
-            w.document.close();
+            //let image = new Image();
+            //image.src = canvas.toDataURL("image/png");
+            //let w = window.open("");
+            //w.document.write(image.outerHTML);
+            //w.document.close();
         })
         self.printElem[0].style.top = pcpElemHeight;
     }
@@ -215,6 +216,13 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         html2Canvas(self.printElem[0], canvas => {
             let imgData = canvas.toDataURL("image/png");
             let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
+            let onePageHeight = pdf.internal.pageSize.height;
+            let printElemHeight = self.printElem.height();
+            let pageNums = printElemHeight % onePageHeight ? printElemHeight / onePageHeight + 1 : printElemHeight / onePageHeight;
+            for (let i = 0; i < pageNums; i++) {
+                pdf.addPage();
+            }
+            console.log(onePageHeight);
             pdf.addImage(imgData, 'PNG', 0, 0);
             pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
                         || 'myPDF'}.pdf`);
