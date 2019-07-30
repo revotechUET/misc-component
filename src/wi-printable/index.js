@@ -33,10 +33,10 @@ function component(componentData) {
 }
 function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     let self = this;
-    let cssClassName = `print-${Date.now()}`;
+    this.cssClassName = `print-${Date.now()}`;
     let pcpElemHeight = "25px";
     const cssText = `
-        .${cssClassName} {
+        .${self.cssClassName} {
             border: 1px solid black !important;
             position: fixed !important;
             z-index: 999;
@@ -45,21 +45,27 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             visibility: visible;
             background-color: #ffffff;
         }
-        .${cssClassName} * {
+        .${self.cssClassName} * {
             visibility: visible;
         }
         * {
             visibility: hidden;
         }
-        .${cssClassName} ~ .print-cmd-panel {
+        .${self.cssClassName} ~ .print-cmd-panel {
             position: fixed;
             top: 0;
             left: 0;
         }
-        .${cssClassName} ~ .print-cmd-panel button{
+        .${self.cssClassName} ~ .print-cmd-panel button{
             visibility: initial;
         }
     `;
+
+    this.getCssText = getCssTextDefault;
+    function getCssTextDefault() {
+        return cssText;
+    }
+
     let printStyleText;
     this.doInit = function() {
         self.orientation = self.orientation || "landscape";
@@ -85,10 +91,11 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     }
     this.print = print;
     function print() {
-        preview4Print();
+        self.preview4Print();
     }
     
-    function preview4Print() {
+    this.preview4Print = preview4PrintDefault;
+    function preview4PrintDefault() {
         previewScope = $scope.$new();
         previewScope.$ctrl = {
             exitPreview:  exitPreview,
@@ -114,12 +121,12 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         let styleElem = document.createElement("style");
         self.styleElem = styleElem;
         styleElem.type = "text/css";
-        styleElem.appendChild(document.createTextNode(cssText));
+        styleElem.appendChild(document.createTextNode(self.getCssText()));
         document.head.appendChild(styleElem);
 
-        printElem.addClass(cssClassName);
+        printElem.addClass(self.cssClassName);
         printElem.width(wiApi.mmToPixel(self.printWidth));
-        self.printHeight = calcPrintHeight(self.printWidth, self.aspectRatio);
+        self.printHeight = self.calcPrintHeight(self.printWidth, self.aspectRatio, printElem);
         printElem.height(wiApi.mmToPixel(self.printHeight));
         //if (self.printMode === 'pdf') {
             //printElem.width(`${calcExactlyPrintWidth(self.printWidth, self.paperSize)}mm`);
@@ -139,7 +146,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         //$(printElem).prepend(pcpElem);
         printElem.parent()[0].append(pcpElem);
     }
-    function calcPrintHeight(w, ratio) {
+    this.calcPrintHeight = calcPrintHeightDefault;
+    function calcPrintHeightDefault(w, ratio, htmlElem) {
         switch (ratio) {
             case "4:3":
                 return w * 3 / 4;
@@ -187,18 +195,18 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             let image = new Image();
             image.src = canvas.toDataURL("image/png");
 
-            let a = document.createElement('a');
-            a.addEventListener('click', function(ev) {
-                a.href = image.src;
-                a.download = `${(self.getConfigTitle && self.getConfigTitle())
-                        || 'myPNG'}.png`;
-            }, false);
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            //let w = window.open("");
-            //w.document.write(image.outerHTML);
-            //w.document.close();
+            //let a = document.createElement('a');
+            //a.addEventListener('click', function(ev) {
+                //a.href = image.src;
+                //a.download = `${(self.getConfigTitle && self.getConfigTitle())
+                        //|| 'myPNG'}.png`;
+            //}, false);
+            //document.body.appendChild(a);
+            //a.click();
+            //a.remove();
+            let w = window.open("");
+            w.document.write(image.outerHTML);
+            w.document.close();
         })
         self.printElem[0].style.top = pcpElemHeight;
     }
