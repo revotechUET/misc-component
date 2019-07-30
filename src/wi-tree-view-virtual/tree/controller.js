@@ -22,12 +22,17 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       self.expandAllChild()
     }
 
+    if (self.autoScrollToSelectedNode) {
+      self.scrollToSelectedNode();
+    }
+
     $scope.$watch(() => (self.treeRoot), () => {
       self.selectedNodes = [];
       if (!self.vListWrapper) {
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
       }
       updateVList();
+      self.scrollToSelectedNode();
     });
 
 //    $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
@@ -145,6 +150,43 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     }
   }
 
+  self.scrollToSelectedNode = function() {
+
+    if(self._alreadyScrollOnInit) return;
+
+    let selectedNodeIdx = -1;
+    //let isScroll = false;
+    let i = -1;
+
+    for(const childNode of toArray(self.treeRoot)) {
+      visit(childNode, curNode => {
+        ++i;
+
+        if (curNode._selected) {
+          //isScroll = true;
+          selectedNodeIdx = i;
+          return true;
+        }
+        return false;
+      })
+    }
+
+    
+    if(selectedNodeIdx > 0) {
+    //  $timeout(() => {      
+    //    self.vListWrapper.scrollToIdx(selectedNodeIdx);
+    //    self._alreadyScrollOnInit = true;
+    //  })
+      // const pos = parseFloat($element.find('.node-content')[0].offsetHeight) * selectedNodeIdx
+      // console.log({pos, e: $element.find('.node-content')[0], h: $element.find('.node-content')[0].offsetHeight}, selectedNodeIdx)
+      const borderWidth = 1;
+      const pos = ITEM_HEIGHT * (selectedNodeIdx - 1);
+      $timeout(()=>{
+        self.vListWrapper.vList.container.scrollTo(0, pos);  
+      }, 300);
+    }
+  }
+
   self.toggleChildrenFn = function (node) {
     $timeout(() => {
       node._expand = !node._expand;
@@ -156,7 +198,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
   self.nodeOnClick = function (node, $event) {
     node._selected = true;
 
-    if (!$event.metaKey && !$event.shiftKey) {
+    if (!$event.metaKey && !$event.shiftKey && !$event.ctrlKey) {
       // deselect all execpt the current node
       for (const selectedNode of self.selectedNodes) {
 
@@ -196,6 +238,12 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
             selectNode._selected = true;
           }
         }
+      }
+    }
+    else if($event.ctrlKey) {
+      if (!self.selectedNodes.includes(node)) {
+        self.selectedNodes.push(node);
+        //self.selectedNodeHtmls.push(nodeHtmlElement)
       }
     }
 

@@ -21,7 +21,7 @@
     <div style="width: 500px;height:{{height}}px;border:1px solid #ccc;overflow: hidden;">
         <wi-tree-view-virtual tree-root="treedata" get-label="getLabel" get-icon='getIcon' get-icons="getIcons"
             get-children="getChildren" single-node="true" hide-unmatched='true' keep-children='true' run-match='matchFn'
-            click-fn='clickFn' uncollapsible='false' on-drag-start='dragStart' on-drag-stop='dragStop'>
+            click-fn='clickFn'  on-drag-start='dragStart' on-drag-stop='dragStop' collapsed="false" auto-scroll-to-selected-node="true">
         </wi-tree-view-virtual>
         <!-- <wi-droppable on-drop='dropFn'>
             <div style="width:500px; height:500px; border: 1px solid black;">

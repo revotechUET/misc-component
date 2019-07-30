@@ -45,7 +45,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     
     getAllFamilyPromise()
         .then(familytable => {
-						familyTable = familytable;
+                        familyTable = familytable;
         }).catch(err => console.error(err));
     
     this.getPalette = function(palName) {
@@ -60,6 +60,22 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             return null;
         }
         return familyTable.find(family => family.idFamily === idFamily);
+    }
+    this.getFullInfoPromise = getFullInfoPromise;
+    function getFullInfoPromise(idProject, owner = null, name = null) {
+        let payload = {
+            idProject: idProject
+        }
+        if(owner && name) {
+            payload.owner = owner;
+            payload.name = name;
+            payload.shared = true;
+        }
+        return postPromise('/project/fullinfo', payload);
+    }
+    this.getProjectsPromise = getProjectsPromise;
+    function getProjectsPromise() {
+        return postPromise('/project/list', {});
     }
     this.getPalettesPromise = getPalettesPromise;
     function getPalettesPromise() {
@@ -87,38 +103,38 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         }
         return postPromise('/project/parameter-set/list', payload);
     }
-	this.newAssetPromise = newAssetPromise;
-	function newAssetPromise(idProject, name, type, content) {
-		let payload = {
-			name: name,
-			type: type,
-			idProject: idProject,
-			content: JSON.stringify(content)
-		}
-		return postPromise('/project/parameter-set/new', payload);
-	}
-	this.getAssetPromise = getAssetPromise;
-	function getAssetPromise(idParameterSet) {
-		let payload = {
-			idParameterSet: idParameterSet,
-		}
-		return postPromise('/project/parameter-set/info', payload);
-	}
-	this.editAssetPromise = editAssetPromise;
-	function editAssetPromise(idParameterSet, content) {
-		let payload = {
-			idParameterSet: idParameterSet,
-			content: JSON.stringify(content)
-		}
-		return postPromise('/project/parameter-set/edit', payload);
+    this.newAssetPromise = newAssetPromise;
+    function newAssetPromise(idProject, name, type, content) {
+        let payload = {
+            name: name,
+            type: type,
+            idProject: idProject,
+            content: JSON.stringify(content)
+        }
+        return postPromise('/project/parameter-set/new', payload);
+    }
+    this.getAssetPromise = getAssetPromise;
+    function getAssetPromise(idParameterSet) {
+        let payload = {
+            idParameterSet: idParameterSet,
+        }
+        return postPromise('/project/parameter-set/info', payload);
+    }
+    this.editAssetPromise = editAssetPromise;
+    function editAssetPromise(idParameterSet, content) {
+        let payload = {
+            idParameterSet: idParameterSet,
+            content: JSON.stringify(content)
+        }
+        return postPromise('/project/parameter-set/edit', payload);
     }
     this.getOverlayLinesPromise = getOverlayLinesPromise;
     function getOverlayLinesPromise(idCurveX, idCurveY){
         return postPromise('/project/cross-plot/overlay-line/list/', {idCurveX, idCurveY});
     }
     this.getOverlayLinePromise = getOverlayLinePromise;
-    function getOverlayLinePromise(idOverlayLine){
-        return postPromise('/project/cross-plot/overlay-line/info/', {idOverlayLine});
+    function getOverlayLinePromise(idOverlayLine, idCurveX, idCurveY){
+        return postPromise('/project/cross-plot/overlay-line/info/', {idOverlayLine, idCurveX, idCurveY});
     }
      
     this.getWellPromise = getWellPromise;
@@ -408,6 +424,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     }
     this.indexZonesForCorrelation = indexZonesForCorrelation;
     function indexZonesForCorrelation(zones) {
+        if (!zones || !zones.length) return;
         let keys = {};
         for(let z of zones) {
             let idx = keys[z.idZoneTemplate];
@@ -419,6 +436,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     }
     this.indexWellSpecsForCorrelation = indexWellSpecsForCorrelation;
     function indexWellSpecsForCorrelation(wellSpec) {
+        if (!wellSpec || !wellSpec.length) return;
         let keys = {};
         for(let well of wellSpec) {
             let idx = keys[well.idWell];
@@ -427,6 +445,14 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             well._idx = idx;
             keys[well.idWell] = idx;
         }
+    }
+    this.mmToPixel = mmToPixel;
+    function mmToPixel(mmValue, dpi = 96) {
+        return mmValue * dpi / 25.4;
+    }
+    this.pixelTomm = pixelTomm;
+    function pixelTomm(pixel, dpi = 96) {
+        return pixel * 25.4 / dpi;
     }
 }
 
