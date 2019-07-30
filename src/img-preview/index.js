@@ -2,26 +2,9 @@ const componentName = 'imgPreview';
 const moduleName = 'img-preview';
 require('./style.css');
 
-let app = angular.module(moduleName, []);
-app.component(componentName, {
-    template: require('../img-preview/template.html'),
-    controller: Controller,
-    controllerAs: componentName,
-    bindings: {
-        smallImgLink: '<',
-        downloadLink: '<',
-        fullImgLink: '<',
-        data: '<',
-        parentElem: '<',
-        fxCtrl: '<',
-        fileItem: '<',
-    }
-});
-
-exports.name = moduleName;
-
 function Controller() {
     let self = this;
+    // let modalImg, modal;  //tag
 
     self.$onInit = function () {
         preProcess();
@@ -30,8 +13,8 @@ function Controller() {
     self.imgOnclick = function () {
 
         const modal = document.getElementById(self._modal);
-
         modal.style.display = "block";
+
         //create zoomer
         if (!self.zoomer) self.zoomer = creatZoomer();
 
@@ -39,6 +22,7 @@ function Controller() {
 
     self.closeOnClick = function () {
         const modal = document.getElementById(self._modal);
+
         self.parentElem.style.display = 'none';
     }
 
@@ -56,9 +40,21 @@ function Controller() {
     }
 
     self.downloadOnClick = function () {
-        self.fxCtrl.downloadFile(self.fileItem);
+        // self.fxCtrl.downloadFile(self.fileItem);
+        if(!self.getDownloadFileName && !self.getDownloadLink) 
+            throw new Error('Pass getDownloadFileName and getDownloadLink to allow download')
 
-        // console.log(self.downloadFunc());
+        const link = self.getDownloadLink(self.fileItem);
+        const fileName = self.getDownloadFileName(self.fileItem);
+        if(!link) return;
+
+        const a = document.createElement('a');
+        a.download = fileName;
+        a.href = link;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        a.parentNode.removeChild(a);
     }
 
 
@@ -75,6 +71,7 @@ function Controller() {
     }
 
     function creatZoomer() {
+
         const background = document.getElementById(self._zoomBackground);
         const insideImg = document.getElementById(self._modalImg);
 
@@ -87,15 +84,8 @@ function Controller() {
                 const zoomer = e.currentTarget;
                 let offsetX, offsetY, x, y;
 
-
-                //make inside img invisible
-                // insideImg.style.opacity = 0;
                 invisibleImgInside();
 
-                //just change the position of the center of zooming
-                //the background-size default is 100%
-                //the img-size if 90% //css-file
-                //so default is img hide => zoom => change coord of center => zoom custom
                 e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
                 e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
                 x = offsetX / zoomer.offsetWidth * 100
@@ -117,6 +107,7 @@ function Controller() {
             invisibleImgInside();
             if (zoomRate <= 9)++zoomRate;
             const ZOOM_SIZE = zoomRate + INSIDE_IMG_SIZE;
+
             background.style.backgroundSize = ZOOM_SIZE;
 
             disableZoomHover();
@@ -126,7 +117,9 @@ function Controller() {
             invisibleImgInside();
             if (zoomRate >= 1)--zoomRate;
             const ZOOM_SIZE = zoomRate + INSIDE_IMG_SIZE;
+
             background.style.backgroundSize = ZOOM_SIZE;
+
             disableZoomHover();
         }
 
@@ -136,6 +129,7 @@ function Controller() {
         }
 
         function isZoomHoverEnable() {
+
             return !!(background.onmousemove);
         }
 
@@ -154,3 +148,24 @@ function Controller() {
 }
 
 
+let app = angular.module(moduleName, []);
+app.component(componentName, {
+    template: require('./template.html'),
+    controller: Controller,
+    controllerAs: componentName,
+    bindings: {
+        // smallImgLink: '<',
+        // downloadLink: '<',
+        // fullImgLink: '<',
+        getSmallImgLink: '<',
+        getDownloadLink: '<',
+        getDownloadFileName: '<',
+        getFullImgLink: '<',
+        data: '<',
+        parentElem: '<',
+        fxCtrl: '<',
+        fileItem: '<',
+    }
+});
+
+exports.name = moduleName;

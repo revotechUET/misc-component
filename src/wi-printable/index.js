@@ -187,18 +187,18 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             let image = new Image();
             image.src = canvas.toDataURL("image/png");
 
-            //let a = document.createElement('a');
-            //a.addEventListener('click', function(ev) {
-                //a.href = image.src;
-                //a.download = `${(self.getConfigTitle && self.getConfigTitle())
-                        //|| 'myPNG'}.png`;
-            //}, false);
-            //document.body.appendChild(a);
-            //a.click();
-            //a.remove();
-            let w = window.open("");
-            w.document.write(image.outerHTML);
-            w.document.close();
+            let a = document.createElement('a');
+            a.addEventListener('click', function(ev) {
+                a.href = image.src;
+                a.download = `${(self.getConfigTitle && self.getConfigTitle())
+                        || 'myPNG'}.png`;
+            }, false);
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            //let w = window.open("");
+            //w.document.write(image.outerHTML);
+            //w.document.close();
         })
         self.printElem[0].style.top = pcpElemHeight;
     }
