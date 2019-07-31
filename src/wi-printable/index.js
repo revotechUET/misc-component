@@ -95,14 +95,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     }
     this.preview4Print = preview4PrintDefault;
     function preview4PrintDefault() {
-        previewScope = $scope.$new();
-        previewScope.$ctrl = {
-            exitPreview:  self.exitPreview,
-            doPrint: doPrint,
-            previousPage: self.previousPage,
-            nextPage: self.nextPage,
-            getPrintInfo: self.getPrintInfo
-        }
         const printElem = $element.find(self.printElement);
         self.printElem = printElem;
         self.originalWidth = printElem[0].offsetWidth;
@@ -129,13 +121,28 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         const pcpElem = document.createElement('div');
         self.pcpElem = pcpElem;
         $(pcpElem).addClass('print-cmd-panel');
+        previewScope = $scope.$new();
+        previewScope.$ctrl = {
+            exitPreview:  self.exitPreview,
+            doPrint: doPrint,
+            previousPage: self.previousPage,
+            nextPage: self.nextPage,
+            getPrintInfo: self.getPrintInfo,
+            pageIdx: 1,
+            goToPage: self.goToPage,
+            firstPage: self.firstPage,
+            lastPage: self.lastPage
+        }
         const pcpContent = `
             <div style="height: ${pcpElemHeight};">
                 <span>{{$ctrl.getPrintInfo()}}</span>
                 <button ng-click="$ctrl.exitPreview()">Close</button>
                 <button ng-click="$ctrl.doPrint()">Print</button>
-                <button ng-click="$ctrl.previousPage()">Previous</button>
-                <button ng-click="$ctrl.nextPage()">Next</button>
+                <button ng-click="$ctrl.firstPage($ctrl)">First Page</button>
+                <button ng-click="$ctrl.previousPage($ctrl)">Previous</button>
+                <input ng-model="$ctrl.pageIdx" ng-change="$ctrl.goToPage($ctrl.pageIdx - 1)" ng-model-options="{updateOn: 'change'}">
+                <button ng-click="$ctrl.nextPage($ctrl)">Next</button>
+                <button ng-click="$ctrl.lastPage($ctrl)">Last Page</button>
             </div>
         `;
         $(pcpElem).append($compile(pcpContent)(previewScope));
@@ -151,6 +158,15 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     this.getPrintInfo = function() {
         return;
     } 
+    this.goToPage = function(pageIdx) {
+        return;
+    }
+    this.lastPage = function() {
+        return;
+    }
+    this.firstPage = function() {
+        return;
+    }
     this.calcPrintHeightMM = calcPrintHeightMMDefault;
     function calcPrintHeightMMDefault(w, ratio, htmlElem) {
         switch (ratio) {
