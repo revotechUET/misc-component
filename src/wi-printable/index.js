@@ -99,7 +99,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     function preview4PrintDefault() {
         previewScope = $scope.$new();
         previewScope.$ctrl = {
-            exitPreview:  exitPreview,
+            exitPreview:  self.exitPreview,
             doPrint: doPrint
         }
 
@@ -126,13 +126,9 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         document.head.appendChild(styleElem);
 
         printElem.addClass(self.cssClassName);
-        printElem.width(wiApi.mmToPixel(self.printWidth));
-        self.printHeight = self.calcPrintHeight(self.printWidth, self.aspectRatio, printElem);
-        printElem.height(wiApi.mmToPixel(self.printHeight));
-        //if (self.printMode === 'pdf') {
-            //printElem.width(`${calcExactlyPrintWidth(self.printWidth, self.paperSize)}mm`);
-            //printElem.height(`${calcExactlyPrintHeight(self.printHeight, self.paperSize)}mm`);
-        //}
+        //printElem.width(wiApi.mmToPixel(self.printWidth));
+        printElem.width(self.calcPrintWidth(self.printWidth, printElem));
+        printElem.height(self.calcPrintHeight(self.printWidth, self.aspectRatio, printElem));
 
         const pcpElem = document.createElement('div');
         self.pcpElem = pcpElem;
@@ -147,14 +143,23 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         //$(printElem).prepend(pcpElem);
         printElem.parent()[0].append(pcpElem);
     }
-    this.calcPrintHeight = calcPrintHeightDefault;
-    function calcPrintHeightDefault(w, ratio, htmlElem) {
+    this.calcPrintHeightMM = calcPrintHeightMMDefault;
+    function calcPrintHeightMMDefault(w, ratio, htmlElem) {
         switch (ratio) {
             case "4:3":
                 return w * 3 / 4;
             case "16:9":
                 return w * 9 / 16;
         }
+    }
+    this.calcPrintHeight = calcPrintHeightDefault;
+    function calcPrintHeightDefault(w, ratio, htmlElem) {
+        return wiApi.mmToPixel(calcPrintHeightMMDefault(w, ratio, htmlElem));
+    }
+
+    this.calcPrintWidth = calcPrintWidthDefault;
+    function calcPrintWidthDefault(w, htmlElem) {
+        return wiApi.mmToPixel(w);
     }
     this.exitPreview = exitPreview;
     function exitPreview() {
@@ -228,29 +233,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                         || 'myPDF'}.pdf`);
         })
         self.printElem[0].style.top = pcpElemHeight;
-        //printStyleText = `
-            //@media print {
-                //${self.printElement} {
-                    //top: 0;
-                    //width: ${calcExactlyPrintWidth(self.printWidth, self.paperSize)}mm !important;
-                    //height: ${calcExactlyPrintHeight(self.printHeight, self.paperSize)}mm !important;
-                //}
-                //.${cssClassName} ~ .print-cmd-panel button{
-                    //visibility: hidden;
-                //}
-                //@page {
-                    //size: ${self.paperSize} ${self.orientation};
-                    //margin: ${self.verticalMargin}mm ${self.horizontalMargin}mm;
-                //}
-            //}
-        //`;
-        //let printStyleElem = document.createElement("style");
-        //printStyleElem.type = "text/css";
-        //printStyleElem.appendChild(document.createTextNode(printStyleText));
-        //document.head.appendChild(printStyleElem);
-//
-        //window.print();
-        //printStyleElem.remove();
     }
     function calcExactlyPrintWidth(printWidth, paperSize) {
         let paperProps = self.paperSizeList.find(paper => paper.properties.name == paperSize).properties;
@@ -259,14 +241,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             paperHorizontalSize = paperProps.width;
         }
         return printWidth * wiApi.pixelTomm($(window).width()) / (paperHorizontalSize - self.horizontalMargin * 2);
-    }
-    function calcExactlyPrintHeight(printHeight, paperSize) {
-        let paperProps = self.paperSizeList.find(paper => paper.properties.name == paperSize).properties;
-        let paperVerticalSize = paperProps.width;
-        if (self.orientation === 'portrait') {
-            paperVerticalSize = paperProps.height;
-        }
-        return printHeight * wiApi.pixelTomm($(window).height()) / (paperVerticalSize - self.verticalMargin * 2);
     }
     this.doPrint = doPrint;
     function doPrint() {
