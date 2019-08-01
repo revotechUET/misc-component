@@ -1184,7 +1184,7 @@ eval("const wiDirectiveName = 'wiElementReady';\n// const moduleName = 'wi-eleme
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var componentName = 'wiPrintLoading';\nmodule.exports.name = componentName;\n__webpack_require__(/*! ./style.less */ \"./wi-print-loading/style.less\");\nvar app = angular.module(componentName, []);\n\napp.component(componentName, {\n    template: __webpack_require__(/*! ./template.html */ \"./wi-print-loading/template.html\"),\n    controller: wiPrintLoadingController,\n    controllerAs: 'self',\n    bindings: {\n        top:'<',\n        bottom:'<',\n        right:'<',\n        left:'<'\n    },\n    transclude: true\n\n});\n\nfunction wiPrintLoadingController($scope) {\n    let self = this;\n    $(document).ready(function () {\n        var st1 = 0, st2 = 0;\n        setInterval(function () {\n          $(document).find('.p8i-p').hide(0).delay(500).show(0);\n        }, 4000);\n      });\n}\n\n\n//# sourceURL=webpack:///./wi-print-loading/index.js?");
+eval("var componentName = 'wiPrintLoading';\nmodule.exports.name = componentName;\n__webpack_require__(/*! ./style.less */ \"./wi-print-loading/style.less\");\nvar app = angular.module(componentName, []);\n\napp.component(componentName, {\n    template: __webpack_require__(/*! ./template.html */ \"./wi-print-loading/template.html\"),\n    controller: wiPrintLoadingController,\n    controllerAs: 'self',\n    bindings: {\n        top:'<',\n        bottom:'<',\n        right:'<',\n        left:'<'\n    },\n    transclude: true\n\n});\n\nfunction wiPrintLoadingController($scope) {\n}\n\n\n//# sourceURL=webpack:///./wi-print-loading/index.js?");
 
 /***/ }),
 
