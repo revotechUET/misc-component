@@ -1,0 +1,197 @@
+wi-print-loading {
+    .main-spinner {
+        position: relative;
+        height  : 100vh;
+    }
+
+    .printer {
+        border          : 6px solid #08a0ff;
+        height          : 70px;
+        width           : 120px;
+        background-image: linear-gradient(-160deg, #ffffff, #ceedff);
+        box-shadow      : 0 10px 10px #0000000f;
+        position        : absolute;
+        top             : 50%;
+        border-radius   : 10px;
+        left            : 50%;
+        margin          : -35px 0 0 -60px;
+        animation       : showing 6s infinite;
+
+    }
+
+
+    .out {
+        border       : 6px solid #0079c7;
+        height       : 9px;
+        background   : #0079c7;
+        width        : 88px;
+        position     : absolute;
+        top          : 50%;
+        border-radius: 10px;
+        left         : 50%;
+        margin       : -2px 0 0 -44px;
+    }
+
+    .light {
+        height       : 10px;
+        width        : 10px;
+        background   : #1ac5ff;
+        position     : absolute;
+        top          : 10px;
+        border-radius: 10px;
+        right        : 10px;
+    }
+
+    .paper-01 {
+        background: #1aa7ff;
+        height    : 32px;
+        width     : 80px;
+        position  : absolute;
+        left      : 50%;
+        margin    : -32px 0 0 -40px;
+    }
+
+    .paper-01-bg {
+        background: #ecf8ff;
+        animation : printing 6s infinite;
+        height    : 27px;
+        width     : 80px;
+        position  : absolute;
+        left      : 50%;
+        margin    : -32px 0 0 -40px;
+    }
+
+    .paper-02 {
+        background-image          : linear-gradient(10deg, #0080d2, #3db4ff);
+        box-shadow                : 0 1px 10px #0000004a;
+        animation                 : printing-02 6s infinite;
+        border-bottom-left-radius : 5px;
+        border-bottom-right-radius: 5px;
+        height                    : 0px;
+        width                     : 80px;
+        position                  : absolute;
+        left                      : 50%;
+        margin                    : 32px 0 0 -40px;
+    }
+
+    @keyframes printing {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 27px;
+        }
+    }
+
+    @keyframes printing-02 {
+        from {
+            height: 0;
+        }
+
+        to {
+            height: 60px;
+        }
+    }
+
+    @keyframes showing {
+        0% {
+            transform: scale(0);
+        }
+
+        3% {
+            transform: scale(1.2);
+        }
+
+        5% {
+            transform: scale(1);
+        }
+
+        97% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(0);
+        }
+    }
+
+    //////////////////////////////////////////////
+
+    @dim : 200px;
+
+    .spinner {
+        height           : @dim;
+        width            : @dim;
+        //   margin      :0 auto;
+        //   position    :relative;
+        position         : absolute;
+        top              : 50%;
+        left             : 50%;
+        margin           : -(@dim/2) 0 0 -(@dim/2);
+        -webkit-animation: rotation 2s infinite linear;
+        -moz-animation   : rotation 2s infinite linear;
+        -o-animation     : rotation 2s infinite linear;
+        animation        : rotation 2s infinite linear;
+        border           : 6px solid rgb(213, 240, 255);
+        border-radius    : 100%;
+        background       : #ecf8ff;
+
+    }
+
+    .spinner:before {
+        content         : "";
+        display         : block;
+        position        : absolute;
+        // left         : -6px;
+        top             : -6px;
+        height          : 100%;
+        width           : 100%;
+        border-top      : 6px solid rgba(182, 226, 255, 0.8);
+        border-left     : 6px solid transparent;
+        border-bottom   : 6px solid transparent;
+        border-right    : 6px solid transparent;
+        border-radius   : 100%;
+    }
+
+    @-webkit-keyframes rotation {
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+
+        to {
+            -webkit-transform: rotate(359deg);
+        }
+    }
+
+    @-moz-keyframes rotation {
+        from {
+            -moz-transform: rotate(0deg);
+        }
+
+        to {
+            -moz-transform: rotate(359deg);
+        }
+    }
+
+    @-o-keyframes rotation {
+        from {
+            -o-transform: rotate(0deg);
+        }
+
+        to {
+            -o-transform: rotate(359deg);
+        }
+    }
+
+    @keyframes rotation {
+
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(359deg);
+        }
+    }
+}

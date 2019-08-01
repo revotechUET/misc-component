@@ -152,17 +152,6 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 
 /***/ }),
 
-/***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-float-button/style.less":
-/*!*******************************************************************************************************************!*\
-  !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-float-button/style.less ***!
-  \*******************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"wi-float-button .button-icon {\\n  color: blue;\\n}\\nwi-float-button .button-content {\\n  display: none;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-float-button/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
-
-/***/ }),
-
 /***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-icons/custom.less":
 /*!*************************************************************************************************************!*\
   !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-icons/custom.less ***!
@@ -204,6 +193,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".ngdialog svg {\\n  width: 70px;\\n  display: block;\\n  margin: 77px auto 0;\\n}\\n.ngdialog .try-again {\\n  display: flex;\\n  flex-direction: column;\\n  justify-content: center;\\n  align-items: center;\\n}\\n.ngdialog .path {\\n  stroke-dasharray: 1000;\\n  stroke-dashoffset: 0;\\n}\\n.ngdialog .path.circle {\\n  -webkit-animation: dash 0.9s ease-in-out;\\n  animation: dash 0.9s ease-in-out;\\n}\\n.ngdialog .path.line {\\n  stroke-dashoffset: 1000;\\n  -webkit-animation: dash 0.9s 0.35s ease-in-out forwards;\\n  animation: dash 0.9s 0.35s ease-in-out forwards;\\n}\\n.ngdialog .path.check {\\n  stroke-dashoffset: -100;\\n  -webkit-animation: dash-check 0.9s 0.35s ease-in-out forwards;\\n  animation: dash-check 0.9s 0.35s ease-in-out forwards;\\n}\\n.ngdialog p {\\n  text-align: center;\\n  margin: 20px 0 45px;\\n  font-size: 1.25em;\\n}\\n.ngdialog p.wellcome {\\n  color: #424242;\\n  font-size: 14px;\\n}\\n@-webkit-keyframes dash {\\n  0% {\\n    stroke-dashoffset: 1000;\\n  }\\n  100% {\\n    stroke-dashoffset: 0;\\n  }\\n}\\n@keyframes dash {\\n  0% {\\n    stroke-dashoffset: 1000;\\n  }\\n  100% {\\n    stroke-dashoffset: 0;\\n  }\\n}\\n@-webkit-keyframes dash-check {\\n  0% {\\n    stroke-dashoffset: -100;\\n  }\\n  100% {\\n    stroke-dashoffset: 900;\\n  }\\n}\\n@keyframes dash-check {\\n  0% {\\n    stroke-dashoffset: -100;\\n  }\\n  100% {\\n    stroke-dashoffset: 900;\\n  }\\n}\\n.ngdialog * {\\n  box-sizing: border-box;\\n}\\n.ngdialog *:focus {\\n  outline: none;\\n}\\n.ngdialog .login {\\n  font-family: Arial;\\n  margin: 20px auto;\\n  display: flex;\\n  width: 100%;\\n  justify-content: center;\\n  border-radius: 2px;\\n}\\n.ngdialog .login-screen {\\n  padding: 11px 40px 5px 40px;\\n  flex: 1;\\n}\\n.ngdialog ::placeholder {\\n  color: #c0c0c0;\\n}\\n.ngdialog :-ms-input-placeholder {\\n  color: #c0c0c0;\\n}\\n.ngdialog ::-ms-input-placeholder {\\n  color: #c0c0c0;\\n}\\n.ngdialog .app-title {\\n  text-align: left;\\n  color: #777;\\n  font-weight: bold;\\n  font-size: 20px;\\n  padding-bottom: 10px;\\n}\\n.ngdialog .login-form {\\n  text-align: center;\\n}\\n.ngdialog .control-group {\\n  margin-bottom: 20px;\\n}\\n.ngdialog input {\\n  text-align: left;\\n  color: #0074c5;\\n  background-color: #f2f2f2;\\n  border: 1px solid #ffffff;\\n  border-radius: 70px;\\n  font-size: 14px;\\n  font-weight: bold;\\n  padding: 10px 18px 11px 22px;\\n  width: 100%;\\n  transition: border 0.5s;\\n}\\n.ngdialog input:focus {\\n  border: 1px solid #0074c5;\\n  box-shadow: none;\\n}\\n.ngdialog .btn {\\n  border: 2px solid transparent;\\n  background: #0074c5;\\n  color: #ffffff;\\n  font-size: 14px;\\n  font-weight: bold;\\n  padding: 10px;\\n  text-decoration: none;\\n  text-shadow: none;\\n  border-radius: 70px;\\n  box-shadow: none;\\n  transition: 0.25s;\\n  display: block;\\n  width: 100%;\\n  margin: 0 auto;\\n  text-align: center;\\n}\\n.ngdialog .btn:hover {\\n  background-color: #0074c5;\\n  color: #fff;\\n}\\n.ngdialog .btn.focus,\\n.ngdialog .btn:focus,\\n.ngdialog .btn:hover {\\n  color: #fff;\\n  text-decoration: none;\\n}\\n.ngdialog .login-link {\\n  font-size: 12px;\\n  color: #acabab;\\n  display: block;\\n  margin-top: 12px;\\n}\\n.ngdialog .acceptLogout {\\n  display: flex;\\n  align-items: center;\\n  padding: 13px;\\n  justify-content: space-between;\\n}\\n.ngdialog.ngdialog-theme-default .ngdialog-content {\\n  -webkit-animation: ngdialog-flyin 0.3s;\\n  animation: ngdialog-flyin 0.3s;\\n  background: #ffffff;\\n  border-radius: 5px;\\n  color: #444;\\n  font-family: Arial;\\n  font-size: 1.1em;\\n  line-height: 1.5em;\\n  margin: 0 auto;\\n  max-width: 100%;\\n  padding: 1em;\\n  position: relative;\\n  width: 400px;\\n  -webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.05), 0 9px 46px 8px rgba(0, 0, 0, 0.02), 0 11px 15px -7px rgba(0, 0, 0, 0.07);\\n  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.05), 0 9px 46px 8px rgba(0, 0, 0, 0.02), 0 11px 15px -7px rgba(0, 0, 0, 0.07);\\n}\\n.ngdialog-close {\\n  display: none;\\n}\\n.ngdialog.ngdialog-theme-default .ngdialog-button {\\n  padding: 14px 20px !important;\\n  border-radius: 47px;\\n  margin-left: 15px;\\n}\\n.ngdialog.ngdialog-theme-default .ngdialog-button.ngdialog-button-primary {\\n  background: #0074c5;\\n  color: #fff;\\n  transition: all 0.2s ease-in;\\n}\\n.ngdialog.ngdialog-theme-default .ngdialog-button.ngdialog-button-primary:hover {\\n  background: #1e93e7;\\n  transition: all 0.2s ease-in;\\n}\\n.ngdialog-overlay {\\n  background: rgba(32, 33, 36, 0.38);\\n  -webkit-backface-visibility: hidden;\\n  -webkit-animation: ngdialog-fadein 0.3s;\\n  animation: ngdialog-fadein 0.3s;\\n}\\nwi-login > div {\\n  position: absolute;\\n  z-index: 4;\\n  right: 14px;\\n  top: 9px;\\n  display: flex;\\n  align-items: center;\\n}\\nwi-login > div > div {\\n  display: flex;\\n  align-items: center;\\n  padding: 3px 5px 3px 9px;\\n  border-radius: 20px;\\n  background: #fff;\\n  color: #0078be73;\\n  cursor: pointer;\\n}\\nwi-login > div > div span.icon {\\n  padding-left: 10px;\\n  font-size: 130%;\\n}\\nwi-login > div > div.online {\\n  color: #ffffff;\\n  font-weight: bold;\\n  background: none;\\n  font-size: 12px;\\n  pointer-events: none;\\n}\\nwi-login > div > span {\\n  padding: 3px 9px 3px 9px;\\n  margin-left: 10px;\\n  border-radius: 20px;\\n  border: 1px solid white;\\n  color: #0077be;\\n  background: #fff;\\n  font-size: 12px !important;\\n  font-weight: bold;\\n  cursor: pointer;\\n}\\nwi-login > div > span.logout {\\n  display: none;\\n}\\nwi-login > div > span :hover {\\n  background: #0077be;\\n  color: #fff;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-login/wi-login.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-print-loading/style.less":
+/*!********************************************************************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-print-loading/style.less ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"wi-print-loading .main-spinner {\\n  position: relative;\\n  height: 100vh;\\n}\\nwi-print-loading .printer {\\n  border: 6px solid #08a0ff;\\n  height: 70px;\\n  width: 120px;\\n  background-image: linear-gradient(-160deg, #ffffff, #ceedff);\\n  box-shadow: 0 10px 10px #0000000f;\\n  position: absolute;\\n  top: 50%;\\n  border-radius: 10px;\\n  left: 50%;\\n  margin: -35px 0 0 -60px;\\n  animation: showing 6s infinite;\\n}\\nwi-print-loading .out {\\n  border: 6px solid #0079c7;\\n  height: 9px;\\n  background: #0079c7;\\n  width: 88px;\\n  position: absolute;\\n  top: 50%;\\n  border-radius: 10px;\\n  left: 50%;\\n  margin: -2px 0 0 -44px;\\n}\\nwi-print-loading .light {\\n  height: 10px;\\n  width: 10px;\\n  background: #1ac5ff;\\n  position: absolute;\\n  top: 10px;\\n  border-radius: 10px;\\n  right: 10px;\\n}\\nwi-print-loading .paper-01 {\\n  background: #1aa7ff;\\n  height: 32px;\\n  width: 80px;\\n  position: absolute;\\n  left: 50%;\\n  margin: -32px 0 0 -40px;\\n}\\nwi-print-loading .paper-01-bg {\\n  background: #ecf8ff;\\n  animation: printing 6s infinite;\\n  height: 27px;\\n  width: 80px;\\n  position: absolute;\\n  left: 50%;\\n  margin: -32px 0 0 -40px;\\n}\\nwi-print-loading .paper-02 {\\n  background-image: linear-gradient(10deg, #0080d2, #3db4ff);\\n  box-shadow: 0 1px 10px #0000004a;\\n  animation: printing-02 6s infinite;\\n  border-bottom-left-radius: 5px;\\n  border-bottom-right-radius: 5px;\\n  height: 0px;\\n  width: 80px;\\n  position: absolute;\\n  left: 50%;\\n  margin: 32px 0 0 -40px;\\n}\\n@keyframes printing {\\n  from {\\n    height: 0;\\n  }\\n  to {\\n    height: 27px;\\n  }\\n}\\n@keyframes printing-02 {\\n  from {\\n    height: 0;\\n  }\\n  to {\\n    height: 60px;\\n  }\\n}\\n@keyframes showing {\\n  0% {\\n    transform: scale(0);\\n  }\\n  3% {\\n    transform: scale(1.2);\\n  }\\n  5% {\\n    transform: scale(1);\\n  }\\n  97% {\\n    transform: scale(1);\\n  }\\n  100% {\\n    transform: scale(0);\\n  }\\n}\\nwi-print-loading .spinner {\\n  height: 200px;\\n  width: 200px;\\n  position: absolute;\\n  top: 50%;\\n  left: 50%;\\n  margin: -100px 0 0 -100px;\\n  -webkit-animation: rotation 2s infinite linear;\\n  -moz-animation: rotation 2s infinite linear;\\n  -o-animation: rotation 2s infinite linear;\\n  animation: rotation 2s infinite linear;\\n  border: 6px solid #d5f0ff;\\n  border-radius: 100%;\\n  background: #ecf8ff;\\n}\\nwi-print-loading .spinner:before {\\n  content: \\\"\\\";\\n  display: block;\\n  position: absolute;\\n  top: -6px;\\n  height: 100%;\\n  width: 100%;\\n  border-top: 6px solid rgba(182, 226, 255, 0.8);\\n  border-left: 6px solid transparent;\\n  border-bottom: 6px solid transparent;\\n  border-right: 6px solid transparent;\\n  border-radius: 100%;\\n}\\n@-webkit-keyframes rotation {\\n  from {\\n    -webkit-transform: rotate(0deg);\\n  }\\n  to {\\n    -webkit-transform: rotate(359deg);\\n  }\\n}\\n@-moz-keyframes rotation {\\n  from {\\n    -moz-transform: rotate(0deg);\\n  }\\n  to {\\n    -moz-transform: rotate(359deg);\\n  }\\n}\\n@-o-keyframes rotation {\\n  from {\\n    -o-transform: rotate(0deg);\\n  }\\n  to {\\n    -o-transform: rotate(359deg);\\n  }\\n}\\n@keyframes rotation {\\n  from {\\n    transform: rotate(0deg);\\n  }\\n  to {\\n    transform: rotate(359deg);\\n  }\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-print-loading/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -480,7 +480,7 @@ eval("module.exports = \"<!-- <img class=\\\"main-img\\\" src=\\\"{{imgPreview.s
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n\tlineStyle: __webpack_require__(/*! ./line-style/index */ \"./line-style/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\"),\n    wiDroppable: __webpack_require__(/*! ./wi-droppable */ \"./wi-droppable/index.js\"),\n    wiDialog: __webpack_require__(/*! ./wi-dialog */ \"./wi-dialog/index.js\"),\n    wiApi: __webpack_require__(/*! ./wi-api */ \"./wi-api/index.js\"),\n    wiLoading: __webpack_require__(/*! ./wi-loading */ \"./wi-loading/index.js\"),\n    wiDropdownList: __webpack_require__(/*! ./wi-dropdown-list */ \"./wi-dropdown-list/index.js\"),\n    wiDiscriminator: __webpack_require__(/*! ./wi-discriminator */ \"./wi-discriminator/index.js\"),\n    wiFloatButton: __webpack_require__(/*! ./wi-float-button */ \"./wi-float-button/index.js\"),\n    wiTreeViewVirtual: __webpack_require__(/*! ./wi-tree-view-virtual */ \"./wi-tree-view-virtual/index.js\"),\n    wiNeuralNetwork: __webpack_require__(/*! ./wi-neural-network */ \"./wi-neural-network/index.js\"),\n    wiPrintTable: __webpack_require__(/*! ./wi-printable */ \"./wi-printable/index.js\"),\n    imgPreview: __webpack_require__(/*! ./img-preview */ \"./img-preview/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n\tlineStyle: __webpack_require__(/*! ./line-style/index */ \"./line-style/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\"),\n    wiDroppable: __webpack_require__(/*! ./wi-droppable */ \"./wi-droppable/index.js\"),\n    wiDialog: __webpack_require__(/*! ./wi-dialog */ \"./wi-dialog/index.js\"),\n    wiApi: __webpack_require__(/*! ./wi-api */ \"./wi-api/index.js\"),\n    wiLoading: __webpack_require__(/*! ./wi-loading */ \"./wi-loading/index.js\"),\n    wiDropdownList: __webpack_require__(/*! ./wi-dropdown-list */ \"./wi-dropdown-list/index.js\"),\n    wiDiscriminator: __webpack_require__(/*! ./wi-discriminator */ \"./wi-discriminator/index.js\"),\n    wiPrintLoading: __webpack_require__(/*! ./wi-print-loading */ \"./wi-print-loading/index.js\"),\n    wiTreeViewVirtual: __webpack_require__(/*! ./wi-tree-view-virtual */ \"./wi-tree-view-virtual/index.js\"),\n    wiNeuralNetwork: __webpack_require__(/*! ./wi-neural-network */ \"./wi-neural-network/index.js\"),\n    wiPrintTable: __webpack_require__(/*! ./wi-printable */ \"./wi-printable/index.js\"),\n    imgPreview: __webpack_require__(/*! ./img-preview */ \"./img-preview/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -1034,39 +1034,6 @@ eval("module.exports = \"<div ng-transclude ng-style=\\\"self.containerStyle\\\"
 
 /***/ }),
 
-/***/ "./wi-float-button/index.js":
-/*!**********************************!*\
-  !*** ./wi-float-button/index.js ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var componentName = 'wiFloatButton';\nmodule.exports.name = componentName;\n__webpack_require__(/*! ./style.less */ \"./wi-float-button/style.less\");\nvar app = angular.module(componentName, []);\n\napp.component(componentName, {\n    template: __webpack_require__(/*! ./template.html */ \"./wi-float-button/template.html\"),\n    controller: wiFloatButtonController,\n    controllerAs: 'self',\n    bindings: {\n        top:'<',\n        bottom:'<',\n        right:'<',\n        left:'<'\n    },\n    transclude: true\n\n});\n\nfunction wiFloatButtonController($scope) {\n    let self = this;\n    self.listConfig = [\n        \"Alfreds \",\n        \"Berglunds \",\n        \"Centro  \",\n        \"Ernst \"]\n  \n}\n\n\n//# sourceURL=webpack:///./wi-float-button/index.js?");
-
-/***/ }),
-
-/***/ "./wi-float-button/style.less":
-/*!************************************!*\
-  !*** ./wi-float-button/style.less ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./style.less */ \"../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-float-button/style.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-float-button/style.less?");
-
-/***/ }),
-
-/***/ "./wi-float-button/template.html":
-/*!***************************************!*\
-  !*** ./wi-float-button/template.html ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = \"<div class=\\\"button-icon fa fa-bars\\\">\\n    <div class=\\\"button-content\\\" ng-repeat=\\\"item in self.listConfig\\\">\\n        <div>{{item}}</div>\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./wi-float-button/template.html?");
-
-/***/ }),
-
 /***/ "./wi-icons/custom.less":
 /*!******************************!*\
   !*** ./wi-icons/custom.less ***!
@@ -1207,6 +1174,39 @@ eval("module.exports = \"<div class=\\\"neural-network-main\\\" style=\\\"displa
 /***/ (function(module, exports) {
 
 eval("const wiDirectiveName = 'wiElementReady';\n// const moduleName = 'wi-element-ready';\n\nlet app = angular.module(wiDirectiveName, []);\napp.directive(wiDirectiveName, function ($parse) {\n    return {\n        restrict: 'A',\n        link: function ($scope, elem, attrs) {\n            elem.ready(function () {\n                $scope.$apply(function () {\n                    let func = $parse(attrs[wiDirectiveName]);\n                    func($scope);\n                })\n            })\n        }\n    }\n});\n\nexports.name = wiDirectiveName;\n\n\n//# sourceURL=webpack:///./wi-neural-network/wi-element-ready.js?");
+
+/***/ }),
+
+/***/ "./wi-print-loading/index.js":
+/*!***********************************!*\
+  !*** ./wi-print-loading/index.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var componentName = 'wiPrintLoading';\nmodule.exports.name = componentName;\n__webpack_require__(/*! ./style.less */ \"./wi-print-loading/style.less\");\nvar app = angular.module(componentName, []);\n\napp.component(componentName, {\n    template: __webpack_require__(/*! ./template.html */ \"./wi-print-loading/template.html\"),\n    controller: wiPrintLoadingController,\n    controllerAs: 'self',\n    bindings: {\n        top:'<',\n        bottom:'<',\n        right:'<',\n        left:'<'\n    },\n    transclude: true\n\n});\n\nfunction wiPrintLoadingController($scope) {\n    let self = this;\n    $(document).ready(function () {\n        var st1 = 0, st2 = 0;\n        setInterval(function () {\n          $(document).find('.p8i-p').hide(0).delay(500).show(0);\n        }, 4000);\n      });\n}\n\n\n//# sourceURL=webpack:///./wi-print-loading/index.js?");
+
+/***/ }),
+
+/***/ "./wi-print-loading/style.less":
+/*!*************************************!*\
+  !*** ./wi-print-loading/style.less ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./style.less */ \"../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-print-loading/style.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-print-loading/style.less?");
+
+/***/ }),
+
+/***/ "./wi-print-loading/template.html":
+/*!****************************************!*\
+  !*** ./wi-print-loading/template.html ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class=\\\"main-spinner\\\">\\n    <div class=\\\"spinner\\\"></div>\\n    <div class=\\\"printer\\\">\\n        <div class=\\\"light\\\"></div>\\n        <div class=\\\"paper-01\\\"></div>\\n        <div class=\\\"paper-01-bg\\\"></div>\\n        <div class=\\\"out\\\"></div>\\n        <div class=\\\"paper-02\\\">\\n        </div>\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./wi-print-loading/template.html?");
 
 /***/ }),
 

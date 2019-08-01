@@ -1,11 +1,11 @@
-var componentName = 'wiFloatButton';
+var componentName = 'wiPrintLoading';
 module.exports.name = componentName;
 require('./style.less');
 var app = angular.module(componentName, []);
 
 app.component(componentName, {
     template: require('./template.html'),
-    controller: wiFloatButtonController,
+    controller: wiPrintLoadingController,
     controllerAs: 'self',
     bindings: {
         top:'<',
@@ -17,12 +17,12 @@ app.component(componentName, {
 
 });
 
-function wiFloatButtonController($scope) {
+function wiPrintLoadingController($scope) {
     let self = this;
-    self.listConfig = [
-        "Alfreds ",
-        "Berglunds ",
-        "Centro  ",
-        "Ernst "]
-  
+    $(document).ready(function () {
+        var st1 = 0, st2 = 0;
+        setInterval(function () {
+          $(document).find('.p8i-p').hide(0).delay(500).show(0);
+        }, 4000);
+      });
 }
