@@ -56,7 +56,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             top: 0;
             left: 0;
         }
-        .${self.cssClassName} ~ .print-cmd-panel button{
+        .${self.cssClassName} ~ .print-cmd-panel * {
             visibility: initial;
         }
     `;
@@ -66,17 +66,16 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     function getCssTextDefault() {
         return cssText;
     }
-
     let printStyleText;
     this.doInit = function() {
         self.orientation = self.orientation || "landscape";
         self.aspectRatio = self.aspectRatio || "4:3";
         self.alignment = self.alignment || "left";
         self.printWidth = self.printWidth || 200; // in millimeters
-        self.verticalMargin = self.verticalMargin || 20; // in millimeters
-        self.horizontalMargin = self.horizontalMargin || 15; // in millimeters
+        self.verticalMargin = self.verticalMargin || 0; // in millimeters
+        self.horizontalMargin = self.horizontalMargin || 0; // in millimeters
         self.printElement = self.printElement || ".printable";
-        self.printMode = self.printMode || "pdf";
+        self.printMode = self.printMode || "image";
         self.paperSize = 'A4';
         self.paperSizeList = [
             // in millimeters
@@ -94,20 +93,12 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     function print() {
         self.preview4Print();
     }
-    
     this.preview4Print = preview4PrintDefault;
     function preview4PrintDefault() {
-        previewScope = $scope.$new();
-        previewScope.$ctrl = {
-            exitPreview:  self.exitPreview,
-            doPrint: doPrint
-        }
-
         const printElem = $element.find(self.printElement);
         self.printElem = printElem;
         self.originalWidth = printElem[0].offsetWidth;
         self.originalHeight = printElem[0].offsetHeight;
-
         if (self.printMode === 'image') {
             self.originalMarginTop = printElem[0].style.marginTop;
             self.originalMarginBottom = printElem[0].style.marginBottom;
@@ -118,30 +109,63 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             self.printElem[0].style.marginLeft = `${self.horizontalMargin}mm`;
             self.printElem[0].style.marginRight = `${self.horizontalMargin}mm`;
         }
-
         let styleElem = document.createElement("style");
         self.styleElem = styleElem;
         styleElem.type = "text/css";
         styleElem.appendChild(document.createTextNode(self.getCssText()));
         document.head.appendChild(styleElem);
-
         printElem.addClass(self.cssClassName);
         //printElem.width(wiApi.mmToPixel(self.printWidth));
         printElem.width(self.calcPrintWidth(self.printWidth, printElem));
         printElem.height(self.calcPrintHeight(self.printWidth, self.aspectRatio, printElem));
-
         const pcpElem = document.createElement('div');
         self.pcpElem = pcpElem;
         $(pcpElem).addClass('print-cmd-panel');
+        previewScope = $scope.$new();
+        previewScope.$ctrl = {
+            exitPreview:  self.exitPreview,
+            doPrint: doPrint,
+            previousPage: self.previousPage,
+            nextPage: self.nextPage,
+            getPrintInfo: self.getPrintInfo,
+            pageIdx: 1,
+            goToPage: self.goToPage,
+            firstPage: self.firstPage,
+            lastPage: self.lastPage
+        }
         const pcpContent = `
             <div style="height: ${pcpElemHeight};">
+                <span>{{$ctrl.getPrintInfo()}}</span>
                 <button ng-click="$ctrl.exitPreview()">Close</button>
                 <button ng-click="$ctrl.doPrint()">Print</button>
+                <button ng-click="$ctrl.firstPage($ctrl)">First Page</button>
+                <button ng-click="$ctrl.previousPage($ctrl)">Previous</button>
+                <input ng-model="$ctrl.pageIdx" ng-change="$ctrl.goToPage($ctrl.pageIdx - 1)" ng-model-options="{updateOn: 'change'}">
+                <button ng-click="$ctrl.nextPage($ctrl)">Next</button>
+                <button ng-click="$ctrl.lastPage($ctrl)">Last Page</button>
             </div>
         `;
         $(pcpElem).append($compile(pcpContent)(previewScope));
         //$(printElem).prepend(pcpElem);
         printElem.parent()[0].append(pcpElem);
+    }
+    this.previousPage = function() {
+        console.log('previous page');
+    }
+    this.nextPage = function() {
+        console.log('next page');
+    }
+    this.getPrintInfo = function() {
+        return;
+    } 
+    this.goToPage = function(pageIdx) {
+        return;
+    }
+    this.lastPage = function() {
+        return;
+    }
+    this.firstPage = function() {
+        return;
     }
     this.calcPrintHeightMM = calcPrintHeightMMDefault;
     function calcPrintHeightMMDefault(w, ratio, htmlElem) {
@@ -165,16 +189,16 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     function exitPreview() {
         self.styleElem.remove();
         self.pcpElem.remove();
-        self.printElem.width(self.originalWidth);
-        self.printElem.height(self.originalHeight);
-        if (self.printMode === 'image') {
-            self.printElem[0].style.marginTop = self.originalMarginTop;
-            self.printElem[0].style.marginBottom = self.originalMarginBottom;
-            self.printElem[0].style.marginLeft = self.originalMarginLeft;
-            self.printElem[0].style.marginRight = self.originalMarginRight;
-        }
+        //self.printElem.width(self.originalWidth);
+        //self.printElem.height(self.originalHeight);
+        //if (self.printMode === 'image') {
+            //self.printElem[0].style.marginTop = self.originalMarginTop;
+            //self.printElem[0].style.marginBottom = self.originalMarginBottom;
+            //self.printElem[0].style.marginLeft = self.originalMarginLeft;
+            //self.printElem[0].style.marginRight = self.originalMarginRight;
+        //}
     }
-    function html2Canvas(htmlElem, callback) {
+    function html2Canvas(htmlElem, config, callback) {
         html2canvas(htmlElem, {
             allowTaint: true,
             foreignObjectRendering:true,
@@ -190,14 +214,15 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                 htmlElem.scrollHeight,
                 htmlElem.offsetHeight,
                 htmlElem.clientHeight
-            ]) + wiApi.mmToPixel(self.verticalMargin) * 2
+            ]) + wiApi.mmToPixel(self.verticalMargin) * 2,
+            ...config
         }).then(canvas => {
             callback && callback(canvas);
         })
     }
     function exportAsImage() {
         self.printElem[0].style.top = 0;
-        html2Canvas(self.printElem[0], canvas => {
+        html2Canvas(self.printElem[0], {}, canvas => {
             let a = document.createElement('a');
             a.addEventListener('click', function(ev) {
                 a.href = canvas.toDataURL("image/png");
@@ -218,29 +243,24 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     }
     function exportAsPDF() {
         self.printElem[0].style.top = 0;
-        html2Canvas(self.printElem[0], canvas => {
+        html2Canvas(self.printElem[0], {
+            x: 0,
+            y: 0
+        }, canvas => {
             let imgData = canvas.toDataURL("image/png");
             let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
-            let onePageHeight = pdf.internal.pageSize.height;
-            let printElemHeight = self.printElem.height();
-            let pageNums = printElemHeight % onePageHeight ? printElemHeight / onePageHeight + 1 : printElemHeight / onePageHeight;
-            for (let i = 0; i < pageNums; i++) {
-                pdf.addPage();
-            }
-            console.log(onePageHeight);
-            pdf.addImage(imgData, 'PNG', 0, 0);
+            //let onePageHeight = pdf.internal.pageSize.height;
+            //let printElemHeight = self.printElem.height();
+            //let pageNums = printElemHeight % onePageHeight ? printElemHeight / onePageHeight + 1 : printElemHeight / onePageHeight;
+            //for (let i = 0; i < pageNums; i++) {
+                //pdf.addPage();
+            //}
+            //console.log(onePageHeight);
+            pdf.addImage(imgData, 'PNG', self.horizontalMargin, self.verticalMargin);
             pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
                         || 'myPDF'}.pdf`);
         })
         self.printElem[0].style.top = pcpElemHeight;
-    }
-    function calcExactlyPrintWidth(printWidth, paperSize) {
-        let paperProps = self.paperSizeList.find(paper => paper.properties.name == paperSize).properties;
-        let paperHorizontalSize = paperProps.height;
-        if (self.orientation === 'portrait') {
-            paperHorizontalSize = paperProps.width;
-        }
-        return printWidth * wiApi.pixelTomm($(window).width()) / (paperHorizontalSize - self.horizontalMargin * 2);
     }
     this.doPrint = doPrint;
     function doPrint() {
@@ -253,7 +273,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                 break;
         }
     }
-
     this.setPrintWidth = setPrintWidth;
     function setPrintWidth(notUse, newValue) {
         self.printWidth = parseFloat(newValue);
@@ -270,7 +289,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     function changeAspectRatio(aspectRatio) {
         self.aspectRatio = aspectRatio;
     }
-
     this.onZonesetSelectionChanged = onZonesetSelectionChanged;
     function onZonesetSelectionChanged(selectedItemProps) {
         self.paperSize = (selectedItemProps || {}).name;
