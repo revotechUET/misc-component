@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wi Print Loading</title>
+
+    <link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../dist/misc-components.js"></script>
+
+</head>
+
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    
+            <wi-print-loading>
+    
+            </wi-print-loading>
+    
+    <script>
+        angular.module('myApp', ['wiPrintLoading']).controller('myCtrl', function($scope) {
+            
+        });
+    </script>
+</body>
+
+</html>
