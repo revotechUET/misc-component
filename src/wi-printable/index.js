@@ -26,6 +26,7 @@ function component(componentData) {
             printElement: "@",
             printMode: "<",
             paperSize: "<",
+            isFitWidth: "<",
             ...componentData.bindings
         },
         transclude: componentData.transclude || false
@@ -61,6 +62,9 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         }
     `;
 
+    this.getPDFjs = function() {
+        return jsPDF;
+    }
     this.getCssText = getCssTextDefault;
     this.getCssTextDefault = getCssTextDefault;
     function getCssTextDefault() {
@@ -68,7 +72,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     }
     let printStyleText;
     this.doInit = function() {
-        self.orientation = self.orientation || "landscape";
+        self.pageIdx = 0;
+        self.orientation = self.orientation || "portrait";
         self.aspectRatio = self.aspectRatio || "4:3";
         self.alignment = self.alignment || "left";
         self.printWidth = self.printWidth || 200; // in millimeters
@@ -84,6 +89,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             {data:{label:'A3'}, properties:{name:'A3', width:297, height: 420}}
         ];
         self.aspectRatioList = ['4:3', '16:9'];
+        self.isFitWidth = self.isFitWidth !== undefined ? self.isFitWidth : false;
         self.defaultBindings();
     }
     this.defaultBindings = function() {
@@ -122,32 +128,36 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.pcpElem = pcpElem;
         $(pcpElem).addClass('print-cmd-panel');
         previewScope = $scope.$new();
-        previewScope.$ctrl = {
-            exitPreview:  self.exitPreview,
-            doPrint: doPrint,
-            previousPage: self.previousPage,
-            nextPage: self.nextPage,
-            getPrintInfo: self.getPrintInfo,
-            pageIdx: 1,
-            goToPage: self.goToPage,
-            firstPage: self.firstPage,
-            lastPage: self.lastPage
-        }
+        previewScope._pageIdx = 1;
+        previewScope.$ctrl = self;
         const pcpContent = `
             <div style="height: ${pcpElemHeight};">
                 <span>{{$ctrl.getPrintInfo()}}</span>
                 <button ng-click="$ctrl.exitPreview()">Close</button>
                 <button ng-click="$ctrl.doPrint()">Print</button>
+                <button ng-click="$ctrl.doPrintAll($ctrl)">Print All</button>
                 <button ng-click="$ctrl.firstPage($ctrl)">First Page</button>
                 <button ng-click="$ctrl.previousPage($ctrl)">Previous</button>
-                <input ng-model="$ctrl.pageIdx" ng-change="$ctrl.goToPage($ctrl.pageIdx - 1)" ng-model-options="{updateOn: 'change'}">
+                <editable style="display:inline-block;" enabled='true' item-value="$ctrl.getPageIdx" set-value="$ctrl.setPageIdx" content-style='{
+                    float: "none",
+                    display: "inline-block",
+                    width: "50px",
+                    "text-align": "center"
+                }'></editable>
                 <button ng-click="$ctrl.nextPage($ctrl)">Next</button>
                 <button ng-click="$ctrl.lastPage($ctrl)">Last Page</button>
             </div>
         `;
+        //`<input ng-model="_pageIdx" ng-change="$ctrl.pageIdx = _pageIdx - 1; $ctrl.goToPage($ctrl)" ng-model-options="{updateOn: 'change'}">`
         $(pcpElem).append($compile(pcpContent)(previewScope));
-        //$(printElem).prepend(pcpElem);
         printElem.parent()[0].append(pcpElem);
+    }
+    this.getPageIdx = function() {
+        return 0;
+    }
+
+    this.setPageIdx = (notUsed, newVal) => {
+        return;
     }
     this.previousPage = function() {
         console.log('previous page');
@@ -220,9 +230,9 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             callback && callback(canvas);
         })
     }
-    function exportAsImage() {
-        self.printElem[0].style.top = 0;
-        html2Canvas(self.printElem[0], {}, canvas => {
+    this.exportAsImage = exportAsImage;
+    function exportAsImage(callback) {
+        let cb = callback || function(canvas) {
             let a = document.createElement('a');
             a.addEventListener('click', function(ev) {
                 a.href = canvas.toDataURL("image/png");
@@ -232,15 +242,17 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             document.body.appendChild(a);
             a.click();
             a.remove();
-
             //let image = new Image();
             //image.src = canvas.toDataURL("image/png");
             //let w = window.open("");
             //w.document.write(image.outerHTML);
             //w.document.close();
-        })
+        }
+        self.printElem[0].style.top = 0;
+        html2Canvas(self.printElem[0], {}, cb);
         self.printElem[0].style.top = pcpElemHeight;
     }
+    this.exportAsPDF = exportAsPDF;
     function exportAsPDF() {
         self.printElem[0].style.top = 0;
         html2Canvas(self.printElem[0], {
@@ -262,14 +274,22 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         })
         self.printElem[0].style.top = pcpElemHeight;
     }
+    this.getPaperSizeDefault = function(paperSize) {
+        let page = self.paperSizeList.find(psl => psl.properties.name === paperName).properties;
+        return page;
+    }
+    this.doPrintAll = doPrintAll;
+    function doPrintAll() {
+        console.log('doPrintAll');
+    }
     this.doPrint = doPrint;
-    function doPrint() {
+    function doPrint(callback) {
         switch(self.printMode) {
             case "image":
-                exportAsImage();
+                exportAsImage(callback);
                 break;
             case "pdf":
-                exportAsPDF();
+                exportAsPDF(callback);
                 break;
         }
     }
