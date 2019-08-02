@@ -1,0 +1,276 @@
+wi-map-loading {
+    .main-spinner {
+        position: relative;
+        height  : 100vh;
+    }
+
+    .logo-overlay {
+        z-index         : 1;
+        height          : 130px;
+        width           : 130px;
+        background-image: radial-gradient(farthest-corner at 71% 34%, #ffffff96, #008aff00, #0072b914, #71c0ff);
+        position        : absolute;
+        top             : 50%;
+        border          : 6px solid #ffffff;
+        border-radius   : 50%;
+        left            : 50%;
+        margin          : -65px 0 0 -65px;
+        animation       : showing 6s infinite;
+        overflow        : hidden;
+    }
+
+    .logo {
+        height       : 130px;
+        width        : 130px;
+        background   : #fff;
+        box-shadow   : 0 10px 10px #0000000f;
+        position     : absolute;
+        top          : 50%;
+        border       : 6px solid #ffffff;
+        border-radius: 50%;
+        left         : 50%;
+        margin       : -65px 0 0 -65px;
+        animation    : showing 6s infinite;
+        overflow     : hidden;
+
+    }
+
+    .line-group {
+        width                    : 1000px;
+        height                   : 130px;
+        float                    : left;
+        left                     : -300px;
+        position                 : relative;
+        animation                : line-running 6s infinite;
+        animation-timing-function: linear;
+
+        .line-1 {
+            width : 1000px;
+            height: 10px;
+            top   : 0px;
+            left  : 0px;
+        }
+
+        .line-2 {
+            width : 1000px;
+            height: 10px;
+            top   : 10px;
+            left  : 0px;
+        }
+
+        .line-3 {
+            width : 100px;
+            height: 10px;
+            top   : 20px;
+            left  : 0px;
+        }
+
+        .line-3-1 {
+            width : 100px;
+            height: 10px;
+            top   : 40px;
+            left  : 200px;
+        }
+
+        .line-3-2 {
+            width : 100px;
+            height: 10px;
+            top   : 40px;
+            left  : 400px;
+        }
+
+        .line-3-3 {
+            width : 100px;
+            height: 10px;
+            top   : 40px;
+            left  : 600px;
+        }
+
+        .line-3-4 {
+            width : 100px;
+            height: 10px;
+            top   : 40px;
+            left  : 800px;
+        }
+
+        .line-4 {
+            width : 1000px;
+            height: 10px;
+            top   : 30px;
+            left  : 0px;
+        }
+
+        .line-5 {
+            width : 50px;
+            height: 10px;
+            top   : 40px;
+            right : 0px;
+        }
+
+        .line-5-1 {
+            width : 100px;
+            height: 10px;
+            top   : 80px;
+            left  : 100px;
+        }
+
+        .line-5-2 {
+            width : 100px;
+            height: 10px;
+            top   : 80px;
+            left  : 300px;
+        }
+
+        .line-5-3 {
+            width : 100px;
+            height: 10px;
+            top   : 80px;
+            left  : 500px;
+        }
+
+        .line-5-4 {
+            width : 100px;
+            height: 10px;
+            top   : 80px;
+            left  : 700px;
+        }
+
+        .line-5-5 {
+            width : 100px;
+            height: 10px;
+            top   : 80px;
+            left  : 900px;
+        }
+
+        .line-6 {
+            width : 1000px;
+            height: 10px;
+            top   : 50px;
+            left  : 0px;
+        }
+
+        .line-7 {
+            width : 1000px;
+            height: 10px;
+            top   : 60px;
+            left  : 0px;
+        }
+
+        .line {
+            border-radius   : 20px;
+            position        : relative;
+            background-image: linear-gradient(90deg, #03A9F4, #0390f4);
+        }
+    }
+
+    @keyframes line-running {
+        0% {
+            left: -830px;
+        }
+
+        100% {
+            left: -150px;
+        }
+    }
+
+    @keyframes showing {
+        0% {
+            transform: scale(0);
+        }
+
+        3% {
+            transform: scale(1.2);
+        }
+
+        5% {
+            transform: scale(1);
+        }
+
+        97% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(0);
+        }
+    }
+
+    //////////////////////////////////////////////
+
+    @dim : 200px;
+
+    .spinner {
+        height           : @dim;
+        width            : @dim;
+        //   margin      :0 auto;
+        //   position    :relative;
+        position         : absolute;
+        top              : 50%;
+        left             : 50%;
+        margin           : -(@dim/2) 0 0 -(@dim/2);
+        -webkit-animation: rotation 2s infinite linear;
+        -moz-animation   : rotation 2s infinite linear;
+        -o-animation     : rotation 2s infinite linear;
+        animation        : rotation 2s infinite linear;
+        border           : 6px solid rgb(213, 240, 255);
+        border-radius    : 100%;
+        background       : #ecf8ff;
+
+    }
+
+    .spinner:before {
+        content         : "";
+        display         : block;
+        position        : absolute;
+        // left         : -6px;
+        top             : -6px;
+        height          : 100%;
+        width           : 100%;
+        border-top      : 6px solid rgba(182, 226, 255, 0.8);
+        border-left     : 6px solid transparent;
+        border-bottom   : 6px solid transparent;
+        border-right    : 6px solid transparent;
+        border-radius   : 100%;
+    }
+
+    @-webkit-keyframes rotation {
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+
+        to {
+            -webkit-transform: rotate(359deg);
+        }
+    }
+
+    @-moz-keyframes rotation {
+        from {
+            -moz-transform: rotate(0deg);
+        }
+
+        to {
+            -moz-transform: rotate(359deg);
+        }
+    }
+
+    @-o-keyframes rotation {
+        from {
+            -o-transform: rotate(0deg);
+        }
+
+        to {
+            -o-transform: rotate(359deg);
+        }
+    }
+
+    @keyframes rotation {
+
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(359deg);
+        }
+    }
+}

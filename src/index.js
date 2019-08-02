@@ -16,6 +16,7 @@ module.exports = {
     wiLoading: require('./wi-loading'),
     wiDropdownList: require('./wi-dropdown-list'),
     wiDiscriminator: require('./wi-discriminator'),
+    wiMapLoading: require('./wi-map-loading'),
     wiPrintLoading: require('./wi-print-loading'),
     wiTreeViewVirtual: require('./wi-tree-view-virtual'),
     wiNeuralNetwork: require('./wi-neural-network'),
