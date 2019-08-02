@@ -26,6 +26,7 @@ function component(componentData) {
             printElement: "@",
             printMode: "<",
             paperSize: "<",
+            isFitWidth: "<",
             ...componentData.bindings
         },
         transclude: componentData.transclude || false
@@ -88,6 +89,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             {data:{label:'A3'}, properties:{name:'A3', width:297, height: 420}}
         ];
         self.aspectRatioList = ['4:3', '16:9'];
+        self.isFitWidth = self.isFitWidth !== undefined ? self.isFitWidth : false;
         self.defaultBindings();
     }
     this.defaultBindings = function() {
@@ -271,6 +273,10 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                         || 'myPDF'}.pdf`);
         })
         self.printElem[0].style.top = pcpElemHeight;
+    }
+    this.getPaperSizeDefault = function(paperSize) {
+        let page = self.paperSizeList.find(psl => psl.properties.name === paperName).properties;
+        return page;
     }
     this.doPrintAll = doPrintAll;
     function doPrintAll() {
