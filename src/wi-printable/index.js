@@ -252,6 +252,22 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         html2Canvas(self.printElem[0], {}, cb);
         self.printElem[0].style.top = pcpElemHeight;
     }
+    this.getCorrectJsPdfFormat = function(unit, width, height) {
+        let k;
+        switch (unit) {
+            case 'pt':  k = 1;          break;
+            case 'mm':  k = 72 / 25.4;  break;
+            case 'cm':  k = 72 / 2.54;  break;
+            case 'in':  k = 72;         break;
+            case 'px':  k = 96 / 72;    break;
+            case 'pc':  k = 12;         break;
+            case 'em':  k = 12;         break;
+            case 'ex':  k = 6;          break;
+            default:
+                throw ('Invalid unit: ' + unit);
+        }
+        return [width * k, height * k];
+    }
     this.exportAsPDF = exportAsPDF;
     function exportAsPDF() {
         self.printElem[0].style.top = 0;
@@ -274,7 +290,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         })
         self.printElem[0].style.top = pcpElemHeight;
     }
-    this.getPaperSizeDefault = function(paperSize) {
+    this.getPaperSizeDefault = function(paperName) {
         let page = self.paperSizeList.find(psl => psl.properties.name === paperName).properties;
         return page;
     }
