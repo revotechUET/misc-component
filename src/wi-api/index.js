@@ -446,13 +446,43 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             keys[well.idWell] = idx;
         }
     }
+    let __cachedDpi = {};
+    const CACHING_DPI_INTERVAL_MILLISEC = 1000;
+    this.getDpi = getDpi;
+    function getDpi(isCached = true) {
+        // caching dpi to avoid layout thrashing
+        //if(__cachedDpi.value && (Date.now() - __cachedDpi.lastUpdate < CACHING_DPI_INTERVAL_MILLISEC)) {
+        if(__cachedDpi.value && isCached) {
+            return __cachedDpi.value;
+        }
+
+        let inch = document.createElement('inch');
+        inch.style = 'height: 1in; width: 1in; left: -100%; position: absolute; top: -100%;';
+        document.body.appendChild(inch);
+        let devicePixelRatio = window.devicePixelRatio || 1;
+        let dpi = inch.clientWidth * devicePixelRatio;
+        document.body.removeChild(inch);
+
+        __cachedDpi.value = dpi;
+        __cachedDpi.lastUpdate = Date.now();
+
+        return dpi;
+    }
     this.mmToPixel = mmToPixel;
     function mmToPixel(mmValue, dpi = 96) {
-        return mmValue * dpi / 25.4;
+        return mmValue * getDpi(false) / 25.4;
+    }
+    this.cmToPixel = cmToPixel;
+    function cmToPixel(cmValue) {
+        return mmToPixel(cmValue * 10);
     }
     this.pixelTomm = pixelTomm;
     function pixelTomm(pixel, dpi = 96) {
-        return pixel * 25.4 / dpi;
+        return pixel * getDpi(false) / dpi;
+    }
+    this.pixelToCm = pixelToCm;
+    function pixelToCm(pixel, dpi = 96) {
+        return pixelTomm(pixel) / 10;
     }
 }
 
