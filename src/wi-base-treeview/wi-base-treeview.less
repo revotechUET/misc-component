@@ -124,22 +124,42 @@ wi-base-treeview {
                     opacity: 0.4
                 }
             }
-
             .actions {
                 position: absolute;
-                top: 0;
-                right: 0;
-                background: #fff;
+                top: 3px;
+                right: 10px;
+                // background: #fff;
                 border-radius: 16px;
-                >wi-button>div>button {
-                    height: 26px;
-                    padding: 4px;
+                
+                &> wi-button > div > button {
+                    height: 20px;
+                    width: 20px;
+                    padding: 0;
                     border-radius: 100%;
-                    margin-top: 3px;
+                    margin: 0;
+                    display: flex;
+                    font-size: 9px;
+                    align-items: center;
+                    justify-content: center;
+                    background: transparent;
                     span {
                         vertical-align: unset;
                     }
                 }
+
+            // .actions {
+            //     position: absolute;
+            //     top: 0;
+            //     right: 0;
+            //     background: #fff;
+            //     border-radius: 16px;
+            //     >wi-button>div>button {
+            //         height: 26px;
+            //         padding: 4px;
+            //         border-radius: 100%;
+            //         margin-top: 3px;
+                    
+            //     }
             }
         }
 
