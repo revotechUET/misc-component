@@ -77,10 +77,10 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.aspectRatio = self.aspectRatio || "4:3";
         self.alignment = self.alignment || "left";
         self.printWidth = self.printWidth || 200; // in millimeters
-        self.verticalMargin = self.verticalMargin || 15; // in millimeters
-        self.horizontalMargin = self.horizontalMargin || 15; // in millimeters
+        self.verticalMargin = self.verticalMargin || 0; // in millimeters
+        self.horizontalMargin = self.horizontalMargin || 0; // in millimeters
         self.printElement = self.printElement || ".printable";
-        self.printMode = self.printMode || "pdf";
+        self.printMode = self.printMode || "image";
         self.paperSize = 'A4';
         self.paperSizeList = [
             // in millimeters
@@ -122,8 +122,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         document.head.appendChild(styleElem);
         printElem.addClass(self.cssClassName);
         //printElem.width(wiApi.mmToPixel(self.printWidth));
-        //printElem.width(self.calcPrintWidthPx());
-        //printElem.height(self.calcPrintHeightPx(self.printWidth, self.aspectRatio, printElem));
+        printElem.width(self.calcPrintWidth(self.printWidth, printElem));
+        printElem.height(self.calcPrintHeight(self.printWidth, self.aspectRatio, printElem));
         const pcpElem = document.createElement('div');
         self.pcpElem = pcpElem;
         $(pcpElem).addClass('print-cmd-panel');
@@ -186,14 +186,14 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                 return w * 9 / 16;
         }
     }
-    this.calcPrintHeightPx = calcPrintHeightDefault;
+    this.calcPrintHeight = calcPrintHeightDefault;
     function calcPrintHeightDefault(w, ratio, htmlElem) {
         return wiApi.mmToPixel(calcPrintHeightMMDefault(w, ratio, htmlElem));
     }
 
-    this.calcPrintWidthPx = calcPrintWidthDefault;
-    function calcPrintWidthDefault() {
-        return wiApi.mmToPixel(self.printWidth);
+    this.calcPrintWidth = calcPrintWidthDefault;
+    function calcPrintWidthDefault(w, htmlElem) {
+        return wiApi.mmToPixel(w);
     }
     this.exitPreview = exitPreview;
     function exitPreview() {
@@ -269,19 +269,25 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         return [width * k, height * k];
     }
     this.exportAsPDF = exportAsPDF;
-    function exportAsPDF(callback) {
-        let cb = callback || function(canvas) {
-            let imgData = canvas.toDataURL("image/png");
-            let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
-            pdf.addImage(imgData, 'PNG', self.horizontalMargin, self.verticalMargin);
-            pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
-                        || 'myPDF'}.pdf`);
-        }
+    function exportAsPDF() {
         self.printElem[0].style.top = 0;
         html2Canvas(self.printElem[0], {
             x: 0,
             y: 0
-        }, cb)
+        }, canvas => {
+            let imgData = canvas.toDataURL("image/png");
+            let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
+            //let onePageHeight = pdf.internal.pageSize.height;
+            //let printElemHeight = self.printElem.height();
+            //let pageNums = printElemHeight % onePageHeight ? printElemHeight / onePageHeight + 1 : printElemHeight / onePageHeight;
+            //for (let i = 0; i < pageNums; i++) {
+                //pdf.addPage();
+            //}
+            //console.log(onePageHeight);
+            pdf.addImage(imgData, 'PNG', self.horizontalMargin, self.verticalMargin);
+            pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
+                        || 'myPDF'}.pdf`);
+        })
         self.printElem[0].style.top = pcpElemHeight;
     }
     this.getPaperSizeDefault = function(paperName) {
