@@ -18,6 +18,10 @@ function initModal(modal) {
             let okButton, cancelButton;
             let buttonElems = $(modal.element).find('.modal-footer > button');
             for (let i = 0; i < buttonElems.length; i++) {
+                if ($(buttonElems[i]).attr("default-button")) {
+                    okButton = buttonElems[i];
+                    break;
+                }
                 if (buttonElems[i].innerText.toLowerCase().trim() == 'ok'
                     || buttonElems[i].innerText.toLowerCase().trim() == 'close'
                 ) {

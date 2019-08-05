@@ -1,4 +1,4 @@
-<div class='import-images modal fade ' data-backdrop="static" data-keyboard="false" style="z-index: 10001;">
+<div class='import-images modal fade ' data-backdrop="static" data-keyboard="false">
     <style>
         .import-images.modal .modal-body {
             display: block;
@@ -43,7 +43,7 @@
             min-height: 49px;
             margin-bottom: 15px;
             max-width: 189px;
-            overflow: hidden;
+            /* overflow: hidden; */
             font-weight: bold;
             color: rgb(56, 56, 56);
             border-radius: 2px;
@@ -69,6 +69,9 @@
             flex: 1;
             max-height: 250px;
             max-width: 100%;
+        }
+        .import-images.modal .selected {
+            background:  #cfcfcf !important;
         }
 
         .import-images.modal .img-list-item {
@@ -113,11 +116,13 @@
         .import-images.modal .option-imagesetname {
             color: #0077be;
             margin-left: 10px;
+            width: 100px;
+            height: 27px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             background: #fff;
-            padding: 5px 15px;
+            padding: 5px;
             border-radius: 2px;
         }
 
@@ -249,9 +254,11 @@
                 </div>
                 <div style="display: flex;">
                     <div class="option">
-                        <div class="option-item">WELLNAME
-                            <select class="select-option" ng-options="well.name for well in self.wells"
-                                ng-model="self.inputWellName"></select>
+                        <div class="option-item">
+                            <wi-dropdown-list style="width:100%" on-wi-dropdown-init="self.initWellList" place-holder="WELLNAME" on-item-changed="self.onWellChanged">
+                            </wi-dropdown-list>
+                            <!-- <select class="select-option" ng-options="well.name for well in self.wells"
+                                ng-model="self.inputWellName"></select> -->
                         </div>
                         <div class="option-item">IMAGESET
                             <editable class="option-imagesetname" item-value="self.imgSetName" enabled='true'
@@ -292,7 +299,7 @@
                                             </div>
                                         </div>
                                         <div style="display: flex; margin-left: 15px;">
-                                            <span class="img-list-item" ng-click="self.showFileUpload(uploadFile.src);">
+                                            <span class="img-list-item" ng-click="self.showFileUpload(uploadFile.src); self.selectedIdx = index">
                                                 Preview</span>
                                             <span class="img-list-item" ng-click="self.removeFromUpload(index)">
                                                 Delete
@@ -317,7 +324,7 @@
                 <span class="error-mess" ng-show="self.errorMsg">
                     <i class="fa fa-exclamation-circle" style="margin-right: 15px;"aria-hidden="true"></i>
                     {{self.errorMsg}}</span>
-                <button class="btn btn-default" ngf-select="self.addForUpload($files)" ngf-multiple="true" accept="image/png,image/gif,image/jpg,image/jpeg">
+                <button default-button="1" class="btn btn-default" ngf-select="self.addForUpload($files)" ngf-multiple="true" accept="image/png,image/gif,image/jpg,image/jpeg">
                     <span class="more-16x16"></span>&nbsp;Select Files
                 </button>
                 <button ng-class="{'deactive-button':((self.inputWellName === '') && (self.uploadFileList.length === 0 ))}" type="button"
