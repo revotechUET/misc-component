@@ -1,5 +1,6 @@
 let helper = require('../DialogHelper');
 module.exports = function (ModalService, idProject, imgSetName, callback) {
+    const wiDialog = this;
     function ModalController($scope, $timeout, $element, wiApi, close, wiLoading) {
         const self = this;
         self.selectedIdx = -1;
@@ -18,7 +19,23 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
         this.inputWellName = '';
         this.wells = null;
         this.maxInterval = 0;
-        wiApi.getWellsPromise(idProject).then(wells => self.wells = wells).catch(err => console.error(err));
+        this.initWellList = function(wiDropdownCtrl) {
+            wiApi.getWellsPromise(idProject).then(wells => {
+                self.wells = wells;
+                wiDropdownCtrl.items = wells.map(well => ({
+                    data: {
+                        label: well.name,
+                        title: well.name,
+                        name: well.name
+                    },
+                    properties: well
+                }));
+            }).catch(err => console.error(err));
+        }
+        this.onWellChanged = function(selectedWellProps) {
+            self.inputWellName = selectedWellProps.name;
+        }
+        // wiApi.getWellsPromise(idProject).then(wells => self.wells = wells).catch(err => console.error(err));
 
         function getImageName(img) {
             let _DIVIDER;
@@ -99,9 +116,20 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                 }
             });
         }
-
+        let askedCached = {};
+        function askedAlready(imageSetName) {
+            if (!askedCached[imageSetName]) {
+                askedCached[imageSetName] = true;
+                return false;
+            }
+            return true;
+        }
+        function resetAskedCache() {
+            askedCached = {};
+        }
         async function doUploadFiles(files, callback) {
             wiLoading.show($element.find('.modal-dialog')[0]);
+            resetAskedCache();
             let newFiles = files.sort(function (f1, f2) {
                 return parseFloat(f1.information.TOPDEPTH) - parseFloat(f2.information.TOPDEPTH);
             });
@@ -116,7 +144,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                 height = Math.min(self.maxInterval, offset);
 
                 if (self.inputPattern.search("WELLNAME") == -1) {
-                    well = self.inputWellName;
+                    well = self.wells.find(w => w.name === self.inputWellName || w.alias === self.inputWellName);
                     console.log(well)
                 } else {
                     well = self.wells.find(w => w.name === file.information.WELLNAME || w.alias === file.information.WELLNAME);
@@ -124,27 +152,19 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                 }
 
                 if (well) {
-                    wiApi.createOrGetImageSetPromise(well.idWell, self.imgSetName).then((imageSet) => {
-                        well.imageSet = imageSet;
-                        wiApi.createImagePromise(imageObject(file, well.imageSet.idImageSet, idx, height)).then((image) => {
-                            wiApi.uploadImage(file, image.idImage,
-                                function (imgUrl) {
-                                    image.imageUrl = imgUrl;
-                                    wiApi.updateImagePromise(image).then(image =>
-                                        cb()
-                                    ).catch(err =>
-                                        cb(err)
-                                    );
-                                },
-                                function (err) {
-                                    // console.error(err);
-                                    cb(err);
-                                }, (evt) => {});
-                        }).catch(function(err) {
-                            // console.log(err);
-                            cb(new Error("Invalid depth values"));
-                            // cb(err);
-                        });
+                    wiApi.createOrGetImageSetPromise(well.idWell, self.imgSetName).then(([imageSet, isNew]) => {
+                        if (!isNew && !askedAlready(self.imgSetName)) {
+                            wiLoading.hide();
+                            wiDialog.confirmDialog("Confirmation",`Image set ${self.imgSetName} already exist. New images will be uploaded into this image set. Do you want to continue?`, function(ret) {
+                                wiLoading.show($element.find('.modal-dialog')[0]);
+                                if (ret) {
+                                    createImage(well, file, imageSet, idx, height, cb);
+                                } else cb(new Error("Canceled by user"));
+                            });
+                        }
+                        else {
+                            createImage(well, file, imageSet, idx, height, cb);
+                        }
                     }).catch(err => {
                         // console.error(err);
                         cb(err);
@@ -163,6 +183,28 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                     callback(true);
                 }
             });
+            function createImage(well, file, imageSet, idx, height, cb) {
+                well.imageSet = imageSet;
+                wiApi.createImagePromise(imageObject(file, well.imageSet.idImageSet, idx, height)).then((image) => {
+                    wiApi.uploadImage(file, image.idImage,
+                        function (imgUrl) {
+                            image.imageUrl = imgUrl;
+                            wiApi.updateImagePromise(image).then(image =>
+                                cb()
+                            ).catch(err =>
+                                cb(err)
+                            );
+                        },
+                        function (err) {
+                            // console.error(err);
+                            cb(err);
+                        }, (evt) => {});
+                }).catch(function(err) {
+                    // console.log(err);
+                    cb(new Error("Invalid depth values"));
+                    // cb(err);
+                });
+            }
         }
 
         function imageObject(uploadFile, idImageSet, orderNum, height) {

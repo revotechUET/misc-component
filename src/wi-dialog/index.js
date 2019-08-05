@@ -1,7 +1,7 @@
 var serviceName = 'wiDialog';
 module.exports.name = serviceName;
 
-let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken', 'wiLoading']);
+let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken', 'wiLoading', "wiDropdownList"]);
 app.config(function($sceProvider) {
     $sceProvider.enabled(false);
 });
@@ -26,23 +26,23 @@ function wiDialogService(ModalService) {
     this.setDialogUtil = function(dialogUtil) {
         self.DialogUtil = dialogUtil;
     }
-    this.errorMessageDialog = function(errorMessage, cb) {
+    this.errorMessageDialog = function(errorMessage, cb, opts) {
         errorMessageDialog(ModalService, errorMessage, cb);
     }
-    this.promptDialog = function(config, cb) {
+    this.promptDialog = function(config, cb, opts) {
         promptDialog(ModalService, config, cb);
     }
     this.confirmDialog = function(title, confirmMessage, cb, actions) {
-        confirmDialog(ModalService, title, confirmMessage, cb, actions);
+        confirmDialog.call(this, ModalService, title, confirmMessage, cb, actions);
     }
     this.imageGaleryDialog = function(cb) {
         imageGaleryDialog(ModalService, cb);
     }
     this.imageUploadDialog = function(idImage, cb) {
-        imageUploadDialog(ModalService, idImage, cb);
+        imageUploadDialog.call(this, ModalService, idImage, cb);
     }
     this.importImagesDialog = function(idProject, imgSetName, cb) {
-        importImagesDialog(ModalService, idProject, imgSetName, cb);
+        importImagesDialog.call(this, ModalService, idProject, imgSetName, cb);
     }
     this.discriminator = function(discrmnt, curvesArr, cb) {
         discriminator(ModalService, discrmnt, curvesArr, cb);

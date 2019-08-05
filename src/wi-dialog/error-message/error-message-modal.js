@@ -1,7 +1,8 @@
 let helper = require('../DialogHelper');
-module.exports = function errorMessageDialog(ModalService, errorMessage, callback) {
+module.exports = function errorMessageDialog(ModalService, errorMessage, callback, opts) {
     function ModalController($scope, close) {
         let self = this;
+        self.opts = opts;
         this.error = errorMessage;
         this.onCloseButtonClicked = function () {
             close(null);
