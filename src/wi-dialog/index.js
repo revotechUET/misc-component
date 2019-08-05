@@ -33,7 +33,7 @@ function wiDialogService(ModalService) {
         promptDialog(ModalService, config, cb);
     }
     this.confirmDialog = function(title, confirmMessage, cb, actions) {
-        confirmDialog(ModalService, title, confirmMessage, cb, actions);
+        confirmDialog.call(this, ModalService, title, confirmMessage, cb, actions);
     }
     this.imageGaleryDialog = function(cb) {
         imageGaleryDialog(ModalService, cb);

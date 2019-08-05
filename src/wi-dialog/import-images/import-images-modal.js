@@ -155,10 +155,12 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                     wiApi.createOrGetImageSetPromise(well.idWell, self.imgSetName).then(([imageSet, isNew]) => {
                         if (!isNew && !askedAlready(self.imgSetName)) {
                             wiLoading.hide();
-                            wiDialog.errorMessageDialog(`Image set ${self.imgSetName} already exist. New images will be uploaded into this image set`, function() {
+                            wiDialog.confirmDialog("Confirmation",`Image set ${self.imgSetName} already exist. New images will be uploaded into this image set. Do you want to continue?`, function(ret) {
                                 wiLoading.show($element.find('.modal-dialog')[0]);
-                                createImage(well, file, imageSet, idx, height, cb);
-                            }, {"z-index": 2000});
+                                if (ret) {
+                                    createImage(well, file, imageSet, idx, height, cb);
+                                } else cb(new Error("Canceled by user"));
+                            });
                         }
                         else {
                             createImage(well, file, imageSet, idx, height, cb);
