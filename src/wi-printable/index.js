@@ -197,6 +197,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
 
     this.calcPrintWidth = calcPrintWidthDefault;
     function calcPrintWidthDefault(w, htmlElem) {
+        if (self.isFitWidth) return wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).width - self.horizontalMargin * 2)
         return wiApi.mmToPixel(w);
     }
     this.exitPreview = exitPreview;
@@ -274,22 +275,31 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     }
     this.exportAsPDF = exportAsPDF;
     function exportAsPDF(callback) {
+        let imgWidth = self.calcPrintWidth(self.printWidth, self.printElem);
+        let maxViewWidth = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).width - self.horizontalMargin * 2);
+        let imgHeight = self.calcPrintHeight(self.printWidth, self.aspectRatio, self.printElem);
+        let maxViewHeight = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).height - self.verticalMargin * 2);
         let cb = callback || function(canvas) {
             let imgData = canvas.toDataURL("image/png");
             let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
-            pdf.addImage(imgData, 'PNG', self.horizontalMargin, self.verticalMargin);
+            pdf.addImage(
+                imgData, 'PNG',
+                self.horizontalMargin, self.verticalMargin
+            );
             pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
                         || 'myPDF'}.pdf`);
         }
         self.printElem[0].style.top = 0;
-        html2Canvas(self.printElem[0], {
-            x: 0,
-            y: 0
-        }, cb)
+        let config = {x: 0, y: 0};
+        config.width = _.min([imgWidth, maxViewWidth]) + 3;
+        config.height = _.min([imgHeight, maxViewHeight]) + 3;
+        html2Canvas(self.printElem[0], config, cb)
         self.printElem[0].style.top = pcpElemHeight;
     }
-    this.getPaperSizeDefault = function(paperName) {
+    this.getPaperSizeDefault = getPaperSizeDefault;
+    function getPaperSizeDefault(paperName) {
         let page = self.paperSizeList.find(psl => psl.properties.name === paperName).properties;
+        if (self.printMode === 'pdf' && self.orientation === 'landscape') return {height: page.width, width: page.height};
         return page;
     }
     this.doPrintAll = doPrintAll;
