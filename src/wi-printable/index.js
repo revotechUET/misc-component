@@ -236,7 +236,9 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         })
     }
     this.exportAsImage = exportAsImage;
-    function exportAsImage(callback) {
+    function exportAsImage(newConfig = {}, callback) {
+        let defaultConfig = {};
+        let config = {...defaultConfig, ...newConfig};
         let cb = callback || function(canvas) {
             let a = document.createElement('a');
             a.addEventListener('click', function(ev) {
@@ -254,7 +256,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             //w.document.close();
         }
         self.printElem[0].style.top = 0;
-        html2Canvas(self.printElem[0], {}, cb);
+        html2Canvas(self.printElem[0], config, cb);
         self.printElem[0].style.top = pcpElemHeight;
     }
     this.getCorrectJsPdfFormat = function(unit, width, height) {
@@ -274,7 +276,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         return [width * k, height * k];
     }
     this.exportAsPDF = exportAsPDF;
-    function exportAsPDF(callback) {
+    function exportAsPDF(newConfig = {}, callback) {
         let imgWidth = self.calcPrintWidth(self.printWidth, self.printElem);
         let maxViewWidth = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).width - self.horizontalMargin * 2);
         let imgHeight = self.calcPrintHeight(self.printWidth, self.aspectRatio, self.printElem);
@@ -290,9 +292,11 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                         || 'myPDF'}.pdf`);
         }
         self.printElem[0].style.top = 0;
-        let config = {x: 0, y: 0};
-        config.width = _.min([imgWidth, maxViewWidth]) + 3;
-        config.height = _.min([imgHeight, maxViewHeight]) + 3;
+        let defaultConfig = {x: 0, y: 0,
+            width: _.min([imgWidth, maxViewWidth]) + 3,
+            height: _.min([imgHeight, maxViewHeight]) + 3
+        };
+        let config = {...defaultConfig, ...newConfig};
         html2Canvas(self.printElem[0], config, cb)
         self.printElem[0].style.top = pcpElemHeight;
     }
@@ -307,13 +311,13 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         console.log('doPrintAll');
     }
     this.doPrint = doPrint;
-    function doPrint(callback) {
+    function doPrint(html2CanvasConfig, callback) {
         switch(self.printMode) {
             case "image":
-                exportAsImage(callback);
+                exportAsImage(html2CanvasConfig, callback);
                 break;
             case "pdf":
-                exportAsPDF(callback);
+                exportAsPDF(html2CanvasConfig, callback);
                 break;
         }
     }
