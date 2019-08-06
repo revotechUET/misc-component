@@ -478,7 +478,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     }
     this.pixelTomm = pixelTomm;
     function pixelTomm(pixel, dpi = 96) {
-        return pixel * getDpi(false) / dpi;
+        return pixel * 25.4 / getDpi(false);
     }
     this.pixelToCm = pixelToCm;
     function pixelToCm(pixel, dpi = 96) {
