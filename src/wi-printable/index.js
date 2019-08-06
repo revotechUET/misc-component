@@ -123,7 +123,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         styleElem.appendChild(document.createTextNode(self.getCssText()));
         document.head.appendChild(styleElem);
         printElem.addClass(self.cssClassName);
-        //printElem.width(wiApi.mmToPixel(self.printWidth));
         printElem.width(self.calcPrintWidth(self.printWidth, printElem));
         printElem.height(self.calcPrintHeight(self.printWidth, self.aspectRatio, printElem));
         const pcpElem = document.createElement('div');
