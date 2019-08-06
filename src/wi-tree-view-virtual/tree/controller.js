@@ -299,7 +299,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
               >
             </wi-tree-node-virtual>`
 
-    return $compile(node)($scope)[0]
+    return $compile(node)($scope.$new())[0]
   }
 
   self.getVlistHeight = function () {

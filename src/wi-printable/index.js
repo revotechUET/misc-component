@@ -81,7 +81,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.verticalMargin = self.verticalMargin || 0; // in millimeters
         self.horizontalMargin = self.horizontalMargin || 0; // in millimeters
         self.printElement = self.printElement || ".printable";
-        self.printMode = self.printMode || "image";
+        self.printMode = self.printMode || "pdf";
         self.paperSize = 'A4';
         self.paperSizeList = [
             // in millimeters
