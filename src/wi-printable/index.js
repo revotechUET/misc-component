@@ -27,6 +27,7 @@ function component(componentData) {
             printMode: "<",
             paperSize: "<",
             isFitWidth: "<",
+            showCtrlPage: "<",
             ...componentData.bindings
         },
         transclude: componentData.transclude || false
@@ -77,10 +78,10 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.aspectRatio = self.aspectRatio || "4:3";
         self.alignment = self.alignment || "left";
         self.printWidth = self.printWidth || 200; // in millimeters
-        self.verticalMargin = self.verticalMargin || 15; // in millimeters
-        self.horizontalMargin = self.horizontalMargin || 15; // in millimeters
+        self.verticalMargin = self.verticalMargin || 0; // in millimeters
+        self.horizontalMargin = self.horizontalMargin || 0; // in millimeters
         self.printElement = self.printElement || ".printable";
-        self.printMode = self.printMode || "pdf";
+        self.printMode = self.printMode || "image";
         self.paperSize = 'A4';
         self.paperSizeList = [
             // in millimeters
@@ -90,6 +91,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         ];
         self.aspectRatioList = ['4:3', '16:9'];
         self.isFitWidth = self.isFitWidth !== undefined ? self.isFitWidth : false;
+        self.showCtrlPage = self.showCtrlPage !== undefined ? self.showCtrlPage : false;
         self.defaultBindings();
     }
     this.defaultBindings = function() {
@@ -122,8 +124,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         document.head.appendChild(styleElem);
         printElem.addClass(self.cssClassName);
         //printElem.width(wiApi.mmToPixel(self.printWidth));
-        //printElem.width(self.calcPrintWidthPx());
-        //printElem.height(self.calcPrintHeightPx(self.printWidth, self.aspectRatio, printElem));
+        printElem.width(self.calcPrintWidth(self.printWidth, printElem));
+        printElem.height(self.calcPrintHeight(self.printWidth, self.aspectRatio, printElem));
         const pcpElem = document.createElement('div');
         self.pcpElem = pcpElem;
         $(pcpElem).addClass('print-cmd-panel');
@@ -135,17 +137,20 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                 <span>{{$ctrl.getPrintInfo()}}</span>
                 <button ng-click="$ctrl.exitPreview()">Close</button>
                 <button ng-click="$ctrl.doPrint()">Print</button>
-                <button ng-click="$ctrl.doPrintAll($ctrl)">Print All</button>
-                <button ng-click="$ctrl.firstPage($ctrl)">First Page</button>
-                <button ng-click="$ctrl.previousPage($ctrl)">Previous</button>
-                <editable style="display:inline-block;" enabled='true' item-value="$ctrl.getPageIdx" set-value="$ctrl.setPageIdx" content-style='{
-                    float: "none",
-                    display: "inline-block",
-                    width: "50px",
-                    "text-align": "center"
-                }'></editable>
-                <button ng-click="$ctrl.nextPage($ctrl)">Next</button>
-                <button ng-click="$ctrl.lastPage($ctrl)">Last Page</button>
+                <div style="display: inline-block;"
+                    ng-if="$ctrl.showCtrlPage">
+                    <button ng-click="$ctrl.doPrintAll($ctrl)">Print All</button>
+                    <button ng-click="$ctrl.firstPage($ctrl)">First Page</button>
+                    <button ng-click="$ctrl.previousPage($ctrl)">Previous</button>
+                    <editable style="display:inline-block;" enabled='true' item-value="$ctrl.getPageIdx" set-value="$ctrl.setPageIdx" content-style='{
+                        float: "none",
+                        display: "inline-block",
+                        width: "50px",
+                        "text-align": "center"
+                    }'></editable>
+                    <button ng-click="$ctrl.nextPage($ctrl)">Next</button>
+                    <button ng-click="$ctrl.lastPage($ctrl)">Last Page</button>
+                </div>
             </div>
         `;
         //`<input ng-model="_pageIdx" ng-change="$ctrl.pageIdx = _pageIdx - 1; $ctrl.goToPage($ctrl)" ng-model-options="{updateOn: 'change'}">`
@@ -186,27 +191,27 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                 return w * 9 / 16;
         }
     }
-    this.calcPrintHeightPx = calcPrintHeightDefault;
+    this.calcPrintHeight = calcPrintHeightDefault;
     function calcPrintHeightDefault(w, ratio, htmlElem) {
         return wiApi.mmToPixel(calcPrintHeightMMDefault(w, ratio, htmlElem));
     }
 
-    this.calcPrintWidthPx = calcPrintWidthDefault;
-    function calcPrintWidthDefault() {
-        return wiApi.mmToPixel(self.printWidth);
+    this.calcPrintWidth = calcPrintWidthDefault;
+    function calcPrintWidthDefault(w, htmlElem) {
+        return wiApi.mmToPixel(w);
     }
     this.exitPreview = exitPreview;
     function exitPreview() {
         self.styleElem.remove();
         self.pcpElem.remove();
-        //self.printElem.width(self.originalWidth);
-        //self.printElem.height(self.originalHeight);
-        //if (self.printMode === 'image') {
-            //self.printElem[0].style.marginTop = self.originalMarginTop;
-            //self.printElem[0].style.marginBottom = self.originalMarginBottom;
-            //self.printElem[0].style.marginLeft = self.originalMarginLeft;
-            //self.printElem[0].style.marginRight = self.originalMarginRight;
-        //}
+        self.printElem.width(self.originalWidth);
+        self.printElem.height(self.originalHeight);
+        if (self.printMode === 'image') {
+            self.printElem[0].style.marginTop = self.originalMarginTop;
+            self.printElem[0].style.marginBottom = self.originalMarginBottom;
+            self.printElem[0].style.marginLeft = self.originalMarginLeft;
+            self.printElem[0].style.marginRight = self.originalMarginRight;
+        }
     }
     function html2Canvas(htmlElem, config, callback) {
         html2canvas(htmlElem, {
