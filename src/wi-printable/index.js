@@ -27,6 +27,7 @@ function component(componentData) {
             printMode: "<",
             paperSize: "<",
             isFitWidth: "<",
+            showCtrlPage: "<",
             ...componentData.bindings
         },
         transclude: componentData.transclude || false
@@ -90,6 +91,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         ];
         self.aspectRatioList = ['4:3', '16:9'];
         self.isFitWidth = self.isFitWidth !== undefined ? self.isFitWidth : false;
+        self.showCtrlPage = self.showCtrlPage !== undefined ? self.showCtrlPage : false;
         self.defaultBindings();
     }
     this.defaultBindings = function() {
@@ -135,17 +137,20 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                 <span>{{$ctrl.getPrintInfo()}}</span>
                 <button ng-click="$ctrl.exitPreview()">Close</button>
                 <button ng-click="$ctrl.doPrint()">Print</button>
-                <button ng-click="$ctrl.doPrintAll($ctrl)">Print All</button>
-                <button ng-click="$ctrl.firstPage($ctrl)">First Page</button>
-                <button ng-click="$ctrl.previousPage($ctrl)">Previous</button>
-                <editable style="display:inline-block;" enabled='true' item-value="$ctrl.getPageIdx" set-value="$ctrl.setPageIdx" content-style='{
-                    float: "none",
-                    display: "inline-block",
-                    width: "50px",
-                    "text-align": "center"
-                }'></editable>
-                <button ng-click="$ctrl.nextPage($ctrl)">Next</button>
-                <button ng-click="$ctrl.lastPage($ctrl)">Last Page</button>
+                <div style="display: inline-block;"
+                    ng-if="$ctrl.showCtrlPage">
+                    <button ng-click="$ctrl.doPrintAll($ctrl)">Print All</button>
+                    <button ng-click="$ctrl.firstPage($ctrl)">First Page</button>
+                    <button ng-click="$ctrl.previousPage($ctrl)">Previous</button>
+                    <editable style="display:inline-block;" enabled='true' item-value="$ctrl.getPageIdx" set-value="$ctrl.setPageIdx" content-style='{
+                        float: "none",
+                        display: "inline-block",
+                        width: "50px",
+                        "text-align": "center"
+                    }'></editable>
+                    <button ng-click="$ctrl.nextPage($ctrl)">Next</button>
+                    <button ng-click="$ctrl.lastPage($ctrl)">Last Page</button>
+                </div>
             </div>
         `;
         //`<input ng-model="_pageIdx" ng-change="$ctrl.pageIdx = _pageIdx - 1; $ctrl.goToPage($ctrl)" ng-model-options="{updateOn: 'change'}">`
@@ -199,14 +204,14 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     function exitPreview() {
         self.styleElem.remove();
         self.pcpElem.remove();
-        //self.printElem.width(self.originalWidth);
-        //self.printElem.height(self.originalHeight);
-        //if (self.printMode === 'image') {
-            //self.printElem[0].style.marginTop = self.originalMarginTop;
-            //self.printElem[0].style.marginBottom = self.originalMarginBottom;
-            //self.printElem[0].style.marginLeft = self.originalMarginLeft;
-            //self.printElem[0].style.marginRight = self.originalMarginRight;
-        //}
+        self.printElem.width(self.originalWidth);
+        self.printElem.height(self.originalHeight);
+        if (self.printMode === 'image') {
+            self.printElem[0].style.marginTop = self.originalMarginTop;
+            self.printElem[0].style.marginBottom = self.originalMarginBottom;
+            self.printElem[0].style.marginLeft = self.originalMarginLeft;
+            self.printElem[0].style.marginRight = self.originalMarginRight;
+        }
     }
     function html2Canvas(htmlElem, config, callback) {
         html2canvas(htmlElem, {
@@ -269,25 +274,19 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         return [width * k, height * k];
     }
     this.exportAsPDF = exportAsPDF;
-    function exportAsPDF() {
+    function exportAsPDF(callback) {
+        let cb = callback || function(canvas) {
+            let imgData = canvas.toDataURL("image/png");
+            let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
+            pdf.addImage(imgData, 'PNG', self.horizontalMargin, self.verticalMargin);
+            pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
+                        || 'myPDF'}.pdf`);
+        }
         self.printElem[0].style.top = 0;
         html2Canvas(self.printElem[0], {
             x: 0,
             y: 0
-        }, canvas => {
-            let imgData = canvas.toDataURL("image/png");
-            let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
-            //let onePageHeight = pdf.internal.pageSize.height;
-            //let printElemHeight = self.printElem.height();
-            //let pageNums = printElemHeight % onePageHeight ? printElemHeight / onePageHeight + 1 : printElemHeight / onePageHeight;
-            //for (let i = 0; i < pageNums; i++) {
-                //pdf.addPage();
-            //}
-            //console.log(onePageHeight);
-            pdf.addImage(imgData, 'PNG', self.horizontalMargin, self.verticalMargin);
-            pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
-                        || 'myPDF'}.pdf`);
-        })
+        }, cb)
         self.printElem[0].style.top = pcpElemHeight;
     }
     this.getPaperSizeDefault = function(paperName) {
