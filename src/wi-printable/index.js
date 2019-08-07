@@ -39,7 +39,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     let pcpElemHeight = "25px";
     const cssText = `
         .${self.cssClassName} {
-            border: 1px solid black !important;
             position: fixed !important;
             z-index: 999;
             top: ${pcpElemHeight};
