@@ -305,7 +305,7 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
             // console.log(arrayPatternProcess);
 
             // let arrayStringProcess = stringProcess.split('-');
-            let arrayString = stringProcess.replace(/[ #@*^$%!~_]/g, '-');
+            let arrayString = stringProcess.replace(/[ #@*^$%!~]/g, '-');
             let arrayStringProcess = arrayString.split('-');
             // console.log(arrayStringProcess);
             let arrayPattern = [];
