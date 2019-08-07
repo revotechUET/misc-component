@@ -81,7 +81,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.verticalMargin = self.verticalMargin || 0; // in millimeters
         self.horizontalMargin = self.horizontalMargin || 0; // in millimeters
         self.printElement = self.printElement || ".printable";
-        self.printMode = self.printMode || "image";
+        self.printMode = self.printMode || "pdf";
         self.paperSize = 'A4';
         self.paperSizeList = [
             // in millimeters
@@ -123,7 +123,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         styleElem.appendChild(document.createTextNode(self.getCssText()));
         document.head.appendChild(styleElem);
         printElem.addClass(self.cssClassName);
-        //printElem.width(wiApi.mmToPixel(self.printWidth));
         printElem.width(self.calcPrintWidth(self.printWidth, printElem));
         printElem.height(self.calcPrintHeight(self.printWidth, self.aspectRatio, printElem));
         const pcpElem = document.createElement('div');
@@ -198,6 +197,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
 
     this.calcPrintWidth = calcPrintWidthDefault;
     function calcPrintWidthDefault(w, htmlElem) {
+        if (self.isFitWidth) return wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).width - self.horizontalMargin * 2)
         return wiApi.mmToPixel(w);
     }
     this.exitPreview = exitPreview;
@@ -236,7 +236,9 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         })
     }
     this.exportAsImage = exportAsImage;
-    function exportAsImage(callback) {
+    function exportAsImage(newConfig = {}, callback) {
+        let defaultConfig = {};
+        let config = {...defaultConfig, ...newConfig};
         let cb = callback || function(canvas) {
             let a = document.createElement('a');
             a.addEventListener('click', function(ev) {
@@ -254,7 +256,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             //w.document.close();
         }
         self.printElem[0].style.top = 0;
-        html2Canvas(self.printElem[0], {}, cb);
+        html2Canvas(self.printElem[0], config, cb);
         self.printElem[0].style.top = pcpElemHeight;
     }
     this.getCorrectJsPdfFormat = function(unit, width, height) {
@@ -274,23 +276,34 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         return [width * k, height * k];
     }
     this.exportAsPDF = exportAsPDF;
-    function exportAsPDF(callback) {
+    function exportAsPDF(newConfig = {}, callback) {
+        let imgWidth = self.calcPrintWidth(self.printWidth, self.printElem);
+        let maxViewWidth = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).width - self.horizontalMargin * 2);
+        let imgHeight = self.calcPrintHeight(self.printWidth, self.aspectRatio, self.printElem);
+        let maxViewHeight = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).height - self.verticalMargin * 2);
         let cb = callback || function(canvas) {
             let imgData = canvas.toDataURL("image/png");
             let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
-            pdf.addImage(imgData, 'PNG', self.horizontalMargin, self.verticalMargin);
+            pdf.addImage(
+                imgData, 'PNG',
+                self.horizontalMargin, self.verticalMargin
+            );
             pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
                         || 'myPDF'}.pdf`);
         }
         self.printElem[0].style.top = 0;
-        html2Canvas(self.printElem[0], {
-            x: 0,
-            y: 0
-        }, cb)
+        let defaultConfig = {x: 0, y: 0,
+            width: _.min([imgWidth, maxViewWidth]) + 3,
+            height: _.min([imgHeight, maxViewHeight]) + 3
+        };
+        let config = {...defaultConfig, ...newConfig};
+        html2Canvas(self.printElem[0], config, cb)
         self.printElem[0].style.top = pcpElemHeight;
     }
-    this.getPaperSizeDefault = function(paperName) {
+    this.getPaperSizeDefault = getPaperSizeDefault;
+    function getPaperSizeDefault(paperName) {
         let page = self.paperSizeList.find(psl => psl.properties.name === paperName).properties;
+        if (self.printMode === 'pdf' && self.orientation === 'landscape') return {height: page.width, width: page.height};
         return page;
     }
     this.doPrintAll = doPrintAll;
@@ -298,13 +311,13 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         console.log('doPrintAll');
     }
     this.doPrint = doPrint;
-    function doPrint(callback) {
+    function doPrint(html2CanvasConfig, callback) {
         switch(self.printMode) {
             case "image":
-                exportAsImage(callback);
+                exportAsImage(html2CanvasConfig, callback);
                 break;
             case "pdf":
-                exportAsPDF(callback);
+                exportAsPDF(html2CanvasConfig, callback);
                 break;
         }
     }
