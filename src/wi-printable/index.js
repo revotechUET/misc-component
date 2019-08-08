@@ -291,10 +291,11 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                         || 'myPDF'}.pdf`);
         }
         self.printElem[0].style.top = 0;
-        let defaultConfig = {x: 0, y: 0,
-            width: _.min([imgWidth, maxViewWidth]) + 3,
-            height: _.min([imgHeight, maxViewHeight]) + 3
-        };
+        //let defaultConfig = {x: 0, y: 0,
+            //width: _.min([imgWidth, maxViewWidth]) + 3,
+            //height: _.min([imgHeight, maxViewHeight]) + 3
+        //};
+        let defaultConfig = {x: 0, y: 0};
         let config = {...defaultConfig, ...newConfig};
         html2Canvas(self.printElem[0], config, cb)
         self.printElem[0].style.top = pcpElemHeight;
