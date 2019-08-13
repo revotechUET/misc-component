@@ -327,6 +327,8 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             let curveArr = curvesInDataset.filter(c => Array.from(curveSet).includes(c.name));
             for (let curve of curveArr) {
                 let cData = await getCachedCurveDataPromise(curve.idCurve);
+                if (!_.isFinite(length))
+                    length = cData.length;
                 curvesData.push({
                     idCurve: curve.idCurve,
                     name: curve.name,
