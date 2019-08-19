@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test WiTableView</title>
+        <link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/all.css">
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../dist/misc-components.js"></script>
+    </head>
+    <style>
+        .row {
+            display: flex;
+        }
+        .row .cell {
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+    <body ng-app="myApp" ng-controller="myController">
+        <div class="table1" style="background: #f4f4f4; width: 70%; height: 200px; overflow: hidden; position: relative;">
+            <wi-table-resizeable headers="headerArray" on-table-init="tableInit" on-header-width-changed="changeWidth">
+                <div class="row" ng-repeat="item in array track by $index">
+                    <div ng-style='{"width": widthArray[0]}' class="cell">{{item.name}}</div>
+                    <div ng-style='{"width": widthArray[1]}' class="cell">{{item.age}}</div>
+                    <div ng-style='{"width": widthArray[2]}' class="cell">{{item.weight}}</div>
+                </div>
+            </wi-table-resizeable>
+        </div>
+        <script>
+            angular.module("myApp", ['wiTableResizeable']).controller('myController', function($scope, $timeout, $element) {
+                $scope.array = [{name: 'hung',age: 23, weight: 55}, {name: 'hung',age: 23, weight: 55},{name: 'hung',age: 23, weight: 55},{name: 'hung',age: 23, weight: 55},{name: 'hung',age: 23, weight: 55},{name: 'hung',age: 23, weight: 55},{name: 'hung',age: 23, weight: 55},{name: 'hung',age: 23, weight: 55},{name: 'hung',age: 23, weight: 55}];
+                $scope.headerArray = ['name', 'age', 'weight'];
+                $scope.widthArray = [];
+                $scope.changeWidth = function (leftColIdx, leftColWidth, rightColIdx, rightColWidth) {
+                    $timeout(() => {
+                        $scope.widthArray[leftColIdx] = leftColWidth;
+                        $scope.widthArray[rightColIdx] = rightColWidth;
+                    });
+                }
+                $scope.tableInit = function(tableWidthArray) {
+                    $timeout(() => {
+                        $scope.widthArray = tableWidthArray;
+                    });
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+wi-table-resizeable {
+    font-family: Roboto, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    .main-table-resizeable {
+        position      : relative;
+        display       : flex;
+        flex-direction: column;
+        height        : 100%;
+
+        .header-table-resizeable {
+            display: flex;
+            background: #fff;
+            border-bottom: 1px solid #e6e6e6;
+
+            .item {
+                display: flex;
+                .name {
+                    color: #0062be;
+                    font-weight: bold;
+                    padding: 10px;
+                    flex: 1;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    border-left: 1px solid #e6e6e6;
+                }
+
+                .holder-resizeable {
+                    flex-basis     : 5px;
+                    cursor: col-resize;
+
+                    &:hover {
+                        background: rgb(19, 112, 218);
+                    }
+                }
+            }
+        }
+
+        .content {
+            overflow: overlay;
+            flex    : 1;
+        }
+    }
+
+}

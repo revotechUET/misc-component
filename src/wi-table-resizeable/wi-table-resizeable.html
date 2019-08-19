@@ -1,0 +1,15 @@
+<div class="main-table-resizeable">
+    <div class="header-table-resizeable">
+        <div ng-repeat="header in self.headers track by $index" class="item" ng-style="{width : self.columnWidths[$index] + 'px'}">
+            <div class="name">
+                {{header}}
+            </div>
+            <div ng-if="$index !== (self.headers.length - 1)" class="holder-resizeable" ordinal="{{$index}}"> </div>
+        </div>
+    </div>
+    <div class="content">
+        <div ng-transclude>
+        </div>
+    </div>
+</div>
+
