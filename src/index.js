@@ -21,5 +21,6 @@ module.exports = {
     wiTreeViewVirtual: require('./wi-tree-view-virtual'),
     wiNeuralNetwork: require('./wi-neural-network'),
     wiPrintTable: require('./wi-printable'),
-    imgPreview: require('./img-preview')
+    imgPreview: require('./img-preview'),
+    wiTableResizeable: require('./wi-table-resizeable')
 }
