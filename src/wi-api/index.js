@@ -528,6 +528,26 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             })
         })
     }
+    this.createMlProjectPromise = createMlProjectPromise;
+    function createMlProjectPromise(payload) {
+        return postPromise('/ml-project/new', payload);
+    }
+    this.getMlProjectListPromise = getMlProjectListPromise;
+    function getMlProjectListPromise() {
+        return postPromise('/ml-project/list', {});
+    }
+    this.deleteMlProjectPromise = deleteMlProjectPromise;
+    function deleteMlProjectPromise(idMlProject) {
+        return postPromise('/ml-project/delete', {idMlProject: idMlProject})
+    }
+    this.getMlProjectInfoPromise = getMlProjectInfoPromise;
+    function getMlProjectInfoPromise(idMlProject) {
+        return postPromise('/ml-project/info', {idMlProject: idMlProject});
+    }
+    this.editMlProjectPromise = editMlProjectPromise;
+    function editMlProjectPromise(payload) {
+        return postPromise('/ml-project/edit', payload);
+    }
 }
 
 function SHA256(s){
