@@ -1,0 +1,30 @@
+<curve-metadata-bar
+  dataset="self.dataset"
+  well="self.well"
+  curve-name="self.curveName"
+  num-bins="self.numBins"
+></curve-metadata-bar>
+
+<div class="text-danger" ng-bind="self.errMsg"></div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th
+        scope="col"
+        ng-repeat="header in self.headers track by $index"
+        ng-bind="header"
+      ></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="(idx, metricsEachBin) in self.binMetrics track by $index">
+      <th scope="row" ng-bind="idx + 1"></th>
+      <td
+        ng-repeat="metric in metricsEachBin track by $index"
+        ng-bind="metric"
+      ></td>
+    </tr>
+  </tbody>
+</table>

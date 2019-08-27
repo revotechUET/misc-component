@@ -22,5 +22,6 @@ module.exports = {
     wiNeuralNetwork: require('./wi-neural-network'),
     wiPrintTable: require('./wi-printable'),
     imgPreview: require('./img-preview'),
-    wiTableResizeable: require('./wi-table-resizeable')
+    wiTableResizeable: require('./wi-table-resizeable'),
+    recordTable: require('./record-table')
 }
