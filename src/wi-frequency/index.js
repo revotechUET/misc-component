@@ -1,5 +1,5 @@
-const componentName = 'recordTable'
-const moduleName = 'record-table'
+const componentName = 'wiFrequency'
+const moduleName = 'wi-frequency'
 
 const calculator = require('./calculator')
 require('./style.less')

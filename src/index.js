@@ -23,5 +23,5 @@ module.exports = {
     wiPrintTable: require('./wi-printable'),
     imgPreview: require('./img-preview'),
     wiTableResizeable: require('./wi-table-resizeable'),
-    recordTable: require('./record-table')
+    wiFrequency: require('./wi-frequency')
 }
