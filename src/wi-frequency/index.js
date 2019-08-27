@@ -102,7 +102,7 @@ function controller(wiApi, $scope) {
   }
 }
 
-const app = angular.module(moduleName, ['curve-metadata-bar', 'wiApi'])
+const app = angular.module(moduleName, [ 'wiApi'])
 app.component(componentName, {
   controller,
   template: require('./template.html'),
