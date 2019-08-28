@@ -40,7 +40,7 @@ function creatCss() {
 
 function writeCss(time) {
     setTimeout(function () {
-        arrayToTxtFile(array, '../wi-icons/style.less', err => {
+        arrayToTxtFile(array, '../wi-icons/sprite.less', err => {
             if (err) {
                 console.error(err)
                 return;
