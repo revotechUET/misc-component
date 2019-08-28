@@ -7,7 +7,9 @@ require('./style.less')
 controller.$inject = ['wiApi', '$scope']
 function controller(wiApi, $scope) {
   const self = this
-
+  
+  self.numBins = self.numBins || 6
+  self.searchText = ''
   self.binMetrics = []
   self.headers = ['Count', 'Lower Bound', 'Upper Bound'] //default
   self.errMsg = ''
@@ -17,14 +19,19 @@ function controller(wiApi, $scope) {
   }
 
   self.$onChanges = function(changes) {
-    
-    self.dataset = changes.dataset.currentValue
-    self.well = changes.well.currentValue
-    self.numBins = changes.numBins.currentValue
-    self.curveName = changes.curveName.currentValue
-    self.curveId = changes.curveId.currentValue
-    self.errMsg = ''
+   
+    if(changes.dataset) self.dataset = changes.dataset.currentValue
+    if(changes.well) self.well = changes.well.currentValue
+    if(changes.numBins) self.numBins = changes.numBins.currentValue
+    if(changes.curveName ) self.curveName = changes.curveName.currentValue
+    if(changes.curveId) self.curveId = changes.curveId.currentValue
+    if(changes.searchText) self.searchText = changes.searchText.currentValue
 
+
+    if(changes.searchByLowerBound) self.searchByLowerBound = changes.searchByLowerBound.currentValue
+    if(changes.searchByUpperBound) self.searchByUpperBound = changes.searchByUpperBound.currentValue
+    self.errMsg = ''
+    
     if(self.curveId) initState()
   }
 
@@ -37,6 +44,18 @@ function controller(wiApi, $scope) {
     } else {
       this.$apply(fn)
     }
+  }
+
+  self.isSearchResult = function(metricsInBin) {
+ 	let result = false
+	
+	if (self.searchByLowerBound)
+	  result = result || metricsInBin[1] == self.searchText
+	
+	if (self.searchByUpperBound)
+	  result = result || metricsInBin[2] == self.searchText
+
+	return result;
   }
 
   function initState() {
@@ -113,6 +132,9 @@ app.component(componentName, {
     numBins: '<',
     curveName: '<',
     curveId: '<',
+    searchText: '<',
+    searchByLowerBound: '<',
+    searchByUpperBound: '<'
   },
 })
 

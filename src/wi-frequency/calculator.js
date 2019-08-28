@@ -21,8 +21,9 @@ function splitIntoBins(curveData, numBins) {
     .thresholds(xAxis.ticks(numBins))
 
   const bins = histogram(curveData)
-  const sanitizedBins = bins.map(bin => sanitize(bin)).filter(bin => bin && bin.length)
-  return sanitizedBins
+  return bins
+//  const sanitizedBins = bins.map(bin => sanitize(bin)).filter(bin => bin && bin.length)
+//  return sanitizedBins
 }
 
 function sanitize(bin) {
@@ -39,14 +40,14 @@ module.exports.getNumPointInEachChunk = function(curveData, numBins) {
 
 module.exports.getUpperBoundInEachChunk = function(curveData, numbBins) {
   const bins = splitIntoBins(curveData, numbBins)
-  const upperBounds = bins.map(metricsInBin => _.last(metricsInBin).x)
+  const upperBounds = bins.map(bin => bin.x1)
 
   return upperBounds
 }
 
 module.exports.getLowerBoundInEachChunk = function(curveData, numBins) {
   const bins = splitIntoBins(curveData, numBins)
-  const lowerBounds = bins.map(metricsInBin => _.first(metricsInBin).x)
+  const lowerBounds = bins.map(bin => bin.x0)
 
   return lowerBounds
 }

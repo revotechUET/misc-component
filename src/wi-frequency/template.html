@@ -19,7 +19,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="(idx, metricsEachBin) in self.binMetrics track by $index">
+      <tr ng-repeat="(idx, metricsEachBin) in self.binMetrics track by $index" ng-class="{'active': self.isSearchResult(metricsEachBin)}">
       <th scope="row" ng-bind="idx + 1"></th>
       <td
         ng-repeat="metric in metricsEachBin track by $index"
