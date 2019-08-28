@@ -152,6 +152,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 
 /***/ }),
 
+/***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-frequency/style.less":
+/*!****************************************************************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-frequency/style.less ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"record-table ol.breadcrumb {\\n  background-color: transparent;\\n  margin-bottom: 0;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-frequency/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-icons/custom.less":
 /*!*************************************************************************************************************!*\
   !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-icons/custom.less ***!
@@ -502,7 +513,7 @@ eval("module.exports = \"<!-- <img class=\\\"main-img\\\" src=\\\"{{imgPreview.s
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n\tlineStyle: __webpack_require__(/*! ./line-style/index */ \"./line-style/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\"),\n    wiDroppable: __webpack_require__(/*! ./wi-droppable */ \"./wi-droppable/index.js\"),\n    wiDialog: __webpack_require__(/*! ./wi-dialog */ \"./wi-dialog/index.js\"),\n    wiApi: __webpack_require__(/*! ./wi-api */ \"./wi-api/index.js\"),\n    wiLoading: __webpack_require__(/*! ./wi-loading */ \"./wi-loading/index.js\"),\n    wiDropdownList: __webpack_require__(/*! ./wi-dropdown-list */ \"./wi-dropdown-list/index.js\"),\n    wiDiscriminator: __webpack_require__(/*! ./wi-discriminator */ \"./wi-discriminator/index.js\"),\n    wiMapLoading: __webpack_require__(/*! ./wi-map-loading */ \"./wi-map-loading/index.js\"),\n    wiPrintLoading: __webpack_require__(/*! ./wi-print-loading */ \"./wi-print-loading/index.js\"),\n    wiTreeViewVirtual: __webpack_require__(/*! ./wi-tree-view-virtual */ \"./wi-tree-view-virtual/index.js\"),\n    wiNeuralNetwork: __webpack_require__(/*! ./wi-neural-network */ \"./wi-neural-network/index.js\"),\n    wiPrintTable: __webpack_require__(/*! ./wi-printable */ \"./wi-printable/index.js\"),\n    imgPreview: __webpack_require__(/*! ./img-preview */ \"./img-preview/index.js\"),\n    wiTableResizeable: __webpack_require__(/*! ./wi-table-resizeable */ \"./wi-table-resizeable/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n\tlineStyle: __webpack_require__(/*! ./line-style/index */ \"./line-style/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\"),\n    wiDroppable: __webpack_require__(/*! ./wi-droppable */ \"./wi-droppable/index.js\"),\n    wiDialog: __webpack_require__(/*! ./wi-dialog */ \"./wi-dialog/index.js\"),\n    wiApi: __webpack_require__(/*! ./wi-api */ \"./wi-api/index.js\"),\n    wiLoading: __webpack_require__(/*! ./wi-loading */ \"./wi-loading/index.js\"),\n    wiDropdownList: __webpack_require__(/*! ./wi-dropdown-list */ \"./wi-dropdown-list/index.js\"),\n    wiDiscriminator: __webpack_require__(/*! ./wi-discriminator */ \"./wi-discriminator/index.js\"),\n    wiMapLoading: __webpack_require__(/*! ./wi-map-loading */ \"./wi-map-loading/index.js\"),\n    wiPrintLoading: __webpack_require__(/*! ./wi-print-loading */ \"./wi-print-loading/index.js\"),\n    wiTreeViewVirtual: __webpack_require__(/*! ./wi-tree-view-virtual */ \"./wi-tree-view-virtual/index.js\"),\n    wiNeuralNetwork: __webpack_require__(/*! ./wi-neural-network */ \"./wi-neural-network/index.js\"),\n    wiPrintTable: __webpack_require__(/*! ./wi-printable */ \"./wi-printable/index.js\"),\n    imgPreview: __webpack_require__(/*! ./img-preview */ \"./img-preview/index.js\"),\n    wiTableResizeable: __webpack_require__(/*! ./wi-table-resizeable */ \"./wi-table-resizeable/index.js\"),\n    wiFrequency: __webpack_require__(/*! ./wi-frequency */ \"./wi-frequency/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -1053,6 +1064,50 @@ eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dis
 /***/ (function(module, exports) {
 
 eval("module.exports = \"<div ng-transclude ng-style=\\\"self.containerStyle\\\"></div>\\n\";\n\n//# sourceURL=webpack:///./wi-droppable/template.html?");
+
+/***/ }),
+
+/***/ "./wi-frequency/calculator.js":
+/*!************************************!*\
+  !*** ./wi-frequency/calculator.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function splitIntoBins(curveData, numBins) {\n  // const sortedCurves = [...curveData].sort(\n  //   (a, b) => parseFloat(a.x) - parseFloat(b.x)\n  // )\n  // const maxX = _.last(sortedCurves).x\n  // const minX = _.first(sortedCurves).x\n\n  const maxX = _.maxBy(curveData, curve =>\n    _.isNumber(curve.x) ? curve.x : -Infinity\n  ).x\n\n  const minX = _.minBy(curveData, curve =>\n    _.isNumber(curve.x) ? curve.x : Infinity\n  ).x\n\n  const xAxis = d3.scaleLinear().domain([minX, maxX])\n  const histogram = d3\n    .histogram()\n    .value(c => c.x)\n    .domain(xAxis.domain())\n    .thresholds(xAxis.ticks(numBins))\n\n  const bins = histogram(curveData)\n  const sanitizedBins = bins.map(bin => sanitize(bin)).filter(bin => bin && bin.length)\n  return sanitizedBins\n}\n\nfunction sanitize(bin) {\n  //collect only element that have property x\n  return bin.filter(el => _.isNumber(el.x))\n}\n\nmodule.exports.getNumPointInEachChunk = function(curveData, numBins) {\n  const bins = splitIntoBins(curveData, numBins)\n  const countMemOfEachBins = bins.map(bin => bin.length)\n\n  return countMemOfEachBins\n}\n\nmodule.exports.getUpperBoundInEachChunk = function(curveData, numbBins) {\n  const bins = splitIntoBins(curveData, numbBins)\n  const upperBounds = bins.map(metricsInBin => _.last(metricsInBin).x)\n\n  return upperBounds\n}\n\nmodule.exports.getLowerBoundInEachChunk = function(curveData, numBins) {\n  const bins = splitIntoBins(curveData, numBins)\n  const lowerBounds = bins.map(metricsInBin => _.first(metricsInBin).x)\n\n  return lowerBounds\n}\n\n\n//# sourceURL=webpack:///./wi-frequency/calculator.js?");
+
+/***/ }),
+
+/***/ "./wi-frequency/index.js":
+/*!*******************************!*\
+  !*** ./wi-frequency/index.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const componentName = 'wiFrequency'\nconst moduleName = 'wi-frequency'\n\nconst calculator = __webpack_require__(/*! ./calculator */ \"./wi-frequency/calculator.js\")\n__webpack_require__(/*! ./style.less */ \"./wi-frequency/style.less\")\n\ncontroller.$inject = ['wiApi', '$scope']\nfunction controller(wiApi, $scope) {\n  const self = this\n\n  self.binMetrics = []\n  self.headers = ['Count', 'Lower Bound', 'Upper Bound'] //default\n  self.errMsg = ''\n\n  self.$onInit = function() {\n    if(self.curveId) initState()\n  }\n\n  self.$onChanges = function(changes) {\n    \n    self.dataset = changes.dataset.currentValue\n    self.well = changes.well.currentValue\n    self.numBins = changes.numBins.currentValue\n    self.curveName = changes.curveName.currentValue\n    self.curveId = changes.curveId.currentValue\n    self.errMsg = ''\n\n    if(self.curveId) initState()\n  }\n\n  $scope.safeApply = function(fn) {\n    const phase = this.$root.$$phase\n    if (phase == '$apply' || phase == '$digest') {\n      if (fn && typeof fn === 'function') {\n        fn()\n      }\n    } else {\n      this.$apply(fn)\n    }\n  }\n\n  function initState() {\n    getCurveData(self.curveId, (error, resp) => {\n      if (error) {\n        self.errMsg = 'Cannot load curve data'\n        return\n      }\n\n      const curveData = resp\n      const curveSplitedWithMetrics = getMetrics(curveData, self.numBins)\n\n      self.headers = generateTableHeaders(curveSplitedWithMetrics)\n      self.binMetrics = generateMetricsForEachBin(curveSplitedWithMetrics)\n      $scope.safeApply()\n    })\n  }\n\n  function getCurveData(idCurve, cb) {\n    wiApi\n      .getCachedCurveDataPromise(idCurve)\n      .then(val => cb(null, val))\n      .catch(error => cb(error))\n  }\n\n  function generateMetricsForEachBin(curveWithMetrics) {\n    const metricsMatrix = curveWithMetrics.map(c => c.metrics)\n    const metricsInEachBins = _.zip(...metricsMatrix)\n\n    return metricsInEachBins\n  }\n\n  function getMetrics(curveData, numBins) {\n    const metrics = []\n\n    //add metrics calculated in headers \"Count\"\n    const metricsByCount = {\n      by: 'Count',\n      metrics: calculator.getNumPointInEachChunk(curveData, numBins),\n    }\n    metrics.push(metricsByCount)\n\n    //add metrics calculated in headers \"LowerBound\"\n    const metricsByLowerBound = {\n      by: 'Lower Bound',\n      metrics: calculator.getLowerBoundInEachChunk(curveData, numBins),\n    }\n    metrics.push(metricsByLowerBound)\n\n    //add metrics calculated in headers \"LowerBound\"\n    const metricsByUpperBound = {\n      by: 'Upper Bound',\n      metrics: calculator.getUpperBoundInEachChunk(curveData, numBins),\n    }\n    metrics.push(metricsByUpperBound)\n\n    return metrics\n  }\n\n  function generateTableHeaders(curveWithMetrics) {\n    const headers = curveWithMetrics.map(c => c.by)\n    return headers\n  }\n}\n\nconst app = angular.module(moduleName, [ 'wiApi'])\napp.component(componentName, {\n  controller,\n  template: __webpack_require__(/*! ./template.html */ \"./wi-frequency/template.html\"),\n  controllerAs: 'self',\n  bindings: {\n    dataset: '<',\n    well: '<',\n    numBins: '<',\n    curveName: '<',\n    curveId: '<',\n  },\n})\n\nexports.name = moduleName\n\n\n//# sourceURL=webpack:///./wi-frequency/index.js?");
+
+/***/ }),
+
+/***/ "./wi-frequency/style.less":
+/*!*********************************!*\
+  !*** ./wi-frequency/style.less ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./style.less */ \"../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-frequency/style.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-frequency/style.less?");
+
+/***/ }),
+
+/***/ "./wi-frequency/template.html":
+/*!************************************!*\
+  !*** ./wi-frequency/template.html ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<curve-metadata-bar\\n  dataset=\\\"self.dataset\\\"\\n  well=\\\"self.well\\\"\\n  curve-name=\\\"self.curveName\\\"\\n  num-bins=\\\"self.numBins\\\"\\n></curve-metadata-bar>\\n\\n<div class=\\\"text-danger\\\" ng-bind=\\\"self.errMsg\\\"></div>\\n\\n<table class=\\\"table\\\">\\n  <thead>\\n    <tr>\\n      <th scope=\\\"col\\\">#</th>\\n      <th\\n        scope=\\\"col\\\"\\n        ng-repeat=\\\"header in self.headers track by $index\\\"\\n        ng-bind=\\\"header\\\"\\n      ></th>\\n    </tr>\\n  </thead>\\n  <tbody>\\n    <tr ng-repeat=\\\"(idx, metricsEachBin) in self.binMetrics track by $index\\\">\\n      <th scope=\\\"row\\\" ng-bind=\\\"idx + 1\\\"></th>\\n      <td\\n        ng-repeat=\\\"metric in metricsEachBin track by $index\\\"\\n        ng-bind=\\\"metric\\\"\\n      ></td>\\n    </tr>\\n  </tbody>\\n</table>\\n\";\n\n//# sourceURL=webpack:///./wi-frequency/template.html?");
 
 /***/ }),
 
