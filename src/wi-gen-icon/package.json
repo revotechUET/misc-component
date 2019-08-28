@@ -1,0 +1,22 @@
+{
+  "name": "sprite-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "16": "node app --input ./images16 --output-css ./export/less/sprite_16.less --output-img ./export/img/img_16x16.png",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "array-to-txt-file": "^1.0.2",
+    "jQuery": "^1.7.4",
+    "jimp": "^0.4.0",
+    "jquery": "^3.4.0",
+    "node-sprite-generator": "^0.10.2",
+    "svg-to-dataurl": "^1.0.0",
+    "svg.js": "^2.7.1",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
