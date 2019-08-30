@@ -11,7 +11,7 @@ function controller(wiApi, $scope) {
   self.numBins = self.numBins || 6
   self.searchText = ''
   self.binMetrics = []
-  self.headers = ['Count', 'Lower Bound', 'Upper Bound'] //default
+//  self.headers = ['Count', 'Lower Bound', 'Upper Bound'] //default
   self.errMsg = ''
 
   self.$onInit = function() {
@@ -47,15 +47,11 @@ function controller(wiApi, $scope) {
   }
 
   self.isSearchResult = function(metricsInBin) {
- 	let result = false
-	
-	if (self.searchByLowerBound)
-	  result = result || metricsInBin[1] == self.searchText
-	
-	if (self.searchByUpperBound)
-	  result = result || metricsInBin[2] == self.searchText
+	  const upper = metricsInBin[2]
+	  const lower = metricsInBin[1]
+	  const searchVal = parseInt(self.searchText)
 
-	return result;
+	  return searchVal <= upper && searchVal >= lower
   }
 
   function initState() {
@@ -68,7 +64,7 @@ function controller(wiApi, $scope) {
       const curveData = resp
       const curveSplitedWithMetrics = getMetrics(curveData, self.numBins)
 
-      self.headers = generateTableHeaders(curveSplitedWithMetrics)
+  //    self.headers = generateTableHeaders(curveSplitedWithMetrics)
       self.binMetrics = generateMetricsForEachBin(curveSplitedWithMetrics)
       $scope.safeApply()
     })
@@ -115,10 +111,10 @@ function controller(wiApi, $scope) {
     return metrics
   }
 
-  function generateTableHeaders(curveWithMetrics) {
-    const headers = curveWithMetrics.map(c => c.by)
-    return headers
-  }
+  //function generateTableHeaders(curveWithMetrics) {
+  //  const headers = curveWithMetrics.map(c => c.by)
+  //  return headers
+  //}
 }
 
 const app = angular.module(moduleName, [ 'wiApi'])
@@ -133,8 +129,6 @@ app.component(componentName, {
     curveName: '<',
     curveId: '<',
     searchText: '<',
-    searchByLowerBound: '<',
-    searchByUpperBound: '<'
   },
 })
 
