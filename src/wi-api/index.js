@@ -548,6 +548,27 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function editMlProjectPromise(payload) {
         return postPromise('/ml-project/edit', payload);
     }
+
+    this.createLogplotPromise = createLogplotPromise;
+    function createLogplotPromise(payload) {
+        return postPromise('/project/plot/new', payload);
+    }
+    this.createDepthTrackPromise = createDepthTrackPromise;
+    function createDepthTrackPromise(payload) {
+        return postPromise('/project/plot/depth-axis/new', payload);
+    }
+    this.createLogTrackPromise = createLogTrackPromise;
+    function createLogTrackPromise(payload) {
+        return postPromise('/project/plot/track/new', payload);
+    }
+    this.createLinePromise = createLinePromise;
+    function createLinePromise(payload) {
+        return postPromise('/project/plot/track/line/new', payload);
+    }
+    this.editLinePromise = editLinePromise;
+    function editLinePromise(payload) {
+        return postPromise('/project/plot/track/line/edit', payload);
+    }
 }
 
 function SHA256(s){
