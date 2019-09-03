@@ -27,6 +27,7 @@ function component(componentData) {
             printMode: "<",
             paperSize: "<",
             isFitWidth: "<",
+            isThroughPage: "<",
             showCtrlPage: "<",
             ...componentData.bindings
         },
@@ -90,6 +91,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         ];
         self.aspectRatioList = ['4:3', '16:9'];
         self.isFitWidth = self.isFitWidth !== undefined ? self.isFitWidth : false;
+        self.isThroughPage = self.isThroughPage !== undefined ? self.isThroughPage : false;
         self.showCtrlPage = self.showCtrlPage !== undefined ? self.showCtrlPage : false;
         self.defaultBindings();
     }
@@ -99,6 +101,10 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     this.print = print;
     function print() {
         self.preview4Print();
+    }
+    this.onPaperSizeChange = onPaperSizeChange;
+    function onPaperSizeChange(selectedItemProps) {
+        self.paperSize = (selectedItemProps || {}).name;
     }
     this.preview4Print = preview4PrintDefault;
     function preview4PrintDefault() {
