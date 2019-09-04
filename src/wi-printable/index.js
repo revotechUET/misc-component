@@ -85,9 +85,17 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.paperSize = 'A4';
         self.paperSizeList = [
             // in millimeters
-            {data:{label:'A5'}, properties:{name:'A5', width:148, height: 210}},
+            {data:{label:'A0'}, properties:{name:'A0', width:841, height: 1189}},
+            {data:{label:'A1'}, properties:{name:'A1', width:594, height: 841}},
+            {data:{label:'A2'}, properties:{name:'A2', width:420, height: 594}},
+            {data:{label:'A3'}, properties:{name:'A3', width:297, height: 420}},
             {data:{label:'A4'}, properties:{name:'A4', width:210, height: 297}},
-            {data:{label:'A3'}, properties:{name:'A3', width:297, height: 420}}
+            {data:{label:'A5'}, properties:{name:'A5', width:148, height: 210}},
+            {data:{label:'A6'}, properties:{name:'A6', width:105, height: 148}},
+            {data:{label:'A7'}, properties:{name:'A7', width:74, height: 105}},
+            {data:{label:'A8'}, properties:{name:'A8', width:52, height: 74}},
+            {data:{label:'A9'}, properties:{name:'A9', width:37, height: 52}},
+            {data:{label:'A10'}, properties:{name:'A10', width:26, height: 37}}
         ];
         self.aspectRatioList = ['4:3', '16:9'];
         self.isFitWidth = self.isFitWidth !== undefined ? self.isFitWidth : false;
@@ -140,7 +148,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             <div style="height: ${pcpElemHeight};">
                 <span>{{$ctrl.getPrintInfo()}}</span>
                 <button ng-click="$ctrl.exitPreview()">Close</button>
-                <button ng-click="$ctrl.doPrint()">Print</button>
+                <button ng-click="$ctrl.doPrint()" ng-if="!$ctrl.isThroughPage">Print</button>
                 <div style="display: inline-block;"
                     ng-if="$ctrl.showCtrlPage">
                     <button ng-click="$ctrl.doPrintAll($ctrl)">Print All</button>
