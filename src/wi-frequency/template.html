@@ -35,7 +35,7 @@
   <div
     class="row"
     ng-repeat="(idxRow, metricsEachBin) in self.binMetrics track by $index"
-    ng-class="{'active': self.isSearchResult(metricsEachBin)}"
+    ng-class="{'active': self.isActiveNode(metricsEachBin, idxRow)}"
   >
     <div
       ng-style='{"width": self.tableWidthArray[0]}'
