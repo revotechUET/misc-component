@@ -52,7 +52,7 @@ function controller(wiApi, $scope, $timeout) {
 	  const lower = metricsInBin[1]
 	  const searchVal = parseInt(self.searchText)
 
-	  return searchVal <= upper && searchVal >= lower
+	  return searchVal < upper && searchVal >= lower
   }
 
   self.resizeTable = function (leftColIdx, leftColWidth, rightColIdx, rightColWidth) {
