@@ -4,14 +4,15 @@ const moduleName = 'wi-frequency'
 const calculator = require('./calculator')
 require('./style.less')
 
-controller.$inject = ['wiApi', '$scope']
-function controller(wiApi, $scope) {
+controller.$inject = ['wiApi', '$scope', '$timeout']
+function controller(wiApi, $scope, $timeout) {
   const self = this
   
   self.numBins = self.numBins || 6
   self.searchText = ''
   self.binMetrics = []
-//  self.headers = ['Count', 'Lower Bound', 'Upper Bound'] //default
+  self.headers = ['#','Count', 'Lower Bound', 'Upper Bound']
+  self.tableWidthArray = []
   self.errMsg = ''
 
   self.$onInit = function() {
@@ -52,6 +53,19 @@ function controller(wiApi, $scope) {
 	  const searchVal = parseInt(self.searchText)
 
 	  return searchVal <= upper && searchVal >= lower
+  }
+
+  self.resizeTable = function (leftColIdx, leftColWidth, rightColIdx, rightColWidth) {
+    $timeout(() => {
+        self.tableWidthArray[leftColIdx] = leftColWidth;
+        self.tableWidthArray[rightColIdx] = rightColWidth;
+    });
+  }
+
+  self.resizeTableInit = function(tableWidthArray) {
+      $timeout(() => {
+        self.tableWidthArray = tableWidthArray;
+      });
   }
 
   function initState() {
@@ -110,14 +124,9 @@ function controller(wiApi, $scope) {
 
     return metrics
   }
-
-  //function generateTableHeaders(curveWithMetrics) {
-  //  const headers = curveWithMetrics.map(c => c.by)
-  //  return headers
-  //}
 }
 
-const app = angular.module(moduleName, [ 'wiApi'])
+const app = angular.module(moduleName, [ 'wiApi', 'wiTableResizeable'])
 app.component(componentName, {
   controller,
   template: require('./template.html'),
@@ -131,5 +140,11 @@ app.component(componentName, {
     searchText: '<',
   },
 })
+app.factory('$exceptionHandler', function() {
+  return function(exception, cause) {
+    exception.message += 'Angular Exception: "' + cause + '"';
+    throw exception;
+  };
+});
 
 exports.name = moduleName

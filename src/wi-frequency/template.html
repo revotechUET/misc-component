@@ -1,13 +1,13 @@
-<curve-metadata-bar
+<!-- <curve-metadata-bar
   dataset="self.dataset"
   well="self.well"
   curve-name="self.curveName"
   num-bins="self.numBins"
-></curve-metadata-bar>
+></curve-metadata-bar> -->
 
 <div class="text-danger" ng-bind="self.errMsg"></div>
 
-<table class="table">
+<!-- <table class="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -25,4 +25,28 @@
       ></td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+<wi-table-resizeable
+  headers="self.headers"
+  on-table-init="(self.resizeTableInit)"
+  on-header-width-changed="(self.resizeTable)"
+>
+  <div
+    class="row"
+    ng-repeat="(idxRow, metricsEachBin) in self.binMetrics track by $index"
+    ng-class="{'active': self.isSearchResult(metricsEachBin)}"
+  >
+    <div
+      ng-style='{"width": self.tableWidthArray[0]}'
+      class="cell"
+      ng-bind="idxRow + 1"
+    ></div>
+    <div
+      ng-repeat="(idxCol, metric) in metricsEachBin track by $index"
+      ng-style='{"width": self.tableWidthArray[idxCol + 1]}'
+      class="cell"
+      ng-bind="metric"
+    ></div>
+  </div>
+</wi-table-resizeable>

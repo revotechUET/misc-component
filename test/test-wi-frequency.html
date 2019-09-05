@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <title>Document</title>
+</head>
+<body ng-app="app" ng-controller="ctl">
+  <wi-frequency
+  dataset="curve.parentDataArr[1].label"
+  well="curve.parentDataArr[0].label"
+  curve-name="curve.name"
+  curve-id="curve.id"
+  num-bins="numBins"
+  search-text="search"
+></wi-frequency>
+  
+  <script src="../bower_components/resize-sensor/ResizeSensor.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../bower_components/lodash/lodash.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-modal-service/dst/angular-modal-service.js"></script>
+  <script src="../bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+  <script src="../bower_components/d3/d3.min.js"></script>
+  <script src="../dist/misc-components.js"></script>
+  <script>
+    angular.module('app', ['wi-frequency'])
+      .controller('ctl', ['$scope', function($scope) {
+        $scope.curve = {"name":"hello","type":"curve","id":930,"properties":{"relatedTo":null,"columnsTitle":null,"idCurve":930,"name":"hello","unit":"m","description":"","duplicated":1,"note":"","type":"NUMBER","dimension":1,"createdBy":"hoang","updatedBy":"hoang","createdAt":"2019-06-20T02:30:08.000Z","updatedAt":"2019-06-20T02:30:08.000Z","deletedAt":null,"idDataset":105,"idFamily":null,"LineProperty":null,"alias":"hello"},"data":{"forceHide":false,"childExpanded":false,"icon":"curve-16x16","label":"hello","unit":"m","prevExpanded":false,"hide":false,"selected":false},"lineProperties":null,"curveData":null,"parentDataArr":[{"childExpanded":true,"icon":"well-16x16","label":"G_1X","tooltip":"G_1X","prevExpanded":true,"hide":false,"selected":false,"$$hashKey":"object:1280"},{"childExpanded":false,"icon":"curve-data-16x16","label":"BACKUP","prevExpanded":false,"hide":false,"selected":false,"$$hashKey":"object:1281"}],"parent":"BACKUP","level":3}
+
+        $scope.numBins = 6
+        $scope.search='df'
+      }])
+  </script>
+</body>
+</html>

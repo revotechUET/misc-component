@@ -24,6 +24,8 @@ function wiTableResizeableController($element, $timeout, $scope) {
     const MIN_WIDTH = 40;
     self.columnWidths = [];
     function calculateWidth(widthValues) {
+       try{
+       	
         let _widthValues = widthValues || self.defaultWidths;
         let totalWidth = $element.find('.header-table-resizeable').width();
         //CREATE HEADER ARRAY
@@ -44,7 +46,10 @@ function wiTableResizeableController($element, $timeout, $scope) {
         }
         self.onTableInit && self.onTableInit(self.columnWidths);
         //CREATE HOLDER DRAG
-        
+       } catch (e) {
+       
+       
+       }
     }
     let calculateWidthDebounce = _.debounce(calculateWidth, 0);
     function setupResizers() {
