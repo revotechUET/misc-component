@@ -61,4 +61,5 @@ typings/
 
 # next.js build output
 .next
-webpack.config.local.js
+webpack.local.js
+yarn.lock
