@@ -151,10 +151,10 @@ app.component(componentName, {
   template: require('./template.html'),
   controllerAs: 'self',
   bindings: {
-    dataset: '<',
-    well: '<',
+//    dataset: '<',
+//    well: '<',
     numBins: '<',
-    curveName: '<',
+//    curveName: '<',
     curveId: '<',
     searchText: '<',
   },
