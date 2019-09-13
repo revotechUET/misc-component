@@ -27,7 +27,7 @@ function component(componentData) {
             printMode: "<",
             paperSize: "<",
             isFitWidth: "<",
-            isThroughPage: "<",
+            isPageBreak: "<",
             showCtrlPage: "<",
             ...componentData.bindings
         },
@@ -99,7 +99,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         ];
         self.aspectRatioList = ['4:3', '16:9'];
         self.isFitWidth = self.isFitWidth !== undefined ? self.isFitWidth : false;
-        self.isThroughPage = self.isThroughPage !== undefined ? self.isThroughPage : false;
+        self.isPageBreak = self.isPageBreak !== undefined ? self.isPageBreak : false;
         self.showCtrlPage = self.showCtrlPage !== undefined ? self.showCtrlPage : false;
         self.defaultBindings();
     }
@@ -148,7 +148,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             <div style="height: ${pcpElemHeight};">
                 <span>{{$ctrl.getPrintInfo()}}</span>
                 <button ng-click="$ctrl.exitPreview()">Close</button>
-                <button ng-click="$ctrl.doPrint()" ng-if="!$ctrl.isThroughPage">Print</button>
+                <button ng-click="$ctrl.doPrint()" ng-if="!$ctrl.isPageBreak">Print</button>
                 <div style="display: inline-block;"
                     ng-if="$ctrl.showCtrlPage">
                     <button ng-click="$ctrl.doPrintAll($ctrl)">Print All</button>
