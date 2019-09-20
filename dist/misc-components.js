@@ -240,6 +240,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 
 /***/ }),
 
+/***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-slideshow/style.less":
+/*!****************************************************************************************************************!*\
+  !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-slideshow/style.less ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"wi-slideshow .main-slide {\\n  display: flex;\\n  position: relative;\\n  padding: 20px 40px;\\n}\\nwi-slideshow .main-slide > span {\\n  position: absolute;\\n  display: inline-block;\\n  top: 50%;\\n  transform: translateY(-50%);\\n  font-size: 12px;\\n  cursor: pointer;\\n  border: 1px solid #0000003b;\\n  border-radius: 2px;\\n  transition: all ease-in 0.2s;\\n}\\nwi-slideshow .main-slide > span:hover {\\n  transition: all ease-in 0.2s;\\n  filter: brightness(1.5);\\n}\\nwi-slideshow .main-slide > span.btn-left {\\n  left: 0;\\n}\\nwi-slideshow .main-slide > span.btn-right {\\n  right: 0;\\n}\\n\", \"\"]);\n\n\n\n//# sourceURL=webpack:///./wi-slideshow/style.less?../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-table-resizeable/wi-table-resizeable.less":
 /*!*************************************************************************************************************************************!*\
   !*** ../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-table-resizeable/wi-table-resizeable.less ***!
@@ -513,7 +524,7 @@ eval("module.exports = \"<!-- <img class=\\\"main-img\\\" src=\\\"{{imgPreview.s
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n\tlineStyle: __webpack_require__(/*! ./line-style/index */ \"./line-style/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\"),\n    wiDroppable: __webpack_require__(/*! ./wi-droppable */ \"./wi-droppable/index.js\"),\n    wiDialog: __webpack_require__(/*! ./wi-dialog */ \"./wi-dialog/index.js\"),\n    wiApi: __webpack_require__(/*! ./wi-api */ \"./wi-api/index.js\"),\n    wiLoading: __webpack_require__(/*! ./wi-loading */ \"./wi-loading/index.js\"),\n    wiDropdownList: __webpack_require__(/*! ./wi-dropdown-list */ \"./wi-dropdown-list/index.js\"),\n    wiDiscriminator: __webpack_require__(/*! ./wi-discriminator */ \"./wi-discriminator/index.js\"),\n    wiMapLoading: __webpack_require__(/*! ./wi-map-loading */ \"./wi-map-loading/index.js\"),\n    wiPrintLoading: __webpack_require__(/*! ./wi-print-loading */ \"./wi-print-loading/index.js\"),\n    wiTreeViewVirtual: __webpack_require__(/*! ./wi-tree-view-virtual */ \"./wi-tree-view-virtual/index.js\"),\n    wiNeuralNetwork: __webpack_require__(/*! ./wi-neural-network */ \"./wi-neural-network/index.js\"),\n    wiPrintTable: __webpack_require__(/*! ./wi-printable */ \"./wi-printable/index.js\"),\n    imgPreview: __webpack_require__(/*! ./img-preview */ \"./img-preview/index.js\"),\n    wiTableResizeable: __webpack_require__(/*! ./wi-table-resizeable */ \"./wi-table-resizeable/index.js\"),\n    wiFrequency: __webpack_require__(/*! ./wi-frequency */ \"./wi-frequency/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__(/*! ./wi-icons */ \"./wi-icons/index.js\");\nmodule.exports = {\n    editable: __webpack_require__(/*! ./editable */ \"./editable/index.js\"),\n    sideBar : __webpack_require__(/*! ./side-bar/index */ \"./side-bar/index.js\"),\n\tlineStyle: __webpack_require__(/*! ./line-style/index */ \"./line-style/index.js\"),\n    wiBaseTreeview : __webpack_require__(/*! ./wi-base-treeview/wi-base-treeview */ \"./wi-base-treeview/wi-base-treeview.js\"),\n    wiLogin: __webpack_require__(/*! ./wi-login/wi-login */ \"./wi-login/wi-login.js\"),\n    wiToken: __webpack_require__(/*! ./wi-token/index */ \"./wi-token/index.js\"),\n    wiSession: __webpack_require__(/*! ./wi-session */ \"./wi-session/index.js\"),\n    katexView: __webpack_require__(/*! ./katex-view */ \"./katex-view/index.js\"),\n    wiTableView: __webpack_require__(/*! ./wi-table-view */ \"./wi-table-view/index.js\"),\n    wiTreeView: __webpack_require__(/*! ./wi-tree-view */ \"./wi-tree-view/index.js\"),\n    wiDroppable: __webpack_require__(/*! ./wi-droppable */ \"./wi-droppable/index.js\"),\n    wiDialog: __webpack_require__(/*! ./wi-dialog */ \"./wi-dialog/index.js\"),\n    wiApi: __webpack_require__(/*! ./wi-api */ \"./wi-api/index.js\"),\n    wiLoading: __webpack_require__(/*! ./wi-loading */ \"./wi-loading/index.js\"),\n    wiDropdownList: __webpack_require__(/*! ./wi-dropdown-list */ \"./wi-dropdown-list/index.js\"),\n    wiDiscriminator: __webpack_require__(/*! ./wi-discriminator */ \"./wi-discriminator/index.js\"),\n    wiMapLoading: __webpack_require__(/*! ./wi-map-loading */ \"./wi-map-loading/index.js\"),\n    wiPrintLoading: __webpack_require__(/*! ./wi-print-loading */ \"./wi-print-loading/index.js\"),\n    wiTreeViewVirtual: __webpack_require__(/*! ./wi-tree-view-virtual */ \"./wi-tree-view-virtual/index.js\"),\n    wiNeuralNetwork: __webpack_require__(/*! ./wi-neural-network */ \"./wi-neural-network/index.js\"),\n    wiPrintTable: __webpack_require__(/*! ./wi-printable */ \"./wi-printable/index.js\"),\n    imgPreview: __webpack_require__(/*! ./img-preview */ \"./img-preview/index.js\"),\n    wiTableResizeable: __webpack_require__(/*! ./wi-table-resizeable */ \"./wi-table-resizeable/index.js\"),\n    wiFrequency: __webpack_require__(/*! ./wi-frequency */ \"./wi-frequency/index.js\"),\n    wiSlideshow: __webpack_require__(/*! ./wi-slideshow */ \"./wi-slideshow/index.js\")\n}\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -1372,6 +1383,39 @@ eval("module.exports = \"<div class=\\\"label-option-sidebar\\\" ng-if=\\\"self.
 /***/ (function(module, exports) {
 
 eval("var serviceName = 'wiSession';\nmodule.exports.name = serviceName;\n\nlet app = angular.module(serviceName, []);\napp.factory(serviceName, function () {\n    return new SessionStorageService();\n});\n\nfunction SessionStorageService() {\n    let self = this;\n    this.putData = function(key, value){\n        window.sessionStorage.setItem(key, value);\n    }\n    this.getData = function(key){\n        return window.sessionStorage.getItem(key);\n    }\n}\n\n\n//# sourceURL=webpack:///./wi-session/index.js?");
+
+/***/ }),
+
+/***/ "./wi-slideshow/index.js":
+/*!*******************************!*\
+  !*** ./wi-slideshow/index.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var componentName = 'wiSlideshow';\n\nmodule.exports.name = componentName;\n\n__webpack_require__(/*! ./style.less */ \"./wi-slideshow/style.less\");\n\nvar app = angular.module(componentName, []);\n\napp.component(componentName, {\n    template: __webpack_require__(/*! ./template.html */ \"./wi-slideshow/template.html\"),\n    controller: wiSlideshowController,\n    controllerAs: 'self',\n    bindings: {\n        stepPixel: '<',\n        styleButton: '<',\n        styleMainSlide: '<'\n    },\n    transclude: true\n});\n\nfunction wiSlideshowController($element, $timeout, $scope) {\n    let self = this;\n    let left = 0;\n    let maxMarginLeft;\n    $timeout(()=>{\n        let widthContentSlideshow = document.getElementById(\"content-wi-slideshow\").offsetWidth;\n        let widthMainSlideshow = document.getElementById(\"main-wi-slideshow\").offsetWidth;\n        maxMarginLeft = widthContentSlideshow - widthMainSlideshow + 80;\n    })\n    this.slideLeft = function () {\n        left = left - self.stepPixel;\n        if(left > maxMarginLeft*(-1)){\n            self.marginLeft = String(left + 'px');\n        } else {\n            left = left + self.stepPixel;\n        }\n    }\n    this.slideRight = function () {\n        left = left + self.stepPixel;\n        if(left > 0){\n            stopMove = 0;\n            self.marginLeft = 0\n            left = 0;\n        } else {\n            stopMove = 0;\n            self.marginLeft = String(left + 'px');\n        }\n    }\n}\n\n\n//# sourceURL=webpack:///./wi-slideshow/index.js?");
+
+/***/ }),
+
+/***/ "./wi-slideshow/style.less":
+/*!*********************************!*\
+  !*** ./wi-slideshow/style.less ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/less-loader/dist/cjs.js!./style.less */ \"../node_modules/css-loader/dist/cjs.js!../node_modules/less-loader/dist/cjs.js!./wi-slideshow/style.less\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"../node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./wi-slideshow/style.less?");
+
+/***/ }),
+
+/***/ "./wi-slideshow/template.html":
+/*!************************************!*\
+  !*** ./wi-slideshow/template.html ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div ng-style=\\\"self.styleMainSlide\\\" class=\\\"main-slide\\\" id=\\\"main-wi-slideshow\\\">\\n    <span ng-style=\\\"self.styleButton\\\" class=\\\"btn-left ti ti-angle-left\\\" ng-click=\\\"self.slideLeft()\\\"> </span>\\n    <div id=\\\"content-wi-slideshow\\\" ng-style=\\\"{'margin-left': self.marginLeft}\\\" ng-transclude style=\\\"transition: margin-left ease-in 0.3s; display: flex;\\\">\\n    </div>\\n    <span ng-style=\\\"self.styleButton\\\" class=\\\"btn-right ti ti-angle-right\\\" ng-click=\\\"self.slideRight()\\\"> </span>\\n</div>\";\n\n//# sourceURL=webpack:///./wi-slideshow/template.html?");
 
 /***/ }),
 
