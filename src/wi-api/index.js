@@ -213,6 +213,10 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function createImageSetPromise(idWell, name) {
         return postPromise('/project/well/image-set/new', {name, idWell});
     }
+    this.renameImageSetPromise = renameImageSetPromise;
+    function renameImageSetPromise(name, idImageSet) {
+        return postPromise('/project/well/image-set/edit', {name, idImageSet});
+    }
     this.createOrGetImageSetPromise = createOrGetImageSetPromise;
     function createOrGetImageSetPromise(idWell, name) {
         return postPromise('/project/well/image-set/new-or-get', {name, idWell});

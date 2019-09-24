@@ -1,0 +1,29 @@
+wi-slideshow {
+    .main-slide {
+        display: flex;
+        position: relative;
+        padding: 20px 40px;
+        &>span {
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid #0000003b;
+            border-radius: 2px;
+            transition: all ease-in 0.2s;
+
+            &:hover {
+                transition: all ease-in 0.2s;
+                filter: brightness(1.5);
+            }
+            &.btn-left {
+                left: 0;
+            }
+            &.btn-right {
+                right: 0;
+            }
+        }
+    }
+}

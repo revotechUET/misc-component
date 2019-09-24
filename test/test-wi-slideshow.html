@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test WiTableView</title>
+        <link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/all.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../dist/misc-components.js"></script>
+    </head>
+    
+    <body ng-app="myApp" ng-controller="myController">
+        <div style="background: #f4f4f4; width: 70%; overflow: hidden; position: relative; border: 1px solid black;">
+            <wi-slideshow step-pixel="100" style-button="{'padding':'5px','background':'#fff'}"
+            style-main-slide="{'padding':'10px 40px','background':'#fff'}">
+                <div style="white-space: nowrap;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to</div>
+            </wi-slideshow>
+        </div>
+        <script>
+            angular.module("myApp", ['wiSlideshow']).controller('myController', function($scope, $timeout, $element) {
+            })
+        </script>
+    </body>
+</html>

@@ -45,7 +45,7 @@ function writeCss(time) {
                 console.error(err)
                 return;
             }
-            console.log('Successfully wrote to txt file')
+            console.log('C   R   E   A   T   E  D    S   T   Y   L   E')
         })
     }, time)
 

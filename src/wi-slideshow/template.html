@@ -1,0 +1,6 @@
+<div ng-style="self.styleMainSlide" class="main-slide" id="main-wi-slideshow">
+    <span ng-style="self.styleButton" class="btn-left ti ti-angle-left" ng-click="self.slideLeft()"> </span>
+    <div id="content-wi-slideshow" ng-style="{'margin-left': self.marginLeft}" ng-transclude style="transition: margin-left ease-in 0.3s; display: flex;">
+    </div>
+    <span ng-style="self.styleButton" class="btn-right ti ti-angle-right" ng-click="self.slideRight()"> </span>
+</div>
