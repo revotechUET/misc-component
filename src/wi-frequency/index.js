@@ -159,11 +159,11 @@ app.component(componentName, {
     searchText: '<',
   },
 })
-app.factory('$exceptionHandler', function() {
-  return function(exception, cause) {
-    exception.message += 'Angular Exception: "' + cause + '"'
-    throw exception
-  }
-})
+// app.factory('$exceptionHandler', function() {
+//   return function(exception, cause) {
+//     exception.message += 'Angular Exception: "' + cause + '"'
+//     throw exception
+//   }
+// })
 
 exports.name = moduleName

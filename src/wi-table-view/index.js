@@ -22,7 +22,8 @@ module.component(name, {
         accessor: "<",
         setter: "<",
         getRowIcons: "<",
-        getRowIconStyle: "<"
+        getRowIconStyle: "<",
+        isLayerUsed: "<"
     },
 });
 
