@@ -14,6 +14,7 @@ function controller(wiApi, $scope, $timeout) {
   self.headers = ['#', 'Count', 'Lower Bound', 'Upper Bound']
   self.tableWidthArray = []
   self.errMsg = ''
+  self.discriminator = self.discriminator || {}
 
   self.$onInit = function() {
     if (self.curveId) initState()
@@ -26,7 +27,8 @@ function controller(wiApi, $scope, $timeout) {
     if (changes.numBins) self.numBins = changes.numBins.currentValue
     if (changes.curveId) self.curveId = changes.curveId.currentValue
     if (changes.searchText) self.searchText = changes.searchText.currentValue
-    if (changes.discriminator) self.discriminator = changes.discriminator.currentValue
+    if (changes.discriminator)
+      self.discriminator = changes.discriminator.currentValue
 
     // if (changes.searchByLowerBound)
     //   self.searchByLowerBound = changes.searchByLowerBound.currentValue
@@ -57,8 +59,8 @@ function controller(wiApi, $scope, $timeout) {
     const maxUpper = self.binMetrics[self.binMetrics.length - 1][2]
     const searchVal = parseInt(self.searchText)
 
-    if(idx === 0) return searchVal <= minLower
-    if(idx === self.binMetrics.length - 1) return searchVal >= maxUpper
+    if (idx === 0) return searchVal <= minLower
+    if (idx === self.binMetrics.length - 1) return searchVal >= maxUpper
     return false
   }
 
@@ -97,9 +99,16 @@ function controller(wiApi, $scope, $timeout) {
 
       const curveInfo = await wiApi.getCurveInfoPromise(self.curveId)
       const datasetInfo = await wiApi.getDatasetInfoPromise(curveInfo.idDataset)
-      const validPosition = await wiApi.evalDiscriminatorPromise(datasetInfo, self.discriminator)
+      const discriminator = self.discriminator || {}
+      const validPosition = await wiApi.evalDiscriminatorPromise(
+        datasetInfo,
+        self.discriminator
+      )
       const curveData = resp
       const validCurveData = _.zip(validPosition, curveData)
+        .map(([isValid, data]) =>
+          isValid === undefined ? [true, data] : [isValid, data]
+        )
         .filter(([isValid, data]) => isValid && data)
         .map(([isValid, data]) => data)
       const curveSplitedWithMetrics = getMetrics(validCurveData, self.numBins)
@@ -158,10 +167,10 @@ app.component(componentName, {
   template: require('./template.html'),
   controllerAs: 'self',
   bindings: {
-//    dataset: '<',
-//    well: '<',
+    //    dataset: '<',
+    //    well: '<',
     numBins: '<',
-//    curveName: '<',
+    //    curveName: '<',
     curveId: '<',
     searchText: '<',
     discriminator: '<',
