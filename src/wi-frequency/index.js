@@ -20,17 +20,18 @@ function controller(wiApi, $scope, $timeout) {
   }
 
   self.$onChanges = function(changes) {
-    if (changes.dataset) self.dataset = changes.dataset.currentValue
-    if (changes.well) self.well = changes.well.currentValue
+    // if (changes.dataset) self.dataset = changes.dataset.currentValue
+    // if (changes.well) self.well = changes.well.currentValue
+    // if (changes.curveName) self.curveName = changes.curveName.currentValue
     if (changes.numBins) self.numBins = changes.numBins.currentValue
-    if (changes.curveName) self.curveName = changes.curveName.currentValue
     if (changes.curveId) self.curveId = changes.curveId.currentValue
     if (changes.searchText) self.searchText = changes.searchText.currentValue
+    if (changes.discriminator) self.discriminator = changes.discriminator.currentValue
 
-    if (changes.searchByLowerBound)
-      self.searchByLowerBound = changes.searchByLowerBound.currentValue
-    if (changes.searchByUpperBound)
-      self.searchByUpperBound = changes.searchByUpperBound.currentValue
+    // if (changes.searchByLowerBound)
+    //   self.searchByLowerBound = changes.searchByLowerBound.currentValue
+    // if (changes.searchByUpperBound)
+    //   self.searchByUpperBound = changes.searchByUpperBound.currentValue
     self.errMsg = ''
 
     if (self.curveId) initState()
@@ -88,14 +89,20 @@ function controller(wiApi, $scope, $timeout) {
   }
 
   function initState() {
-    getCurveData(self.curveId, (error, resp) => {
+    getCurveData(self.curveId, async (error, resp) => {
       if (error) {
         self.errMsg = 'Cannot load curve data'
         return
       }
 
+      const curveInfo = await wiApi.getCurveInfoPromise(self.curveId)
+      const datasetInfo = await wiApi.getDatasetInfoPromise(curveInfo.idDataset)
+      const validPosition = await wiApi.evalDiscriminatorPromise(datasetInfo, self.discriminator)
       const curveData = resp
-      const curveSplitedWithMetrics = getMetrics(curveData, self.numBins)
+      const validCurveData = _.zip(validPosition, curveData)
+        .filter(([isValid, data]) => isValid && data)
+        .map(([isValid, data]) => data)
+      const curveSplitedWithMetrics = getMetrics(validCurveData, self.numBins)
 
       //    self.headers = generateTableHeaders(curveSplitedWithMetrics)
       self.binMetrics = generateMetricsForEachBin(curveSplitedWithMetrics)
@@ -157,6 +164,7 @@ app.component(componentName, {
 //    curveName: '<',
     curveId: '<',
     searchText: '<',
+    discriminator: '<',
   },
 })
 // app.factory('$exceptionHandler', function() {
