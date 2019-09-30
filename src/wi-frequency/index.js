@@ -111,15 +111,15 @@ function controller(wiApi, $scope, $timeout) {
         )
         .filter(([isValid, data]) => isValid && data)
         .map(([isValid, data]) => data)
-        .filter(data => {
-          if(!self.zone) return true
+      const validCurveDataInZone = validCurveData.filter(data => {
+        if(!self.zone) return true
 
-          return (
-            data.y >= self.zone.properties.startDepth &&
-            data.y <= self.zone.properties.endDepth
-          )
-        })
-      const curveSplitedWithMetrics = getMetrics(validCurveData, self.numBins)
+        return (
+          data.y >= self.zone.properties.startDepth &&
+          data.y <= self.zone.properties.endDepth
+        )
+      })
+      const curveSplitedWithMetrics = getMetrics(validCurveDataInZone, self.numBins)
 
       //    self.headers = generateTableHeaders(curveSplitedWithMetrics)
       self.binMetrics = generateMetricsForEachBin(curveSplitedWithMetrics)
