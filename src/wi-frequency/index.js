@@ -102,7 +102,7 @@ function controller(wiApi, $scope, $timeout) {
       const discriminator = self.discriminator || {}
       const validPosition = await wiApi.evalDiscriminatorPromise(
         datasetInfo,
-        self.discriminator
+        discriminator
       )
       const curveData = resp
       const validCurveData = _.zip(validPosition, curveData)
@@ -111,6 +111,14 @@ function controller(wiApi, $scope, $timeout) {
         )
         .filter(([isValid, data]) => isValid && data)
         .map(([isValid, data]) => data)
+        .filter(data => {
+          if(!self.zone) return true
+
+          return (
+            data.y >= self.zone.properties.startDepth &&
+            data.y <= self.zone.properties.endDepth
+          )
+        })
       const curveSplitedWithMetrics = getMetrics(validCurveData, self.numBins)
 
       //    self.headers = generateTableHeaders(curveSplitedWithMetrics)
@@ -174,6 +182,7 @@ app.component(componentName, {
     curveId: '<',
     searchText: '<',
     discriminator: '<',
+    zone: '<',
   },
 })
 // app.factory('$exceptionHandler', function() {
