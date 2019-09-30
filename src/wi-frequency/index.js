@@ -130,8 +130,8 @@ function controller(wiApi, $scope, $timeout) {
   function getCurveData(idCurve, cb) {
     wiApi
       .getCachedCurveDataPromise(idCurve)
-      .then(val => cb(null, val))
       .catch(error => cb(error))
+      .then(val => cb(null, val))
   }
 
   function generateMetricsForEachBin(curveWithMetrics) {

@@ -5,6 +5,8 @@ function splitIntoBins(curveData, numBins) {
   // const maxX = _.last(sortedCurves).x
   // const minX = _.first(sortedCurves).x
 
+  if(!curveData || !curveData.length) return []
+
   const maxX = _.maxBy(curveData, curve =>
     _.isNumber(curve.x) ? curve.x : -Infinity
   ).x
