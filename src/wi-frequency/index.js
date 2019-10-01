@@ -104,7 +104,15 @@ function controller(wiApi, $scope, $timeout) {
         datasetInfo,
         discriminator
       )
-      const curveData = resp
+      const curveData = resp.filter(data => {
+        const maxX = parseFloat(self.maxX)
+        const minX = parseFloat(self.minX)
+        const upper = maxX !== NaN ? maxX : Infinity
+        const lower = minX !== NaN ? minX : -Infinity
+
+        return data.x >= lower && data.x <= upper
+
+      })
       const validCurveData = _.zip(validPosition, curveData)
         .map(([isValid, data]) =>
           isValid === undefined ? [true, data] : [isValid, data]
@@ -183,6 +191,8 @@ app.component(componentName, {
     searchText: '<',
     discriminator: '<',
     zone: '<',
+    minX: '<',
+    maxX: '<',
   },
 })
 // app.factory('$exceptionHandler', function() {

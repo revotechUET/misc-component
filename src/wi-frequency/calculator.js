@@ -6,6 +6,7 @@ function splitIntoBins(curveData, numBins) {
   // const minX = _.first(sortedCurves).x
 
   if(!curveData || !curveData.length) return []
+  if(!numBins) return []
 
   const maxX = _.maxBy(curveData, curve =>
     _.isNumber(curve.x) ? curve.x : -Infinity
@@ -20,7 +21,8 @@ function splitIntoBins(curveData, numBins) {
     .histogram()
     .value(c => c.x)
     .domain(xAxis.domain())
-    .thresholds(xAxis.ticks(numBins))
+    .thresholds(d3.range(minX, maxX, (maxX-minX)/numBins))
+//    .thresholds(xAxis.ticks(numBins))
 
   const bins = histogram(curveData)
   return bins
