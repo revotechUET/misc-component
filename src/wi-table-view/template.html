@@ -17,7 +17,7 @@
             </editable>
         </div>
     </div>
-    <div class="row" ng-repeat="row in self.getRows()" ng-show="self.isLayerUsed($index)">
+    <div class="row" ng-repeat="row in self.getRows()" ng-show="self.isValidRow($index)">
         <div ng-if="self.showOriginHeader" class="cell header">
             {{self.getOriginRowHeader($index)}}
         </div>
