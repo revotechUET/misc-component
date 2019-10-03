@@ -20,6 +20,7 @@ const discriminator = require('./discriminator/discriminator.js');
 const lineStyleDialog = require('./line-style/line-style-modal.js');
 const colorPickerDialog = require('./color-picker/color-picker-modal.js');
 const promptListDialog =require('./prompt-list/prompt-list.js');
+const authenticationDialog = require('./authentication/authentication-modal.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -56,5 +57,8 @@ function wiDialogService(ModalService) {
     this.promptListDialog = function(config, cb) {
         promptListDialog(ModalService, config, cb);
     }
-}
+    this.authenticationDialog = function(cb) {
+        authenticationDialog(ModalService, cb);
+    }
+} 
 

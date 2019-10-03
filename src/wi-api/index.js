@@ -12,17 +12,17 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     let paletteTable;
     this.getFamilyTable = () => familyTable
     this.getUnitTable = () => unitTable;
-    function postPromise(url, data) {
+    function postPromise(url, data, opts = {}) {
         return new Promise(function(resolve, reject) {
             const salt = "wi-hash";
+            const baseUrl = opts.baseUrl || self.baseUrl;
+            const headers = opts.noToken ? {} : { Authorization: wiToken.getToken() };
             const payloadHash = genPayloadHash((data || {}), SHA256(salt + wiToken.getToken()));
             $http({
                 method: 'POST',
-                url: self.baseUrl + url + `?wiid=${payloadHash}`,
+                url: baseUrl + url + `?wiid=${payloadHash}`,
                 data: data,
-                headers: {
-                    Authorization: wiToken.getToken()
-                }
+                headers: headers
             }).then((response) => {
                 if (response.data.code === 200) resolve(response.data.content);
                 else reject(new Error(response.data.reason));
@@ -572,6 +572,15 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     this.editLinePromise = editLinePromise;
     function editLinePromise(payload) {
         return postPromise('/project/plot/track/line/edit', payload);
+    }
+    this.getProjectInfoPromise = getProjectInfoPromise;
+    function getProjectInfoPromise(idProject) {
+        return postPromise('/project/info', {idProject});
+    }
+    this.login = login;
+    function login(data) {
+        const authenticationUrl = window.localStorage.getItem('AUTHENTICATION_SERVICE') || "http://admin.dev.i2g.cloud";
+        return postPromise('/login', data, { noToken: true, baseUrl: authenticationUrl });
     }
 }
 
