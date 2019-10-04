@@ -1,6 +1,7 @@
 let helper = require('../DialogHelper');
 // const config = require('../../js/config.js')();
 // const env = (process.env.NODE_ENV || '').trim();
+require('./authentication-modal.less');
 module.exports = function (ModalService, callback) {
 	function ModalController($scope, close, $timeout, wiApi) {
 		// let dialogUtils = wiComponentService.getComponent(wiComponentService.DIALOG_UTILS);

@@ -1,4 +1,4 @@
-<div class="modal" data-backdrop="static" data-keyboard="false">
+<!-- <div class="modal" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
@@ -18,26 +18,9 @@
                                 <input type="password" class="form-control" id="password" name="password" ng-model="wiModal.password" required>
                             </div>
                         </div>
-                        <!-- <div class="form-group">
-                            <label class="control-label col-sm-4" for="selectServer">Servers</label>
-                            <div class="col-sm-8">
-                                <select class="form-control" name="selectServer" id="selectServer" ng-model="wiModal.server.selectedOption">
-                                   <option ng-repeat="option in wiModal.server.availableOptions" ng-value="option.server">{{option.name}}</option>
-                                </select>
-                            </div>
-                        </div> -->
-                        <!--
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" ng-click="wiModal.onButtonShowServerClick()">
-                            <div style="font-size: 12px; font-style: italic; color: steelblue; cursor: pointer;">
-                                Show more
-                            </div>
-                            </label>
-                        </div>
-                         -->
                         <div style="font-size: 12px; font-style: italic; color: steelblue;">
                             Please contact us via
-                            <a href="mailto:support@i2g.cloud" style="text-decoration: underline;">support@i2g.cloud</a>
+                           support@i2g.cloud
                             for any trouble signing in to I2G.
                         </div>
                         <button type="submit" class="btn btn-default float-right margin-bottom-1_5em" ng-click="wiModal.onLoginButtonClicked()">Sign In</button>
@@ -50,4 +33,19 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<div class="dialog-login">
+    <div class="left-dialog-login">
+        <div class="logo"></div>
+        <div class="info-dialog-login"> </div>
+        <div class="description">&copy;	 2019 Revotech</div>
+    </div>
+    <div class="right-dialog-login">
+        <div style="margin-bottom:10px">Login to</div>
+        <div style="margin-bottom:40px; font-weight: 500; font-size:20px">i2G Data Adminstrator</div>
+        <input type="text" class="input-login" id="username" name="username" ng-model="wiModal.username" required placeholder="Username">
+        <input type="password" class="input-login" id="password" name="password" ng-model="wiModal.password" required placeholder="Password">
+        <input class="submit-login" type="Submit" value="LOGIN" ng-click="wiModal.onLoginButtonClicked()">
+        <div style="font-size: 10px; font-style: italic; margin-top: 20px;"> Please contact us via support@i2g.cloud for any trouble signing in to I2G.</div> </div>
 </div>
