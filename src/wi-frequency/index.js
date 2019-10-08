@@ -21,19 +21,12 @@ function controller(wiApi, $scope, $timeout) {
   }
 
   self.$onChanges = function(changes) {
-    // if (changes.dataset) self.dataset = changes.dataset.currentValue
-    // if (changes.well) self.well = changes.well.currentValue
-    // if (changes.curveName) self.curveName = changes.curveName.currentValue
     if (changes.numBins) self.numBins = changes.numBins.currentValue
     if (changes.curveId) self.curveId = changes.curveId.currentValue
     if (changes.searchText) self.searchText = changes.searchText.currentValue
     if (changes.discriminator)
       self.discriminator = changes.discriminator.currentValue
 
-    // if (changes.searchByLowerBound)
-    //   self.searchByLowerBound = changes.searchByLowerBound.currentValue
-    // if (changes.searchByUpperBound)
-    //   self.searchByUpperBound = changes.searchByUpperBound.currentValue
     self.errMsg = ''
 
     if (self.curveId) initState()
@@ -143,36 +136,20 @@ function controller(wiApi, $scope, $timeout) {
   }
 
   function generateMetricsForEachBin(curveWithMetrics) {
-    const metricsMatrix = curveWithMetrics.map(c => c.metrics)
-    const metricsInEachBins = _.zip(...metricsMatrix)
+    const defaultEmptyBins = [[0, NaN, NaN]]
+    // const metricsMatrix = curveWithMetrics.map(c => c.metrics)
+    const metricsInEachBins = _.zip(...curveWithMetrics)
 
-    return metricsInEachBins
+    if (metricsInEachBins && metricsInEachBins.length) return metricsInEachBins
+    return defaultEmptyBins
   }
 
   function getMetrics(curveData, numBins) {
-    const metrics = []
-
-    //add metrics calculated in headers "Count"
-    const metricsByCount = {
-      by: 'Count',
-      metrics: calculator.getNumPointInEachChunk(curveData, numBins),
-    }
-    metrics.push(metricsByCount)
-
-    //add metrics calculated in headers "LowerBound"
-    const metricsByLowerBound = {
-      by: 'Lower Bound',
-      metrics: calculator.getLowerBoundInEachChunk(curveData, numBins),
-    }
-    metrics.push(metricsByLowerBound)
-
-    //add metrics calculated in headers "LowerBound"
-    const metricsByUpperBound = {
-      by: 'Upper Bound',
-      metrics: calculator.getUpperBoundInEachChunk(curveData, numBins),
-    }
-    metrics.push(metricsByUpperBound)
-
+    const counts = calculator.getNumPointInEachChunk(curveData, numBins)
+    const lowerBounds = calculator.getLowerBoundInEachChunk(curveData, numBins)
+    const upperBounds = calculator.getUpperBoundInEachChunk(curveData, numBins)
+    const metrics = [counts, lowerBounds, upperBounds]
+    
     return metrics
   }
 }
