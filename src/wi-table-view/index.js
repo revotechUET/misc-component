@@ -23,7 +23,7 @@ module.component(name, {
         setter: "<",
         getRowIcons: "<",
         getRowIconStyle: "<",
-        isLayerUsed: "<"
+        validRow: "<"
     },
 });
 
@@ -131,6 +131,13 @@ function Controller($scope, $element) {
             delete self.selectedRow;
             delete self.selectedCol;
         }
+    }
+    this.isValidRow = function($index) {
+        if (typeof self.validRow === 'function') {
+            return self.validRow($index);
+        } else if (self.validRow){
+            return self.validRow;
+        } else return true;
     }
     function headerRowCount() {
         return self.colHeaders ? (self.showOriginHeader?2:1):0;
