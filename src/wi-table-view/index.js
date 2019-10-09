@@ -23,7 +23,8 @@ module.component(name, {
         setter: "<",
         getRowIcons: "<",
         getRowIconStyle: "<",
-        validRow: "<"
+        validRow: "<",
+        rowHeaderCellStyle: '<'
     },
 });
 
@@ -35,6 +36,14 @@ function Controller($scope, $element) {
         this.rowLabels = this.rowLabels || {};
         this.getRowIcons = this.getRowIcons || function() { return [] };
         this.getRowIconStyle = this.getRowIconStyle || function() { return {} };
+        self.cellStyle = self.cellStyle || {};
+    }
+    this.getRowHeaderCellStyle = function($index) {
+        if (typeof self.rowHeaderCellStyle == 'function') {
+            return self.rowHeaderCellStyle($index);
+        } else {
+            return self.rowHeaderCellStyle;
+        }
     }
     this.getRows = function() {
         let rowCount = 0;
