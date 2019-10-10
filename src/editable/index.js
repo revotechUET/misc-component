@@ -28,7 +28,9 @@ function EditableController($scope, $element, $timeout) {
     this.focusMe = function() {
         $timeout(() => {$element.find('form input')[0].focus();});
     }
+    
     this.unfocusMe = function() {
+        console.log("UnfocusMe");
         $timeout(() => {$element.find('form input')[0].blur();});
     }
     this.handleEmptyString = function(value) {
