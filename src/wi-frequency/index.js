@@ -97,20 +97,29 @@ function controller(wiApi, $scope, $timeout) {
         datasetInfo,
         discriminator
       )
-      const curveData = resp.filter(data => {
-        const maxX = parseFloat(self.maxX)
-        const minX = parseFloat(self.minX)
-        const upper = maxX !== NaN ? maxX : Infinity
-        const lower = minX !== NaN ? minX : -Infinity
+      // const curveData = resp.filter(data => {
+      //   const maxX = parseFloat(self.maxX)
+      //   const minX = parseFloat(self.minX)
+      //   const upper = maxX !== NaN ? maxX : Infinity
+      //   const lower = minX !== NaN ? minX : -Infinity
 
-        return data.x >= lower && data.x <= upper
+      //   return data.x >= lower && data.x <= upper
 
-      })
+      // })
+      const curveData = resp
       const validCurveData = _.zip(validPosition, curveData)
         .map(([isValid, data]) =>
           isValid === undefined ? [true, data] : [isValid, data]
         )
-        .filter(([isValid, data]) => isValid && data)
+        .filter(([isValid, data]) => isValid && data) // valid data by discriminator
+        .filter(([isValid, data]) => {  // valid data by max and min, data.x
+            const maxX = parseFloat(self.maxX)
+            const minX = parseFloat(self.minX)
+            const upper = maxX !== NaN ? maxX : Infinity
+            const lower = minX !== NaN ? minX : -Infinity
+
+            return data.x !== null && data.x >= lower && data.x <= upper
+        })
         .map(([isValid, data]) => data)
       const validCurveDataInZone = validCurveData.filter(data => {
         if(!self.zone) return true
