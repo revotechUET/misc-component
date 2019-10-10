@@ -149,8 +149,14 @@ function controller(wiApi, $scope, $timeout) {
     const lowerBounds = calculator.getLowerBoundInEachChunk(curveData, numBins)
     const upperBounds = calculator.getUpperBoundInEachChunk(curveData, numBins)
     const metrics = [counts, lowerBounds, upperBounds]
+    const roundedMetrics = metrics.map(row => row.map(metric => {
+
+      //round 4 digit after comma
+      const roundedMetric = Math.round(metric * 10000) / 10000
+      return roundedMetric
+    }))
     
-    return metrics
+    return roundedMetrics
   }
 }
 
