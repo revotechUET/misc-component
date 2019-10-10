@@ -168,7 +168,7 @@ function controller(wiApi, $scope, $timeout) {
     const roundedMetrics = metrics.map(row => row.map(metric => {
 
       //round 4 digit after comma
-      const roundedMetric = Math.round(metric * 10000) / 10000
+      const roundedMetric = wiApi.bestNumberFormat(metric, 4)
       return roundedMetric
     }))
     
