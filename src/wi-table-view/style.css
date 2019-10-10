@@ -43,6 +43,7 @@ wi-table-view div.indicator {
     position: absolute;
     overflow: visible;
     box-sizing: content-box;
+    pointer-events:none;
 }
 wi-table-view div.handle {
     border: 2px solid #006ed6;
