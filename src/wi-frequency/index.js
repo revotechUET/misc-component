@@ -8,7 +8,8 @@ controller.$inject = ['wiApi', '$scope', '$timeout']
 function controller(wiApi, $scope, $timeout) {
   const self = this
 
-  self.numBins = self.numBins || 6
+  self.step = self.step || 10
+  self.numBins = 6
   self.searchText = ''
   self.binMetrics = []
   self.headers = ['#', 'Count', 'Lower Bound', 'Upper Bound']
@@ -21,7 +22,7 @@ function controller(wiApi, $scope, $timeout) {
   }
 
   self.$onChanges = function(changes) {
-    if (changes.numBins) self.numBins = changes.numBins.currentValue
+    if (changes.step) self.step = changes.step.currentValue
     if (changes.curveId) self.curveId = changes.curveId.currentValue
     if (changes.searchText) self.searchText = changes.searchText.currentValue
     if (changes.discriminator)
@@ -107,6 +108,12 @@ function controller(wiApi, $scope, $timeout) {
 
       // })
       const curveData = resp
+      self.numBins = calculateNumBin(
+        self.step,
+        Math.min(...curveData.map(c => c.y)),
+        Math.max(...curveData.map(c => c.y))
+      )
+
       const validCurveData = _.zip(validPosition, curveData)
         .map(([isValid, data]) =>
           isValid === undefined ? [true, data] : [isValid, data]
@@ -167,6 +174,15 @@ function controller(wiApi, $scope, $timeout) {
     
     return roundedMetrics
   }
+
+  function calculateNumBin(step, minDepth, maxDepth) {
+    if(step <= 0) step = 1
+    
+    const numBins = Math.ceil((maxDepth - minDepth) / step)
+    if(self.onNumBinsChange) self.onNumBinsChange(numBins)
+
+    return numBins
+  }
 }
 
 const app = angular.module(moduleName, ['wiApi', 'wiTableResizeable'])
@@ -177,14 +193,16 @@ app.component(componentName, {
   bindings: {
     //    dataset: '<',
     //    well: '<',
-    numBins: '<',
+    // numBins: '<',
     //    curveName: '<',
+    step: '<',
     curveId: '<',
     searchText: '<',
     discriminator: '<',
     zone: '<',
     minX: '<',
     maxX: '<',
+    onNumBinsChange: '<',
   },
 })
 // app.factory('$exceptionHandler', function() {
