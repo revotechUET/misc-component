@@ -21,7 +21,7 @@
         <div ng-if="self.showOriginHeader" class="cell header">
             {{self.getOriginRowHeader($index)}}
         </div>
-        <div class="cell">
+        <div class="cell" ng-style="self.getRowHeaderCellStyle($index)">
             <div class="cell-col-1">
                 <div class="icon-array">
                     <i ng-style="self.getRowIconStyle(row)" class="{{icon}}" ng-repeat="icon in self.getRowIcons(row)"></i>
