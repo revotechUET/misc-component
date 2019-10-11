@@ -8,7 +8,8 @@ controller.$inject = ['wiApi', '$scope', '$timeout']
 function controller(wiApi, $scope, $timeout) {
   const self = this
 
-  self.numBins = self.numBins || 6
+  self.step = self.step || 10
+  self.numBins = 6
   self.searchText = ''
   self.binMetrics = []
   self.headers = ['#', 'Count', 'Lower Bound', 'Upper Bound']
@@ -21,7 +22,7 @@ function controller(wiApi, $scope, $timeout) {
   }
 
   self.$onChanges = function(changes) {
-    if (changes.numBins) self.numBins = changes.numBins.currentValue
+    if (changes.step) self.step = changes.step.currentValue
     if (changes.curveId) self.curveId = changes.curveId.currentValue
     if (changes.searchText) self.searchText = changes.searchText.currentValue
     if (changes.discriminator)
@@ -97,20 +98,35 @@ function controller(wiApi, $scope, $timeout) {
         datasetInfo,
         discriminator
       )
-      const curveData = resp.filter(data => {
-        const maxX = parseFloat(self.maxX)
-        const minX = parseFloat(self.minX)
-        const upper = maxX !== NaN ? maxX : Infinity
-        const lower = minX !== NaN ? minX : -Infinity
+      // const curveData = resp.filter(data => {
+      //   const maxX = parseFloat(self.maxX)
+      //   const minX = parseFloat(self.minX)
+      //   const upper = maxX !== NaN ? maxX : Infinity
+      //   const lower = minX !== NaN ? minX : -Infinity
 
-        return data.x >= lower && data.x <= upper
+      //   return data.x >= lower && data.x <= upper
 
-      })
+      // })
+      const curveData = resp
+      self.numBins = calculateNumBin(
+        self.step,
+        Math.min(...curveData.map(c => c.y)),
+        Math.max(...curveData.map(c => c.y))
+      )
+
       const validCurveData = _.zip(validPosition, curveData)
         .map(([isValid, data]) =>
           isValid === undefined ? [true, data] : [isValid, data]
         )
-        .filter(([isValid, data]) => isValid && data)
+        .filter(([isValid, data]) => isValid && data) // valid data by discriminator
+        .filter(([isValid, data]) => {  // valid data by max and min, data.x
+            const maxX = parseFloat(self.maxX)
+            const minX = parseFloat(self.minX)
+            const upper = maxX !== NaN ? maxX : Infinity
+            const lower = minX !== NaN ? minX : -Infinity
+
+            return data.x !== null && data.x >= lower && data.x <= upper
+        })
         .map(([isValid, data]) => data)
       const validCurveDataInZone = validCurveData.filter(data => {
         if(!self.zone) return true
@@ -149,8 +165,23 @@ function controller(wiApi, $scope, $timeout) {
     const lowerBounds = calculator.getLowerBoundInEachChunk(curveData, numBins)
     const upperBounds = calculator.getUpperBoundInEachChunk(curveData, numBins)
     const metrics = [counts, lowerBounds, upperBounds]
+    const roundedMetrics = metrics.map(row => row.map(metric => {
+
+      //round 4 digit after comma
+      const roundedMetric = wiApi.bestNumberFormat(metric, 4)
+      return roundedMetric
+    }))
     
-    return metrics
+    return roundedMetrics
+  }
+
+  function calculateNumBin(step, minDepth, maxDepth) {
+    if(step <= 0) step = 1
+    
+    const numBins = Math.ceil((maxDepth - minDepth) / step)
+    if(self.onNumBinsChange) self.onNumBinsChange(numBins)
+
+    return numBins
   }
 }
 
@@ -162,14 +193,16 @@ app.component(componentName, {
   bindings: {
     //    dataset: '<',
     //    well: '<',
-    numBins: '<',
+    // numBins: '<',
     //    curveName: '<',
+    step: '<',
     curveId: '<',
     searchText: '<',
     discriminator: '<',
     zone: '<',
     minX: '<',
     maxX: '<',
+    onNumBinsChange: '<',
   },
 })
 // app.factory('$exceptionHandler', function() {
