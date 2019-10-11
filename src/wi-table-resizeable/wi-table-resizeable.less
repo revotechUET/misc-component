@@ -1,7 +1,8 @@
 wi-table-resizeable {
-    font-family: Roboto, system-ui, sans-serif;
+    font-family           : Roboto, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
-    font-size: 12px;
+    font-size             : 12px;
+
     .main-table-resizeable {
         position      : relative;
         display       : flex;
@@ -9,31 +10,45 @@ wi-table-resizeable {
         height        : 100%;
 
         .header-table-resizeable {
-            display: flex;
-            background: #fff;
+            display      : flex;
+            background   : #fff;
             border-bottom: 1px solid #e6e6e6;
 
             .item {
                 display: flex;
+
                 .name {
-                    color: #0062be;
-                    font-weight: bold;
-                    padding: 10px;
-                    flex: 1;
-                    overflow: hidden;
-                    white-space: nowrap;
+                    color        : #0062be;
+                    font-weight  : bold;
+                    padding      : 10px;
+                    flex         : 1;
+                    overflow     : hidden;
+                    white-space  : nowrap;
                     text-overflow: ellipsis;
-                    
+
                 }
 
                 .holder-resizeable {
-                    flex-basis     : 5px;
-                    cursor: col-resize;
+                    flex-basis  : 5px;
+                    cursor      : col-resize;
                     border-right: 1px solid #e6e6e6;
 
                     &:hover {
-                        background: rgb(19, 112, 218);
+                        background: #2196F3;
+
+                        &::after {
+                            background-color: #2196F3;
+                            right           : 1px;
+                            content         : "2r";
+                            color           : transparent;
+                            display         : block;
+                            position        : absolute;
+                            top             : 0;
+                            width           : 2px;
+                            height          : 100vh;
+                        }
                     }
+
                 }
             }
         }
