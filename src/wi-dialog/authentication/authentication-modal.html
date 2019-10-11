@@ -44,8 +44,10 @@
     <div class="right-dialog-login">
         <div style="margin-bottom:10px">Login to</div>
         <div style="margin-bottom:40px; font-weight: 500; font-size:20px">i2G Data Adminstrator</div>
-        <input type="text" class="input-login" id="username" name="username" ng-model="wiModal.username" required placeholder="Username">
-        <input type="password" class="input-login" id="password" name="password" ng-model="wiModal.password" required placeholder="Password">
-        <input class="submit-login" type="Submit" value="LOGIN" ng-click="wiModal.onLoginButtonClicked()">
+        <form style="display: flex; flex-direction: column;">
+            <input type="text" class="input-login" id="username" name="username" ng-model="wiModal.username" required placeholder="Username">
+            <input type="password" class="input-login" id="password" name="password" ng-model="wiModal.password" required placeholder="Password">
+            <input class="submit-login" type="Submit" value="LOGIN" ng-click="wiModal.onLoginButtonClicked()">
+        </form>
         <div style="font-size: 10px; font-style: italic; margin-top: 20px;"> Please contact us via support@i2g.cloud for any trouble signing in to I2G.</div> </div>
 </div>

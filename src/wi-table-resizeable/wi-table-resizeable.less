@@ -46,9 +46,9 @@ wi-table-resizeable {
                             top             : 0;
                             width           : 2px;
                             height          : 100vh;
+                            animation        : show 0.3s ease;
                         }
                     }
-
                 }
             }
         }
@@ -56,6 +56,18 @@ wi-table-resizeable {
         .content {
             overflow: overlay;
             flex    : 1;
+        }
+    }
+    @keyframes show {
+        0% {
+            opacity: 0;
+        }
+        80% {
+            opacity: 100%;
+        }
+    
+        100% {
+            opacity: 30%;
         }
     }
 
