@@ -16,6 +16,7 @@ function controller(wiApi, $scope, $timeout) {
   self.tableWidthArray = []
   self.errMsg = ''
   self.discriminator = self.discriminator || {}
+  self.rowWithMaxCount = {}
 
   self.$onInit = function() {
     if (self.curveId) initState()
@@ -140,6 +141,7 @@ function controller(wiApi, $scope, $timeout) {
 
       //    self.headers = generateTableHeaders(curveSplitedWithMetrics)
       self.binMetrics = generateMetricsForEachBin(curveSplitedWithMetrics)
+      self.rowWithMaxCount = findRowHaveMaxCount(self.binMetrics)
       $scope.safeApply()
     })
   }
@@ -183,6 +185,17 @@ function controller(wiApi, $scope, $timeout) {
 
     return numBins
   }
+
+  function findRowHaveMaxCount(rows) {
+    const rowHaveMaxCount = _.maxBy(rows, ([count, lower, upper]) => count)
+    const rowHaveMaxCountObj = {
+      count: rowHaveMaxCount[0],
+      lower: rowHaveMaxCount[1],
+      upper: rowHaveMaxCount[2]
+    }
+    self.onRowHaveMaxCountChange && self.onRowHaveMaxCountChange(rowHaveMaxCountObj)
+    return rowHaveMaxCountObj
+  }
 }
 
 const app = angular.module(moduleName, ['wiApi', 'wiTableResizeable'])
@@ -202,7 +215,9 @@ app.component(componentName, {
     zone: '<',
     minX: '<',
     maxX: '<',
-    onNumBinsChange: '<',
+
+    onNumBinsChange: '<', //optional
+    onRowHaveMaxCountChange: '<',//optional
   },
 })
 // app.factory('$exceptionHandler', function() {
