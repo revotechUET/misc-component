@@ -167,10 +167,11 @@ function controller(wiApi, $scope, $timeout) {
     const lowerBounds = calculator.getLowerBoundInEachChunk(curveData, numBins)
     const upperBounds = calculator.getUpperBoundInEachChunk(curveData, numBins)
     const metrics = [counts, lowerBounds, upperBounds]
-    const roundedMetrics = metrics.map(row => row.map(metric => {
+    const roundedMetrics = metrics.map(row => row.map((metric, idx) => {
 
       //round 4 digit after comma
-      const roundedMetric = wiApi.bestNumberFormat(metric, 4)
+      const numDigits = idx === 0 ? 0 : 4
+      const roundedMetric = wiApi.bestNumberFormat(metric, numDigits)
       return roundedMetric
     }))
     
