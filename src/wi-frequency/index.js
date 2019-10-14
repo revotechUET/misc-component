@@ -167,15 +167,17 @@ function controller(wiApi, $scope, $timeout) {
     const lowerBounds = calculator.getLowerBoundInEachChunk(curveData, numBins)
     const upperBounds = calculator.getUpperBoundInEachChunk(curveData, numBins)
     const metrics = [counts, lowerBounds, upperBounds]
-    const roundedMetrics = metrics.map(row => row.map((metric, idx) => {
+    const roundedMetrics = metrics.map((row, idxRow) => {
 
-      // not round count
-      if(idx === 0) return metric
-      
-      const numDigits = 4
-      const roundedMetric = wiApi.bestNumberFormat(metric, numDigits)
-      return roundedMetric
-    }))
+      //do not round row 0
+      if(idxRow === 0) return row
+
+      return row.map((metric) => {
+        const numDigits = 4
+        const roundedMetric = wiApi.bestNumberFormat(metric, numDigits)
+        return roundedMetric
+      })
+    })
     
     return roundedMetrics
   }
