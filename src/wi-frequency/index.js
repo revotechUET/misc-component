@@ -111,8 +111,8 @@ function controller(wiApi, $scope, $timeout) {
       const curveData = resp
       self.numBins = calculateNumBin(
         self.step,
-        Math.min(...curveData.map(c => c.y)),
-        Math.max(...curveData.map(c => c.y))
+        self.minX,
+        self.maxX
       )
 
       const validCurveData = _.zip(validPosition, curveData)
