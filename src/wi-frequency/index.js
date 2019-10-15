@@ -137,7 +137,7 @@ function controller(wiApi, $scope, $timeout) {
           data.y <= self.zone.properties.endDepth
         )
       })
-      const curveSplitedWithMetrics = getMetrics(validCurveDataInZone, self.numBins)
+      const curveSplitedWithMetrics = getMetrics(validCurveDataInZone, self.step, self.minX, self.maxX)
 
       //    self.headers = generateTableHeaders(curveSplitedWithMetrics)
       self.binMetrics = generateMetricsForEachBin(curveSplitedWithMetrics)
@@ -162,24 +162,28 @@ function controller(wiApi, $scope, $timeout) {
     return defaultEmptyBins
   }
 
-  function getMetrics(curveData, numBins) {
-    const counts = calculator.getNumPointInEachChunk(curveData, numBins)
-    const lowerBounds = calculator.getLowerBoundInEachChunk(curveData, numBins)
-    const upperBounds = calculator.getUpperBoundInEachChunk(curveData, numBins)
-    const metrics = [counts, lowerBounds, upperBounds]
-    const roundedMetrics = metrics.map((row, idxRow) => {
+  function getMetrics(curveData, step, minX, maxX) {
+    const counts = calculator.getNumPointInEachChunk(curveData, step, minX, maxX)
+    const lowerBounds = calculator.getLowerBoundInEachChunk(curveData, step, minX, maxX)
+    const upperBounds = calculator.getUpperBoundInEachChunk(curveData, step, minX, maxX)
+    const metrics = [
+      counts,
+      lowerBounds.map(num => roundNum(num)), 
+      upperBounds.map(num => roundNum(num))
+    ]
+    // const roundedMetrics = metrics.map((row, idxRow) => {
 
-      //do not round row 0
-      if(idxRow === 0) return row
+    //   //do not round row 0
+    //   if(idxRow === 0) return row
 
-      return row.map((metric) => {
-        const numDigits = 4
-        const roundedMetric = wiApi.bestNumberFormat(metric, numDigits)
-        return roundedMetric
-      })
-    })
+    //   return row.map((metric) => {
+    //     const numDigits = 4
+    //     const roundedMetric = wiApi.bestNumberFormat(metric, numDigits)
+    //     return roundedMetric
+    //   })
+    // })
     
-    return roundedMetrics
+    return metrics
   }
 
   function calculateNumBin(step, minDepth, maxDepth) {
@@ -200,6 +204,11 @@ function controller(wiApi, $scope, $timeout) {
     }
     self.onRowHaveMaxCountChange && self.onRowHaveMaxCountChange(rowHaveMaxCountObj)
     return rowHaveMaxCountObj
+  }
+
+  function roundNum(num, digitAfterComma=4) {
+    const roundedNum = wiApi.bestNumberFormat(num, digitAfterComma)
+    return parseFloat(roundedNum)
   }
 }
 
