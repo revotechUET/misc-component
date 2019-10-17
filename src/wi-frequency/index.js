@@ -20,6 +20,9 @@ function controller(wiApi, $scope, $timeout) {
 
   self.$onInit = function() {
     if (self.curveId) initState()
+    if (!self.realTimeUpdate && self.getUpdateFn && typeof self.getUpdateFn === 'function')   {
+      self.getUpdateFn(initState)
+    }
   }
 
   self.$onChanges = function(changes) {
@@ -30,8 +33,16 @@ function controller(wiApi, $scope, $timeout) {
       self.discriminator = changes.discriminator.currentValue
 
     self.errMsg = ''
-
-    if (self.curveId) initState()
+    
+    // realtime update
+    if (self.curveId && self.realTimeUpdate) return initState()
+    //if not use realtime update
+    //assing update function for parent component to use
+    if (!self.realTimeUpdate && self.getUpdateFn && typeof self.getUpdateFn === 'function')   {
+      self.getUpdateFn(initState)
+    }
+    //init state the frist time
+    if (changes.curveId && changes.curveId.previousValue === undefined) return initState()
   }
 
   $scope.safeApply = function(fn) {
@@ -233,13 +244,11 @@ app.component(componentName, {
 
     onNumBinsChange: '<', //optional
     onRowHaveMaxCountChange: '<',//optional
+
+    realTimeUpdate: '<', //boolean
+    getUpdateFn: '<',// when realTimeUpdate=false, this funciton to get the update function inside this component
+    // onCalculateSuccess: '<', // when realTimeUpdate=false, use this function to listen to calculation update event
   },
 })
-// app.factory('$exceptionHandler', function() {
-//   return function(exception, cause) {
-//     exception.message += 'Angular Exception: "' + cause + '"'
-//     throw exception
-//   }
-// })
 
 exports.name = moduleName
