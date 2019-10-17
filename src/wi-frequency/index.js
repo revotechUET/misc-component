@@ -95,9 +95,10 @@ function controller(wiApi, $scope, $timeout) {
       const curveInfo = await wiApi.getCurveInfoPromise(self.curveId)
       const datasetInfo = await wiApi.getDatasetInfoPromise(curveInfo.idDataset)
       const discriminator = self.discriminator || {}
+      const activeDiscrimintor = discriminator.active ? discriminator: {}
       const validPosition = await wiApi.evalDiscriminatorPromise(
         datasetInfo,
-        discriminator
+        activeDiscrimintor
       )
       // const curveData = resp.filter(data => {
       //   const maxX = parseFloat(self.maxX)
