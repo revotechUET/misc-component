@@ -53,3 +53,9 @@ wi-table-view div.handle {
     bottom: -3px;
     right: -3px;
 }
+wi-table-view .cell-idx {
+    width: 33px;
+}
+wi-table-view .cell-label {
+    width: 40px;
+}

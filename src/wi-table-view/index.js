@@ -28,14 +28,32 @@ module.component(name, {
     },
 });
 
-function Controller($scope, $element) {
+function Controller($scope, $element, $compile, $timeout) {
     let self = this;
+    const ITEM_HEIGHT = 31;
+    const DEFAULT_VLIST_HEIGHT = 190;
+    const vListContainerName = '.table-data-container'
+    const tableHeaderSelector = '.table-data-header'
+    
+    $scope.safeApply = function (fn) {
+        const phase = this.$root.$$phase;
+        if (phase == '$apply' || phase == '$digest') {
+            if (fn && (typeof (fn) === 'function')) {
+            fn();
+            }
+        } else {
+            this.$apply(fn);
+        }
+    };
     
     this.$onInit = function() {
         this.colLabels = this.colLabels || {};
         this.rowLabels = this.rowLabels || {};
         this.getRowIcons = this.getRowIcons || function() { return [] };
         this.getRowIconStyle = this.getRowIconStyle || function() { return {} };
+        $timeout(() => {
+            this.vListWrapper = createVirtualListWrapper()
+        })
         self.cellStyle = self.cellStyle || {};
     }
     this.getRowHeaderCellStyle = function($index) {
@@ -54,6 +72,9 @@ function Controller($scope, $element) {
             rowCount = self.rowCount;
         }
         return [...Array(rowCount).keys()];
+    }
+    this.getRowByIdx = function(idx) {
+        return self.getRows()[idx]
     }
     this.getCols = function(row) {
         let colCount = 0;
@@ -148,10 +169,132 @@ function Controller($scope, $element) {
             return self.validRow;
         } else return true;
     }
+    this.accessorWithShortenTxt = function(numDigit) {
+        // avoid generate new instance every time
+        // prevent bug digest many time of angularjs
+        if($scope.__accessorWithShortenTxt_cache__) return $scope.__accessorWithShortenTxt_cache__;
+         
+        const fn =  (...params) => {
+            const txt = self.accessor(...params)
+            return shortenText(txt, numDigit)
+        }
+        $scope.__accessorWithShortenTxt_cache__ = fn;
+        return fn 
+        
+    }
     function headerRowCount() {
         return self.colHeaders ? (self.showOriginHeader?2:1):0;
     }
     function headerColCount() {
         return self.showOriginHeader?2:1;
+    }
+
+    function createVirtualListWrapper() {
+        const height = getVlistHeight()
+        const headerWidths = getHeaderTextWidth()
+        const vListWrapper = new WiVirtualList({
+            height: height, //initial
+            itemHeight: ITEM_HEIGHT,
+            htmlContainerElement: $element.find(vListContainerName)[0],
+            totalRows: self.getRows().length || 1, //initial
+            generatorFn: idxRow => createNodeTreeElement(idxRow, headerWidths)
+        });
+        vListWrapper.setContainerStyle({
+            'border': 'none'
+        });
+        vListWrapper.vList.container.addEventListener('scroll', e => $scope.safeApply())
+        // vListWrapper.setContainerStyle({display: 'table-caption'})
+
+        return vListWrapper;
+    }
+
+    function getVlistHeight() {
+        const h = $element.find(vListContainerName).height();
+        return h || self.vlistHeight || DEFAULT_VLIST_HEIGHT;
+    }
+
+    function createNodeTreeElement(idxRow, colWidths) {
+        if(idxRow < 0) return document.createElement('div');
+        // const node = `
+        // <div class="row" ng-show="self.isValidRow(${idxRow})">
+        //     <div ng-if="self.showOriginHeader" class="cell header">
+        //         {{self.getOriginRowHeader(${idxRow})}}
+        //     </div>
+        //     <div class="cell">
+        //         <div class="cell-col-1">
+        //             <div class="icon-array">
+        //                 <i ng-style="self.getRowIconStyle(self.getRowByIdx(${idxRow}))" 
+        //                     class="{{icon}}" 
+        //                     ng-repeat="icon in self.getRowIcons(self.getRowByIdx(${idxRow}))">
+        //                 </i>
+        //             </div>
+        //             <editable params="$index" item-value="self.getRowHeader($index)" set-value="self.setRowHeader"
+        //                 enabled="self.headerEditable"
+        //                 content-style="{width:'100%',height:'100%',float:'none'}">
+        //             </editable>
+        //         </div>
+        //     </div>
+        //     <div class="cell" ng-repeat="col in self.getCols(self.getRowByIdx(${idxRow}))" 
+        //         ng-click="self.cellClick(self.getRowByIdx(${idxRow}), col);">
+        //         <editable params="[self.getRowByIdx(${idxRow}), col]" item-value="self.accessor" set-value="self.setter"
+        //             enabled="self.cellEditable"
+        //             content-style="{width:'100%',height:'100%',float:'none'}">
+        //         </editable>
+        //     </div>
+        // </div>`
+        const labelCellWidths = [colWidths[0]]
+        if(self.showOriginHeader) labelCellWidths.push(colWidths[1])
+
+        const dataCellWidths = colWidths.filter((col, idxCol) => idxCol >= labelCellWidths.length)
+        self._dataCellWidths = dataCellWidths //allow access in angular template
+
+        const node = `
+        <div class="row" ng-show="self.isValidRow(${idxRow})">
+            <div ng-if="self.showOriginHeader" class="cell header cell-idx">
+                {{self.getOriginRowHeader(${idxRow})}}
+            </div>
+            <div class="cell cell-label">
+                <div class="cell-col-1">
+                    <div class="icon-array">
+                        <i ng-style="self.getRowIconStyle(self.getRowByIdx(${idxRow}))" 
+                            class="{{icon}}" 
+                            ng-repeat="icon in self.getRowIcons(self.getRowByIdx(${idxRow}))">
+                        </i>
+                    </div>
+                    <editable params="${idxRow}" item-value="self.getRowHeader(${idxRow})" set-value="self.setRowHeader"
+                        enabled="self.headerEditable"
+                        content-style="{width:'100%',height:'100%',float:'none'}">
+                    </editable>
+                </div>
+            </div>
+            <div class="cell" 
+                ng-repeat="(col, idxCol) in self.getCols(self.getRowByIdx(${idxRow}))" 
+                ng-click="self.cellClick(self.getRowByIdx(${idxRow}), col);"
+                style="width:{{self._dataCellWidths[idxCol]}}">
+                <editable 
+                    params="[self.getRowByIdx(${idxRow}), col]" 
+                    item-value="self.accessorWithShortenTxt(idxCol)" 
+                    set-value="self.setter"
+                    enabled="self.cellEditable"
+                    content-style="{width:'100%',height:'100%',float:'none'}">
+                </editable>
+            </div>
+        </div>`
+        return $compile(node)($scope)[0]
+    }
+
+    function getHeaderTextWidth() {
+        const headerRowSelector = `${tableHeaderSelector} .row.header`;
+        const headerCells = $element.find(headerRowSelector).children();
+        const headerWidths = [...headerCells].map(
+          headerHtmlEl => headerHtmlEl.textContent.length
+        );
+        console.log({headerWidths}) 
+        return headerWidths;
+    }
+
+    function shortenText(txt, numDigit) {
+        console.log({txt, numDigit})
+        return 'asd'
     }
 }
