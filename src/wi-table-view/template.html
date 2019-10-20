@@ -11,7 +11,7 @@
         <div class="row row-label" ng-if="self.colHeaders && self.showOriginHeader">
             <div class="cell header empty-header">a</div>
             <div class="cell header">Label</div>
-            <div class="cell" ng-repeat="col in self.getCols()">
+            <div class="cell" ng-repeat="col in self.getCols()" ng-attr-title="{{self.getColHeader($index)}}">
                 <editable params="$index" item-value="self.getColHeader($index)" set-value="self.setColHeader" 
                         enabled="self.headerEditable"
                         content-style="{width:'100%',height:'100%',float:'none'}">

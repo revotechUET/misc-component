@@ -1,7 +1,8 @@
 wi-table-view div.table {
     display:table;
     margin-top: 10px;  
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
+    border-top: 1px solid #ccc;
     position: relative;
     outline: none;
 }
@@ -26,6 +27,8 @@ wi-table-view div.cell {
     border: 1px solid #ccc;
     cursor: default;
     position: relative;
+    min-width: 40px;
+    text-overflow: ellipsis;
 }
 wi-table-view div.cell input {
     outline:none;
@@ -53,9 +56,7 @@ wi-table-view div.handle {
     bottom: -3px;
     right: -3px;
 }
-wi-table-view .cell-idx {
-    width: 33px;
-}
-wi-table-view .cell-label {
-    width: 40px;
+wi-table-view  editable div {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
