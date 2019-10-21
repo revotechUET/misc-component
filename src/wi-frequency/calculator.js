@@ -1,27 +1,27 @@
-function splitIntoBins(curveData, numBins) {
+function splitIntoBins(curveData, step, minX, maxX) {
   // const sortedCurves = [...curveData].sort(
   //   (a, b) => parseFloat(a.x) - parseFloat(b.x)
   // )
   // const maxX = _.last(sortedCurves).x
   // const minX = _.first(sortedCurves).x
 
-  if(!curveData || !curveData.length) return []
-  if(!numBins) return []
+  // if(!curveData || !curveData.length) return []
+  // if(!step) return []
 
-  const maxX = _.maxBy(curveData, curve =>
-    _.isNumber(curve.x) ? curve.x : -Infinity
-  ).x
+  // const maxX = _.maxBy(curveData, curve =>
+  //   _.isNumber(curve.x) ? curve.x : -Infinity
+  // ).x
 
-  const minX = _.minBy(curveData, curve =>
-    _.isNumber(curve.x) ? curve.x : Infinity
-  ).x
+  // const minX = _.minBy(curveData, curve =>
+  //   _.isNumber(curve.x) ? curve.x : Infinity
+  // ).x
 
   const xAxis = d3.scaleLinear().domain([minX, maxX])
   const histogram = d3
     .histogram()
     .value(c => c.x)
     .domain(xAxis.domain())
-    .thresholds(d3.range(minX, maxX, (maxX-minX)/numBins))
+    .thresholds(d3.range(minX, maxX, step))
 //    .thresholds(xAxis.ticks(numBins))
 
   const bins = histogram(curveData)
@@ -30,27 +30,22 @@ function splitIntoBins(curveData, numBins) {
 //  return sanitizedBins
 }
 
-function sanitize(bin) {
-  //collect only element that have property x
-  return bin.filter(el => _.isNumber(el.x))
-}
-
-module.exports.getNumPointInEachChunk = function(curveData, numBins) {
-  const bins = splitIntoBins(curveData, numBins)
+module.exports.getNumPointInEachChunk = function(curveData, step, minX, maxX) {
+  const bins = splitIntoBins(curveData, step, minX, maxX)
   const countMemOfEachBins = bins.map(bin => bin.length)
 
   return countMemOfEachBins
 }
 
-module.exports.getUpperBoundInEachChunk = function(curveData, numbBins) {
-  const bins = splitIntoBins(curveData, numbBins)
+module.exports.getUpperBoundInEachChunk = function(curveData, step, minX, maxX) {
+  const bins = splitIntoBins(curveData, step, minX, maxX)
   const upperBounds = bins.map(bin => bin.x1)
 
   return upperBounds
 }
 
-module.exports.getLowerBoundInEachChunk = function(curveData, numBins) {
-  const bins = splitIntoBins(curveData, numBins)
+module.exports.getLowerBoundInEachChunk = function(curveData, step, minX, maxX) {
+  const bins = splitIntoBins(curveData, step, minX, maxX)
   const lowerBounds = bins.map(bin => bin.x0)
 
   return lowerBounds
