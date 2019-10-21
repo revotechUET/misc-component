@@ -212,10 +212,10 @@ function Controller($scope, $element, $compile, $timeout) {
 
         const node = `
         <div class="row" ng-show="self.isValidRow(${idxRow})">
-            <div ng-if="self.showOriginHeader" class="cell header ">
+            <div ng-if="self.showOriginHeader" class="cell header " style="width:${labelCellWidths[0]}">
                 {{self.getOriginRowHeader(${idxRow})}}
             </div>
-            <div class="cell">
+            <div class="cell" style="width:${labelCellWidths[labelCellWidths.length - 1]}">
                 <div class="cell-col-1">
                     <div class="icon-array">
                         <i ng-style="self.getRowIconStyle(self.getRowByIdx(${idxRow}))" 
@@ -251,7 +251,8 @@ function Controller($scope, $element, $compile, $timeout) {
         const headerCells = $element.find(headerRowSelector).children();
         const headerWidths = [...headerCells].map(
             headerHtmlEl => window.getComputedStyle(headerHtmlEl).width
-        ); 
+        );
+        console.log({headerWidths}) 
         return headerWidths;
     }
 
