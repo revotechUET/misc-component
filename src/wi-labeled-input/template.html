@@ -1,0 +1,20 @@
+<div>
+    <!-- <div style="display: flex; justify-content: space-between; border: 1px solid green;  margin: 20px;">
+        <div>{{self.title}}</div>
+        <div ng-click="self.addItem()">add</div>
+    </div> -->
+    <div>
+        <div class="row-item">
+            <div style="flex-basis: 100px">
+                <wi-dropdown-list place-holder="value"
+                    on-item-changed="self.onItemChanged"
+                    items="self.dropList" current-select='self.dropList[0]' >
+                </wi-dropdown-list>
+            </div>
+            <div style="flex: 2;">
+                <editable item-value="self.getItemValue" enabled="true" set-value="self.setItemValue">
+                </editable>
+            </div>
+        </div>
+    </div>
+</div>

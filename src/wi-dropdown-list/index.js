@@ -52,7 +52,7 @@ app.component(name, {
         ctrlBtnIcon: "@",
         onCtrlBtnClick: "<",
         choiceStyles: '@',
-        hideDeleteButton: '<',
+        hideDeleteButton: '<'
     }
 });
 
