@@ -20,6 +20,9 @@ function controller(wiApi, $scope, $timeout) {
 
   self.$onInit = function() {
     if (self.curveId) initState()
+    if (!self.realTimeUpdate && self.getUpdateFn && typeof self.getUpdateFn === 'function')   {
+      self.getUpdateFn(initState)
+    }
   }
 
   self.$onChanges = function(changes) {
@@ -30,8 +33,16 @@ function controller(wiApi, $scope, $timeout) {
       self.discriminator = changes.discriminator.currentValue
 
     self.errMsg = ''
-
-    if (self.curveId) initState()
+    
+    // realtime update
+    if (self.curveId && self.realTimeUpdate) return initState()
+    //if not use realtime update
+    //assing update function for parent component to use
+    if (!self.realTimeUpdate && self.getUpdateFn && typeof self.getUpdateFn === 'function')   {
+      self.getUpdateFn(initState)
+    }
+    //init state the frist time
+    if (changes.curveId && changes.curveId.previousValue === undefined) return initState()
   }
 
   $scope.safeApply = function(fn) {
@@ -95,9 +106,10 @@ function controller(wiApi, $scope, $timeout) {
       const curveInfo = await wiApi.getCurveInfoPromise(self.curveId)
       const datasetInfo = await wiApi.getDatasetInfoPromise(curveInfo.idDataset)
       const discriminator = self.discriminator || {}
+      const activeDiscrimintor = discriminator.active ? discriminator: {}
       const validPosition = await wiApi.evalDiscriminatorPromise(
         datasetInfo,
-        discriminator
+        activeDiscrimintor
       )
       // const curveData = resp.filter(data => {
       //   const maxX = parseFloat(self.maxX)
@@ -111,8 +123,8 @@ function controller(wiApi, $scope, $timeout) {
       const curveData = resp
       self.numBins = calculateNumBin(
         self.step,
-        Math.min(...curveData.map(c => c.y)),
-        Math.max(...curveData.map(c => c.y))
+        self.minX,
+        self.maxX
       )
 
       const validCurveData = _.zip(validPosition, curveData)
@@ -137,7 +149,7 @@ function controller(wiApi, $scope, $timeout) {
           data.y <= self.zone.properties.endDepth
         )
       })
-      const curveSplitedWithMetrics = getMetrics(validCurveDataInZone, self.numBins)
+      const curveSplitedWithMetrics = getMetrics(validCurveDataInZone, self.step, self.minX, self.maxX)
 
       //    self.headers = generateTableHeaders(curveSplitedWithMetrics)
       self.binMetrics = generateMetricsForEachBin(curveSplitedWithMetrics)
@@ -162,19 +174,28 @@ function controller(wiApi, $scope, $timeout) {
     return defaultEmptyBins
   }
 
-  function getMetrics(curveData, numBins) {
-    const counts = calculator.getNumPointInEachChunk(curveData, numBins)
-    const lowerBounds = calculator.getLowerBoundInEachChunk(curveData, numBins)
-    const upperBounds = calculator.getUpperBoundInEachChunk(curveData, numBins)
-    const metrics = [counts, lowerBounds, upperBounds]
-    const roundedMetrics = metrics.map(row => row.map(metric => {
+  function getMetrics(curveData, step, minX, maxX) {
+    const counts = calculator.getNumPointInEachChunk(curveData, step, minX, maxX)
+    const lowerBounds = calculator.getLowerBoundInEachChunk(curveData, step, minX, maxX)
+    const upperBounds = calculator.getUpperBoundInEachChunk(curveData, step, minX, maxX)
+    const metrics = [
+      counts,
+      lowerBounds.map(num => roundNum(num)), 
+      upperBounds.map(num => roundNum(num))
+    ]
+    // const roundedMetrics = metrics.map((row, idxRow) => {
 
-      //round 4 digit after comma
-      const roundedMetric = wiApi.bestNumberFormat(metric, 4)
-      return roundedMetric
-    }))
+    //   //do not round row 0
+    //   if(idxRow === 0) return row
+
+    //   return row.map((metric) => {
+    //     const numDigits = 4
+    //     const roundedMetric = wiApi.bestNumberFormat(metric, numDigits)
+    //     return roundedMetric
+    //   })
+    // })
     
-    return roundedMetrics
+    return metrics
   }
 
   function calculateNumBin(step, minDepth, maxDepth) {
@@ -195,6 +216,11 @@ function controller(wiApi, $scope, $timeout) {
     }
     self.onRowHaveMaxCountChange && self.onRowHaveMaxCountChange(rowHaveMaxCountObj)
     return rowHaveMaxCountObj
+  }
+
+  function roundNum(num, digitAfterComma=4) {
+    const roundedNum = wiApi.bestNumberFormat(num, digitAfterComma)
+    return parseFloat(roundedNum)
   }
 }
 
@@ -218,13 +244,11 @@ app.component(componentName, {
 
     onNumBinsChange: '<', //optional
     onRowHaveMaxCountChange: '<',//optional
+
+    realTimeUpdate: '<', //boolean
+    getUpdateFn: '<',// when realTimeUpdate=false, this funciton to get the update function inside this component
+    // onCalculateSuccess: '<', // when realTimeUpdate=false, use this function to listen to calculation update event
   },
 })
-// app.factory('$exceptionHandler', function() {
-//   return function(exception, cause) {
-//     exception.message += 'Angular Exception: "' + cause + '"'
-//     throw exception
-//   }
-// })
 
 exports.name = moduleName

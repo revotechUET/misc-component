@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Test Supermen</title>
+    <link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/all.css">
+    <link rel="stylesheet" href="../bower_components/angular-ui-select/dist/select.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/themify-icons/css/themify-icons.css">
+
+
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-ui-select/dist/select.min.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="../dist/misc-components.js"></script>
+</head>
+<style>
+
+</style>
+
+<body ng-app="myApp" ng-controller="myController">
+    <div style="border: 1px solid red; width: 300px; height: 300px;">
+        <div ng-repeat="item in items" style="display: flex;">
+            <wi-labeled-input drop-list="dropList" int-data="item">
+            </wi-labeled-input>
+            <div style="flex-basis: 50px ;" class="ti ti-close" ng-click="onClick($index)"></div>
+        </div>
+    </div>
+    <script>
+        angular.module("myApp", ['wiLabeledInput']).controller('myController', function ($scope, $timeout, $element) {
+            $scope.items = [{
+                key: "1",
+                value: 100
+            }, {
+                key: "1",
+                value: 200
+            }, {
+                key: "1",
+                value: 200
+            }]
+            $scope.onClick  = function (idx) {
+                console.log($scope.items);
+                $scope.items.splice(idx, 1);
+            }
+            $scope.dropList = [{
+                data: {
+                    label: "1"
+                },
+                properties: {
+                    name: "1"
+                }
+            }, {
+                data: {
+                    label: "2"
+                },
+                properties: {
+                    name: "2"
+                }
+            },{
+                data: {
+                    label: "3"
+                },
+                properties: {
+                    name: "3"
+                }
+            },{
+                data: {
+                    label: "4"
+                },
+                properties: {
+                    name: "4"
+                }
+            }];
+        })
+    </script>
+</body>
+
+</html>

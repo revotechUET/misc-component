@@ -57,8 +57,8 @@ function wiDialogService(ModalService) {
     this.promptListDialog = function(config, cb) {
         promptListDialog(ModalService, config, cb);
     }
-    this.authenticationDialog = function(cb) {
-        authenticationDialog(ModalService, cb);
+    this.authenticationDialog = function(cb, options) {
+        authenticationDialog(ModalService, cb, options);
     }
 } 
 

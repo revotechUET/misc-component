@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>Test WiTableView</title>
+    <script src="../bower_components/virtual-list/vlist.js"></script>
+    <script src="../bower_components/wi-vlist/index.js"></script>
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../dist/misc-components.js"></script>
 
+
 </head>
 <body ng-app = "myApp" ng-controller="MyCtr">
-    
     <wi-table-view 
             header-editable="true"
             cell-editable="true"
@@ -18,7 +20,9 @@
             setter="setData"
             row-count="rowCount"
             col-headers="['id', 'name', 'country', 'gender']"
-            col-count="colCount">
+            col-count="colCount"
+            
+            default-width="['50px','50px','50px','50px']">
         </wi-table-view>
     <script>
 
@@ -35,6 +39,9 @@ angular.module("myApp",['wiTableView'])
         {id: 8,name:'Mary',country:'England',gender: "Male"},
         {id: 9,name:'Kai',country:'Norway',gender: "Male"}
     ]; 
+    for (let i = 0; i < 100; i++) {
+        data.push({...data[0], id: i})
+    }
      
     $scope.renderData = function(rowcol) {
         let row = rowcol[0];

@@ -25,5 +25,6 @@ module.exports = {
     imgPreview: require('./img-preview'),
     wiTableResizeable: require('./wi-table-resizeable'),
     wiFrequency: require('./wi-frequency'),
-    wiSlideshow: require('./wi-slideshow')
+    wiSlideshow: require('./wi-slideshow'),
+    wiLabeledInput: require('./wi-labeled-input')
 }

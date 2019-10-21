@@ -2,10 +2,11 @@ let helper = require('../DialogHelper');
 // const config = require('../../js/config.js')();
 // const env = (process.env.NODE_ENV || '').trim();
 require('./authentication-modal.less');
-module.exports = function (ModalService, callback) {
+module.exports = function (ModalService, callback, options) {
 	function ModalController($scope, close, $timeout, wiApi) {
 		// let dialogUtils = wiComponentService.getComponent(wiComponentService.DIALOG_UTILS);
 		let self = this;
+		self.whoami = options.whoami;
 		const availableOptions = [];
 		// if (env === 'prod') {
 		// 	availableOptions.push({name: 'Product Server', server: config['Product Server']});
@@ -113,7 +114,7 @@ module.exports = function (ModalService, callback) {
 			let dataRequest = {
 				username: self.username,
 				password: self.password,
-				// whoami: 'main-service'
+				whoami: self.whoami || "unknown"
 			};
 			// wiMachineLearningApiService.setServicesUrl(self.server.selectedOption);
 			// wiOnlineInvService.setServicesUrl(self.server.selectedOption);
