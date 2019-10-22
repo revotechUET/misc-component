@@ -144,9 +144,10 @@ function controller(wiApi, $scope, $timeout) {
       const validCurveDataInZone = validCurveData.filter(data => {
         if(!self.zone) return true
 
+        const depth = getDepth(data, datasetInfo)
         return (
-          data.y >= self.zone.properties.startDepth &&
-          data.y <= self.zone.properties.endDepth
+          depth >= self.zone.properties.startDepth &&
+          depth <= self.zone.properties.endDepth
         )
       })
       const curveSplitedWithMetrics = getMetrics(validCurveDataInZone, self.step, self.minX, self.maxX)
@@ -163,6 +164,15 @@ function controller(wiApi, $scope, $timeout) {
       .getCachedCurveDataPromise(idCurve)
       .catch(error => cb(error))
       .then(val => cb(null, val))
+  }
+
+  function getDepth(curvePoint, dataset) {  
+    const datasetStep = parseFloat(dataset.step)
+    const datasetTop = parseFloat(dataset.top)
+    const curveIdx = parseFloat(curvePoint.y)
+
+    if(datasetStep === 0) return curveIdx
+    return datasetStep * curveIdx + datasetTop
   }
 
   function generateMetricsForEachBin(curveWithMetrics) {
@@ -251,4 +261,6 @@ app.component(componentName, {
   },
 })
 
+// y * step + startdepth
+// step and startdepth from dataset
 exports.name = moduleName
