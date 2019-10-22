@@ -252,7 +252,6 @@ function Controller($scope, $element, $compile, $timeout) {
         const headerWidths = [...headerCells].map(
             headerHtmlEl => window.getComputedStyle(headerHtmlEl).width
         );
-        console.log({headerWidths}) 
         return headerWidths;
     }
 
