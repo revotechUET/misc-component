@@ -1,8 +1,7 @@
 wi-table-view div.table {
     display:table;
     margin-top: 10px;  
-    /* border: 1px solid #ccc; */
-    border-top: 1px solid #ccc;
+    border: 1px solid #ccc;
     position: relative;
     outline: none;
 }
@@ -27,8 +26,6 @@ wi-table-view div.cell {
     border: 1px solid #ccc;
     cursor: default;
     position: relative;
-    min-width: 40px;
-    text-overflow: ellipsis;
 }
 wi-table-view div.cell input {
     outline:none;
@@ -46,7 +43,6 @@ wi-table-view div.indicator {
     position: absolute;
     overflow: visible;
     box-sizing: content-box;
-    pointer-events:none;
 }
 wi-table-view div.handle {
     border: 2px solid #006ed6;
@@ -55,11 +51,4 @@ wi-table-view div.handle {
     height: 1px;
     bottom: -3px;
     right: -3px;
-}
-wi-table-view  editable div {
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-wi-table-view .table-data-header {
-   width: calc(100% - 15px);  /* 15px is slider's length*/
 }
