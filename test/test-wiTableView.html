@@ -12,6 +12,7 @@
 
 </head>
 <body ng-app = "myApp" ng-controller="MyCtr">
+    <div style="border:1px solid;width:700px;">
     <wi-table-view 
             header-editable="true"
             cell-editable="true"
@@ -23,13 +24,14 @@
             col-count="colCount"
             
             default-width="['50px','50px','50px','50px']">
-        </wi-table-view>
+    </wi-table-view>
+    </div>
     <script>
 
 angular.module("myApp",['wiTableView'])
 .controller('MyCtr',['$scope',function($scope){ 
     let data = [
-        {id: 1,name:'Jani',country:'Norway',gender: "Male"},
+        {id: 1,name:'Jani',country:'Norwadddddddddddddddddddddddddddddddddddddddddddddy',gender: "Male"},
         {id: 2,name:'Carl',country:'Sweden',gender: "Male"},
         {id: 3,name:'Margareth',country:'England',gender: "Male"},
         {id: 4,name:'Hege',country:'Norway',gender: "Male"},

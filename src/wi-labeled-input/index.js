@@ -14,7 +14,9 @@ app.component(componentName, {
         title: '<',
         maxHeight: '<',
         dropList: '<',
-        intData: "<"
+        intData: "<",
+        param: '<',
+        onLabelChange: '<'
     }
 });
 
@@ -33,5 +35,6 @@ function wiLabeledInputController($element, $timeout, $scope) {
     }
     this.onItemChanged = function(selectedItemProps) {
         self.intData.key = selectedItemProps.name;
+        self.onLabelChange && self.onLabelChange(self.param, self.intData.key);
     }
 }

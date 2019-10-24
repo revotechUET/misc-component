@@ -19,10 +19,9 @@ function sortableController($element, $timeout, $scope) {
     let self = this;
 
     this.$onInit = function() {
-        console.log('sortable component...');
         $scope.$watch(() => $element.find('.wi-sortable .sort-item').length, function() {
             $element.find('.wi-sortable .sort-item').each(function(i, elem) {
-                jQuery(elem).attr('sortable-index', i);
+                $(elem).attr('sortable-index', i);
             });
         });
         $element.find('.wi-sortable').sortable({
@@ -31,7 +30,7 @@ function sortableController($element, $timeout, $scope) {
                 let modelLength = model.length;
                 let items = [];
                 $element.find('.wi-sortable .sort-item').each(function(index) {
-                    let item = jQuery(this);
+                    let item = $(this);
                     let oldIndex = parseInt(item.attr("sortable-index"), 10);
                     model.push(model[oldIndex]);
 
