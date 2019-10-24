@@ -97,65 +97,72 @@ function controller(wiApi, $scope, $timeout) {
   }
 
   function initState() {
-    getCurveData(self.curveId, async (error, resp) => {
-      if (error) {
-        self.errMsg = 'Cannot load curve data'
-        return
-      }
+    return new Promise((resolve, reject) => {
+      getCurveData(self.curveId, async (error, resp) => {
+        if (error) {
+          self.errMsg = 'Cannot load curve data'
+          return reject(error)
+        }
 
-      const curveInfo = await wiApi.getCurveInfoPromise(self.curveId)
-      const datasetInfo = await wiApi.getDatasetInfoPromise(curveInfo.idDataset)
-      const discriminator = self.discriminator || {}
-      const activeDiscrimintor = discriminator.active ? discriminator: {}
-      const validPosition = await wiApi.evalDiscriminatorPromise(
-        datasetInfo,
-        activeDiscrimintor
-      )
-      // const curveData = resp.filter(data => {
-      //   const maxX = parseFloat(self.maxX)
-      //   const minX = parseFloat(self.minX)
-      //   const upper = maxX !== NaN ? maxX : Infinity
-      //   const lower = minX !== NaN ? minX : -Infinity
-
-      //   return data.x >= lower && data.x <= upper
-
-      // })
-      const curveData = resp
-      self.numBins = calculateNumBin(
-        self.step,
-        self.minX,
-        self.maxX
-      )
-
-      const validCurveData = _.zip(validPosition, curveData)
-        .map(([isValid, data]) =>
-          isValid === undefined ? [true, data] : [isValid, data]
+        const curveInfo = await wiApi.getCurveInfoPromise(self.curveId)
+        const datasetInfo = await wiApi.getDatasetInfoPromise(
+          curveInfo.idDataset
         )
-        .filter(([isValid, data]) => isValid && data) // valid data by discriminator
-        .filter(([isValid, data]) => {  // valid data by max and min, data.x
+        const discriminator = self.discriminator || {}
+        const activeDiscrimintor = discriminator.active ? discriminator : {}
+        const validPosition = await wiApi.evalDiscriminatorPromise(
+          datasetInfo,
+          activeDiscrimintor
+        )
+        // const curveData = resp.filter(data => {
+        //   const maxX = parseFloat(self.maxX)
+        //   const minX = parseFloat(self.minX)
+        //   const upper = maxX !== NaN ? maxX : Infinity
+        //   const lower = minX !== NaN ? minX : -Infinity
+
+        //   return data.x >= lower && data.x <= upper
+
+        // })
+        const curveData = resp
+        self.numBins = calculateNumBin(self.step, self.minX, self.maxX)
+
+        const validCurveData = _.zip(validPosition, curveData)
+          .map(([isValid, data]) =>
+            isValid === undefined ? [true, data] : [isValid, data]
+          )
+          .filter(([isValid, data]) => isValid && data) // valid data by discriminator
+          .filter(([isValid, data]) => {
+            // valid data by max and min, data.x
             const maxX = parseFloat(self.maxX)
             const minX = parseFloat(self.minX)
             const upper = maxX !== NaN ? maxX : Infinity
             const lower = minX !== NaN ? minX : -Infinity
 
             return data.x !== null && data.x >= lower && data.x <= upper
+          })
+          .map(([isValid, data]) => data)
+        const validCurveDataInZone = validCurveData.filter(data => {
+          if (!self.zone) return true
+
+          const depth = getDepth(data, datasetInfo)
+          return (
+            depth >= self.zone.properties.startDepth &&
+            depth <= self.zone.properties.endDepth
+          )
         })
-        .map(([isValid, data]) => data)
-      const validCurveDataInZone = validCurveData.filter(data => {
-        if(!self.zone) return true
-
-        const depth = getDepth(data, datasetInfo)
-        return (
-          depth >= self.zone.properties.startDepth &&
-          depth <= self.zone.properties.endDepth
+        const curveSplitedWithMetrics = getMetrics(
+          validCurveDataInZone,
+          self.step,
+          self.minX,
+          self.maxX
         )
-      })
-      const curveSplitedWithMetrics = getMetrics(validCurveDataInZone, self.step, self.minX, self.maxX)
 
-      //    self.headers = generateTableHeaders(curveSplitedWithMetrics)
-      self.binMetrics = generateMetricsForEachBin(curveSplitedWithMetrics)
-      self.rowWithMaxCount = findRowHaveMaxCount(self.binMetrics)
-      $scope.safeApply()
+        //    self.headers = generateTableHeaders(curveSplitedWithMetrics)
+        self.binMetrics = generateMetricsForEachBin(curveSplitedWithMetrics)
+        self.rowWithMaxCount = findRowHaveMaxCount(self.binMetrics)
+        $scope.safeApply()
+        resolve(self.rowWithMaxCount)
+      })
     })
   }
 
