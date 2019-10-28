@@ -16,7 +16,10 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         return new Promise(function(resolve, reject) {
             const salt = "wi-hash";
             const baseUrl = opts.baseUrl || self.baseUrl;
-            const headers = opts.noToken ? {} : { Authorization: wiToken.getToken() };
+            const headers = opts.noToken ? {} : {
+                Authorization: wiToken.getToken(),
+                'Service': 'WI_BACKEND'
+            };
             const payloadHash = genPayloadHash((data || {}), SHA256(salt + wiToken.getToken()));
             $http({
                 method: 'POST',
@@ -249,7 +252,8 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         return Upload.upload({
             url: self.baseUrl + '/image-upload',
             headers: {
-                Authorization: wiToken.getToken()
+                Authorization: wiToken.getToken(),
+                Service: "WI_BACKEND"
             },
             data: {
                 idImage: idImage,
@@ -513,7 +517,8 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             url: self.baseUrl + route,
             headers: {
                 'Referrer-Policy': 'no-referrer',
-                Authorization: wiToken.getToken()
+                Authorization: wiToken.getToken(),
+                'Service': 'WI_BACKEND'
                 // CurrentProject: window.localStorage.getItem('LProject') ? JSON.parse(window.localStorage.getItem('LProject')).name : 'Unknown'
             },
             data: {
