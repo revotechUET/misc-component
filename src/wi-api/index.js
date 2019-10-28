@@ -90,7 +90,10 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function getAllFamilyPromise() {
         return postPromise('/family/list', {});
     }
-
+    this.getListUnit = getListUnit;
+    function getListUnit(payload) {
+        return postPromise('/family/list-unit', payload)
+    }
     this.getWellsPromise = getWellsPromise;
     function getWellsPromise(idProject) {
         return postPromise('/project/well/list', {idProject: idProject});
