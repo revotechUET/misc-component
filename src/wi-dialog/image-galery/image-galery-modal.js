@@ -12,7 +12,8 @@ module.exports = function (ModalService, callback) {
             url: self.baseUrl + '/image-list',
             data: {},
             headers: {
-                Authorization: wiToken.getToken()
+                Authorization: wiToken.getToken(),
+                'Service': 'WI_BACKEND'
             }
         }).then(function(response) {
             if (response.data.code === 200) {
