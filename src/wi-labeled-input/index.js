@@ -16,7 +16,8 @@ app.component(componentName, {
         dropList: '<',
         intData: "<",
         param: '<',
-        onLabelChange: '<'
+        onLabelChange: '<',
+        editType: '<'
     }
 });
 
@@ -31,6 +32,10 @@ function wiLabeledInputController($element, $timeout, $scope) {
         return self.intData.value;
     }
     this.setItemValue = function (notUse, newVal) {
+        if (self.editType === 'number') {
+            self.intData.value = parseFloat(newVal);
+            return;
+        }
         self.intData.value = newVal;
     }
     this.onItemChanged = function(selectedItemProps) {
