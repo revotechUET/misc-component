@@ -26,5 +26,7 @@ module.exports = {
     wiTableResizeable: require('./wi-table-resizeable'),
     wiFrequency: require('./wi-frequency'),
     wiSlideshow: require('./wi-slideshow'),
-    wiLabeledInput: require('./wi-labeled-input')
+    wiLabeledInput: require('./wi-labeled-input'),
+    chartWidget: require('./chart-widget'),
+    managerDashboard: require('./manager-dashboard')
 }

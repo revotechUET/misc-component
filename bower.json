@@ -34,6 +34,9 @@
     "wi-vlist": "https://github.com/tunghoang/wi-vlist.git",
     "resize-sensor": "https://github.com/normanzb/resize-sensor.git",
     "d3": "^5.9.7",
-    "themify-icons": "^0.1.2"
+    "themify-icons": "^0.1.2",
+    "angular-chart.js": "^1.1.1",
+    "macy": "^2.5.0",
+    "angular-drag-and-drop-lists": "^2.1.0"
   }
 }
