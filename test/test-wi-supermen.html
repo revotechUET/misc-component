@@ -22,7 +22,7 @@
 
 <body ng-app="myApp" ng-controller="myController">
     <div style="border: 1px solid red; width: 300px; height: 300px;">
-        <div ng-repeat="item in items" style="display: flex;">
+        <div ng-repeat="item in items" >
             <wi-labeled-input drop-list="dropList" int-data="item">
             </wi-labeled-input>
             <div style="flex-basis: 50px ;" class="ti ti-close" ng-click="onClick($index)"></div>
