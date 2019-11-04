@@ -34,7 +34,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       self.scrollToSelectedNode();
     }
 
-    $scope.$watch(() => (self.treeRoot), () => {
+    $scope.$watchCollection(() => ([self.treeRoot, self.treeRoot.length]), () => {
       self.selectedNodes = [];
       if (!self.vListWrapper) {
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
@@ -42,7 +42,14 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       updateVList();
       self.scrollToSelectedNode();
     });
-
+    // $scope.$watch(() => (self.treeRoot.length), () => {
+    //   self.selectedNodes = [];
+    //   if (!self.vListWrapper) {
+    //     self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
+    //   }
+    //   updateVList();
+    //   self.scrollToSelectedNode();
+    // });
 //    $scope.$watch(() => (self.getVlistHeight()), (newValue, oldValue) => {
 //      if (newValue !== (self.vListHeight || DEFAULT_VLIST_HEIGHT)) {
 //        destroyTree();
