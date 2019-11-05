@@ -1,11 +1,27 @@
 manager-dashboard {
-    & > div {
-        width: 100%;
+    .dashboard-widget {
+        display         : flex;
+        flex-direction  : column;
+        padding         : 10px 0;
+        background-color: white;
+        position        : relative;
+
+        
+
+        chart-widget {
+            height: 100%;
+        }
+
+        
     }
-    h4 {
-        margin:0;
-        text-align: center;
-        user-select:none;
-        cursor: default;
+
+    @keyframes circle {
+        0% {
+            clip-path: ellipse(0% 0% at 0% 0%);
+        }
+
+        100% {
+            clip-path: ellipse(1000px 1000px at 50% 50%);
+        }
     }
 }

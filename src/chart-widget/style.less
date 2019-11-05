@@ -1,4 +1,36 @@
 chart-widget {
+    &>span {
+        display: block;
+        height: 20px;
+        line-height       : 15px;
+        text-align        : center;
+        background        : #ffffff;
+        // justify-content: center;
+        // border-bottom  : 1px solid #f4f4f4;
+        font-weight       : bold;
+    }
+    & > div.setting-icon {
+        position    : absolute;
+        padding-right: 0;
+        cursor      : pointer;
+        z-index     : 1;
+        top: 0;
+        border-top  : 20px solid #efefef;
+        border-right: 20px solid transparent;
+
+        &.filling {
+            animation    : circle 1s;
+            background   : #efefef;
+            clip-path    : ellipse(1000px 1000px at 50% 50%);
+            height       : 100%;
+            width        : 100%;
+            border-radius: 3px;
+        }
+
+        .setting {
+            flex: 1;
+        }
+    }
     & > div {
         padding-right:5px;
         & > canvas {

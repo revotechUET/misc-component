@@ -6,7 +6,8 @@ angular.module(componentName, ['chart.js']).component(componentName, {
     controllerAs: 'self',
     controller: WidgetController,
     bindings: {
-        widgetConfig: '<'
+        widgetConfig: '<',
+        widgetName: "<"
     }
 });
 

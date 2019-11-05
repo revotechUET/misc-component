@@ -1,3 +1,9 @@
+<div class="setting-icon" ng-class="{'filling': self.showSetting}"
+    ng-click="self.showSetting = !self.showSetting">
+    <div class="setting">
+    </div>
+</div>
+<span>{{self.widgetName}}</span>
 <div>
     <canvas ng-if="self.widgetConfig.type === 'bar'" class='chart-bar' chart-data="self.widgetConfig.data" 
         chart-labels="self.getLabels(self.widgetConfig)" 

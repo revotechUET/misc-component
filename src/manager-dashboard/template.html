@@ -1,9 +1,5 @@
 <div>
     <div class="dashboard-widget" ng-repeat="widget in self.dashboardContent">
-        <h4>{{widget.name}}</h4>
-        <chart-widget widget-config="widget.config"></chart-widget>
-        <!--<canvas ng-if="widget.config.type === 'bar'" class='chart-bar' chart-data="widget.config.data" 
-            chart-labels="self.getLabels(widget.config)" 
-            chart-colors="self.getColors(widget.config)"></canvas>-->
+        <chart-widget widget-name="widget.name" widget-config="widget.config"></chart-widget>
     </div>
 </div>
