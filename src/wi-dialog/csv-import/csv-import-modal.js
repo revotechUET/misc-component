@@ -17,7 +17,7 @@ module.exports = function (ModalService, file, callback) {
         // );
         let unitGroup11;
         function getUnitGroup11() {
-            let unitTable = utils.getUnitArr();
+            let unitTable = wiApi.getUnitTable();
             unitGroup11 = unitTable.filter(unit => unit.idUnitGroup == 11);
         }
         getUnitGroup11();
