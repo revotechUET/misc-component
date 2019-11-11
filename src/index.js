@@ -28,5 +28,6 @@ module.exports = {
     wiSlideshow: require('./wi-slideshow'),
     wiLabeledInput: require('./wi-labeled-input'),
     chartWidget: require('./chart-widget'),
-    managerDashboard: require('./manager-dashboard')
+    managerDashboard: require('./manager-dashboard'),
+    wiImportCsvFile: require('./wi-import-csv-file/wi-import-csv-file')
 }

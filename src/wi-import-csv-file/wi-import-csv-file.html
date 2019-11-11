@@ -1,0 +1,128 @@
+<div ng-show="self.currentStep == 1">
+	<form class="drop-zone">
+		<div ngf-drop ngf-select ng-model="self.file" class="input-drop" ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true" ngf-pattern="'.csv,.asc,.txt'" ngf-accept="'.csv,.asc,.txt'"></div>
+		<p class="drop-zone-title">
+		<span class="label">Drop/Click to upload</span>
+		</p>
+	</form>
+	<div ng-if="self.file">
+		<div class="break-line"></div>
+
+		<div class="wiModal.currentStep == 1 ? 'csv-wizard-table-wrapper-1' : 'csv-wizard-table-wrapper-2">
+			<label style="margin: 0;">
+				<form style="margin: 0 0 5px 5px;" class="form-inline" ng-if="self.step1Configs">
+					<label style="margin: 0 10px 0 0;" ng-repeat="line in self.step1Configs track by $index">{{ line.name }}
+						<input style="display: unset; max-width:130px; padding:0 0 0 5px; background-color:{{ line.color }}" type="{{line.type}}" class="form-control input-sm" ng-model="line.value" ng-change="self.setupConfig('1', line.value, $index)" ng-model-options="{updateOn: 'change'}" ng-click="self.currentConfig1 = $index">
+					</label>
+					<label style="text-align: right; margin: 0 5px 0 0; max-width: 25%;" ng-if="self.linesShow >= -1">
+						<span>Show</span>
+						<input style="display: unset; max-width:35%" type="number" ng-model="self.linesShow" class="form-control input-sm" ng-change="self.updateLinesShow()" ng-model-options="{updateOn: 'change'}">
+					</label>
+				</form>
+			</label>
+			<div class='view-content'>
+				<ul name="contentLines" class="ul-content">
+					<li ng-repeat="x in self.viewContent track by $index" style="font-size: 13px;" ng-click="self.setupConfig('1',$index + 1)">
+						<label class="line">
+							<label class="index-line">{{ $index + 1}}</label>
+							<span style="white-space: nowrap; background-color: {{self.setColor('1', $index + 1)}}">{{ x.toString() }}
+							</span>
+						</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-show="self.currentStep == 2">
+	<div style="min-height: 37px;">
+		<form>
+			<div class="form-row">
+				<div class="form-group col-md-1" style=" margin-right: 20px; margin-bottom: 0; padding: 0px 5px;">
+					<label style="font-size:12px">Delimiter</label>
+					<input type="text" class="form-control input-sm" placeholder="Delimiter" style="width: 75px; margin-right: 15px;" ng-model="self.fileConfigs.delimiter">
+				</div>
+				<div class="form-group col-md-1" style=" margin-right: 20px; margin-bottom: 0; padding: 0px 5px;">
+					<label style="font-size:12px">Decimal</label>
+					<input type="text" class="form-control input-sm" placeholder="Decimal" style="width: 75px; margin-right: 15px;" ng-model="self.fileConfigs.decimal">
+				</div>
+				<div class="form-group col-md-2" ng-repeat="config in self.step2Configs track by $index" ng-if="self.step2Configs" style=" margin-right: 20px; margin-bottom: 0; padding: 0px;" ng-style="($index >= self.step2Configs.length - 1 || self.step2Configs.length == 5) && {'width': '13.5%'}">
+					<label style="font-size:12px">{{config.name}}</label>
+					<input ng-style="config.color && {'background-color': config.color}" type="{{config.type}}" class="form-control input-sm" placeholder="{{config.name}}" style="width: 130px; margin-right: 15px;" ng-if="config.type != 'list'" ng-change="self.setupConfig('2', config.value, $index)" ng-model="config.value" ng-model-options="{updateOn: 'change'}" ng-click="self.currentConfig2 = $index" ng-disabled="config.disabled">
+
+					<div class="input-group" ng-if="config.type == 'list'">
+						<input type="text" class="form-control input-sm" ng-change="self.setupConfig('2', config.value, $index)" ng-model="config.value" ng-model-options="{updateOn: 'change'}" ng-click="self.currentConfig2 = $index">
+						<div class="input-group-btn">
+							<button type="button" class="btn btn-default btn-sm dropdown-toggle"
+                                data-toggle="dropdown" style="padding: 5px;"
+                                ng-click="self.clickDropdown(config)">
+								<div style="height: 18px;">
+									<span class="caret" style="margin: 7px 0 0 0;"></span>
+								</div>
+							</button>
+							<ul style="max-height: 140px; overflow: auto; padding-top: 0;" class="dropdown-menu pull-right">
+								<li ng-if="config.filterable">
+                                    <input type="text" class="form-control input-sm"
+                                        ng-change="self.onFilterChange(config.filterStr, config.listValue)"
+                                        ng-model="config.filterStr"
+                                        style="margin: 5px; width: calc(100% - 10px); border-radius: 5px;">
+                                </li>
+								<li ng-show="!value.hidden" ng-repeat="value in config.listValue track by $index"
+                                    ng-click="self.setupListedConfig(config.name, value.value)">
+									<a href="#">{{ value.value }}</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</form>
+	</div>
+	<br>
+	<div ng-if="self.select" style="display: table; margin: 0 0 0 7px;">
+		<label style="margin: 0;">Check all
+			<input type="checkbox" ng-true-value="1" ng-false-value="0" ng-model="self.checkAll" ng-change="self.changeCheckAll()">
+		</label>
+	</div>
+
+	<div class="table-view" ng-style="!self.select && {'height': '58%'}">
+		<table>
+			<tr>
+				<th class="info-col">
+				</th>
+				<th ng-repeat="cell in self.step1Configs[0].data track by $index" ng-click="self.setupConfig('2', $index + 1)" style="background-color: {{self.setColor('2', $index + 1)}}">
+					<span>{{ $index + 1 }}</span>
+				</th>
+			</tr>
+			<!-- <tr> -->
+			<!-- 	<th class="info-col"> -->
+			<!-- 	</th> -->
+			<!-- 	<th ng-repeat="cell in self.step1Configs[0].data track by $index" ng-click="self.setupConfig('2', $index + 1)" style="background-color: {{self.setColor('2', $index + 1)}}"> -->
+			<!-- 		<span ng-bind="cell"></span> -->
+			<!-- 	</th> -->
+			<!-- </tr> -->
+			<tr ng-repeat="(rowIdx, row) in self.step1Configs" ng-if="rowIdx < self.step1Configs.length - 1">
+				<td class="info-col">
+					{{self.step1Configs[rowIdx].name}}
+				</td>
+				<td ng-repeat="header in row.data track by $index" style="background-color: {{self.setColor('2',$index + 1)}}">
+					<div ng-if="self.checkEditCell(rowIdx) >= 0">
+						<span class="fa fa-edit" style="margin: 2% 2px 0 0;"></span>
+						<input class="cell-editable" ng-change="self.onUnitOfColChange(rowIdx, $index)" ng-model="self.step1Configs[rowIdx].data[$index]" ng-model-options="{updateOn: 'change'}" type="text" style="background-color: {{self.setColor('2', $index + 1)}}">
+						<input style="margin: 3px 0 0 0; float: right;" type='checkbox' ng-true-value="1" ng-false-value="0" ng-model="self.selectFields[$index]" ng-model-options="{updateOn: 'change'}" ng-if="rowIdx == 0 && self.select && !self.setColor('2', $index + 1)">
+					</div>
+					<span ng-if="self.checkEditCell(rowIdx) < 0">{{header}}</span>
+				</td>
+			</tr>
+			<tr ng-repeat="(rowIdx, row) in self.tableContent" ng-if="rowIdx >= self.step1Configs.length - 1">
+				<td class="info-col">
+					{{ rowIdx - (self.step1Configs.length - 2) }}	
+				</td>
+				<td ng-repeat="cell in row track by $index" style="background-color: {{self.setColor('2', $index + 1)}}">
+					<span>{{cell}}</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
