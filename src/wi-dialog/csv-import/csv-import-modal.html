@@ -1,0 +1,39 @@
+<div class="modal fade" data-backdrop="static" data-keyboard="false">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="wiModal.onCancelButtonClicked()" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title">CSV/ASCII/TEXT Wizard</h4>
+			</div>
+			<div style="padding:0;" class="modal-body new-zoneset-modal">
+				<wi-import-csv-file-new 
+				step1-configs="wiModal.step1Configs" 
+				step2-configs="wiModal.step2Configs" 
+				current-step="wiModal.currentStep" 
+				bindback-controller="wiModal.getController" 
+				go-to-step2="wiModal.onNextButtonClicked" 
+				lines-show="wiModal.linesShow = 50" 
+				select="all"
+				detect-regex="[ \t\;\,]" 
+				file="wiModal.file">
+				</wi-import-csv-file-new>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="wiModal.currentStep = 1" ng-if="wiModal.currentStep==2">
+					<span class="previous-16x16"></span>&nbsp;Back
+				</button>
+				<button type="button" class="btn btn-default" ng-click="wiModal.currentStep = 2" ng-if="wiModal.currentStep==1" ng-disabled="!wiModal.checkStepConfigs(1)">
+					<span class="next-16x16"></span>&nbsp;Next
+				</button>
+				<button type="button" class="btn btn-default" ng-click="wiModal.onLoadButtonClicked()" ng-if="wiModal.currentStep==2" ng-disabled="!wiModal.checkStepConfigs(2)">
+					<span class="ok-16x16"></span>&nbsp;Load
+				</button>
+				<button type="button" ng-click="wiModal.onCancelButtonClicked()" class="btn btn-default">
+					<span class="close-16x16"></span>&nbsp;Cancel
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

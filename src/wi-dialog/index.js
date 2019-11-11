@@ -1,7 +1,7 @@
 var serviceName = 'wiDialog';
 module.exports.name = serviceName;
 
-let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken', 'wiLoading', "wiDropdownList"]);
+let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken', 'wiLoading', "wiDropdownList", 'wiImportCsvFileNew']);
 app.config(function($sceProvider) {
     $sceProvider.enabled(false);
 });
@@ -21,6 +21,7 @@ const lineStyleDialog = require('./line-style/line-style-modal.js');
 const colorPickerDialog = require('./color-picker/color-picker-modal.js');
 const promptListDialog =require('./prompt-list/prompt-list.js');
 const authenticationDialog = require('./authentication/authentication-modal.js');
+const csvImportDialog = require('./csv-import/csv-import-modal.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -59,6 +60,9 @@ function wiDialogService(ModalService) {
     }
     this.authenticationDialog = function(cb, options) {
         authenticationDialog(ModalService, cb, options);
+    }
+    this.csvImportDialog = function(file, cb) {
+        csvImportDialog(ModalService, file, cb)
     }
 } 
 

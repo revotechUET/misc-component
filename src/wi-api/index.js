@@ -18,7 +18,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             const baseUrl = opts.baseUrl || self.baseUrl;
             const headers = opts.noToken ? {} : {
                 Authorization: wiToken.getToken(),
-                'Service': 'WI_BACKEND'
+                'Service': opts.service ? opts.service : 'WI_BACKEND' 
             };
             const payloadHash = genPayloadHash((data || {}), SHA256(salt + wiToken.getToken()));
             $http({
@@ -589,6 +589,80 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function login(data) {
         const authenticationUrl = window.localStorage.getItem('AUTHENTICATION_SERVICE') || "http://admin.dev.i2g.cloud";
         return postPromise('/login', data, { noToken: true, baseUrl: authenticationUrl });
+    }
+    this.postWithFile = postWithFile;
+    function postWithFile(route, dataPayload, options = {}) {
+        // var self = this;
+        let serviceHeader = null;
+        switch (options.service) {
+            case 'auth':
+                serviceHeader = "WI_AUTH";
+                break;
+            case 'processing':
+                serviceHeader = "WI_PROCESSING";
+                break;
+            default:
+                serviceHeader = "WI_INVENTORY";
+                break;
+        }
+        return new Promise(function (resolve, reject) {
+            let configUpload = {
+                url: self.baseUrl + route,
+                headers: {
+                    'Referrer-Policy': 'no-referrer',
+                    'Authorization': window.localStorage.getItem('token'),
+                    'Service': serviceHeader
+                },
+                arrayKey: '',
+                data: dataPayload
+            };
+            const upload = Upload.upload(configUpload);
+            upload.then(
+                function (responseSuccess) {
+                    if (responseSuccess.data && responseSuccess.data.code === 200 && responseSuccess.data.content) {
+                        return resolve(responseSuccess.data.content);
+                    } else if (responseSuccess.data && responseSuccess.data.code === 401) {
+                        window.localStorage.removeItem('token');
+                        window.localStorage.removeItem('username');
+                        window.localStorage.removeItem('password');
+                        window.localStorage.removeItem('rememberAuth');
+                        location.reload();
+                    } else if (responseSuccess.data && responseSuccess.data.reason) {
+                        return reject(responseSuccess.data.reason);
+                    } else {
+                        return reject('Response is invalid!');
+                    }
+                },
+                function (responseError) {
+                    if (responseError.data && responseError.data.content) {
+                        return reject(responseError.data.reason);
+                    } else {
+                        return reject(null);
+                    }
+                },
+                function (evt) {
+                    // let progress = Math.round(100.0 * evt.loaded / evt.total);
+                    // progressCb && progressCb(progress, upload);
+                    // console.log('evt upload', progress);
+                }
+            );
+        });
+    }
+    this.uploadFilesToInventory = uploadFilesToInventory;
+    function uploadFilesToInventory(payload, callback, url, options) {
+        // let self = this;
+        self.postWithFile(url, payload, options)
+        .then(function (response) {
+            if (callback) callback(response);
+        })
+        .catch(function (err) {
+            console.log(err);
+            callback(err);
+        })
+    }
+    this.listWellsPromise = listWellsPromise;
+    function listWellsPromise(payload) {
+        return postPromise('/user/wells', payload, {service: 'WI_INVENTORY'});
     }
 }
 
