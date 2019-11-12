@@ -21,7 +21,7 @@ function Controller($timeout, $scope) {
             }
         });
         $timeout(function() {
-            self.onWiDropdownInit && self.onWiDropdownInit(self);
+            self.onWiDropdownInit && self.onWiDropdownInit(self, self.params);
             //if(self.initML) return;
             if (!self.selectedItem && self.items && self.items.length) {
                 self.selectedItem = self.items[0];
@@ -31,7 +31,7 @@ function Controller($timeout, $scope) {
         self.showDeleteButton = !self.hideDeleteButton;
     }
     this.onChange = function() {
-        self.onItemChanged && self.onItemChanged((self.selectedItem || {}).properties);
+        self.onItemChanged && self.onItemChanged((self.selectedItem || {}).properties, self.params);
     }
 }
 
@@ -45,6 +45,7 @@ app.component(name, {
     bindings: {
         icon: "<",
         items: "<",
+        params: "<",
         onWiDropdownInit: "<",
         onItemChanged: "<",
         currentSelect: "<",

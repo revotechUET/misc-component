@@ -1,6 +1,6 @@
 const componentName = 'chartWidget';
 //require('angular-chart.js');
-angular.module(componentName, ['chart.js']).component(componentName, {
+angular.module(componentName, ['chart.js', 'editable', 'wiDropdownList']).component(componentName, {
     template: require('./template.html'),
     style: require('./style.less'),
     controllerAs: 'self',
@@ -11,8 +11,9 @@ angular.module(componentName, ['chart.js']).component(componentName, {
     }
 });
 
-function WidgetController($scope, $element) {
+function WidgetController($scope, $element, chartSettings) {
     let self = this;
+    self.chartSettings = chartSettings;
     this.$onInit = function() {
     }
     this.getLabels = function(widgetConfig) {
@@ -41,5 +42,9 @@ function WidgetController($scope, $element) {
             });
         }
         return widgetConfig.series;
+    }
+    const nullObj = {};
+    this.getOptions = function(widgetConfig) {
+        return widgetConfig.options || nullObj;
     }
 }
