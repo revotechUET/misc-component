@@ -139,23 +139,6 @@
         margin-bottom: 20px;
     }
 
-    input {
-        text-align: left;
-        color: #0074c5;
-        background-color: #f2f2f2;
-        border: 1px solid #ffffff;
-        border-radius: 70px;
-        font-size: 14px;
-        font-weight: bold;
-        padding: 10px 18px 11px 22px;
-        width: 100%;
-        transition: border .5s;
-    }
-
-    input:focus {
-        border: 1px solid #0074c5;
-        box-shadow: none;
-    }
 
     .btn {
         border: 2px solid transparent;
@@ -201,6 +184,9 @@
         justify-content: space-between;
 
     }
+    .success {
+        padding: 20px ;
+    }
 
 
 }
@@ -213,13 +199,9 @@
     border-radius: 5px;
     color: #444;
     font-family: Arial;
-    font-size: 1.1em;
-    line-height: 1.5em;
     margin: 0 auto;
     max-width: 100%;
-    padding: 1em;
     position: relative;
-    width: 400px;
     -webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.05), 0 9px 46px 8px rgba(0, 0, 0, 0.02), 0 11px 15px -7px rgba(0, 0, 0, 0.07);
     box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.05), 0 9px 46px 8px rgba(0, 0, 0, 0.02), 0 11px 15px -7px rgba(0, 0, 0, 0.07);
 }
@@ -306,5 +288,139 @@ wi-login {
             }
         }
 
+    }
+}
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border-width           : 0 0 1px 0;
+    border-color           : #406be8;
+    -webkit-text-fill-color: rgb(31, 31, 31);
+    -webkit-box-shadow     : none;
+    transition             : background-color 5000s ease-in-out 0s;
+}
+
+// .modal-backdrop.in {
+//     background-color: #F5F8FA !important;
+// }
+
+.logo {
+    position         : absolute;
+    background-repeat: no-repeat;
+    width            : 57px;
+    background-size  : contain;
+    height           : 32px;
+    left             : 60px;
+    top              : 37px;
+    z-index          : 1;
+    background-image : url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='Group_139' data-name='Group 139' width='866.117' height='387.962' viewBox='0 0 866.117 387.962'%3E%3Cpath id='Path_33' data-name='Path 33' d='M52.523,64.888a3.434,3.434,0,0,1-.765.058,3.266,3.266,0,0,1-.746-.058Z' transform='translate(471.092 173.816)' fill='%23fff'/%3E%3Cpath id='Path_34' data-name='Path 34' d='M69.12,64.888c-.957.058-1.913.1-2.87.1s-1.913-.038-2.87-.1Z' transform='translate(695.362 173.816)' fill='%23fff'/%3E%3Crect id='Rectangle_215' data-name='Rectangle 215' width='29.831' height='29.882' transform='translate(418.443 119.376)' fill='%23fff'/%3E%3Cpath id='Path_35' data-name='Path 35' d='M227.705,177.984V207.87H48.715V160.8a45.285,45.285,0,0,1,2.526-12.609,44.787,44.787,0,0,1,27.265-27.3,44.026,44.026,0,0,1,14.9-2.564h89.543a14.86,14.86,0,0,0,14.866-14.159,5.121,5.121,0,0,0,0-1.531,14.849,14.849,0,0,0-14.1-14.1,3.438,3.438,0,0,0-.765-.057,3.27,3.27,0,0,0-.746.057H48.715V58.651H182.953a43.978,43.978,0,0,1,14.866,2.583,44.737,44.737,0,0,1,27.322,27.3,44.552,44.552,0,0,1,0,29.79,44.737,44.737,0,0,1-27.322,27.3,43.966,43.966,0,0,1-14.866,2.564H93.41a14.914,14.914,0,0,0-14.9,14.924v14.866H92.664a3.269,3.269,0,0,0,.746.057,3.437,3.437,0,0,0,.765-.057Z' transform='translate(429.44 60.72)' fill='%23fff'/%3E%3Cpath id='Path_36' data-name='Path 36' d='M57.2,60.267H55.692a3.27,3.27,0,0,1,.746-.057A3.437,3.437,0,0,1,57.2,60.267Z' transform='translate(555.955 88.99)' fill='%23fff'/%3E%3Cpath id='Path_37' data-name='Path 37' d='M68.039,60.267h-4.63c.746-.057,1.55-.057,2.315-.057C66.47,60.21,67.274,60.21,68.039,60.267Z' transform='translate(695.888 88.99)' fill='%23fff'/%3E%3Crect id='Rectangle_216' data-name='Rectangle 216' width='29.831' height='89.545' transform='translate(418.443 179.04)' fill='%23fff'/%3E%3Cpath id='Path_38' data-name='Path 38' d='M235.211,82.3H28.459a193.733,193.733,0,0,1,206.752,0Z' transform='translate(62.136 -52.412)' fill='%23fff'/%3E%3Cpath id='Path_39' data-name='Path 39' d='M352.209,85.416H25.32A192.443,192.443,0,0,1,48.854,55.53H328.675A193.594,193.594,0,0,1,352.209,85.416Z' transform='translate(5.216 4.127)' fill='%23fff'/%3E%3Cpath id='Path_40' data-name='Path 40' d='M411.686,76.675c0,5.051-.21,10.026-.555,14.962H24.279c-.364-4.936-.555-9.911-.555-14.962,0-5.032.191-9.968.555-14.9H411.131C411.475,66.706,411.686,71.643,411.686,76.675Z' transform='translate(-23.724 117.277)' fill='%23fff'/%3E%3Cpath id='Path_41' data-name='Path 41' d='M352.3,68.006a194.252,194.252,0,0,1-23.534,29.886H48.851A195.432,195.432,0,0,1,25.317,68.006Z' transform='translate(5.162 230.355)' fill='%23fff'/%3E%3Cpath id='Path_42' data-name='Path 42' d='M235.211,71.127a192.547,192.547,0,0,1-103.338,29.886A192.809,192.809,0,0,1,28.459,71.127Z' transform='translate(62.136 286.949)' fill='%23fff'/%3E%3Cpath id='Path_43' data-name='Path 43' d='M236.81,88.537H48.062a14.943,14.943,0,1,1,0-29.886H227.091A185.556,185.556,0,0,1,236.81,88.537Z' transform='translate(145.947 60.72)' fill='%23fff'/%3E%3Cpath id='Path_44' data-name='Path 44' d='M227.724,79.85a14.951,14.951,0,0,1-14.9,14.924H33.715a187.46,187.46,0,0,1-9.72-29.886H212.819A14.947,14.947,0,0,1,227.724,79.85Z' transform='translate(-18.81 173.816)' fill='%23fff'/%3E%3Cpath id='Path_45' data-name='Path 45' d='M61.245,62.431v4.63c-.057-.765-.057-1.569-.057-2.315C61.188,63.981,61.188,63.177,61.245,62.431Z' transform='translate(655.614 129.264)' fill='%23fff'/%3E%3Cpath id='Path_46' data-name='Path 46' d='M56.565,61.715a3.526,3.526,0,0,1-.057.765V60.95A3.526,3.526,0,0,1,56.565,61.715Z' transform='translate(570.751 102.408)' fill='%23fff'/%3E%3Cpath id='Path_47' data-name='Path 47' d='M89.515,130.974c-.057.746-.057,1.55-.057,2.315,0,.746,0,1.55.057,2.315a43.177,43.177,0,0,0,2.526,12.589,44.77,44.77,0,0,0,27.265,27.322,43.549,43.549,0,0,0,12.092,2.468c.957.057,1.913.1,2.87.1s1.913-.038,2.87-.1h71.749v-29.79H119.305V118.327H238.772V207.87H132.354a74.641,74.641,0,0,1-13.049-1.473A74.59,74.59,0,0,1,74.553,88.537,72.019,72.019,0,0,1,89.515,73.575a74.453,74.453,0,0,1,44.752-14.924h104.5V88.537H136.582c-.765-.057-1.569-.057-2.315-.057-.765,0-1.569,0-2.315.057a44.873,44.873,0,0,0-42.437,42.437Z' transform='translate(627.345 60.72)' fill='%23fff'/%3E%3Cpath id='Path_48' data-name='Path 48' d='M67.257,66.45c-.612.038-1.263.038-1.913.038s-1.32,0-1.913-.038Z' transform='translate(696.269 202.14)' fill='%23fff'/%3E%3C/svg%3E");
+}
+.description {
+    position: absolute;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 100;
+    bottom: 38px;
+    left: 51px;
+}
+
+.dialog-wi-login {
+    outline      : none;
+    font-family  : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, "ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3", "Hiragino Kaku Gothic Pro", "ãƒ¡ã‚¤ãƒªã‚ª", Meiryo, "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    // position     : absolute;
+    top          : 50%;
+    right        : 50%;
+    width        : 500px;
+    // transform    : translate(50%, -50%);
+    display      : flex !important;
+    background   : #fff;
+    border-radius: 4px;
+    box-shadow   : 0 10px 60px #0000000f;
+    font-size: 12px;
+
+    .right-dialog-login {
+        flex          : 1;
+        z-index       : 1;
+        padding       : 40px;
+        display       : flex;
+        flex-direction: column;
+    }
+
+    .left-dialog-login {
+        flex-basis               : 35%;
+        background-color         : #416be8;
+        border-top-left-radius   : 4px;
+        border-bottom-left-radius: 4px;
+
+        .info-dialog-login {
+            border-top-left-radius   : 4px;
+            border-bottom-left-radius: 4px;
+            bottom                   : 40px;
+            color                    : #fff;
+            background-blend-mode    : lighten;
+            background-color         : #406be8;
+            background-size          : cover;
+            background-position      : center;
+            height                   : 100%;
+            font-size                : 10px;
+            font-weight              : 100;
+            background-image         : url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/c4cd2469553149.5b85760ee5e4b.gif');
+            animation                : fadein-login 2.85s infinite;
+        }
+
+    }
+
+    .input-login {
+        padding-bottom: 15px;
+        margin-bottom : 25px;
+        outline       : none;
+        border-width  : 0 0 1px 0;
+        border-color  : #406be8;
+        background    : #fff;
+        font-size: 12px;
+        line-height: 1;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, "ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3", "Hiragino Kaku Gothic Pro", "ãƒ¡ã‚¤ãƒªã‚ª", Meiryo, "ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    .submit-login {
+        letter-spacing: 2px;
+        padding       : 10px;
+        outline       : none;
+        border        : 1px solid #416be8;
+        border-radius : 4px;
+        background    : #416be8;
+        color         : #fff;
+        transition    : all ease-in 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            filter    : brightness(1.4);
+            transition: all ease-in 0.3s;
+        }
+    }
+}
+
+@keyframes fadein-login {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.3;
+    }
+
+    70% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 0;
     }
 }

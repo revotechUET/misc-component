@@ -10,28 +10,42 @@
     <style>
         .ngdialog-overlay{
             pointer-events: none;
+            background: #ffffff;
+
+        }
+        .ngdialog.ngdialog-theme-default .ngdialog-content {
+            -webkit-animation: ngdialog-flyin .3s;
+            animation: ngdialog-flyin .3s;
+            background: #ffffff;
+            border-radius: 5px;
+            color: #444;
+            font-family: Arial;
+            font-size: 1em !important;
+            line-height: 1em !important;
+            margin: 0 auto;
+            max-width: 100%;
+            padding: 0 !important;
+            position: relative;
+            width: 500px !important;
+            -webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.05), 0 9px 46px 8px rgba(0, 0, 0, 0.02), 0 11px 15px -7px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.05), 0 9px 46px 8px rgba(0, 0, 0, 0.02), 0 11px 15px -7px rgba(0, 0, 0, 0.07);
         }
     </style>
-    <div class="login">
-        <div class="login-screen">
-                <div class="app-title">
-                    <p>Login to {{self.appName}}</p>
-                </div>
-                <div class="login-form">
-                    <form>
-                        <div class="control-group">
-                            <input type="text" placeholder="username" ng-model="self.name">
-                        </div>
-        
-                        <div class="control-group">
-                            <input type="password" placeholder="password" ng-model="self.password">
-                        </div>
-        
-                        <input class="btn" type="submit" value="Login" ng-click="self.getInfor()" href="#">
-                        <a class="login-link" target="_blank" href="{{self.registerUrl}}">Register now!</a>
-                    </form>
-                </div>
+    <div class="dialog-wi-login">
+        <div class="left-dialog-login">
+            <div class="logo"></div>
+            <div class="info-dialog-login"> </div>
+            <div class="description">&copy;	 2019 Revotech</div>
         </div>
+        <div class="right-dialog-login">
+            <div style="margin-bottom:10px">Login to</div>
+            <div style="margin-bottom:40px; font-weight: 500; font-size:20px">{{self.appName}}</div>
+            <form style="display: flex; flex-direction: column;">
+                <input class="input-login" type="text" placeholder="username" ng-model="self.name">
+                <input class="input-login" type="password" placeholder="password" ng-model="self.password">
+                <input class="submit-login" type="submit" value="LOGIN" ng-click="self.getInfor()" href="#">
+            </form>
+            <div style="font-size: 10px; font-style: italic; margin-top: 20px;"> Please contact us via support@i2g.cloud for any trouble signing in to I2G.</div> </div>
     </div>
 </script>
 <script type="text/ng-template" id="templateDone">
