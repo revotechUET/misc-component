@@ -34,7 +34,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       self.scrollToSelectedNode();
     }
 
-    $scope.$watchCollection(() => ([self.treeRoot, self.treeRoot.length]), () => {
+    $scope.$watchCollection(() => ([self.treeRoot, (self.treeRoot || {}).length]), () => {
       self.selectedNodes = [];
       if (!self.vListWrapper) {
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
