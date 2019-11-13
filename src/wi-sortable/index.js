@@ -10,6 +10,7 @@ app.component(componentName, {
     bindings: {
         updateFn: '<',
         itemList: '<',
+        relatedList: '<',
         containerClass: '<'
     },
     transclude: true
@@ -19,6 +20,7 @@ function sortableController($element, $timeout, $scope) {
     let self = this;
 
     this.$onInit = function() {
+        self.relatedList = self.relatedList || [];
         $scope.$watch(() => $element.find('.wi-sortable .sort-item').length, function() {
             $element.find('.wi-sortable .sort-item').each(function(i, elem) {
                 $(elem).attr('sortable-index', i);
@@ -26,6 +28,21 @@ function sortableController($element, $timeout, $scope) {
         });
         $element.find('.wi-sortable').sortable({
             update: function(event, ui) {
+                if (self.relatedList && self.relatedList.length) {
+                    let oldIdxList = [];
+                    $element.find('.wi-sortable .sort-item').each(function(index) {
+                        let item = $(this);
+                        oldIdxList.push(parseInt(item.attr("sortable-index"), 10));
+                    });
+                    self.relatedList.forEach(list => {
+                        let modelLength = list.length;
+                        oldIdxList.forEach(function(oldIndex) {
+                            list.push(model[oldIndex]);
+                        });
+                        list.splice(0, modelLength);
+                    })
+                }
+
                 let model = self.itemList;
                 let modelLength = model.length;
                 let items = [];
