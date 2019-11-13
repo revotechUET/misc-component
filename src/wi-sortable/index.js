@@ -37,7 +37,7 @@ function sortableController($element, $timeout, $scope) {
                     self.relatedList.forEach(list => {
                         let modelLength = list.length;
                         oldIdxList.forEach(function(oldIndex) {
-                            list.push(model[oldIndex]);
+                            list.push(list[oldIndex]);
                         });
                         list.splice(0, modelLength);
                     })
