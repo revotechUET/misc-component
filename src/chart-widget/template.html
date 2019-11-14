@@ -1,41 +1,36 @@
-<div class="setting-icon" ng-class="{'filling': self.showSetting}"
-    ng-click="self.showSetting = !self.showSetting">
-    <div class="setting">
-        <div ng-repeat="(key, setting) in self.chartSettings" ng-click="$event.stopPropagation()">
-            <div ng-if="setting.type == 'number' || setting.type == 'text'" style="width: 100%; height: 2em;">
-                <editable params="self.widgetConfig" item-label="setting.label" enabled="true" item-value="setting.getValue" set-value="setting.setValue">
-                </editable>
-            </div>
-            <div ng-if="setting.type == 'select'" style="display: flex;">
-                <label>{{setting.label}}</label>
-                <wi-dropdown-list style="flex: 1;"
-                    items="setting.options" params="self.widgetConfig" on-item-changed="setting.setValue">
-                </wi-dropdown-list>
-            </div>
+<div class="ti ti-settings" ng-show="!self.showSetting" ng-click="self.showSetting = !self.showSetting" style="cursor: pointer; position: absolute; right: 0px; z-index: 1;"></div>
+<div class="setting" ng-class="{'filling': self.showSetting}">
+    <div ng-repeat="(key, setting) in self.chartSettings" ng-click="$event.stopPropagation()" style="margin-bottom: 15px; height: 34px;">
+        <div ng-if="setting.type == 'number' || setting.type == 'text'" style="width: 100%; height: 2em;">
+            <editable params="self.widgetConfig" item-label="setting.label" enabled="true" item-value="setting.getValue"
+                set-value="setting.setValue">
+            </editable>
+        </div>
+        <div ng-if="setting.type == 'select'" style="display: flex; align-items: center;">
+            <label style="flex-basis: 70px;">{{setting.label}}</label>
+            <wi-dropdown-list style="flex: 1; margin-left: 20px;" items="setting.options" params="self.widgetConfig"
+                on-item-changed="setting.setValue">
+            </wi-dropdown-list>
         </div>
     </div>
+    <div class="ti ti-close" ng-hide="!self.showSetting"ng-click="self.showSetting = !self.showSetting" style="cursor: pointer; position: absolute; right: 0; top: 0; z-index: 1;"></div>
+
 </div>
 <span>{{self.widgetConfig.title || self.widgetName}}</span>
 <div>
-    <canvas ng-if="self.widgetConfig.type === 'bar'" class='chart-bar' chart-data="self.widgetConfig.data" 
-        chart-options="self.getOptions(self.widgetConfig)"
-        chart-labels="self.getLabels(self.widgetConfig)" 
-        chart-colors="self.getColors(self.widgetConfig)"
+    <canvas ng-if="self.widgetConfig.type === 'bar'" class='chart-bar' chart-data="self.widgetConfig.data"
+        chart-options="self.getOptions(self.widgetConfig)" chart-labels="self.getLabels(self.widgetConfig)"
+        chart-colors="self.getColors(self.widgetConfig)" chart-series="self.getSeries(self.widgetConfig)"></canvas>
+    <canvas ng-if="self.widgetConfig.type === 'horizontal-bar'" class='chart-horizontal-bar'
+        chart-data="self.widgetConfig.data" chart-labels="self.getLabels(self.widgetConfig)"
+        chart-colors="self.getColors(self.widgetConfig)" chart-series="self.getSeries(self.widgetConfig)"></canvas>
+    <canvas ng-if="self.widgetConfig.type === 'pie'" class='chart-pie' chart-data="self.widgetConfig.data"
+        chart-labels="self.getLabels(self.widgetConfig)" chart-colors="self.getColors(self.widgetConfig)"
         chart-series="self.getSeries(self.widgetConfig)"></canvas>
-    <canvas ng-if="self.widgetConfig.type === 'horizontal-bar'" class='chart-horizontal-bar' chart-data="self.widgetConfig.data" 
-        chart-labels="self.getLabels(self.widgetConfig)" 
-        chart-colors="self.getColors(self.widgetConfig)"
+    <canvas ng-if="self.widgetConfig.type === 'line'" class='chart-line' chart-data="self.widgetConfig.data"
+        chart-labels="self.getLabels(self.widgetConfig)" chart-colors="self.getColors(self.widgetConfig)"
         chart-series="self.getSeries(self.widgetConfig)"></canvas>
-    <canvas ng-if="self.widgetConfig.type === 'pie'" class='chart-pie' chart-data="self.widgetConfig.data" 
-        chart-labels="self.getLabels(self.widgetConfig)" 
-        chart-colors="self.getColors(self.widgetConfig)"
-        chart-series="self.getSeries(self.widgetConfig)"></canvas>
-    <canvas ng-if="self.widgetConfig.type === 'line'" class='chart-line' chart-data="self.widgetConfig.data" 
-        chart-labels="self.getLabels(self.widgetConfig)" 
-        chart-colors="self.getColors(self.widgetConfig)"
-        chart-series="self.getSeries(self.widgetConfig)"></canvas>
-    <canvas ng-if="self.widgetConfig.type === 'doughnut'" class='chart-doughnut' chart-data="self.widgetConfig.data" 
-        chart-labels="self.getLabels(self.widgetConfig)" 
-        chart-colors="self.getColors(self.widgetConfig)"
+    <canvas ng-if="self.widgetConfig.type === 'doughnut'" class='chart-doughnut' chart-data="self.widgetConfig.data"
+        chart-labels="self.getLabels(self.widgetConfig)" chart-colors="self.getColors(self.widgetConfig)"
         chart-series="self.getSeries(self.widgetConfig)"></canvas>
 </div>
