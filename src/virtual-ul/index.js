@@ -16,13 +16,23 @@ function Controller($element, $compile, $scope, $timeout) {
   }
 
   self.$onInit = function() {
-    $timeout(() => {
-      self.vListWrapper = createWiVirtualList()
-    })
+    createWiVirtualList()
+
+    if (self.watchElements && self.watchElements.length) {
+      $scope.$watchCollection(
+        () => [...self.watchElements],
+        () => {
+          removeWiVirtualList()
+          createWiVirtualList()
+        }
+      )
+    }
   }
 
   function createWiVirtualList() {
-    // const containerSelector = '.virtual-ul'
+    if (!self.numItems) return
+    if (self.vListWrapper) return
+
     const initialVlistHeight = $element[0].offsetHeight || 120
     const itemHeight = self.itemHeight || 37
     const vListWrapper = new WiVirtualList({
@@ -37,8 +47,21 @@ function Controller($element, $compile, $scope, $timeout) {
         return $compile(nodeTemplate)(self.componentScope)[0]
       },
     })
-    vListWrapper.vList.container.addEventListener('scroll', e => $scope.safeApply())
-    return vListWrapper
+    vListWrapper.setContainerStyle({
+      border: 'none',
+    })
+    vListWrapper.vList.container.addEventListener('scroll', e =>
+      $scope.safeApply()
+    )
+    
+    self.vListWrapper = vListWrapper
+  }
+
+  function removeWiVirtualList() {
+    if (!self.vListWrapper || !(self.vListWrapper instanceof WiVirtualList))
+      return
+    self.vListWrapper.vList.container.remove()
+    delete self.vListWrapper
   }
 }
 
@@ -52,6 +75,7 @@ angular.module(moduleName, []).component(componentName, {
     getComponentByIdx: '<',
     componentScope: '<',
     numItems: '<',
-    itemHeight: '<'
+    itemHeight: '<',
+    watchElements: '<',
   },
 })
