@@ -33,7 +33,8 @@ function Controller($element, $compile, $scope, $timeout) {
     if (!self.numItems) return
     if (self.vListWrapper) return
 
-    const initialVlistHeight = $element[0].offsetHeight || 120
+    const initialVlistHeight =
+      $element[0].offsetHeight || self.containerHeight || 120
     const itemHeight = self.itemHeight || 37
     const vListWrapper = new WiVirtualList({
       height: initialVlistHeight,
@@ -53,7 +54,7 @@ function Controller($element, $compile, $scope, $timeout) {
     vListWrapper.vList.container.addEventListener('scroll', e =>
       $scope.safeApply()
     )
-    
+
     self.vListWrapper = vListWrapper
   }
 
@@ -77,5 +78,6 @@ angular.module(moduleName, []).component(componentName, {
     numItems: '<',
     itemHeight: '<',
     watchElements: '<',
+    containerHeight: '<',
   },
 })
