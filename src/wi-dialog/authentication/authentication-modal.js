@@ -140,9 +140,12 @@ module.exports = function (ModalService, callback, options) {
 				// console.log(userInfo);
 				close(userInfo);
 			})
-			// .catch(err => {
-			// 	console.error(err);
-			// })
+			.catch(err => {
+				// console.error(err);
+				if(toastr) {
+					toastr.error(err.message)
+				}
+			})
 		}
 	}
 
