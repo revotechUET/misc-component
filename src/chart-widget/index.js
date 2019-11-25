@@ -7,7 +7,8 @@ angular.module(componentName, ['chart.js', 'editable', 'wiDropdownList']).compon
     controller: WidgetController,
     bindings: {
         widgetConfig: '<',
-        widgetName: "<"
+        widgetName: "<",
+        showSetting: "<"
     }
 });
 

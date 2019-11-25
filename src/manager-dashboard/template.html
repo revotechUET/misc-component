@@ -1,5 +1,7 @@
-<div>
-    <div class="dashboard-widget" ng-repeat="widget in self.dashboardContent">
-        <chart-widget widget-name="widget.name" widget-config="widget.config"></chart-widget>
+<div dnd-list="self.dashboardContent">
+    <div class="dashboard-widget" ng-repeat="widget in self.dashboardContent" dnd-draggable="widget"
+        dnd-effect-allowed="move" dnd-moved="self.dashboardContent.splice($index, 1)" 
+        dnd-selected="self.widgetSelected = widget" ng-class="{'widget-selected':self.widgetSelected === widget}">
+        <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"></chart-widget>
     </div>
 </div>

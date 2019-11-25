@@ -1,6 +1,8 @@
-<div class="ti ti-settings" ng-show="!self.showSetting" ng-click="self.showSetting = !self.showSetting" style="cursor: pointer; position: absolute; right: 0px; z-index: 1;"></div>
+<div class="ti ti-settings" ng-show="!self.showSetting" ng-click="self.showSetting = !self.showSetting"
+    style="cursor: pointer; position: absolute; left: 0px; z-index: 1;"></div>
 <div class="setting" ng-class="{'filling': self.showSetting}">
-    <div ng-repeat="(key, setting) in self.chartSettings" ng-click="$event.stopPropagation()" style="margin-bottom: 15px; height: 34px;">
+    <div ng-repeat="(key, setting) in self.chartSettings" ng-click="$event.stopPropagation()"
+        style="margin-bottom: 15px; height: 34px;">
         <div ng-if="setting.type == 'number' || setting.type == 'text'" style="width: 100%; height: 2em;">
             <editable params="self.widgetConfig" item-label="setting.label" enabled="true" item-value="setting.getValue"
                 set-value="setting.setValue">
@@ -13,7 +15,9 @@
             </wi-dropdown-list>
         </div>
     </div>
-    <div class="ti ti-close" ng-hide="!self.showSetting"ng-click="self.showSetting = !self.showSetting" style="cursor: pointer; position: absolute; right: 0; top: 0; z-index: 1;"></div>
+    <div ng-hide="!self.showSetting" ng-click="self.deleteChart()" style="cursor: pointer; position: absolute; right: 0; top: 0; border-radius: 2px; color: #3e85ff; border: 1px solid #3e85ff; background: #3e85ff05; padding: 2px 10px; z-index: 1; font-size: 10px; font-weight: bold;"> DELETE </div>
+    <div class="ti ti-close" ng-hide="!self.showSetting" ng-click="self.showSetting = !self.showSetting"
+        style="cursor: pointer; position: absolute; left: 0; top: 0; z-index: 1;"></div>
 
 </div>
 <span>{{self.widgetConfig.title || self.widgetName}}</span>
