@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="./bower_components/virtual-list/vlist.js"></script>
+    <script src="./bower_components/wi-vlist/index.js"></script>
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./dist/virtual-ul.js"></script>
+    <title>Document</title>
+  </head>
+  <body ng-app="app" ng-controller="myController">
+    <virtual-ul
+      num-items="numItems"
+      get-component-by-idx="getComponentByIdx"
+      component-scope="scope"
+    ></virtual-ul>
+
+    <script>
+      angular
+        .module('app', ['virtualUl'])
+        .controller('myController', function($scope) {
+          const data = []
+          const numItems =  1000
+          for(let i = 0; i < numItems; ++i) {
+            data.push({
+              idx: i,
+              name: 'abcd' + i
+            })
+          }
+          $scope.numItems = numItems
+          $scope.scope=$scope.$new()
+          $scope.getComponentByIdx = function(idx) {
+            return `<div style="border:1px solid black">
+              <span>idx: ${data[idx].idx}</span>  
+              <span>name: ${data[idx].name}</span>  
+              <span><button ng-click="click(${idx})">abc</button></span>
+            </div>`
+          }
+          $scope.click = function(idx) {
+            console.log(data[idx])
+          }
+        })
+    </script>
+  </body>
+</html>

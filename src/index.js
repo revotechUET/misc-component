@@ -29,5 +29,6 @@ module.exports = {
     wiLabeledInput: require('./wi-labeled-input'),
     chartWidget: require('./chart-widget'),
     managerDashboard: require('./manager-dashboard'),
-    wiImportCsvFile: require('./wi-import-csv-file/wi-import-csv-file')
+    wiImportCsvFile: require('./wi-import-csv-file/wi-import-csv-file'),
+    virtualUl: require('./virtual-ul')
 }

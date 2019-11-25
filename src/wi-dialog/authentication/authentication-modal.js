@@ -141,7 +141,10 @@ module.exports = function (ModalService, callback, options) {
 				close(userInfo);
 			})
 			.catch(err => {
-				console.error(err);
+				// console.error(err);
+				if(toastr) {
+					toastr.error(err.message)
+				}
 			})
 		}
 	}
