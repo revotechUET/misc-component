@@ -28,6 +28,10 @@ function Controller($timeout, $scope) {
                 self.onChange();
             }
         }, 100);
+        // $scope.$watch(() => self.onCtrlBtnClick, (newValue, oldValue) => {
+        //     console.log("run");
+        //     self.onCtrlBtnClick = newValue;
+        // })
         self.showDeleteButton = !self.hideDeleteButton;
     }
     this.onChange = function() {

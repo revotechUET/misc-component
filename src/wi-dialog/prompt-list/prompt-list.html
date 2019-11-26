@@ -10,9 +10,13 @@
 					<div class="form-group">
 						<label class="control-label col-sm-4">{{wiModal.inputName}}:</label>
 						<div class="col-sm-8">
-                            <wi-dropdown-list style="flex:1;" items='wiModal.selectionList'
+							<wi-dropdown-list style="flex:1;" items='wiModal.selectionList'
                                 current-select="wiModal.currentSelect"
-                                on-item-changed="wiModal.onChange">
+								on-item-changed="wiModal.onChange"
+								hide-delete-button="wiModal.hideButtonDelete"
+								on-ctrl-btn-click="wiModal.onCtrlBtnClick"
+								ctrl-btn-icon='{{wiModal.iconBtn}}'
+								>
                             </wi-dropdown-list>
 						</div>
 					</div>

@@ -664,6 +664,22 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function listWellsPromise(payload) {
         return postPromise('/user/wells', payload, {service: 'WI_INVENTORY'});
     }
+    this.createStorageFilterPromise = createStorageFilterPromise;
+    function createStorageFilterPromise(payload) {
+        return postPromise('/filter/new', payload, {service: 'WI_BACKEND'});
+    }
+    this.listStorageFilterPromise = listStorageFilterPromise;
+    function listStorageFilterPromise(payload) {
+        return postPromise('/filter/list', payload, {service: 'WI_BACKEND'});
+    }
+    this.infoStorageFilterPromise = infoStorageFilterPromise;
+    function infoStorageFilterPromise(payload) {
+        return postPromise('/filter/info', payload, {service: 'WI_BACKEND'});
+    }
+    this.deleteStorageFilterPromise = deleteStorageFilterPromise;
+    function deleteStorageFilterPromise(payload) {
+        return postPromise('/filter/delete', payload, {service: 'WI_BACKEND'});
+    }
 }
 
 function SHA256(s){

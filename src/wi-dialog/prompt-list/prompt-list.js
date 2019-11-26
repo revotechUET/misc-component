@@ -1,11 +1,14 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, promptConfig, callback) {
-    function ModalController($scope, close) {
+    function ModalController($scope, close, $timeout) {
         const self = this;
         this.title = promptConfig.title;
         this.inputName = promptConfig.inputName;
         this.selectionList = promptConfig.selectionList;
+        this.hideButtonDelete = promptConfig.hideButtonDelete;
+        this.onCtrlBtnClick = promptConfig.onCtrlBtnClick;
+        this.iconBtn = promptConfig.iconBtn;
         this.onChange = function(selectedItem) {
             self.selectedItem = selectedItem;
         }
