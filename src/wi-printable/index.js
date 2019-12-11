@@ -151,7 +151,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                 <button ng-click="$ctrl.doPrint()" ng-if="!$ctrl.isPageBreak">Print</button>
                 <div style="display: inline-block;"
                     ng-if="$ctrl.showCtrlPage">
-                    <button ng-click="$ctrl.doPrintAll($ctrl)">Print All</button>
+                    <button ng-click="$ctrl.doPrintAll($ctrl, 'download')">Print All</button>
+                    <button ng-click="$ctrl.doPrintAll($ctrl, 'save')">Save to DB</button>
                     <button ng-click="$ctrl.firstPage($ctrl)">First Page</button>
                     <button ng-click="$ctrl.previousPage($ctrl)">Previous</button>
                     <editable style="display:inline-block;" enabled='true' item-value="$ctrl.getPageIdx" set-value="$ctrl.setPageIdx" content-style='{
