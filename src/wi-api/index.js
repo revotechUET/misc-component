@@ -34,7 +34,30 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             })
         });
     }
-
+    function deletePromise(url, data, opts = {}) {
+        return new Promise(function(resolve, reject) {
+            const salt = "wi-hash";
+            const baseUrl = opts.baseUrl || self.baseUrl;
+            const headers = opts.noToken ? {} : {
+                Authorization: wiToken.getToken(),
+                'Service': opts.service ? opts.service : 'WI_BACKEND',
+                CurrentProject: window.localStorage.getItem('LProject') ? JSON.parse(window.localStorage.getItem('LProject')).name : 'Unknown',
+                'Content-Type': 'application/json',
+            };
+            const payloadHash = genPayloadHash((data || {}), SHA256(salt + wiToken.getToken()));
+            $http({
+                method: 'DELETE',
+                url: baseUrl + url + `?wiid=${payloadHash}`,
+                data: data,
+                headers: headers
+            }).then((response) => {
+                if (response.data.code === 200) resolve(response.data.content);
+                else reject(new Error(response.data.reason));
+            }, (err) => {
+                reject(err);
+            })
+        });
+    }
     getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
 
     this.updatePalettes = updatePalettes;
@@ -679,6 +702,38 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     this.deleteStorageFilterPromise = deleteStorageFilterPromise;
     function deleteStorageFilterPromise(payload) {
         return postPromise('/filter/delete', payload, {service: 'WI_BACKEND'});
+    }
+    this.listZoneSetTemplatePromise = listZoneSetTemplatePromise;
+    function listZoneSetTemplatePromise(payload) {
+        return postPromise('/zone-set-template/list', payload, {service: 'WI_BACKEND'});
+    }
+    this.deleteZoneSetTemplatePromise = deleteZoneSetTemplatePromise;
+    function deleteZoneSetTemplatePromise(payload) {
+        return deletePromise('/zone-set-template/delete', payload, {service: 'WI_BACKEND'});
+    }
+    this.createZoneSetTemplatePromise = createZoneSetTemplatePromise;
+    function createZoneSetTemplatePromise(payload) {
+        return postPromise('/zone-set-template/new', payload, {service: 'WI_BACKEND'});
+    }
+    this.createZoneTemplatePromise = createZoneTemplatePromise;
+    function createZoneTemplatePromise(payload) {
+        return postPromise('/zone-set-template/zone-template/new', payload, {service: 'WI_BACKEND'});
+    }
+    this.removeZoneSetPromise = removeZoneSetPromise;
+    function removeZoneSetPromise(payload) {
+        return postPromise('/project/well/zone-set/delete', payload, {service: 'WI_BACKEND'});
+    }
+    this.createZoneSetPromise = createZoneSetPromise;
+    function createZoneSetPromise(payload) {
+        return postPromise('/project/well/zone-set/new', payload, {service: 'WI_BACKEND'});
+    }
+    this.getZoneSetPromise = getZoneSetPromise;
+    function getZoneSetPromise(payload) {
+        return postPromise('/project/well/zone-set/info', payload, {service: 'WI_BACKEND'});
+    }
+    this.createZonePromise = createZonePromise;
+    function createZonePromise(payload) {
+        return postPromise('/project/well/zone-set/zone/new', payload, {service: 'WI_BACKEND'});
     }
 }
 

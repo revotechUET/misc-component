@@ -22,6 +22,7 @@ const colorPickerDialog = require('./color-picker/color-picker-modal.js');
 const promptListDialog =require('./prompt-list/prompt-list.js');
 const authenticationDialog = require('./authentication/authentication-modal.js');
 const csvImportDialog = require('./csv-import/csv-import-modal.js');
+const importZoneSet = require('./import-zone-set/import-zone-set.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -62,7 +63,10 @@ function wiDialogService(ModalService) {
         authenticationDialog(ModalService, cb, options);
     }
     this.csvImportDialog = function(file, cb) {
-        csvImportDialog(ModalService, file, cb)
+        csvImportDialog(ModalService, file, cb);
+    }
+    this.importZoneSet = function(file, idProject, cb) {
+        importZoneSet(ModalService, file, idProject, cb);
     }
 } 
 
