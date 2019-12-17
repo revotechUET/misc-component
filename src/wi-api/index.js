@@ -735,6 +735,39 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function createZonePromise(payload) {
         return postPromise('/project/well/zone-set/zone/new', payload, {service: 'WI_BACKEND'});
     }
+
+    this.listMarkerSetTemplatePromise = listMarkerSetTemplatePromise;
+    function listMarkerSetTemplatePromise(payload) {
+        return postPromise('/marker-set-template/list', payload);
+    }
+    this.removeMarkerSetTemplatePromise = removeMarkerSetTemplatePromise;
+    function removeMarkerSetTemplatePromise(payload) {
+        return deletePromise('/marker-set-template/delete', payload);
+    }
+    this.createMarkerSetTemplatePromise = createMarkerSetTemplatePromise;
+    function createMarkerSetTemplatePromise(payload) {
+        return postPromise('/marker-set-template/new', payload);
+    }
+    this.createMarkerTemplatePromise = createMarkerTemplatePromise;
+    function createMarkerTemplatePromise(payload) {
+        return postPromise('/marker-set-template/marker-template/new', payload);
+    }
+    this.listMarkerSetPromise = listMarkerSetPromise;
+    function listMarkerSetPromise(payload) {
+        return postPromise('/project/well/marker-set/list', payload);
+    }
+    this.removeMarkerSetPromise = removeMarkerSetPromise;
+    function removeMarkerSetPromise(payload) {
+        return deletePromise('/project/well/marker-set/delete', payload);
+    }
+    this.createMarkerSetPromise = createMarkerSetPromise;
+    function createMarkerSetPromise(payload) {
+        return postPromise('/project/well/marker-set/new', payload);
+    }
+    this.createMarkerPromise = createMarkerPromise;
+    function createMarkerPromise(payload) {
+        return postPromise('/project/well/marker-set/marker/new', payload);
+    }
 }
 
 function SHA256(s){

@@ -23,6 +23,7 @@ const promptListDialog =require('./prompt-list/prompt-list.js');
 const authenticationDialog = require('./authentication/authentication-modal.js');
 const csvImportDialog = require('./csv-import/csv-import-modal.js');
 const importZoneSet = require('./import-zone-set/import-zone-set.js');
+const importMarkerSet = require('./import-marker-set/import-marker-set.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -67,6 +68,9 @@ function wiDialogService(ModalService) {
     }
     this.importZoneSet = function(file, idProject, cb) {
         importZoneSet(ModalService, file, idProject, cb);
+    }
+    this.importMarkerSet = function(file, idProject, cb) {
+        importMarkerSet(ModalService, file, idProject, cb);
     }
 } 
 
