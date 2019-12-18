@@ -43,6 +43,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             position: fixed !important;
             z-index: 999;
             top: ${pcpElemHeight};
+            left: auto !important;
+            right: auto;
             left: 0;
             visibility: visible;
             background-color: #ffffff;
@@ -56,10 +58,14 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         .${self.cssClassName} ~ .print-cmd-panel {
             position: fixed;
             top: 0;
-            left: 0;
+            left: auto;
+            right: auto;
         }
         .${self.cssClassName} ~ .print-cmd-panel * {
             visibility: initial;
+        }
+        .modal.fade, .modal *, wi-spinner *, #toast-container, #toast-container * {
+          visibility: visible;
         }
     `;
 
@@ -310,7 +316,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             //width: _.min([imgWidth, maxViewWidth]) + 3,
             //height: _.min([imgHeight, maxViewHeight]) + 3
         //};
-        let defaultConfig = {x: 0, y: 0};
+        //let defaultConfig = {x: 0, y: 0};
+        let defaultConfig = {x: self.printElem[0].offsetLeft / 2, y: 0};
         let config = {...defaultConfig, ...newConfig};
         html2Canvas(self.printElem[0], config, cb)
         self.printElem[0].style.top = pcpElemHeight;
