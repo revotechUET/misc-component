@@ -97,7 +97,7 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                     status = "online";
                     wiToken.setToken(response.data.content.token);
                     wiToken.setPassword(self.password);
-                    console.log(self.password);
+                    // console.log(self.password);
                     wiToken.saveToken(response.data.content)
                     ngDialog.close();
                     ngDialog.open({
@@ -109,7 +109,7 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
                         ngDialog.close();
                     }, 1100);
                 } else if (response.data.code == 512) {
-                    console.error("512");
+                    // console.error("512");
                     ngDialog.open({
                         template: 'templateLoginFailed',
                         className: 'ngdialog-theme-default',
