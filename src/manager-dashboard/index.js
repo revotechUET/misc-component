@@ -17,6 +17,7 @@ app.component(componentName, {
 //const Macy = require('macy');
 function ManagerDashboardController($scope, $element) {
     let self = this;
+    /*
     let macyInst;
     this.relayout = _.debounce(function() {
         macyInst.reInit();
@@ -33,6 +34,7 @@ function ManagerDashboardController($scope, $element) {
             margin: 10
         });
     }
+    */
     this.getLabels = function(widgetConfig) {
         widgetConfig.labels = widgetConfig.labels || [];
         widgetConfig.data.forEach(function(datum, idx) {

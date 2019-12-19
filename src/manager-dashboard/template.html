@@ -1,3 +1,4 @@
+<!--
 <div dnd-list="self.dashboardContent">
     <div class="dashboard-widget" ng-repeat="widget in self.dashboardContent" dnd-draggable="widget"
         dnd-effect-allowed="move" dnd-moved="self.dashboardContent.splice($index, 1)" 
@@ -5,3 +6,38 @@
         <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"></chart-widget>
     </div>
 </div>
+-->
+
+<ul dnd-list="self.dashboardContent">
+    <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent track by $index" dnd-draggable="widget"
+        dnd-effect-allowed="move" dnd-moved="self.dashboardContent.splice($index, 1)" 
+        dnd-selected="self.widgetSelected = widget" ng-class="{'widget-selected':self.widgetSelected === widget}">
+        <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"></chart-widget>
+    </li>
+</ul>
+<style>
+    ul[dnd-list] {
+        padding-left: 0px;
+    }
+    ul[dnd-list] > li {
+        margin: 0px 10px 10px 0px;
+        list-style-type: none;
+        float: left;
+    }
+    ul[dnd-list] > li.dndPlaceholder {
+        min-width: calc(50% - 10px);
+        min-height: 250px;
+        background: grey;
+    }
+    ul[dnd-list] > li.dndDragging {
+        opacity: 0.7;
+    }
+    ul[dnd-list] > li.dndDraggingSource {
+        display: none;
+    }
+    @media only screen and (max-width: 1000px) {
+        ul[dnd-list] > li {
+            min-width: calc(100% - 10px);
+        }
+    }
+</style>

@@ -1,3 +1,4 @@
+/*
 manager-dashboard {
     .dashboard-widget {
         display         : flex;
@@ -9,5 +10,24 @@ manager-dashboard {
             height: 100%;
             position: relative;
         }
+    }
+}
+*/
+
+manager-dashboard {
+    .dashboard-widget {
+        width: calc(50% - 10px);
+        position: relative;
+        background-color: white;
+        chart-widget {
+            height: 100%;
+            // position: relative;
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .dashboard-widget {
+        width: calc(100% - 10px) !important;
     }
 }
