@@ -9,10 +9,12 @@
 -->
 
 <ul dnd-list="self.dashboardContent">
-    <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent track by $index" dnd-draggable="widget"
-        dnd-effect-allowed="move" dnd-moved="self.dashboardContent.splice($index, 1)" 
+    <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent" dnd-draggable="widget"
+        dnd-effect-allowed="move" dnd-moved="self.removeWidget(widget.config)"
         dnd-selected="self.widgetSelected = widget" ng-class="{'widget-selected':self.widgetSelected === widget}">
-        <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"></chart-widget>
+        <chart-widget widget-name="widget.name" widget-config="widget.config"
+                show-setting="widget.setting" remove-fn="self.removeWidget">
+        </chart-widget>
     </li>
 </ul>
 <style>

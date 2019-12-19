@@ -49,5 +49,9 @@ function ManagerDashboardController($scope, $element) {
         });
         return widgetConfig.colors;
     }
-    
+    this.removeWidget = function(widgetConfig) {
+        const index = self.dashboardContent.findIndex(w => w.config == widgetConfig);
+        if (index >= 0)
+            self.dashboardContent.splice(index, 1);
+    } 
 }

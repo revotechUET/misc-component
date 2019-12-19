@@ -11,7 +11,7 @@
         <div ng-if="setting.type == 'select'" style="display: flex; align-items: center;">
             <label style="flex-basis: 70px;">{{setting.label}}</label>
             <wi-dropdown-list style="flex: 1; margin-left: 20px;" items="setting.options" params="self.widgetConfig"
-                on-item-changed="setting.setValue">
+                on-item-changed="setting.setValue" current-select="setting.getValue(self.widgetConfig)">
             </wi-dropdown-list>
         </div>
     </div>
