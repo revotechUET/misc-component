@@ -8,7 +8,8 @@ angular.module(componentName, ['chart.js', 'editable', 'wiDropdownList']).compon
     bindings: {
         widgetConfig: '<',
         widgetName: "<",
-        showSetting: "<"
+        showSetting: "<",
+        removeFn: "<"
     }
 });
 
@@ -47,5 +48,8 @@ function WidgetController($scope, $element, chartSettings) {
     const nullObj = {};
     this.getOptions = function(widgetConfig) {
         return widgetConfig.options || nullObj;
+    }
+    this.deleteChart = function() {
+        self.removeFn && self.removeFn(self.widgetConfig);
     }
 }
