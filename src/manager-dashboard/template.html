@@ -12,9 +12,11 @@
     <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent" dnd-draggable="widget"
         dnd-effect-allowed="move" dnd-moved="self.removeWidget(widget.config)"
         dnd-selected="self.widgetSelected = widget" ng-class="{'widget-selected':self.widgetSelected === widget}">
-        <chart-widget widget-name="widget.name" widget-config="widget.config"
-                show-setting="widget.setting" remove-fn="self.removeWidget">
-        </chart-widget>
+        <dnd-nodrag>
+            <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"
+                remove-fn="self.removeWidget">
+            </chart-widget>
+        </dnd-nodrag>
     </li>
 </ul>
 <style>
