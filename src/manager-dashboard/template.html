@@ -50,9 +50,7 @@
 -->
 
 <ul class="dashboard">
-    <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent"
-        ng-mouseover="self.widgetSelected = widget" ng-mouseleave="self.widgetSelected = null"
-        ng-class="{'widget-selected':self.widgetSelected === widget}">
+    <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent">
         <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"
             remove-fn="self.removeWidget">
         </chart-widget>

@@ -22,7 +22,10 @@ function WidgetController($scope, $element, chartSettings) {
     this.$onInit = function() {
     }
     this.getLabels = function(widgetConfig) {
-        widgetConfig.labels = widgetConfig.labels || [];
+        // widgetConfig.labels = widgetConfig.labels || [];
+        if (!widgetConfig.labels)
+            widgetConfig.labels = []
+        widgetConfig.labels.length = 0;
         if (widgetConfig.labelFn) {
             widgetConfig.data.forEach(function(datum, idx) {
                 widgetConfig.labels[idx] = widgetConfig.labelFn(widgetConfig, datum, idx);
