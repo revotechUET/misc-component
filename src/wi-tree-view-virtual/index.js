@@ -72,6 +72,7 @@ angular.module(componentName, [])
       vlistHeight: '<',
       noDrag: '<',
       autoScrollToSelectedNode: '<',
+      nodeComparator: '<'
     },
     transclude: true
   });

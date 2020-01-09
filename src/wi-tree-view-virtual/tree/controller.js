@@ -102,7 +102,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     let lv;
     for (const n of toArray(self.treeRoot)) {
       visit(n, (curNode, depth) => {
-        if (curNode === node) {
+        if (isSameNode(curNode, node)) {
           lv = depth;
           return true;
         }
@@ -144,7 +144,7 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
         if (curNode._hidden) return true;
 
         ++idx;
-        if (curNode === node) {
+        if (isSameNode(node, curNode)) {
           foundedNodeIdx = idx;
           return true;
         }
@@ -383,5 +383,13 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
     cb1 && cb1(node, result);
 
     return result;
+  }
+
+  function isSameNode(a, b) {
+    if(self.nodeComparator) {
+      return self.nodeComparator(a, b)
+    }
+    
+    return a === b
   }
 }

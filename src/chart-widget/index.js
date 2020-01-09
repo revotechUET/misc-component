@@ -1,4 +1,7 @@
 const componentName = 'chartWidget';
+// load plugins if Chart class is presented and label plugin is not loaded yet
+if (typeof Chart != "undefined" && !Chart.plugins.getAll().find(p => p.id == "labels"))
+    require('../../bower_components/chartjs-plugin-labels/build/chartjs-plugin-labels.min');
 //require('angular-chart.js');
 angular.module(componentName, ['chart.js', 'editable', 'wiDropdownList']).component(componentName, {
     template: require('./template.html'),
@@ -19,7 +22,10 @@ function WidgetController($scope, $element, chartSettings) {
     this.$onInit = function() {
     }
     this.getLabels = function(widgetConfig) {
-        widgetConfig.labels = widgetConfig.labels || [];
+        // widgetConfig.labels = widgetConfig.labels || [];
+        if (!widgetConfig.labels)
+            widgetConfig.labels = []
+        widgetConfig.labels.length = 0;
         if (widgetConfig.labelFn) {
             widgetConfig.data.forEach(function(datum, idx) {
                 widgetConfig.labels[idx] = widgetConfig.labelFn(widgetConfig, datum, idx);
@@ -45,9 +51,50 @@ function WidgetController($scope, $element, chartSettings) {
         }
         return widgetConfig.series;
     }
+
     const nullObj = {};
+    const pie_chart_options = {
+        plugins: {
+            labels: [
+                {
+                    render: 'label',
+                    position: 'outside'
+                },
+                {
+                    render: 'value'
+                }
+            ]
+        }
+    }
+    const bar_chart_options = {
+        plugins: {
+            labels: {
+                render: 'value'
+            }
+        }
+    }
+    const drawNullFn = () => ""
     this.getOptions = function(widgetConfig) {
-        return widgetConfig.options || nullObj;
+        switch (widgetConfig.type) {
+            case 'bar': case 'horizontal-bar':
+                if (widgetConfig.chart_options && widgetConfig.chart_options.showSegmentLabel) {
+                    bar_chart_options.plugins.labels.render = 'value' 
+                } else {
+                    bar_chart_options.plugins.labels.render = drawNullFn 
+                }
+                return Object.assign(bar_chart_options, widgetConfig.bar_chart_options);
+            case 'pie': case 'doughnut':
+                if (widgetConfig.chart_options && widgetConfig.chart_options.showSegmentLabel) {
+                    pie_chart_options.plugins.labels[0].render = 'label' 
+                    pie_chart_options.plugins.labels[1].render = "value"
+                } else {
+                    pie_chart_options.plugins.labels[0].render = drawNullFn 
+                    pie_chart_options.plugins.labels[1].render = drawNullFn 
+                }
+                return pie_chart_options;
+            default:
+                return nullObj;
+        }
     }
     this.deleteChart = function() {
         self.removeFn && self.removeFn(self.widgetConfig);

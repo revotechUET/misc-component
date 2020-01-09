@@ -8,7 +8,8 @@ module.exports = function (ModalService, file, idProject, callback) {
         // wiComponentService,
         $timeout,
         wiApi,
-        wiDialog
+        wiDialog,
+        wiLoading
     ) {
         let self = this;
         $timeout(() => {
@@ -111,6 +112,7 @@ module.exports = function (ModalService, file, idProject, callback) {
             if (!configs) {
                 return;
             }
+            wiLoading.show(document.getElementsByTagName("body")[0]);
             delete configs.selectFields;
             configs.allContent = recreateAllContent(configs.allContent, {
                 decimal: configs.decimal,
@@ -203,6 +205,7 @@ module.exports = function (ModalService, file, idProject, callback) {
                                 zst.name.toUpperCase() == info.zoneSetTemplateName.toUpperCase()
                             );
                         });
+                        wiLoading.hide();
                         if (existZST) {
                             wiDialog.confirmDialog(
                                 'Replace ZoneSet confirmation',
@@ -210,6 +213,7 @@ module.exports = function (ModalService, file, idProject, callback) {
                                 existZST.name
                                 } has been existed, Are you sure you want to replace it?`,
                                 function (res) {
+                                    wiLoading.show(document.getElementsByTagName("body")[0]);
                                     if ( res == 'replace') {
                                         self.replace = true;
                                         // wiApiService.deleteZoneSetTemplate({idZoneSetTemplate: existZST.idZoneSetTemplate}, (res, err) => {
@@ -664,6 +668,9 @@ module.exports = function (ModalService, file, idProject, callback) {
             wiApi.createZonePromise(payload)
             .then(zone => {
                 next();
+            })
+            .finally(() => {
+                wiLoading.hide();
             })
         }
         function cleanZone(zoneArr, depthsOfWell, zonesExist) {

@@ -7,7 +7,8 @@ module.exports = function (ModalService, file, idProject, callback) {
         // wiComponentService,
         wiApi,
         wiDialog,
-        $timeout
+        $timeout,
+        wiLoading
         ) {
         let self = this;
         // let DialogUtils = wiComponentService.getComponent(
@@ -101,6 +102,7 @@ module.exports = function (ModalService, file, idProject, callback) {
             if (!configs) {
                 return;
             }
+            wiLoading.show(document.getElementsByTagName("body")[0]);
             delete configs.selectFields;
             configs.allContent = recreateAllContent(configs.allContent, {
                 decimal: configs.decimal,
@@ -204,6 +206,7 @@ module.exports = function (ModalService, file, idProject, callback) {
                             mst.name.toUpperCase() == info.markerSetTemplateName.toUpperCase()
                         );
                     });
+                    wiLoading.hide();
                     if (existMST) {
                         wiDialog.confirmDialog(
                             'Replace MarkerSet confirmation',
@@ -211,6 +214,7 @@ module.exports = function (ModalService, file, idProject, callback) {
                             existMST.name
                             } has been existed, Are you sure you want to replace it?`,
                             function (res) {
+                                wiLoading.show(document.getElementsByTagName("body")[0]);
                                 if (res == 'replace') {
                                     self.replace = true;
                                     wiApi.removeMarkerSetTemplatePromise({idMarkerSetTemplate: existMST.idMarkerSetTemplate})
@@ -730,6 +734,9 @@ module.exports = function (ModalService, file, idProject, callback) {
             wiApi.createMarkerPromise(payload)
             .then((m) => {
                 next();
+            })
+            .finally(() => {
+                wiLoading.hide();
             })
         }
 

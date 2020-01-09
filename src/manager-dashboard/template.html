@@ -8,9 +8,10 @@
 </div>
 -->
 
-<ul dnd-list="self.dashboardContent">
-    <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent" dnd-draggable="widget"
-        dnd-effect-allowed="move" dnd-moved="self.removeWidget(widget.config)"
+<!--
+<ul class="dashboard" dnd-list="self.dashboardContent">
+    <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent track by widget.id" dnd-draggable="widget"
+        dnd-effect-allowed="move" dnd-moved="self.removeWidget(widget.config)" dnd-type="'item'"
         dnd-selected="self.widgetSelected = widget" ng-class="{'widget-selected':self.widgetSelected === widget}">
         <dnd-nodrag>
             <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"
@@ -19,28 +20,53 @@
         </dnd-nodrag>
     </li>
 </ul>
+
 <style>
-    ul[dnd-list] {
+    ul.dashboard {
         padding-left: 0px;
     }
-    ul[dnd-list] > li {
+    ul.dashboard > li.dashboard-widget {
         margin: 0px 10px 10px 0px;
         list-style-type: none;
         float: left;
     }
-    ul[dnd-list] > li.dndPlaceholder {
+    ul.dashboard[dnd-list] > li.dndPlaceholder {
         min-width: calc(50% - 10px);
-        min-height: 250px;
+        min-height: calc(30vh + 30px);
         background: grey;
     }
-    ul[dnd-list] > li.dndDragging {
+    ul.dashboard[dnd-list] > li.dndDragging {
         opacity: 0.7;
     }
-    ul[dnd-list] > li.dndDraggingSource {
+    ul.dashboard[dnd-list] > li.dndDraggingSource {
         display: none;
     }
     @media only screen and (max-width: 1000px) {
-        ul[dnd-list] > li {
+        ul.dashboard > li.dashboard-widget {
+            min-width: calc(100% - 10px);
+        }
+    }
+</style>
+-->
+
+<ul class="dashboard">
+    <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent">
+        <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"
+            remove-fn="self.removeWidget">
+        </chart-widget>
+    </li>
+</ul>
+<style>
+    ul.dashboard {
+        padding-left: 0px;
+    }
+    ul.dashboard > li.dashboard-widget {
+        margin: 0px 10px 10px 0px;
+        list-style-type: none;
+        float: left;
+    }
+    @media only screen and (max-width: 1000px) {
+        ul.dashboard > li.dashboard-widget {
             min-width: calc(100% - 10px);
         }
     }
