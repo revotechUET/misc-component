@@ -24,7 +24,8 @@ module.component(name, {
         getRowIcons: "<",
         getRowIconStyle: "<",
         validRow: "<",
-        rowHeaderCellStyle: '<'
+        rowHeaderCellStyle: '<',
+      itemList: '<'
     },
 });
 
@@ -154,4 +155,12 @@ function Controller($scope, $element) {
     function headerColCount() {
         return self.showOriginHeader?2:1;
     }
+
+  this.getTypeOfAccessor = function([row, col]) {
+    let type = typeof self.accessor([row, col]);
+    if (type == 'object') {
+      return self.accessor([row, col]).type;
+    }
+    return type;
+  }
 }
