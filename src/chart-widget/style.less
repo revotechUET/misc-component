@@ -1,35 +1,30 @@
 chart-widget {
     &>span {
-        display           : block;
-        height            : 30px;
-        line-height       : 15px;
-        text-align        : center;
-        background        : #ffffff;
-        // justify-content: center;
-        // border-bottom  : 1px solid #f4f4f4;
-        font-weight       : bold;
+        display: flex;
+        align-items: center;
+        height: 45px;
+        padding-left: 20px;
+        text-align: center;
+        background: #ffffff;
+        font-weight: bold;
+        border-bottom: 1px solid #ccc;
     }
 
 
     .setting {
-        display : none;
-        flex    : 1;
         position: absolute;
-        width   : 100%;
-
-        &.filling {
-            padding-top: 30px ;
-            display      : block;
-            background   : #fff;
-            height       : 100%;
-            width        : 100%;
-            overflow-x   : unset;
-            overflow-y   : overlay;  
-        }
+        background: #fff;
+        width: 100%;
+        height: calc(100% - 45px);
+        top: 45px;
+        margin: 0;
+        padding: 20px;
+        overflow: auto;
     }
 
     &>div {
         // padding-right: 5px;
+        margin: 15px;
 
         &>canvas {
             max-height: 30vh;
