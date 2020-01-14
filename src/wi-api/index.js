@@ -703,6 +703,10 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function deleteStorageFilterPromise(payload) {
         return postPromise('/filter/delete', payload, {service: 'WI_BACKEND'});
     }
+    this.editStorageFilterPromise = editStorageFilterPromise;
+    function editStorageFilterPromise(payload) {
+        return postPromise('/filter/edit', payload, {service: 'WI_BACKEND'});
+    }
     this.listZoneSetTemplatePromise = listZoneSetTemplatePromise;
     function listZoneSetTemplatePromise(payload) {
         return postPromise('/zone-set-template/list', payload, {service: 'WI_BACKEND'});
