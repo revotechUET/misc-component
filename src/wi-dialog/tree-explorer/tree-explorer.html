@@ -1,0 +1,30 @@
+<div class='modal fade ' data-backdrop="static" data-keyboard="false">
+	<div class='modal-dialog'>
+		<div class="modal-content">
+			<div class="modal-header">
+                <button type="button" class="close" ng-click="wiModal.onCancelButtonClicked()" aria-hidden="true">&times;</button>
+                <h4>Select folder</h4>
+			</div>
+			<div style="overflow: unset;" class="modal-body text-center" ng-form="form">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<div class="col-sm-12">
+                            {{wiModal.currentFolder}}
+                            <tree-explorer list-folders="wiModal.listFolders" db-click-folder="wiModal.dbClickFolder" current-path="wiModal.currentPath"
+                            go-to-folder="wiModal.goToFolder"
+                            ></tree-explorer>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class='btn btn-default' ng-click='wiModal.onOkButtonClicked()'>
+					<span class="ok-16x16"></span>&nbsp;Save
+				</button>
+				<button class='btn btn-default' ng-click='wiModal.onCancelButtonClicked()'>
+					<span class="cancel-16x16"></span>&nbsp;Cancel
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

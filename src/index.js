@@ -30,5 +30,6 @@ module.exports = {
     chartWidget: require('./chart-widget'),
     managerDashboard: require('./manager-dashboard'),
     wiImportCsvFile: require('./wi-import-csv-file/wi-import-csv-file'),
-    virtualUl: require('./virtual-ul')
+    virtualUl: require('./virtual-ul'),
+    treeExplorer: require('./tree-explorer')
 }

@@ -1,7 +1,7 @@
 var serviceName = 'wiDialog';
 module.exports.name = serviceName;
 
-let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken', 'wiLoading', "wiDropdownList", 'wiImportCsvFileNew']);
+let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken', 'wiLoading', "wiDropdownList", 'wiImportCsvFileNew', 'treeExplorer']);
 app.config(function($sceProvider) {
     $sceProvider.enabled(false);
 });
@@ -24,6 +24,7 @@ const authenticationDialog = require('./authentication/authentication-modal.js')
 const csvImportDialog = require('./csv-import/csv-import-modal.js');
 const importZoneSet = require('./import-zone-set/import-zone-set.js');
 const importMarkerSet = require('./import-marker-set/import-marker-set.js');
+const treeExplorer = require('./tree-explorer/tree-explorer.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -71,6 +72,9 @@ function wiDialogService(ModalService) {
     }
     this.importMarkerSet = function(file, idProject, cb) {
         importMarkerSet(ModalService, file, idProject, cb);
+    }
+    this.treeExplorer = function(config, cb) {
+        treeExplorer(ModalService, config, cb);
     }
 } 
 

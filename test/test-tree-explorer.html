@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ABC</title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <link rel='stylesheet' href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../dist/misc-components.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="MyCtr">
+    {{currentFolder}}
+    <tree-explorer list-folders="listFolders" db-click-folder="dbClickFolder" current-path="currentPath"
+        go-to-folder="goToFolder"
+        ></tree-explorer>
+    <script>
+        angular.module("myApp", ['treeExplorer'])
+            .controller('MyCtr', function ($scope, $http) {
+                var rootFolder = "/";
+                $scope.currentFolder = rootFolder || "/";
+                $scope.currentPath = [];
+                $http({
+                    method: "GET",
+                    url: "https://users.i2g.cloud/file-explorer/shallow?dir=" + encodeURIComponent(rootFolder),
+                    headers: {
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                            'Access-Control-Allow-Credentials': 'true',
+                            'Referrer-Policy': 'no-referrer',
+                            'Authorization': window.localStorage.getItem('token'),
+                            'Storage-Database': '{"company":"I2G","directory":"e391f55350c81d17a0df3a1f5a243b5550542230","whereami":"WI_STORAGE_ADMIN"}',
+                            'Service': 'WI_PROJECT_STORAGE'
+                    }
+                })
+                .then((res) => {
+                    console.log(res.data);
+                    $scope.listFolders = res.data.data.folders;
+                    // $scope.listFolders = JSON.parse('[{"rootIsFile":false,"rootName":"123","path":"/123/","modifiedDate":"2019-12-18T08:26:48.000Z","metaData":{"encodingtype":"base64","issyncfolder":"true","field":"","welltype":"","type":"","modified":"2019-12-18T08:26:48.000Z","quality":"5","uploaded":"2019-12-18T08:26:48.000Z","author":"System","well":"{}","source":"Desktop Uploaded","relatesto":"{}","name":"123","description":"","location":"/123/","size":0},"codbStatus":"","datatype":"","files":[],"folders":[],"size":0,"revision":[]},{"rootIsFile":false,"rootName":"2222","path":"/2222/","modifiedDate":"2019-12-17T08:22:20.000Z","metaData":{"1":"có dấu","field":"","welltype":"","type":"Folder","modified":"2019-12-17T08:22:20.000Z","quality":"5","uploaded":"1576486966928","author":"i2g_storage_admin","well":"{}","issyncfolder":"false","datatype":"","source":"Desktop Uploaded","relatesto":"{}","name":"2222","description":"","encodingtype":"base64","location":"/2222/","size":0},"codbStatus":"","datatype":"","files":[],"folders":[],"size":0,"revision":[]},{"rootIsFile":false,"rootName":"hoang_bui","path":"/hoang_bui/","modifiedDate":"2020-01-09T09:13:51.000Z","metaData":{"encodingtype":"base64","issyncfolder":"true","field":"","welltype":"","type":"","modified":"2020-01-09T09:13:51.000Z","quality":"5","uploaded":"2020-01-09T09:13:51.000Z","author":"System","well":"{}","source":"Desktop Uploaded","relatesto":"{}","name":"hoang_bui","description":"","location":"/hoang_bui/","size":0},"codbStatus":"","datatype":"","files":[],"folders":[],"size":0,"revision":[]},{"rootIsFile":false,"rootName":"image","path":"/image/","modifiedDate":"2019-12-10T09:35:55.000Z","metaData":{"field":"","welltype":"","type":"Folder","modified":"2019-12-10T09:35:55.000Z","quality":"5","uploaded":"1575970552429","author":"i2g_storage_admin","well":"{}","datatype":"","source":"Desktop Uploaded","relatesto":"{}","name":"image","description":"","encodingtype":"base64","location":"/image/","size":0,"issyncfolder":"false"},"codbStatus":"","datatype":"","files":[],"folders":[],"size":0,"revision":[]},{"rootIsFile":false,"rootName":"namnt","path":"/namnt/","modifiedDate":"2019-11-20T09:57:24.000Z","metaData":{"encodingtype":"base64","issyncfolder":"true","field":"","welltype":"","type":"","modified":"2019-11-20T09:57:24.000Z","quality":"5","uploaded":"2019-11-20T09:57:24.000Z","author":"System","well":"{}","source":"Desktop Uploaded","relatesto":"{}","name":"namnt","description":"","location":"/namnt/","size":0},"codbStatus":"","datatype":"","files":[],"folders":[],"size":0,"revision":[]}]');
+                    // $scope.currentPath = '/';
+                });
+                $scope.dbClickFolder = function(item) {
+                    console.log(item);
+                    $scope.currentFolder = item.path;
+                    $scope.currentPath.push({rootName: item.rootName, displayName: item.displayName});
+                    $http({
+                        method: "GET",
+                        url: "https://users.i2g.cloud/file-explorer/shallow?dir=" + encodeURIComponent(rootFolder + $scope.currentPath.map(c => c.rootName).join('/')),
+                        headers: {
+                                'Content-Type': 'application/json',
+                                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                                'Access-Control-Allow-Credentials': 'true',
+                                'Referrer-Policy': 'no-referrer',
+                                'Authorization': window.localStorage.getItem('token'),
+                                'Storage-Database': '{"company":"I2G","directory":"e391f55350c81d17a0df3a1f5a243b5550542230","whereami":"WI_STORAGE_ADMIN"}',
+                                'Service': 'WI_PROJECT_STORAGE'
+                        }
+                    })
+                    .then((res) => {
+                        console.log(res);
+                        $scope.listFolders = res.data.data.folders;
+                    });
+                }
+                $scope.goToFolder = function(key) {
+                    $scope.currentPath = $scope.currentPath.slice(0, key + 1);
+                    if(key == -1) {
+                        $scope.currentFolder = rootFolder;
+                    }else {
+                        $scope.currentFolder = rootFolder + $scope.currentPath.map(c => c.rootName).join('/')
+                    }
+                    $http({
+                        method: "GET",
+                        url: "https://users.i2g.cloud/file-explorer/shallow?dir=" + encodeURIComponent(rootFolder + $scope.currentPath.map(c => c.rootName).join('/')),
+                        headers: {
+                                'Content-Type': 'application/json',
+                                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+                                'Access-Control-Allow-Credentials': 'true',
+                                'Referrer-Policy': 'no-referrer',
+                                'Authorization': window.localStorage.getItem('token'),
+                                'Storage-Database': '{"company":"I2G","directory":"e391f55350c81d17a0df3a1f5a243b5550542230","whereami":"WI_STORAGE_ADMIN"}',
+                                'Service': 'WI_PROJECT_STORAGE'
+                        }
+                    })
+                    .then((res) => {
+                        console.log(res);
+                        $scope.listFolders = res.data.data.folders;
+                    });
+                }
+            });
+    </script>
+</body>
+
+</html>
