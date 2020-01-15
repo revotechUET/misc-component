@@ -34,7 +34,9 @@ module.exports = function (ModalService, config, callback) {
         self.httpGet(self.exploreUrl + encodeURIComponent(self.rootFolder))
         .then((res) => {
             console.log(res.data);
-            self.listFolders = res.data.folders;
+            $timeout(() => {
+                self.listFolders = res.data.folders;
+            })
         });
         self.dbClickFolder = function(item) {
             console.log(item);
@@ -43,7 +45,9 @@ module.exports = function (ModalService, config, callback) {
             self.httpGet(self.exploreUrl + encodeURIComponent(self.rootFolder + self.currentPath.map(c => c.rootName).join('/')))
             .then((res) => {
                 console.log(res);
-                self.listFolders = res.data.folders;
+                $timeout(() => {
+                    self.listFolders = res.data.folders;
+                })
             });
         }
         self.goToFolder = function(key) {
@@ -56,7 +60,9 @@ module.exports = function (ModalService, config, callback) {
             self.httpGet(self.exploreUrl + encodeURIComponent(self.rootFolder + self.currentPath.map(c => c.rootName).join('/')))
             .then((res) => {
                 console.log(res);
-                self.listFolders = res.data.folders;
+                $timeout(() => {
+                    self.listFolders = res.data.folders;
+                })
             });
         }
         this.onOkButtonClicked = function () {
