@@ -10,8 +10,15 @@
 					<div class="form-group">
 						<div class="col-sm-12">
                             <!-- {{wiModal.currentFolder}} -->
-                            <tree-explorer list-folders="wiModal.listFolders" db-click-folder="wiModal.dbClickFolder" current-path="wiModal.currentPath"
-                            go-to-folder="wiModal.goToFolder"
+							<tree-explorer 
+							list-folders="wiModal.listFolders" 
+							db-click-folder="wiModal.dbClickFolder" 
+							db-click-file="wiModal.dbClickFile" 
+							click-folder="wiModal.clickFolder" 
+							click-file="wiModal.clickFile" 
+							current-path="wiModal.currentPath"
+							go-to-folder="wiModal.goToFolder"
+							file-list="wiModal.fileList"
                             ></tree-explorer>
 						</div>
 					</div>
@@ -19,7 +26,7 @@
 			</div>
 			<div class="modal-footer">
 				<button class='btn btn-default' ng-click='wiModal.onOkButtonClicked()'>
-					<span class="ok-16x16"></span>&nbsp;Save
+					<span class="ok-16x16"></span>&nbsp;OK
 				</button>
 				<button class='btn btn-default' ng-click='wiModal.onCancelButtonClicked()'>
 					<span class="cancel-16x16"></span>&nbsp;Cancel

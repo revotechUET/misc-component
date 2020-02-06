@@ -11,8 +11,8 @@ module.exports = function (ModalService, config, Upload, callback) {
                     headers: {
                             'Content-Type': 'application/json',
                             // 'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
-                            // 'Access-Control-Allow-Credentials': 'true',
-                            // 'Referrer-Policy': 'no-referrer',
+                            'Access-Control-Allow-Credentials': 'true',
+                            'Referrer-Policy': 'no-referrer',
                             'Authorization': window.localStorage.getItem('token'),
                             'Storage-Database': self.storage_database,
                             'Service': 'WI_PROJECT_STORAGE'
@@ -26,19 +26,45 @@ module.exports = function (ModalService, config, Upload, callback) {
                 })
             })
         }
+        this.httpPost = function(url, payload) {
+            return new Promise((resolve, reject) => {
+                $http({
+                    method: "POST",
+                    url: url,
+                    headers: {
+                        'Authorization': window.localStorage.getItem('token'),
+                        'Storage-Database': self.storage_database,
+                        'Content-Type': 'application/json',
+                        'Referrer-Policy': 'no-referrer',
+                        'Service': 'WI_PROJECT_STORAGE',
+                    },
+                    data: payload,
+                    responseType: 'arraybuffer'
+                })
+                .then((res) => {
+                    resolve(res.data);
+                })
+                .catch((err) => {
+                    reject(err);
+                })
+            })
+        }
         self.url = config.url || "https://users.i2g.cloud";
         self.exploreUrl = config.url + "/file-explorer/shallow?dir=";
         self.checkFileExistedUrl = self.url +  '/upload/is-existed?metaData=';
+        self.download = self.url + '/download';
         self.storage_database = config.storage_database;
         self.rootFolder = config.rootFolder || "/";
         self.currentFolder = self.rootFolder;
         self.currentPath = [];
         self.file = config.file;
+        self.currentFile = null;
         self.httpGet(self.exploreUrl + encodeURIComponent(self.rootFolder))
         .then((res) => {
             console.log(res.data);
             $timeout(() => {
-                self.listFolders = res.data.folders;
+                // self.listFolders = res.data.folders;
+                self.fileList = [...res.data.files, ...res.data.folders];
             })
         });
         self.dbClickFolder = function(item) {
@@ -49,9 +75,23 @@ module.exports = function (ModalService, config, Upload, callback) {
             .then((res) => {
                 console.log(res);
                 $timeout(() => {
-                    self.listFolders = res.data.folders;
+                    // self.listFolders = res.data.folders;
+                    self.fileList = [...res.data.files, ...res.data.folders];
                 })
             });
+        }
+        self.clickFolder = function(item) {
+            console.log(item);
+            self.currentFolder = item.path;
+        }
+        self.clickFile = function(item) {
+            console.log(item);
+            self.currentFile = item;
+        }
+        self.dbClickFile = function(item) {
+            console.log(item);
+            self.currentFile = item;
+            self.selectedFile();
         }
         self.goToFolder = function(key) {
             self.currentPath = self.currentPath.slice(0, key + 1);
@@ -64,11 +104,21 @@ module.exports = function (ModalService, config, Upload, callback) {
             .then((res) => {
                 console.log(res);
                 $timeout(() => {
-                    self.listFolders = res.data.folders;
-                })
+                    // self.listFolders = res.data.folders;
+                    self.fileList = [...res.data.files, ...res.data.folders];
+                });
             });
         }
         this.onOkButtonClicked = function () {
+            if(config.selectWhat == "folder") {
+                self.selectedFolder();
+            }if(config.selectWhat == "file") {
+                self.selectedFile();
+            }else{
+                close(null);
+            }
+        }
+        this.selectedFolder = function() {
             let currentTime = Date.now() + '';
             self.file.uploadingProgress = null;
             self.file.overwrite = false;
@@ -100,13 +150,9 @@ module.exports = function (ModalService, config, Upload, callback) {
               self.httpGet(self.checkFileExistedUrl + encodeURIComponent(JSON.stringify(metaDataRequest)))
               .then( result => {
                 if ((result.data && result.data.code && result.data.code === 409) && !self.file.overwrite) {
-                //   let index = self.uploadFileList.findIndex(f => _.isEqual(f, file));
-                //   self.uploadFileList[index].existed = true;
-                //   self.uploadFileList[index].overwrite = false;
                     self.file.existed = true;
                     self.file.overwrite = false;
                 }
-                // } else {
                   self.uploadUrl = self.url + '/upload?location=' + encodeURIComponent((self.currentFolder).replace('//', '/')) + '&metaData=' + encodeURIComponent(JSON.stringify(metaDataRequest)) + '&overwrite=' + self.file.overwrite;
                   let uploadingObject = Upload.upload({
                     url: self.uploadUrl,
@@ -130,6 +176,19 @@ module.exports = function (ModalService, config, Upload, callback) {
                 // }
                 });
             close(self.currentFolder);
+        }
+        this.selectedFile = function() {
+            console.log(self.currentFile);
+            self.httpPost(self.download, {
+                files : [self.currentFile.path]
+            })
+            .then((res) => {
+                let blob = new Blob([res], {
+                    type: 'application/octet-stream'
+                  });
+                console.log(res, blob);
+                close(res);
+            })
         }
         this.onCancelButtonClicked = function () {
             close(null);

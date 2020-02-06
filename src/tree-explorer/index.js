@@ -9,15 +9,31 @@ module.component(componentName, {
     style: require('./style.less'),
     controllerAs: 'self',
     bindings: {
-        listFolders: '<',
+        // listFolders: '<',
         dbClickFolder: '<',
         currentPath: '<',
-        goToFolder: '<'
+        goToFolder: '<',
+        fileList: "<",
+        dbClickFile: "<",
+        clickFile: "<",
+        clickFolder: "<"
     }
 });
 function TreeExplorerController($scope, $element, $timeout) {
     let self = this;
     this.$onInit = function() {
         console.log(self.listFolders);
+    }
+    this.clickNode = function(node) {
+        if(node.rootIsFile) {
+            return self.clickFile(node);
+        }
+        return self.clickFolder(node);
+    }
+    this.dbClickNode = function(node) {
+        if(node.rootIsFile) {
+            return self.dbClickFile(node);
+        }
+        return self.dbClickFolder(node);
     }
 }
