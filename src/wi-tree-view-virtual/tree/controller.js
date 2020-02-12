@@ -226,9 +226,13 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       self.selectedNodes.length = 0;
       //self.selectedNodeHtmls.length = 0;
 
-      if (!self.selectedNodes.includes(node)) {
-        self.selectedNodes.push(node);
-        //self.selectedNodeHtmls.push(nodeHtmlElement)
+      // if (!self.selectedNodes.includes(node)) {
+      //   self.selectedNodes.push(node);
+      //   //self.selectedNodeHtmls.push(nodeHtmlElement)
+      // }
+
+      if(!self.selectedNodes.find(i => isSameNode(i, node))) {
+        self.selectedNodes.push(node)
       }
     }
     else if ($event.shiftKey) {
@@ -236,24 +240,25 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
       const indexes = [];
       for (const node of self.selectedNodes) {
         const index = self.findIdxOfChild(node);
-        indexes.push(index);
+        if(!indexes.includes(index)) indexes.push(index);
       }
 
       const maxIdx = Math.max(...indexes, nodeIdx);
       const minIdx = Math.min(...indexes, nodeIdx);
-      
+
       if(maxIdx !== -1 && minIdx !== -1) {
         
         for (let i = minIdx; i <= maxIdx; ++i) {
           const selectNode = self.findChildAtIdx(i);
 
-          if (!self.selectedNodes.includes(selectNode)) {
+          if (!self.selectedNodes.find(i => isSameNode(i, selectNode))) {
             self.selectedNodes.push(selectNode);
-          //self.selectedNodeHtmls.push(nodeHtmlElement)
             selectNode._selected = true;
           }
         }
       }
+
+      console.log({indexes, selectNodes: self.selectedNodes})
     }
     else if($event.ctrlKey) {
       if (!self.selectedNodes.includes(node)) {
