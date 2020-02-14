@@ -1,7 +1,7 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, config, Upload, callback) {
-    function ModalController($scope, close, $timeout, $http) {
+    function ModalController($scope, close, $timeout, $http, wiDialog) {
         var self = this;
         this.httpGet = function(url) {
             return new Promise((resolve, reject) => {
@@ -144,38 +144,53 @@ module.exports = function (ModalService, config, Upload, callback) {
                 description: ''
             };
             let metaDataRequest = {};
-              for (let key in self.file.metaData) {
-                metaDataRequest[key] = self.file.metaData[key] + '';
-              }
-              self.httpGet(self.checkFileExistedUrl + encodeURIComponent(JSON.stringify(metaDataRequest)))
-              .then( result => {
-                if ((result.data && result.data.code && result.data.code === 409) && !self.file.overwrite) {
+            for (let key in self.file.metaData) {
+            metaDataRequest[key] = self.file.metaData[key] + '';
+            }
+            self.httpGet(self.checkFileExistedUrl + encodeURIComponent(JSON.stringify(metaDataRequest)))
+            .then( result => {
+                if ((result.code && result.code === 409) && !self.file.overwrite) {
                     self.file.existed = true;
-                    self.file.overwrite = false;
+                    self.file.overwrite = true;
+                    wiDialog.confirmDialog(
+                        `Configuration already exists!`,
+                        `Are you sure you want to replace it?`,
+                        function(yes) {
+                            if(yes) {
+                                self.uploadFile(metaDataRequest);
+                            }else {
+                                close(null);
+                            }
+                        })
+                }else {
+                    self.uploadFile(metaDataRequest);
                 }
-                  self.uploadUrl = self.url + '/upload?location=' + encodeURIComponent((self.currentFolder).replace('//', '/')) + '&metaData=' + encodeURIComponent(JSON.stringify(metaDataRequest)) + '&overwrite=' + self.file.overwrite;
-                  let uploadingObject = Upload.upload({
-                    url: self.uploadUrl,
-                    headers: {
-                      'Content-Type': 'application/json',
-                      'Referrer-Policy': 'no-referrer',
-                      'Authorization': window.localStorage.getItem('token'),
-                      'Storage-Database': self.storage_database,
-                      'Service': "WI_PROJECT_STORAGE"
-                    },
-                    data: {
-                      'upload-file': self.file
-                    }
-                  });
-                  uploadingObject.then(resp => {
-                    console.log("Upload success");
-                  })
-                  .catch(err => {
-                    console.log("Upload terminated", err.message);
-                  });
+                    
                 // }
                 });
             close(self.currentFolder);
+        }
+        this.uploadFile = function(metaDataRequest) {
+            self.uploadUrl = self.url + '/upload?location=' + encodeURIComponent((self.currentFolder).replace('//', '/')) + '&metaData=' + encodeURIComponent(JSON.stringify(metaDataRequest)) + '&overwrite=' + self.file.overwrite;
+            let uploadingObject = Upload.upload({
+                url: self.uploadUrl,
+                headers: {
+                'Content-Type': 'application/json',
+                'Referrer-Policy': 'no-referrer',
+                'Authorization': window.localStorage.getItem('token'),
+                'Storage-Database': self.storage_database,
+                'Service': "WI_PROJECT_STORAGE"
+                },
+                data: {
+                'upload-file': self.file
+                }
+            });
+            uploadingObject.then(resp => {
+                console.log("Upload success");
+            })
+            .catch(err => {
+                console.log("Upload terminated", err.message);
+            });
         }
         this.selectedFile = function() {
             console.log(self.currentFile);
