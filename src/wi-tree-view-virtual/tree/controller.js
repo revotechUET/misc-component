@@ -250,14 +250,14 @@ module.exports = function treeController($scope, $compile, $element, $timeout) {
         
         for (let i = minIdx; i <= maxIdx; ++i) {
           const selectNode = self.findChildAtIdx(i);
+          selectNode._selected = true;
 
-          if (!self.selectedNodes.find(i => isSameNode(i, selectNode))) {
+          if (!self.selectedNodes.find(n => isSameNode(n, selectNode))) {
             self.selectedNodes.push(selectNode);
-            selectNode._selected = true;
           }
         }
       }
-
+			updateVList()
       console.log({indexes, selectNodes: self.selectedNodes})
     }
     else if($event.ctrlKey) {
