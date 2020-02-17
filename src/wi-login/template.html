@@ -50,11 +50,17 @@
 </script>
 <script type="text/ng-template" id="templateDone">
     <style>
+        .ngdialog {
+            transition: all ease-in 0.01s;
+        }
         .ngdialog-overlay{
             pointer-events: none;
         }
         .ngdialog-overlay {
             background: rgba(0, 0, 0, 0.38);
+        }
+        .ngdialog.ngdialog-theme-default .ngdialog-content {
+            width: 500px !important;
         }
     </style>
     <div class ="success">

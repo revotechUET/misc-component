@@ -21,6 +21,14 @@ app.component(componentName, {
 
 function wiLoginController($http, $scope, ngDialog, wiToken) {
     let self = this;
+    $scope.$watch(
+        function () {
+          return wiToken.getToken();
+        },
+        function (newValue, oldValue) {
+          if(!newValue) self.showDialogLogin();
+        }
+    );
     this.$onInit = function (){
         self.loginUrl = self.loginUrl || 'http://admin.dev.i2g.cloud/login';
         if (self.queryString.token) {
