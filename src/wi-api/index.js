@@ -6,7 +6,14 @@ angular.module(serviceName, ['wiToken', 'ngFileUpload']).factory(serviceName, fu
 function wiApiService($http, wiToken, Upload, $timeout) {
     let self = this;
     this.$http = $http;
-    this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
+    // this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
+    let __cache_BaseUrl = null
+    this.getBaseUrl = () => {
+        if(!__cache_BaseUrl) {
+            __cache_BaseUrl = window.localStorage.getItem('__BASE_URL');
+        }
+        return __cache_BaseUrl || 'http://dev.i2g.cloud';
+    };
     let unitTable = undefined;
     let familyTable;
     let paletteTable;
@@ -15,7 +22,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function postPromise(url, data, opts = {}) {
         return new Promise(function(resolve, reject) {
             const salt = "wi-hash";
-            const baseUrl = opts.baseUrl || self.baseUrl;
+            const baseUrl = opts.baseUrl || self.getBaseUrl();
             const headers = opts.noToken ? {} : {
                 Authorization: wiToken.getToken(),
                 'Service': opts.service ? opts.service : 'WI_BACKEND' 
@@ -37,7 +44,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function deletePromise(url, data, opts = {}) {
         return new Promise(function(resolve, reject) {
             const salt = "wi-hash";
-            const baseUrl = opts.baseUrl || self.baseUrl;
+            const baseUrl = opts.baseUrl || self.getBaseUrl();
             const headers = opts.noToken ? {} : {
                 Authorization: wiToken.getToken(),
                 'Service': opts.service ? opts.service : 'WI_BACKEND',
@@ -58,8 +65,6 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             })
         });
     }
-    getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
-
     this.updatePalettes = updatePalettes;
     function updatePalettes(cb) {
         getPalettesPromise().then(paltable => {
@@ -67,12 +72,20 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             cb && cb();
         }).catch(err => console.error(err));
     }
-    updatePalettes();
-    
-    getAllFamilyPromise()
+    function doInit() {
+        getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
+        updatePalettes();
+        getAllFamilyPromise()
         .then(familytable => {
                         familyTable = familytable;
         }).catch(err => console.error(err));
+    }
+    // getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
+    // updatePalettes();
+    // getAllFamilyPromise()
+        // .then(familytable => {
+        //                 familyTable = familytable;
+        // }).catch(err => console.error(err));
     
     this.getPalette = function(palName) {
         if (paletteTable) 
@@ -108,7 +121,10 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         return postPromise('/pal/all', {});
     }
     this.setBaseUrl = function(baseUrl) {
-        self.baseUrl = baseUrl;
+        __cache_BaseUrl = null;
+        window.localStorage.setItem("BASE_URL", baseUrl);
+        doInit();
+        // self.baseUrl = baseUrl;
     }
     function getAllUnitPromise() {
         return postPromise('/family/all-unit', {});
@@ -273,7 +289,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     this.uploadImage = uploadImage;
     function uploadImage(image, idImage,successCb, errorCb, progressCb) {
         return Upload.upload({
-            url: self.baseUrl + '/image-upload',
+            url: self.getBaseUrl() + '/image-upload',
             headers: {
                 Authorization: wiToken.getToken(),
                 Service: "WI_BACKEND"
@@ -537,7 +553,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         curveName = (request.name || request.curveName || '').toUpperCase();
         let route = isArrayCurve ? '/project/well/dataset/curve/processing-array-data-curve' : '/project/well/dataset/curve/new-raw-curve';
         let configUpload = {
-            url: self.baseUrl + route,
+            url: self.getBaseUrl() + route,
             headers: {
                 'Referrer-Policy': 'no-referrer',
                 Authorization: wiToken.getToken(),
@@ -630,7 +646,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         }
         return new Promise(function (resolve, reject) {
             let configUpload = {
-                url: self.baseUrl + route,
+                url: self.getBaseUrl() + route,
                 headers: {
                     'Referrer-Policy': 'no-referrer',
                     'Authorization': window.localStorage.getItem('token'),
@@ -772,6 +788,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function createMarkerPromise(payload) {
         return postPromise('/project/well/marker-set/marker/new', payload);
     }
+    doInit();
 }
 
 function SHA256(s){
