@@ -25,6 +25,7 @@ const csvImportDialog = require('./csv-import/csv-import-modal.js');
 const importZoneSet = require('./import-zone-set/import-zone-set.js');
 const importMarkerSet = require('./import-marker-set/import-marker-set.js');
 const treeExplorer = require('./tree-explorer/tree-explorer.js');
+const serverInformation = require('./server-information/server-information.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -75,6 +76,9 @@ function wiDialogService(ModalService) {
     }
     this.treeExplorer = function(config, Upload, cb) {
         treeExplorer(ModalService, config, Upload, cb);
+    }
+    this.serverInformation = function(config) {
+        serverInformation(ModalService, config);
     }
 } 
 
