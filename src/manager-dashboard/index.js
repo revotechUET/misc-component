@@ -2,7 +2,7 @@ const componentName = "managerDashboard";
 module.exports = componentName;
 //require('angular-drag-and-drop-lists');
 require('../chart-widget');
-var app = angular.module('managerDashboard', ['chartWidget', 'dndLists']);
+var app = angular.module('managerDashboard', ['chartWidget', 'dndLists', 'wiDialog']);
 app.component(componentName, {
     template: require("./template.html"),
     controllerAs: "self",
@@ -10,12 +10,13 @@ app.component(componentName, {
     style: require("./style.less"),
     bindings : {
         dashboardColumns: "<",
-        dashboardContent: "<"
+        dashboardContent: "<",
+        removeConfirm: "<"
     }
 });
 
 //const Macy = require('macy');
-function ManagerDashboardController($scope, $element) {
+function ManagerDashboardController($scope, $element, wiDialog) {
     let self = this;
     /*
     let macyInst;
@@ -50,8 +51,23 @@ function ManagerDashboardController($scope, $element) {
         return widgetConfig.colors;
     }
     this.removeWidget = function(widgetConfig) {
+			if (self.removeConfirm) {
+				wiDialog.confirmDialog(
+					"Delete Widget Confirmation",
+					"Are you sure to delete this widget?",
+					(yes) => {
+						if (yes) {
+              deleteFn();
+						}
+					}
+        )
+      } else {
+        deleteFn();
+      }
+      function deleteFn() {
         const index = self.dashboardContent.findIndex(w => w.config == widgetConfig);
         if (index >= 0)
-            self.dashboardContent.splice(index, 1);
-    } 
+          self.dashboardContent.splice(index, 1);
+      }
+    }
 }
