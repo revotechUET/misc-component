@@ -10,7 +10,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     let __cache_BaseUrl = null
     this.getBaseUrl = () => {
         if(!__cache_BaseUrl) {
-            __cache_BaseUrl = window.localStorage.getItem('__BASE_URL');
+            __cache_BaseUrl = window.localStorage.getItem('BASE_URL');
         }
         return __cache_BaseUrl || 'http://dev.i2g.cloud';
     };
