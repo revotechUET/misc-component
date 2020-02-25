@@ -13,9 +13,18 @@
         </div>
         <div ng-if="setting.type == 'select'" style="display: flex; align-items: center; flex: 1;">
             <label style="flex-basis: 70px;">{{setting.label}}</label>
+            <select 
+                style="flex: 1; margin-left: 20px; border: none;"
+                ng-init="selectedObj=setting.getSelectedOption(self.widgetConfig)"
+                ng-model="selectedObj"
+                ng-change="setting.setValue(selectedObj.properties, self.widgetConfig)">
+                <option ng-repeat="opt in setting.options" ng-value="opt">{{opt.data.label}}</option>
+            </select>
+            <!--
             <wi-dropdown-list style="flex: 1; margin-left: 20px;" items="setting.options" params="self.widgetConfig"
                 on-item-changed="setting.setValue" current-select="setting.getValue(self.widgetConfig)">
             </wi-dropdown-list>
+            -->
         </div>
         <div ng-if="setting.type == 'checkbox'" style="display: flex; align-items: center; justify-content: space-between; flex: 1;">
             <label>{{setting.label}}</label>

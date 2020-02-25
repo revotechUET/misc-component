@@ -49,6 +49,7 @@ module.exports = function (ModalService, config, Upload, callback) {
                 })
             })
         }
+        self.title = config.title || "Select";
         self.url = config.url || "https://users.i2g.cloud";
         self.exploreUrl = config.url + "/file-explorer/shallow?dir=";
         self.checkFileExistedUrl = self.url +  '/upload/is-existed?metaData=';
@@ -59,6 +60,7 @@ module.exports = function (ModalService, config, Upload, callback) {
         self.currentPath = [];
         self.file = config.file;
         self.currentFile = null;
+        wiLoading.show(document.getElementsByTagName('body')[0]);
         self.httpGet(self.exploreUrl + encodeURIComponent(self.rootFolder))
         .then((res) => {
             console.log(res.data);
@@ -68,10 +70,11 @@ module.exports = function (ModalService, config, Upload, callback) {
             })
         })
         .finally(() => {
-            
+            wiLoading.hide();
         });
         self.dbClickFolder = function(item) {
             console.log(item);
+            wiLoading.show(document.getElementsByTagName('body')[0]);
             self.currentFolder = item.path;
             self.currentPath.push({rootName: item.rootName, displayName: item.displayName});
             self.httpGet(self.exploreUrl + encodeURIComponent(self.rootFolder + self.currentPath.map(c => c.rootName).join('/')))
@@ -83,7 +86,7 @@ module.exports = function (ModalService, config, Upload, callback) {
                 })
             })
             .finally(() => {
-                
+                wiLoading.hide();
             });
         }
         self.clickFolder = function(item) {
