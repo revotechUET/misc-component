@@ -49,6 +49,7 @@ module.exports = function (ModalService, config, Upload, callback) {
                 })
             })
         }
+        self.title = config.title || "Select";
         self.url = config.url || "https://users.i2g.cloud";
         self.exploreUrl = config.url + "/file-explorer/shallow?dir=";
         self.checkFileExistedUrl = self.url +  '/upload/is-existed?metaData=';
