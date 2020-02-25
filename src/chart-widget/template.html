@@ -24,6 +24,14 @@
                 ng-change="setting.setValue(self.widgetConfig, self.tmp)">
         </div>
     </div>
+    <div ng-click="$event.stopPropagation()" style="margin-bottom: 15px; height: 34px; display: flex; border-bottom: 1px solid #c4c4c4;">
+        <div style="display: flex; align-items: center; flex: 1;">
+            <label style="flex-basis: 70px;">Color Palette</label>
+            <wi-dropdown-list style="flex: 1; margin-left: 20px;" items="self.colorPalettes" params="self.widgetConfig"
+                on-item-changed="self.setColorPalette" current-select="self.getColorPalette(self.widgetConfig)">
+            </wi-dropdown-list>
+        </div>
+    </div>
 </div>
 <!-- <div class="setting" ng-class="{'filling': self.showSetting}">
     <div ng-repeat="(key, setting) in self.chartSettings" ng-click="$event.stopPropagation()"

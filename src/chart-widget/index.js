@@ -3,7 +3,7 @@ const componentName = 'chartWidget';
 if (typeof Chart != "undefined" && !Chart.plugins.getAll().find(p => p.id == "labels"))
     require('../../bower_components/chartjs-plugin-labels/build/chartjs-plugin-labels.min');
 //require('angular-chart.js');
-angular.module(componentName, ['chart.js', 'editable', 'wiDropdownList']).component(componentName, {
+angular.module(componentName, ['chart.js', 'editable', 'wiDropdownList', "wiApi"]).component(componentName, {
     template: require('./template.html'),
     style: require('./style.less'),
     controllerAs: 'self',
@@ -16,9 +16,39 @@ angular.module(componentName, ['chart.js', 'editable', 'wiDropdownList']).compon
     }
 });
 
-function WidgetController($scope, $element, chartSettings) {
+function WidgetController($scope, $element, chartSettings, wiApi) {
     let self = this;
     self.chartSettings = chartSettings;
+    self.colorPalettes = (function() {
+      let palTable = wiApi.getPalettes();
+      let items = Object.keys(palTable).map(palName => {
+        let data = {
+          label: palName
+        };
+        let properties = {
+          name: palName,
+          palette: palTable[palName]
+        };
+        let toReturn = {data, properties};
+        return toReturn;
+      });
+      items.unshift({
+        data: {
+          label: ""
+        },
+        properties: {
+          name: '',
+          palette: null
+        }
+      }) 
+      return items;
+    }());
+  this.getColorPalette = function(widgetConfig) {
+    return widgetConfig.paletteName || "";
+  }
+  this.setColorPalette = function(selectedProps, widgetConfig) {
+    widgetConfig.paletteName = (selectedProps || {}).name || "";
+  }
     this.$onInit = function() {
     }
     this.getLabels = function(widgetConfig) {
@@ -98,5 +128,10 @@ function WidgetController($scope, $element, chartSettings) {
     }
     this.deleteChart = function() {
         self.removeFn && self.removeFn(self.widgetConfig);
-    }
+		}
+
+		function palette2RGB(palette, semiTransparent) {
+			if (!palette || !Object.keys(palette).length) return 'transparent';
+			return `rgb(${palette.red},${palette.green},${palette.blue},${semiTransparent ? palette.alpha / 2 : 1})`
+		}
 }
