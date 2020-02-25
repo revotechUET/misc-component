@@ -19,7 +19,7 @@ module.component(componentName, {
         clickFolder: "<"
     }
 });
-function TreeExplorerController($scope, $element, $timeout) {
+function TreeExplorerController($scope, $element, $timeout, $filter) {
     let self = this;
     this.$onInit = function() {
         console.log(self.listFolders);
@@ -35,5 +35,21 @@ function TreeExplorerController($scope, $element, $timeout) {
             return self.dbClickFile(node);
         }
         return self.dbClickFolder(node);
+    }
+
+    this.itemSelected = null;
+    this.selectItem = function(item) {
+        self.itemSelected = item;
+    }
+    this.isSelected = function(item) {
+        return [self.itemSelected].indexOf(item) != -1;
+    }
+    this.showIcon = function(item) {
+        console.log(item)
+        if(!item.rootIsFile) {
+            return "folder-icon-16x16";
+        }else {
+            return item.rootName.split(".").pop() == 'zip' ? "zip-icon-16x16" : "file-icon-16x16";
+        }
     }
 }

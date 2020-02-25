@@ -1,0 +1,44 @@
+.header-tree {
+    margin-right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.item-tree {
+    display: flex;
+    background: #fff;
+    border-bottom: 1px solid #f4f4f4;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border-right: 1px solid #f4f4f4;
+    border-left: 1px solid #f4f4f4;
+    padding: 10px 13px;
+    transition: all ease-in 0.1s;
+    user-select: none;
+    &:hover {
+        background: #f1f8ff;
+    }
+   
+}
+.selected {
+    background: #f1f8ff;
+    font-weight: bold;
+}
+.folder-icon-16x16 {
+    display: inline-block !important;
+    width: 16px;
+    height: 16px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 58 58' style='enable-background:new 0 0 58 58;' xml:space='preserve'%3E%3Cpath style='fill:%23EFCE4A;' d='M46.324,52.5H1.565c-1.03,0-1.779-0.978-1.51-1.973l10.166-27.871 c0.184-0.682,0.803-1.156,1.51-1.156H56.49c1.03,0,1.51,0.984,1.51,1.973L47.834,51.344C47.65,52.026,47.031,52.5,46.324,52.5z'/%3E%3Cpath style='fill:%23F4EFDC;' d='M10.221,22.656c0.184-0.683,0.803-1.156,1.51-1.156H53v-7H9l-6,6v21.953L10.221,22.656z'/%3E%3Cpath style='fill:%23EBBA16;' d='M23.571,10.5L20,5.5H1.732C0.776,5.5,0,6.275,0,7.232V49.96c0.069,0.002,0.138,0.006,0.205,0.01 L3,42.349V20.5l2-2v-8H23.571z'/%3E%3Cpolygon style='fill:%23D1BF86;' points='5,10.5 5,18.5 9,14.5 51,14.5 51,10.5 '/%3E%3Crect x='28' y='19.5' style='fill:%23BFBAA5;' width='2' height='2'/%3E%3Crect x='35' y='19.5' style='fill:%23BFBAA5;' width='2' height='2'/%3E%3Crect x='42' y='19.5' style='fill:%23BFBAA5;' width='2' height='2'/%3E%3Crect x='14' y='19.5' style='fill:%23BFBAA5;' width='2' height='2'/%3E%3Crect x='21' y='19.5' style='fill:%23BFBAA5;' width='2' height='2'/%3E%3Cpolygon style='fill:%23CEC9AE;' points='9,20.5 9,14.5 3,20.5 '/%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E");
+}
+.file-icon-16x16 {
+    display: inline-block !important;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 53 53' style='enable-background:new 0 0 53 53;' xml:space='preserve'%3E%3Cg%3E%3Cpath d='M45.707,10.075l-9.794-9.783C35.725,0.105,35.471,0,35.206,0H8C7.448,0,7,0.448,7,1v51c0,0.552,0.448,1,1,1h37 c0.552,0,1-0.448,1-1V10.783C46,10.517,45.895,10.263,45.707,10.075z M42.586,10H36V3.414L42.586,10z M9,51V2h25v9 c0,0.552,0.448,1,1,1h9v39H9z'/%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E");
+}
+.zip-icon-16x16 {
+    display: inline-block !important;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 384 384' style='enable-background:new 0 0 384 384;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M64,0v80H0v144h64v160h224l96-96V0H64z M16,208V96h240v112H16z M288,361.376V288h73.376L288,361.376z M368,272h-96v96H80 V224h192V80H80V16h288V272z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpolygon points='61.856,175.072 87.488,128.32 87.488,117.856 48.032,117.856 48.032,129.184 71.568,129.184 46.32,176.32 46.32,186.4 87.872,186.4 87.872,175.072 '/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Crect x='105.248' y='117.856' width='13.824' height='68.544'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M180.992,130.864c-0.64-2.464-1.696-4.656-3.168-6.576c-1.472-1.92-3.392-3.472-5.808-4.656 c-2.416-1.184-5.36-1.792-8.88-1.792h-24.208v68.544h13.824v-27.36h7.392c3.28,0,6.256-0.432,8.944-1.248 c2.688-0.816,4.976-2.08,6.864-3.744c1.888-1.648,3.36-3.792,4.416-6.416c1.056-2.624,1.584-5.696,1.584-9.216 C181.952,135.84,181.616,133.312,180.992,130.864z M165.584,146.384c-1.68,1.664-3.92,2.512-6.672,2.512h-6.144v-20.848h5.76 c3.456,0,5.92,0.912,7.392,2.688c1.472,1.792,2.208,4.416,2.208,7.872C168.128,142.128,167.28,144.72,165.584,146.384z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E");
+}

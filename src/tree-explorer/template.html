@@ -1,20 +1,25 @@
-<div style="display: block;height: 300px;overflow: auto;">
+<div style="display: block;height: 40vh;overflow: auto;">
     <div style="display: flex;">
-        <div ng-click="self.goToFolder(-1)">Home</div>
-        <div ng-repeat="(key, dir) in self.currentPath track by key" ng-click="self.goToFolder(key)">{{dir.rootName}}</div>
+        <div ng-click="self.goToFolder(-1)" class="header-tree">
+            <span class="button-fn ti ti-angle-right" style="margin-right: 10px; font-size: 9px;">
+            </span> 
+            Home
+        </div>
+        <div ng-repeat="(key, dir) in self.currentPath track by key" class="header-tree" ng-click="self.goToFolder(key)">
+            <span class="button-fn ti ti-angle-right" style="margin-right: 10px; font-size: 9px;">
+            </span> 
+            {{dir.rootName}}
+        </div>
     </div>
-    <div class="table-row" ng-repeat="item in self.fileList" ng-click="self.clickNode(item)"  ng-dblclick="self.dbClickNode(item)">
-        <div class="name-row"
-            style="position: relative;">
+    <div class="item-tree" ng-repeat="item in self.fileList | orderBy: 'rootName'" ng-click="self.clickNode(item);self.selectItem(item)" ng-class="{selected : self.isSelected(item)}"  ng-dblclick="self.dbClickNode(item)" title="{{item.rootName}}">
             <!-- <i class="fa fa-check-circle" aria-hidden="true"
                 style=" position: absolute; color: #4CAF50; left: 23px; top: 18px; "
                 ng-show="item.metaData.issyncfolder === 'true' && !item.rootIsFile"></i> -->
-            <i class="{{item.icon}}" style="margin-right: 5px; margin-bottom: -4px;"></i>
+            <i class="{{self.showIcon(item)}}" style="margin-right: 5px; margin-bottom: -4px;"></i>
             <!-- <i class="{{item.icon}}" ng-show="!item.rootIsFile" style="margin-right: 5px; margin-bottom: -4px;"></i> -->
             <!-- <i class="folder-icon-16x16" ng-show="!item.rootIsFile && item.metaData.issyncfolder === 'false'"
             style="margin-right: 5px; margin-bottom: -4px;"></i> -->
             {{item.rootName}}
-        </div>
     </div>
 
 </div>
