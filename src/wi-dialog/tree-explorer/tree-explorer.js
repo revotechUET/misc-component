@@ -1,7 +1,7 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, config, Upload, callback) {
-    function ModalController($scope, close, $timeout, $http, wiDialog) {
+    function ModalController($scope, close, $timeout, $http, wiDialog, wiLoading) {
         var self = this;
         this.httpGet = function(url) {
             return new Promise((resolve, reject) => {
@@ -66,6 +66,9 @@ module.exports = function (ModalService, config, Upload, callback) {
                 // self.listFolders = res.data.folders;
                 self.fileList = [...res.data.files, ...res.data.folders];
             })
+        })
+        .finally(() => {
+            
         });
         self.dbClickFolder = function(item) {
             console.log(item);
@@ -78,6 +81,9 @@ module.exports = function (ModalService, config, Upload, callback) {
                     // self.listFolders = res.data.folders;
                     self.fileList = [...res.data.files, ...res.data.folders];
                 })
+            })
+            .finally(() => {
+                
             });
         }
         self.clickFolder = function(item) {

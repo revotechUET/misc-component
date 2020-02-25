@@ -45,7 +45,7 @@ function TreeExplorerController($scope, $element, $timeout, $filter) {
         return [self.itemSelected].indexOf(item) != -1;
     }
     this.showIcon = function(item) {
-        console.log(item)
+        // console.log(item)
         if(!item.rootIsFile) {
             return "folder-icon-16x16";
         }else {
