@@ -77,14 +77,18 @@
     <canvas ng-if="self.widgetConfig.type === 'horizontal-bar'" class='chart-horizontal-bar'
         chart-options="self.getOptions(self.widgetConfig)" chart-data="self.widgetConfig.data"
         chart-labels="self.getLabels(self.widgetConfig)" chart-colors="self.getColors(self.widgetConfig)"
-        chart-series="self.getSeries(self.widgetConfig)"></canvas>
+        chart-series="self.getSeries(self.widgetConfig)"
+        chart-click="self.chartClickFn"></canvas>
     <canvas ng-if="self.widgetConfig.type === 'pie'" class='chart-pie' chart-data="self.widgetConfig.data"
         chart-options="self.getOptions(self.widgetConfig)" chart-labels="self.getLabels(self.widgetConfig)"
-        chart-colors="self.getColors(self.widgetConfig)" chart-series="self.getSeries(self.widgetConfig)"></canvas>
+        chart-colors="self.getColors(self.widgetConfig)" chart-series="self.getSeries(self.widgetConfig)"
+        chart-click="self.chartClickFn"></canvas>
     <canvas ng-if="self.widgetConfig.type === 'line'" class='chart-line' chart-data="self.widgetConfig.data"
         chart-options="self.getOptions(self.widgetConfig)" chart-labels="self.getLabels(self.widgetConfig)"
-        chart-colors="self.getColors(self.widgetConfig)" chart-series="self.getSeries(self.widgetConfig)"></canvas>
+        chart-colors="self.getColors(self.widgetConfig)" chart-series="self.getSeries(self.widgetConfig)"
+        chart-click="self.chartClickFn"></canvas>
     <canvas ng-if="self.widgetConfig.type === 'doughnut'" class='chart-doughnut' chart-data="self.widgetConfig.data"
         chart-options="self.getOptions(self.widgetConfig)" chart-labels="self.getLabels(self.widgetConfig)"
-        chart-colors="self.getColors(self.widgetConfig)" chart-series="self.getSeries(self.widgetConfig)"></canvas>
+        chart-colors="self.getColors(self.widgetConfig)" chart-series="self.getSeries(self.widgetConfig)"
+        chart-click="self.chartClickFn"></canvas>
 </div>
