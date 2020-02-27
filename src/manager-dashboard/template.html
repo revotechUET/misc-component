@@ -52,7 +52,7 @@
 <ul class="dashboard">
     <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent">
         <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"
-            remove-fn="self.removeWidget">
+            remove-fn="self.removeWidget" chart-click="self.chartClick">
         </chart-widget>
     </li>
 </ul>

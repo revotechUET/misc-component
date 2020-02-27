@@ -12,7 +12,8 @@ angular.module(componentName, ['chart.js', 'editable', 'wiDropdownList', "wiApi"
         widgetConfig: '<',
         widgetName: "<",
         showSetting: "<",
-        removeFn: "<"
+        removeFn: "<",
+        chartClick: "<"
     }
 });
 
@@ -134,4 +135,8 @@ function WidgetController($scope, $element, chartSettings, wiApi) {
 			if (!palette || !Object.keys(palette).length) return 'transparent';
 			return `rgb(${palette.red},${palette.green},${palette.blue},${semiTransparent ? palette.alpha / 2 : 1})`
 		}
+
+  this.chartClickFn = function (points, evt) {
+    self.chartClick && self.chartClick(points, evt, self.widgetConfig);
+  }
 }

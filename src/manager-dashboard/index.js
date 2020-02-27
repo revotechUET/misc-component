@@ -11,7 +11,8 @@ app.component(componentName, {
     bindings : {
         dashboardColumns: "<",
         dashboardContent: "<",
-        removeConfirm: "<"
+        removeConfirm: "<",
+        onClickChart: "<"
     }
 });
 
@@ -70,4 +71,7 @@ function ManagerDashboardController($scope, $element, wiDialog) {
           self.dashboardContent.splice(index, 1);
       }
     }
+  this.chartClick = function(points, evt, widgetConfig) {
+    self.onClickChart && self.onClickChart(points, evt, widgetConfig);
+  }
 }
