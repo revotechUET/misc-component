@@ -29,7 +29,7 @@ function TokenService() {
     }
     this.getUserName = function () {
         if (this.token === undefined || (localStorage.getItem("token")) === null) {
-            return "guest";
+            localStorage.clear();
         }
         return localStorage.getItem("username");
     }
