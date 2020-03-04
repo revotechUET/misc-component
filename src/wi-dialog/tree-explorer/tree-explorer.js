@@ -1,6 +1,6 @@
 let helper = require('../DialogHelper');
 
-module.exports = function (ModalService, config, Upload, callback) {
+module.exports = function (ModalService, config, Upload, callback, options) {
     function ModalController($scope, close, $timeout, $http, wiDialog, wiLoading) {
         var self = this;
         this.httpGet = function(url) {
@@ -49,6 +49,7 @@ module.exports = function (ModalService, config, Upload, callback) {
                 })
             })
         }
+        self.options = options;
         self.title = config.title || "Select";
         self.url = config.url || "https://users.i2g.cloud";
         self.exploreUrl = config.url + "/file-explorer/shallow?dir=";
@@ -129,11 +130,12 @@ module.exports = function (ModalService, config, Upload, callback) {
         }
         this.selectedFolder = function() {
             let currentTime = Date.now() + '';
+            self.file = new File([self.file], self.options.fileName || "i2G_basemap_configuration.zip");
             self.file.uploadingProgress = null;
             self.file.overwrite = false;
             self.file.existed = false;
             self.file.metaData = {
-                name: self.file.name,
+                name: self.options.fileName || self.file.name,
                 type: (self.file.type || self.file.type !== '') ? self.file.type : 'Unknown',
                 size: self.file.size,
                 location: (self.currentFolder + self.file.name).replace('//', '/'),

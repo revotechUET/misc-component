@@ -74,8 +74,8 @@ function wiDialogService(ModalService) {
     this.importMarkerSet = function(file, idProject, cb) {
         importMarkerSet(ModalService, file, idProject, cb);
     }
-    this.treeExplorer = function(config, Upload, cb) {
-        treeExplorer(ModalService, config, Upload, cb);
+    this.treeExplorer = function(config, Upload, cb, options) {
+        treeExplorer(ModalService, config, Upload, cb, options);
     }
     this.serverInformation = function(config) {
         serverInformation(ModalService, config);

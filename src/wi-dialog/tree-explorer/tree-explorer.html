@@ -21,6 +21,14 @@
 							file-list="wiModal.fileList"
                             ></tree-explorer>
 						</div>
+						<div ng-show="wiModal.options.rename">
+							<label class="control-label col-sm-4">File Name</label>
+							<div class="col-sm-8">
+							<input type="text" class="form-control"
+								ng-model="wiModal.options.fileName"
+								required>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
