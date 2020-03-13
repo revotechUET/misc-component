@@ -1,7 +1,9 @@
 <div class="ti ti-settings" title="Setting" ng-click="self.showSetting = !self.showSetting"
     style="cursor: pointer; position: absolute; z-index: 1; right: 5px;"></div>
-<div class="ti ti-close" title="Delete Widget" ng-click="self.deleteChart()" title="Delete Chart"
+<div class="ti ti-trash" title="Delete Widget" ng-click="self.deleteChart()" title="Delete Chart"
     style="cursor: pointer; position: absolute; z-index: 1; right: 37px;"></div>
+<div class="ti" ng-class="{'ti-fullscreen': !self.isFullScreen(), 'ti-angle-down': self.isFullScreen()}" title="Setting" ng-click="self.toggleFullScreen()"
+    style="cursor: pointer; position: absolute; z-index: 1; right: 68px;"></div>
 
 <div class="setting" ng-show="self.showSetting">
     <div ng-repeat="(key, setting) in self.chartSettings" ng-click="$event.stopPropagation()"
@@ -20,11 +22,6 @@
                 ng-change="setting.setValue(selectedObj.properties, self.widgetConfig)">
                 <option ng-repeat="opt in setting.options" ng-value="opt">{{opt.data.label}}</option>
             </select>
-            <!--
-            <wi-dropdown-list style="flex: 1; margin-left: 20px;" items="setting.options" params="self.widgetConfig"
-                on-item-changed="setting.setValue" current-select="setting.getValue(self.widgetConfig)">
-            </wi-dropdown-list>
-            -->
         </div>
         <div ng-if="setting.type == 'checkbox'" style="display: flex; align-items: center; justify-content: space-between; flex: 1;">
             <label>{{setting.label}}</label>
@@ -33,43 +30,9 @@
                 ng-change="setting.setValue(self.widgetConfig, self.tmp)">
         </div>
     </div>
-    <!--<div ng-click="$event.stopPropagation()" style="margin-bottom: 15px; height: 34px; display: flex; border-bottom: 1px solid #c4c4c4;">-->
-        <!--<div style="display: flex; align-items: center; flex: 1;">-->
-            <!--<label style="flex-basis: 70px;">Color Palette</label>-->
-            <!--<wi-dropdown-list style="flex: 1; margin-left: 20px;" items="self.colorPalettes" params="self.widgetConfig"-->
-                <!--on-item-changed="self.setColorPalette" current-select="self.getColorPalette(self.widgetConfig)">-->
-            <!--</wi-dropdown-list>-->
-        <!--</div>-->
-    <!--</div>-->
 </div>
-<!-- <div class="setting" ng-class="{'filling': self.showSetting}">
-    <div ng-repeat="(key, setting) in self.chartSettings" ng-click="$event.stopPropagation()"
-        style="margin-bottom: 15px; height: 34px;">
-        <div ng-if="setting.type == 'number' || setting.type == 'text'" style="width: 100%; height: 2em;">
-            <editable params="self.widgetConfig" item-label="setting.label" enabled="true" item-value="setting.getValue"
-                set-value="setting.setValue">
-            </editable>
-        </div>
-        <div ng-if="setting.type == 'select'" style="display: flex; align-items: center;">
-            <label style="flex-basis: 70px;">{{setting.label}}</label>
-            <wi-dropdown-list style="flex: 1; margin-left: 20px;" items="setting.options" params="self.widgetConfig"
-                on-item-changed="setting.setValue" current-select="setting.getValue(self.widgetConfig)">
-            </wi-dropdown-list>
-        </div>
-        <div ng-if="setting.type == 'checkbox'" style="display: flex; align-items: center;">
-            <label style="flex-basis: 70px;">{{setting.label}}</label>
-            <input type="checkbox" style="width: 100%"
-                ng-model="self.tmp" ng-checked="setting.getValue(self.widgetConfig)"
-                ng-change="setting.setValue(self.widgetConfig, self.tmp)">
-        </div>
-    </div>
-    <div ng-hide="!self.showSetting" ng-click="self.deleteChart()" style="cursor: pointer; position: absolute; right: 0; top: 0; border-radius: 2px; color: #3e85ff; border: 1px solid #3e85ff; background: #3e85ff05; padding: 2px 10px; z-index: 1; font-size: 10px; font-weight: bold;"> DELETE </div>
-    <div class="ti ti-close" ng-hide="!self.showSetting" ng-click="self.showSetting = !self.showSetting"
-        style="cursor: pointer; position: absolute; left: 0; top: 0; z-index: 1;"></div>
-
-</div> -->
 <span>{{self.widgetConfig.title || self.widgetName}}</span>
-<div>
+<div style="position: relative; height: calc(100% - 60px);">
     <canvas ng-if="self.widgetConfig.type === 'bar'" class='chart-bar' chart-data="self.widgetConfig.data"
         chart-options="self.getOptions(self.widgetConfig)" chart-labels="self.getLabels(self.widgetConfig)"
         chart-colors="self.getColors(self.widgetConfig)" chart-series="self.getSeries(self.widgetConfig)"

@@ -113,7 +113,7 @@ function WidgetController($scope, $element, chartSettings, wiApi) {
                 } else {
                     bar_chart_options.plugins.labels.render = drawNullFn 
                 }
-                return Object.assign(bar_chart_options, widgetConfig.bar_chart_options);
+                return Object.assign(bar_chart_options, widgetConfig.chart_options || {}, widgetConfig.bar_chart_options);
             case 'pie': case 'doughnut':
                 if (widgetConfig.chart_options && widgetConfig.chart_options.showSegmentLabel) {
                     pie_chart_options.plugins.labels[0].render = 'label' 
@@ -122,7 +122,7 @@ function WidgetController($scope, $element, chartSettings, wiApi) {
                     pie_chart_options.plugins.labels[0].render = drawNullFn 
                     pie_chart_options.plugins.labels[1].render = drawNullFn 
                 }
-                return pie_chart_options;
+                return Object.assign(pie_chart_options, widgetConfig.chart_options || {});
             default:
                 return nullObj;
         }
@@ -136,7 +136,15 @@ function WidgetController($scope, $element, chartSettings, wiApi) {
 			return `rgb(${palette.red},${palette.green},${palette.blue},${semiTransparent ? palette.alpha / 2 : 1})`
 		}
 
-  this.chartClickFn = function (points, evt) {
-    self.chartClick && self.chartClick(points, evt, self.widgetConfig);
-  }
+    this.chartClickFn = function (points, evt) {
+        self.chartClick && self.chartClick(points, evt, self.widgetConfig);
+    }
+
+    this.toggleFullScreen = function() {
+        $element[0].parentElement.classList.toggle("full-screen");
+    }
+
+    this.isFullScreen = function() {
+        return $element[0].parentElement.classList.contains("full-screen");
+    }
 }
