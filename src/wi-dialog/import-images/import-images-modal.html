@@ -327,6 +327,9 @@
                 <button default-button="1" class="btn btn-default" ngf-select="self.addForUpload($files)" ngf-multiple="true" accept="image/png,image/gif,image/jpg,image/jpeg">
                     <span class="more-16x16"></span>&nbsp;Select Files
                 </button>
+                <button class="btn btn-default" ng-click="self.addForUploadPDB()">
+                    <span class="more-16x16"></span>&nbsp;Select Files From PDB
+                </button>
                 <button ng-class="{'deactive-button':((self.inputWellName === '') && (self.uploadFileList.length === 0 ))}" type="button"
                     ng-click="self.uploadFiles()" class="btn btn-default">
                     <span class="ok-16x16"></span>&nbsp;Upload

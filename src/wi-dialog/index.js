@@ -26,6 +26,7 @@ const importZoneSet = require('./import-zone-set/import-zone-set.js');
 const importMarkerSet = require('./import-marker-set/import-marker-set.js');
 const treeExplorer = require('./tree-explorer/tree-explorer.js');
 const serverInformation = require('./server-information/server-information.js');
+const fileBrowserDialog = require('./file-browser-dialog/file-browser-dialog.js');
 
 function wiDialogService(ModalService) {
     let self = this;
@@ -79,6 +80,9 @@ function wiDialogService(ModalService) {
     }
     this.serverInformation = function(config) {
         serverInformation(ModalService, config);
+    }
+    this.fileBrowserDialog = function(configs, callback) {
+        fileBrowserDialog(ModalService, configs, callback);
     }
 } 
 

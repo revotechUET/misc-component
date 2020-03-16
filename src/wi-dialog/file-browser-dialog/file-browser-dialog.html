@@ -1,0 +1,32 @@
+<div class='modal fade' data-backdrop="static" data-keyboard="false">
+	<div class='modal-dialog modal-lg'>
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" ng-click="wiModal.close(false)" aria-hidden="true">&times;</button>
+				<h4>{{wiModal.title}}</h4>
+			</div>
+			<div class="modal-body text-center" style="padding: 0;min-height: calc(100vh - 250px);">
+                <file-explorer url="{{wiModal.fileManagerUrl}}"
+                preview-url="{{wiModal.filePreviewUrl}}"
+                storage-database="wiModal.storage_database"
+                id-project="wiModal.idProject"
+                disable-preview="true"
+                hide-pdb-features-panel="true"
+				hide-metadata-panel="true"
+				ng-if="wiModal.showMe"
+				set-container="wiModal.setContainer"
+                click-node-fn="wiModal.clickFile">
+            </file-explorer>
+			</div>
+			<div class="modal-footer">
+				<button ng-if="!wiModal.actions" class='btn btn-default' ng-click='wiModal.onOkButtonClicked()'
+						style="color: #000">
+                    <span class="ok-16x16"></span>&nbsp;OK
+                </button>
+				<button ng-if="!wiModal.actions" class='btn btn-default' ng-click='wiModal.onCancelButtonClicked()'>
+                    <span class="close-16x16"></span>&nbsp;Cancel
+                </button>
+			</div>
+		</div>
+	</div>
+</div>

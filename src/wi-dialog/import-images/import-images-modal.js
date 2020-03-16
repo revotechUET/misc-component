@@ -84,6 +84,25 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                 }
             }
         }
+        this.addForUploadPDB = function() {
+            wiDialog.fileBrowserDialog({
+                fileManagerUrl: localStorage.getItem('FILE_MANAGER'),
+                filePreviewUrl: localStorage.getItem('FILE_PREVIEW'),
+                storage_database: JSON.parse(window.localStorage.getItem('storage_database')),
+                idProject: idProject,
+                whereami: "WI_ANGULAR"
+            }, function(files) {
+                console.log(files);
+                if (files && files.length) {
+                    for (let i in files) {
+                        preProcessImage(files[i], self.inputPattern);
+                        files[i].uploaded = false;
+                        self.uploadFileList.push(files[i]);
+                        // console.log(this.uploadFileList);
+                    }
+                }
+            })
+        }
         this.updateInformation = function () {
             for (let i in this.uploadFileList) {
                 for (let j in this.uploadFileList[i].information.arrayPattern) {
