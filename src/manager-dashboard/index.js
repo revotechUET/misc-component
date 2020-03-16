@@ -2,7 +2,8 @@ const componentName = "managerDashboard";
 module.exports = componentName;
 //require('angular-drag-and-drop-lists');
 require('../chart-widget');
-var app = angular.module('managerDashboard', ['chartWidget', 'dndLists', 'wiDialog']);
+require('../../bower_components/angular-ui-sortable/sortable')
+var app = angular.module('managerDashboard', ['chartWidget', 'dndLists', 'wiDialog', 'ui.sortable']);
 app.component(componentName, {
     template: require("./template.html"),
     controllerAs: "self",
@@ -37,6 +38,19 @@ function ManagerDashboardController($scope, $element, wiDialog) {
         });
     }
     */
+
+    this.sortableOptions = {
+        stop: function(event, ui) {
+            console.log("drag stop");
+            console.log(self.dashboardContent.map(c => c.title || c.name));
+        },
+        'ui-floating': true,
+        start: function(event, ui) {
+            ui.placeholder.height(ui.item.height());
+        },
+        placeholder: "sortable-placeholder",
+    }
+
     this.getLabels = function(widgetConfig) {
         widgetConfig.labels = widgetConfig.labels || [];
         widgetConfig.data.forEach(function(datum, idx) {
@@ -71,7 +85,7 @@ function ManagerDashboardController($scope, $element, wiDialog) {
           self.dashboardContent.splice(index, 1);
       }
     }
-  this.chartClick = function(points, evt, widgetConfig) {
-    self.onClickChart && self.onClickChart(points, evt, widgetConfig);
-  }
+    this.chartClick = function (points, evt, widgetConfig) {
+        self.onClickChart && self.onClickChart(points, evt, widgetConfig);
+    }
 }

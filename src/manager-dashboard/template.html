@@ -1,4 +1,4 @@
-<ul class="dashboard">
+<ul class="dashboard" ui-sortable="self.sortableOptions" ng-model="self.dashboardContent">
     <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent">
         <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"
             remove-fn="self.removeWidget" chart-click="self.chartClick">
@@ -16,17 +16,36 @@
         float: left;
         border: 1px solid #ccc;
         border-radius: 2px;
-        height: 35vh;
+        position: relative;
+        height: 50vh;
+    }
+    ul.dashboard > li.sortable-placeholder {
+        margin: 10px;
+        list-style-type: none;
+        float: left;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        position: relative;
+        background-color: #333;
+        width: calc(50% - 20px);
     }
     ul.dashboard > li.full-screen {
-        position: absolute;
-        margin: 10px 0px 0px 10px;
-        width: calc(100% - 40px);
-        height: calc(100% - 93px);
+        position: absolute !important;
+        top: 0px;
+        left: 0px;
+        margin: 60px 0px 0px 10px;
+        width: calc(100% - 25px);
+        height: calc(100% - 75px);
         z-index: 10;
     }
     @media only screen and (max-width: 1000px) {
         ul.dashboard > li.dashboard-widget {
+            min-width: calc(100% - 10px);
+        }
+        ul.dashboard > li.full-screen {
+            margin: 60px 0px 0px 5px;
+        }
+        ul.dashboard > li.sortable-placeholder {
             min-width: calc(100% - 10px);
         }
     }

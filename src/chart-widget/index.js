@@ -142,6 +142,10 @@ function WidgetController($scope, $element, chartSettings, wiApi) {
 
     this.toggleFullScreen = function() {
         $element[0].parentElement.classList.toggle("full-screen");
+        if (self.isFullScreen())
+            $($element[0].parentElement.parentElement).sortable("disable");
+        else
+            $($element[0].parentElement.parentElement).sortable("enable");
     }
 
     this.isFullScreen = function() {
