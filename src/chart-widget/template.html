@@ -2,7 +2,9 @@
     style="cursor: pointer; position: absolute; z-index: 1; right: 5px;"></div>
 <div class="ti ti-trash" title="Delete Widget" ng-click="self.deleteChart()" title="Delete Chart"
     style="cursor: pointer; position: absolute; z-index: 1; right: 37px;"></div>
-<div class="ti" ng-class="{'ti-fullscreen': !self.isFullScreen(), 'ti-angle-down': self.isFullScreen()}" title="Setting" ng-click="self.toggleFullScreen()"
+<div class="ti"
+    ng-class="{'ti-fullscreen': !self.isFullScreen(), 'ti-angle-down': self.isFullScreen()}"
+    title="{{self.isFullScreen() ? 'Minimize':'Maximize'}}" ng-click="self.toggleFullScreen()"
     style="cursor: pointer; position: absolute; z-index: 1; right: 68px;"></div>
 
 <div class="setting" ng-show="self.showSetting">
