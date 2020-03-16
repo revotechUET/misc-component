@@ -40,7 +40,6 @@ function Controller(
         $scope.$watch(
             () => self.file,
             (newVal, oldVal) => {
-                console.log(self.file);
                 if (newVal && self.file) {
                     onInputDropChange();
                 }

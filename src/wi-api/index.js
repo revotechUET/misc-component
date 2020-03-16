@@ -8,6 +8,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     this.$http = $http;
     // this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
     let __cache_BaseUrl = null
+    let __cache_file_manager_url = window.localStorage.getItem('FILE_MANAGER');
     this.getBaseUrl = () => {
         if(!__cache_BaseUrl) {
             __cache_BaseUrl = window.localStorage.getItem('BASE_URL');
@@ -100,6 +101,43 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         }
         return familyTable.find(family => family.idFamily === idFamily);
     }
+	this.downloadFileFromDB = downloadFileFromDB;
+	function downloadFileFromDB(item, fromURL) {
+		return new Promise((resolve, reject) => {
+      let storageDatabase = JSON.parse(window.localStorage.getItem('storage_database'))
+			$http({
+        url: fromURL || ((__cache_file_manager_url || 'https://users.i2g.cloud') + '/download'),
+				method: 'POST',
+				headers: {
+					'Authorization': window.localStorage.getItem('token'),
+					'Storage-Database': JSON.stringify(storageDatabase),
+					'Content-Type': 'application/json',
+					'Referrer-Policy': 'no-referrer',
+					'Service': 'WI_PROJECT_STORAGE'
+				},
+				data: {
+					'files': [item.rootIsFile ? item.path : item.path + '/'],
+					'skipCompressFile': "true"
+				},
+				responseType: 'arraybuffer',
+			}).then(response => {
+				let file = new Blob([response.data], {
+					type: 'file'
+				});
+				self.requesting = false;
+				// let fileName = "I2G_Download_" + Date.now() + '_' + Math.floor(Math.random() * 100000) + '.zip';
+				file.name = item.rootName;
+				console.log(file);
+				return resolve(file);
+
+			})
+				.catch(err => {
+					console.error("file browser error", err);
+					if (err.data.code === 401) location.reload();
+					return reject()
+				});
+		});
+	}
     this.getFullInfoPromise = getFullInfoPromise;
     function getFullInfoPromise(idProject, owner = null, name = null) {
         let payload = {
