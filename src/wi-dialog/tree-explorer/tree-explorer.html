@@ -1,44 +1,24 @@
 <div class='modal fade ' data-backdrop="static" data-keyboard="false">
 	<div class='modal-dialog'>
-		<div class="modal-content"  id="tree-explorer">
-			<div class="modal-header">
-                <button type="button" class="close" ng-click="wiModal.onCancelButtonClicked()" aria-hidden="true">&times;</button>
-                <h4>{{wiModal.title}}</h4>
+		<div class="wi-modal-content modal-content" ng-form="form" id="tree-explorer">
+			<div class="wi-modal-header modal-header">
+				<div>{{wiModal.title}}</div>
+				<div ng-click="wiModal.onCancelButtonClicked()" class="ti ti-close" style="cursor: pointer;"></div>
 			</div>
-			<div style="overflow: unset;" class="modal-body text-center" ng-form="form">
-				<div class="form-horizontal">
-					<div class="form-group">
-						<div class="col-sm-12">
-                            <!-- {{wiModal.currentFolder}} -->
-							<tree-explorer 
-							list-folders="wiModal.listFolders" 
-							db-click-folder="wiModal.dbClickFolder" 
-							db-click-file="wiModal.dbClickFile" 
-							click-folder="wiModal.clickFolder" 
-							click-file="wiModal.clickFile" 
-							current-path="wiModal.currentPath"
-							go-to-folder="wiModal.goToFolder"
-							file-list="wiModal.fileList"
-                            ></tree-explorer>
-						</div>
-						<div ng-show="wiModal.options.rename">
-							<label class="control-label col-sm-4">File Name</label>
-							<div class="col-sm-8">
-							<input type="text" class="form-control"
-								ng-model="wiModal.options.fileName"
-								required>
-							</div>
-						</div>
+			<div class="wi-modal-body slim-scroller" style="overflow: visible visible;">
+				<tree-explorer list-folders="wiModal.listFolders" db-click-folder="wiModal.dbClickFolder" db-click-file="wiModal.dbClickFile" click-folder="wiModal.clickFolder" click-file="wiModal.clickFile" current-path="wiModal.currentPath" go-to-folder="wiModal.goToFolder" file-list="wiModal.fileList" ></tree-explorer>
+				<div ng-show="wiModal.options.rename" style="display: flex; align-items: center; margin-top: 20px;">
+					<label class="control-label col-sm-2">File Name</label>
+					<div class="col-sm-10" style="padding: 0;">
+					<input type="text" class="form-control"
+						ng-model="wiModal.options.fileName"
+						required>
 					</div>
 				</div>
 			</div>
-			<div class="modal-footer">
-				<button class='btn btn-default' ng-click='wiModal.onOkButtonClicked()'>
-					<span class="ok-16x16"></span>&nbsp;OK
-				</button>
-				<button class='btn btn-default' ng-click='wiModal.onCancelButtonClicked()'>
-					<span class="cancel-16x16"></span>&nbsp;Cancel
-				</button>
+			<div class="wi-modal-footer">
+				<div class="btn-footer ok-btn" ng-click='wiModal.onOkButtonClicked()' ng-disabled="form.$invalid">Ok</div>
+				<div class="btn-footer close-btn" ng-click='wiModal.onCancelButtonClicked()'>Cancel</div>
 			</div>
 		</div>
 	</div>

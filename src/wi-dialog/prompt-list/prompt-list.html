@@ -1,34 +1,20 @@
 <div class='modal fade ' data-backdrop="static" data-keyboard="false">
 	<div class='modal-dialog'>
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" ng-click="wiModal.onCancelButtonClicked()" aria-hidden="true">&times;</button>
-				<h4 ng-bind-html="wiModal.title"></h4>
+		<div class="wi-modal-content modal-content" ng-form="form">
+			<div class="wi-modal-header modal-header">
+				<div>{{wiModal.title}}</div>
+				<div ng-click="wiModal.onCancelButtonClicked()" class="ti ti-close" style="cursor: pointer;"></div>
 			</div>
-			<div style="overflow: unset;" class="modal-body text-center" ng-form="form">
-				<div class="form-horizontal">
-					<div class="form-group">
-						<label class="control-label col-sm-4">{{wiModal.inputName}}:</label>
-						<div class="col-sm-8">
-							<wi-dropdown-list style="flex:1;" items='wiModal.selectionList'
-                                current-select="wiModal.currentSelect"
-								on-item-changed="wiModal.onChange"
-								hide-delete-button="wiModal.hideButtonDelete"
-								on-ctrl-btn-click="wiModal.onCtrlBtnClick"
-								ctrl-btn-icon='{{wiModal.iconBtn}}'
-								>
-                            </wi-dropdown-list>
-						</div>
-					</div>
-				</div>
+			<div class="wi-modal-body slim-scroller" style="overflow: visible visible;">
+				<wi-dropdown-list style="flex:1;" items='wiModal.selectionList'
+					current-select="wiModal.currentSelect" on-item-changed="wiModal.onChange"
+					hide-delete-button="wiModal.hideButtonDelete" on-ctrl-btn-click="wiModal.onCtrlBtnClick"
+					ctrl-btn-icon='{{wiModal.iconBtn}}'>
+				</wi-dropdown-list>
 			</div>
-			<div class="modal-footer">
-				<button class='btn btn-default' ng-click='wiModal.onOkButtonClicked()' ng-disabled="form.$invalid">
-					<span class="ok-16x16"></span>&nbsp;OK
-				</button>
-				<button class='btn btn-default' ng-click='wiModal.onCancelButtonClicked()'>
-					<span class="cancel-16x16"></span>&nbsp;Cancel
-				</button>
+			<div class="wi-modal-footer">
+				<div class="btn-footer ok-btn" ng-click='wiModal.onOkButtonClicked()' ng-disabled="form.$invalid">Ok</div>
+				<div class="btn-footer close-btn" ng-click='wiModal.onCancelButtonClicked()'>Cancel</div>
 			</div>
 		</div>
 	</div>
