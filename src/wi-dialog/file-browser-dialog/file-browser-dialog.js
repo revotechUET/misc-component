@@ -2,7 +2,6 @@ let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, configs, callback) {
     function ModalController($scope, $http, close) {
-        const listTypeAccept = ['png', 'jpg'];
         const self = this;
         this.fileManagerUrl = configs.fileManagerUrl || localStorage.getItem('FILE_MANAGER');
         this.filePreviewUrl = configs.filePreviewUrl || localStorage.getItem('FILE_PREVIEW');
@@ -14,29 +13,25 @@ module.exports = function (ModalService, configs, callback) {
         }
         this.showMe = true;
         this.files = [];
-        this.onOkButtonClicked = function () {
-            console.log(self.fileCtrl.selectedList);
-            async.eachSeries(self.fileCtrl.selectedList, (e, next) => {
-                listTypeAccept.indexOf(e.rootName.split('.').pop().toLowerCase()) != -1 ?
-                    self.fileCtrl.downloadFileToUpload(e)
-                        .then((file) => {
-                            self.files.push(file);
-                            next();
-                        }) : (() => {__toastr.error(`Don't accept file type ${e.rootName.split('.').pop().toLowerCase()}`); next("File type error");})();
-            }, (err) => {
-                if(err) {
-                    self.files = [];
-                    return console.log(err);
-                }
-                close(self.files);
-            })
-            // self.fileCtrl.selectedList.forEach(e => {
-            //     self.fileCtrl.downloadFileToUpload(e)
-            //     .then((file) => {
-
-            //     })
-            // });
-        }
+        this.close = close;
+        // this.onOkButtonClicked = function () {
+        //     console.log(self.fileCtrl.selectedList);
+        //     async.eachSeries(self.fileCtrl.selectedList, (e, next) => {
+        //         listTypeAccept.indexOf(e.rootName.split('.').pop().toLowerCase()) != -1 ?
+        //             self.fileCtrl.downloadFileToUpload(e)
+        //                 .then((file) => {
+        //                     self.files.push(file);
+        //                     next();
+        //                 }) : (() => {__toastr.error(`Don't accept file type ${e.rootName.split('.').pop().toLowerCase()}`); next("File type error");})();
+        //     }, (err) => {
+        //         if(err) {
+        //             self.files = [];
+        //             return console.log(err);
+        //         }
+        //         close(self.files);
+        //     })
+        // }
+        this.onOkButtonClicked = configs.onOkButtonClicked.bind(this);
         this.onCancelButtonClicked = function () {
             close(null);
         }

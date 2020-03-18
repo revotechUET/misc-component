@@ -84,13 +84,31 @@ module.exports = function (ModalService, idProject, imgSetName, callback) {
                 }
             }
         }
+        const listTypeAccept = ['png', 'jpg'];
         this.addForUploadPDB = function() {
             wiDialog.fileBrowserDialog({
                 fileManagerUrl: localStorage.getItem('FILE_MANAGER'),
                 filePreviewUrl: localStorage.getItem('FILE_PREVIEW'),
                 storage_database: JSON.parse(window.localStorage.getItem('storage_database')),
                 idProject: idProject,
-                whereami: "WI_ANGULAR"
+                whereami: "WI_ANGULAR",
+                onOkButtonClicked: function() {
+                    console.log(this.fileCtrl.selectedList);
+                    async.eachSeries(this.fileCtrl.selectedList, (e, next) => {
+                        listTypeAccept.indexOf(e.rootName.split('.').pop().toLowerCase()) != -1 ?
+                            this.fileCtrl.downloadFileToUpload(e)
+                                .then((file) => {
+                                    this.files.push(file);
+                                    next();
+                                }) : (() => {__toastr.error(`Don't accept file type ${e.rootName.split('.').pop().toLowerCase()}`); next("File type error");})();
+                    }, (err) => {
+                        if(err) {
+                            this.files = [];
+                            return console.log(err);
+                        }
+                        this.close(this.files);
+                    })
+                }
             }, function(files) {
                 console.log(files);
                 if (files && files.length) {
