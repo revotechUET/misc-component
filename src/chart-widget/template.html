@@ -29,7 +29,7 @@
         </div>
         <div ng-if="setting.type == 'checkbox'" style="display: flex; align-items: center; justify-content: space-between; flex: 1;">
             <label>{{setting.label}}</label>
-            <input type="checkbox" style="margin: 0;" ng-model="self.tmp"
+            <input type="checkbox" style="margin: 0;" ng-model="self.tmp" ng-init="self.tmp = setting.getValue(self.widgetConfig)"
                 ng-checked="setting.getValue(self.widgetConfig)"
                 ng-change="setting.setValue(self.widgetConfig, self.tmp)">
         </div>
