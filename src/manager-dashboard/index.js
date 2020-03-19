@@ -49,6 +49,7 @@ function ManagerDashboardController($scope, $element, wiDialog) {
             ui.placeholder.height(ui.item.height());
         },
         placeholder: "sortable-placeholder",
+        cursor: "grabbing"
     }
 
     this.getLabels = function(widgetConfig) {
