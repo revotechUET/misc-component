@@ -4,8 +4,13 @@ const moduleName = name;
 function Controller($timeout, $scope, $element) {
   let self = this;
   this.$onInit = function() {
-    self.itemList = self.itemList || ["Afghanistan","Bahamas","Cambodia"];
-    self.filterList = self.itemList;
+    //self.itemList = self.itemList || ["Afghanistan","Bahamas","Cambodia"];
+    //self.filterList = self.itemList;
+    $scope.$watchCollection(() => ([self.itemList]), (newVal, oldVal) => {
+      if (self.itemList && self.itemList.length) {
+        self.onChange("");
+      }
+    });
     self.activeItemIdx = 0;
   }
   this.onChange = function(inputText) {
@@ -13,7 +18,7 @@ function Controller($timeout, $scope, $element) {
     self.onItemChanged && self.onItemChanged(inputText, self.params);
   }
   this.runFilter = function(string) {
-    self.showDropdown();
+    //self.showDropdown();
     if (!string) {
       self.filterList = angular.copy(self.itemList);
       return;
