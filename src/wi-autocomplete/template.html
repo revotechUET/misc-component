@@ -1,0 +1,15 @@
+<div style="position: relative;">
+  <input type="text" class="autocomplete-input"
+    ng-model="self.inputText"
+    ng-change="self.onChange(self.inputText)"
+    ng-focus="self.focusInput()" ng-blur="self.blurInput()"/>
+  <ul class="select-choices"
+    ng-show="self.isDropdownShowed && (self.filterList || {}).length">
+    <li class="list-group-item"
+      ng-repeat="item in self.filterList"
+      ng-class="{active: self.activeItemIdx === $index}"
+      ng-mousedown="self.pressDropdown()"
+      ng-mouseenter="self.activeItemIdx = $index"
+      ng-click="self.selectFromFilterList(item)">{{self.getItemLabel(item)}}</li>
+  </ul>
+</div>
