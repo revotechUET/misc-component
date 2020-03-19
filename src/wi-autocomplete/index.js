@@ -6,14 +6,9 @@ function Controller($timeout, $scope, $element) {
   this.$onInit = function() {
     //self.itemList = self.itemList || ["Afghanistan","Bahamas","Cambodia"];
     //self.filterList = self.itemList;
-    $scope.$watchCollection(() => ([self.itemList]), (newVal, oldVal) => {
-      if (self.itemList && self.itemList.length) {
-        self.onChange("");
-      }
-    });
     self.activeItemIdx = 0;
   }
-  this.onChange = function(inputText) {
+  this.onChange = function(inputText, hideDropdown) {
     self.runFilter(inputText);
     self.onItemChanged && self.onItemChanged(inputText, self.params);
   }
@@ -97,6 +92,7 @@ function Controller($timeout, $scope, $element) {
     }
   });
   this.focusInput = function() {
+    self.runFilter(self.inputText);
     self.showDropdown();
   }
   this.blurInput = function() {
@@ -128,7 +124,8 @@ app.component(name, {
     itemList: '<',
     params: '<',
     onItemChanged: '<',
-    getItemName: '<'
+    getItemName: '<',
+    inputText: '<'
   }
 });
 
