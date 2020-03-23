@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test device requirement</title>
+        <link rel="stylesheet" href="../bower_components/jquery-ui/themes/base/all.css">
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+        <script src="../bower_components/angular/angular.min.js"></script>
+        <script src="../dist/misc-components.js"></script>
+    </head>
+
+    <body ng-app="myApp" ng-controller="myController">
+            <wi-device-requirement min-width="1200" min-height="900">
+            </wi-device-requirement>
+            lorem
+        <script>
+            angular.module("myApp", ['wiDeviceRequirement']).controller('myController', function($scope) {
+               
+            })
+        </script>
+    </body>
+</html>

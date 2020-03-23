@@ -32,5 +32,6 @@ module.exports = {
   managerDashboard: require('./manager-dashboard'),
   wiImportCsvFile: require('./wi-import-csv-file/wi-import-csv-file'),
   virtualUl: require('./virtual-ul'),
-  treeExplorer: require('./tree-explorer')
+  treeExplorer: require('./tree-explorer'),
+  wiDeviceRequirement: require('./wi-device-requirement')
 }
