@@ -233,6 +233,18 @@
     -webkit-animation: ngdialog-fadein .3s;
     animation: ngdialog-fadein .3s;
 }
+@media only screen and (max-width: 768px){
+    .ngdialog.ngdialog-theme-default {
+        padding: 0 !important;
+    }
+    .dialog-wi-login {
+        width: unset !important;
+        height: 100vh;
+    }
+	.dialog-wi-login .left-dialog-login {
+        display: none;
+    }
+}
 
 wi-login {
     &>div {
