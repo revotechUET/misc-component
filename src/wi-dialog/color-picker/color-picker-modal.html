@@ -1,87 +1,96 @@
-<div class='modal fade ' data-backdrop="static" data-keyboard="false">
-	<div class='modal-dialog'>
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" ng-click="wiModal.onCancelButtonClicked()" aria-hidden="true">&times;</button>
-				<h4 ng-bind-html="wiModal.title"></h4>
-			</div>
-			<div class="modal-body text-center" ng-form="form">
-				<div class="form-horizontal">
-					<div class="col-xs-12 col-md-12">
-            <div class="col-xs-6">
-              <label class="control-label">Basic Colors</label>
-              <div class="container-fluid">
-                <div ng-repeat="row in wiModal.CpSelector" class="row">
-                  <div ng-repeat="col in row" class="col-sm-1_5">
-                    <div class="box" ng-style="{'background-color': wiModal.toString(col.color)}" ng-click="wiModal.currentColor = col.color; wiModal.updateColor()"></div>
-                  </div>
-                </div>
-              </div>
-              <label class="control-label">Custom Colors</label>
-              <div id="cpCustom" class="container-fluid">
-                <div class="row">
-                  <div ng-repeat="col in wiModal.CpCustoms track by col.id" class="col-sm-1_5">
-                    <div tabindex="-1" class="box" ng-style="{'background-color' : wiModal.toString(col.color), 'border': wiModal.BoxBorder(col.id)}"
-                      ng-click="wiModal.handleFocus(col); wiModal.currentColor = col.color; wiModal.updateColor()"></div>
-                  </div>
+<div class='modal fade' data-backdrop="static" data-keyboard="false">
+    <div class='modal-dialog'>
+        <div class="color-picker-modal-content modal-content" ng-form="form">
+            <div class="wi-modal-header modal-header">
+                <div>Color Picker</div>
+                <div ng-click="wiModal.onCancelButtonClicked()" class="ti ti-close" style="cursor: pointer;"></div>
+            </div>
+            <div class="color-picker-modal-body slim-scroller" ng-form="form">
+                <div style="display: flex; flex-direction: column;">
+                    <div class="color-picker-modal-row">
+                        <div style="flex: 1;">
+                            <label class="control-label">Basic Colors</label>
+                            <div class="container-fluid">
+                                <div ng-repeat="row in wiModal.CpSelector" class="row">
+                                    <div ng-repeat="col in row" class="col-sm-1_5">
+                                        <div class="box" ng-style="{'background-color': wiModal.toString(col.color)}"
+                                            ng-click="wiModal.currentColor = col.color; wiModal.updateColor()"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="control-label">Custom Colors</label>
+                            <div id="cpCustom" class="container-fluid">
+                                <div class="row">
+                                    <div ng-repeat="col in wiModal.CpCustoms track by col.id" class="col-sm-1_5">
+                                        <div tabindex="-1" class="box"
+                                            ng-style="{'background-color' : wiModal.toString(col.color), 'border': wiModal.BoxBorder(col.id)}"
+                                            ng-click="wiModal.handleFocus(col); wiModal.currentColor = col.color; wiModal.updateColor()">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <input type='hidden' id='cp'>
+                            <label for="" class="control-label">Define Custom Colors</label>
+                            <div id='cp-container'></div>
+                            <div class="container-fluid">
+                                <button type="button" style="margin: 10px auto 0px auto;"
+                                    ng-click="wiModal.addToCustom()" class="btn btn-success col-sm-12">
+                                    <span class="fa fa-lg fa-arrow-circle-left"></span> Add to custom
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: flex;">
+                        <form ng-submit="wiModal.updateColor();">
+                            <div id="RGB-Model" class="row">
+                                <div class="col-xs-3">
+                                    <div id="RGB-red" class="input-group">
+                                        <label for="red" class="input-group-addon">Red</label>
+                                        <input type="number" id="red" class="form-control"
+                                            ng-model='wiModal.currentColor.r'
+                                            ng-blur="wiModal.checkColorValue(wiModal.currentColor.r, 'red')">
+                                    </div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div id="RGB-green" class="input-group">
+                                        <label for="green" class="input-group-addon">Green</label>
+                                        <input type="number" id="green" class="form-control"
+                                            ng-model='wiModal.currentColor.g'
+                                            ng-blur="wiModal.checkColorValue(wiModal.currentColor.g, 'green')">
+                                    </div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div id="RGB-blue" class="input-group">
+                                        <label for="blue" class="input-group-addon">Blue</label>
+                                        <input type="number" id="blue" class="form-control"
+                                            ng-model='wiModal.currentColor.b'
+                                            ng-blur="wiModal.checkColorValue(wiModal.currentColor.b, 'blue')">
+                                    </div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div id="RGB-alpha" class="input-group">
+                                        <label for="alpha" class="input-group-addon">Alpha</label>
+                                        <input type="number" step="0.01" id="alpha" class="form-control"
+                                            ng-model='wiModal.currentColor.a'
+                                            ng-blur="wiModal.checkColorValue(wiModal.currentColor.a, 'alpha')"
+                                            ng-disabled="wiModal.disableAlpha">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-default" style="display: none;"
+                                ng-click='wiModal.updateColor();'>Click</button>
+                        </form>
+                    </div>
                 </div>
 
-              </div>
             </div>
-            <!-- End of color selector -->
-            <div class="col-xs-6">
-              <input type='hidden' id='cp'>
-              <label for="" class="control-label">Define Custom Colors</label>
-              <div id='cp-container'></div>
-              <div class="container-fluid">
-                <button type="button" style="margin: 10px auto 0px auto;" ng-click="wiModal.addToCustom()" class="btn btn-success col-sm-12">
-                  <span class="fa fa-lg fa-arrow-circle-left"></span> Add to custom
-                </button>
-              </div>
+            <div class="wi-modal-footer">
+                <div class="btn-footer ok-btn" ng-click="wiModal.onOkButtonClicked()">Ok</div>
+                <div class="btn-footer close-btn" ng-click="wiModal.onCancelButtonClicked()">Cancel</div>
             </div>
-            <!-- End of color picker container -->
-          </div>
-          <div class="col-xs-12 col-md-12">
-            <form ng-submit="wiModal.updateColor();">
-              <div id="RGB-Model" class="row">
-                <div class="col-xs-3">
-                  <div id="RGB-red" class="input-group">
-                    <label for="red" class="input-group-addon">Red</label>
-                    <input type="number" id="red" class="form-control" ng-model='wiModal.currentColor.r' ng-blur="wiModal.checkColorValue(wiModal.currentColor.r, 'red')">
-                  </div>
-                </div>
-                <div class="col-xs-3">
-                  <div id="RGB-green" class="input-group">
-                    <label for="green" class="input-group-addon">Green</label>
-                    <input type="number" id="green" class="form-control" ng-model='wiModal.currentColor.g' ng-blur="wiModal.checkColorValue(wiModal.currentColor.g, 'green')">
-                  </div>
-                </div>
-                <div class="col-xs-3">
-                  <div id="RGB-blue" class="input-group">
-                    <label for="blue" class="input-group-addon">Blue</label>
-                    <input type="number" id="blue" class="form-control" ng-model='wiModal.currentColor.b' ng-blur="wiModal.checkColorValue(wiModal.currentColor.b, 'blue')">
-                  </div>
-                </div>
-                <div class="col-xs-3">
-                  <div id="RGB-alpha" class="input-group">
-                    <label for="alpha" class="input-group-addon">Alpha</label>
-                    <input type="number" step="0.01" id="alpha" class="form-control" ng-model='wiModal.currentColor.a' ng-blur="wiModal.checkColorValue(wiModal.currentColor.a, 'alpha')" ng-disabled="wiModal.disableAlpha">
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="btn btn-default" style="display: none;" ng-click='wiModal.updateColor();'>Click</button>
-            </form>
-          </div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button class='btn btn-default' ng-click='wiModal.onOkButtonClicked()' ng-disabled="form.$invalid">
-					<span class="ok-16x16"></span>&nbsp;OK
-				</button>
-				<button class='btn btn-default' ng-click='wiModal.onCancelButtonClicked()'>
-					<span class="cancel-16x16"></span>&nbsp;Cancel
-				</button>
-			</div>
-		</div>
-	</div>
+        </div>
+    </div>
 </div>

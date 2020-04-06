@@ -98,4 +98,70 @@ chart-widget {
             border-bottom: 1px solid #3f85ff;
          }
     }
+    //SWITCH BUTTON
+
+    .switch {
+        position     : relative;
+        display      : inline-block;
+        min-width    : 31px;
+        height       : 16px;
+        margin-left  : 20px;
+        margin-bottom: 0px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width  : 0;
+        height : 0;
+    }
+
+    .slider {
+        position             : absolute;
+        cursor               : pointer;
+        top                  : 0;
+        left                 : 0;
+        right                : 0;
+        bottom               : 0;
+        // background-color  : #ccc;
+        background-image     : linear-gradient(to right, #e8e8e8, #d6d6d6);
+        -webkit-transition   : .2s;
+        transition           : .2s;
+    }
+
+    .slider:before {
+        position          : absolute;
+        content           : "";
+        height            : 14px;
+        width             : 14px;
+        left              : 1px;
+        bottom            : 1px;
+        background-color  : white;
+        -webkit-transition: 0.2s;
+        transition        : 0.2s;
+        box-shadow        : 0 1px 3px #0000003b;
+    }
+
+    input:checked+.slider {
+        // background-color: #3e84ff;
+        background-image   : linear-gradient(to right, #55b8ff, #4a73e6);
+    }
+
+    input:focus+.slider {
+        box-shadow: none;
+    }
+
+    input:checked+.slider:before {
+        -webkit-transform: translateX(15px);
+        -ms-transform    : translateX(15px);
+        transform        : translateX(15px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
 }
