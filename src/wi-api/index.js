@@ -275,11 +275,15 @@ function wiApiService($http, wiToken, Upload, $timeout) {
         let cachedItem = __CACHE_CURVE[idCurve];
         if (!cachedItem || ( Date.now() - cachedItem.ts ) > CACHE_LIFE_TIME ) {
             cachedItem = cachedItem || {};
-            return postPromise('/project/well/dataset/curve/getData', {idCurve}).then((dataCurve) => {
-                cachedItem.ts = Date.now();
-                cachedItem.dataCurve = dataCurve;
-                __CACHE_CURVE[idCurve] = cachedItem;
-                return dataCurve;
+          return postPromise('/project/well/dataset/curve/getData', {idCurve})
+            .then((dataCurve) => {
+              cachedItem.ts = Date.now();
+              cachedItem.dataCurve = dataCurve;
+              __CACHE_CURVE[idCurve] = cachedItem;
+              return dataCurve;
+            })
+            .catch(err => {
+              return err;
             });
         }
         return new Promise(function(resolve) {
