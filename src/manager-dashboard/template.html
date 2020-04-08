@@ -1,5 +1,6 @@
 <ul class="dashboard" ui-sortable="self.sortableOptions" ng-model="self.dashboardContent">
-    <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent">
+    <li class="dashboard-widget" ng-repeat="widget in self.dashboardContent"
+      style="touch-action: unset;">
         <chart-widget widget-name="widget.name" widget-config="widget.config" show-setting="widget.setting"
             remove-fn="self.removeWidget" chart-click="self.chartClick">
         </chart-widget>
