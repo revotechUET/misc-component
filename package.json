@@ -2,7 +2,7 @@
   "name": "misc-component",
   "version": "1.0.0",
   "description": "This is The Nam",
-  "main": "./src/index.js",
+  "main": "./dist/misc-components.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack -w --config webpack.local.js"
