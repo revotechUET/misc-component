@@ -1,7 +1,7 @@
 const componentName = 'chartWidget';
 // load plugins if Chart class is presented and label plugin is not loaded yet
 if (typeof Chart != "undefined" && !Chart.plugins.getAll().find(p => p.id == "labels"))
-    require('../../bower_components/chartjs-plugin-labels/build/chartjs-plugin-labels.min');
+    require('chartjs-plugin-labels');
 //require('angular-chart.js');
 angular.module(componentName, ['chart.js', 'editable', 'wiDropdownList', "wiApi"]).component(componentName, {
     template: require('./template.html'),

@@ -28,6 +28,8 @@
     "webpack": "^4.30.0"
   },
   "dependencies": {
+    "angular-ui-sortable": "^0.19.0",
+    "chartjs-plugin-labels": "^1.1.0",
     "jwt-decode": "^2.2.0",
     "webpack-cli": "^3.3.5"
   }

@@ -2,7 +2,7 @@ const componentName = "managerDashboard";
 module.exports = componentName;
 //require('angular-drag-and-drop-lists');
 require('../chart-widget');
-require('../../bower_components/angular-ui-sortable/sortable')
+require('angular-ui-sortable')
 var app = angular.module('managerDashboard', ['chartWidget', 'dndLists', 'wiDialog', 'ui.sortable']);
 app.component(componentName, {
     template: require("./template.html"),
