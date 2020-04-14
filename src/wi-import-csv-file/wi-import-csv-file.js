@@ -1,7 +1,7 @@
 const name = 'wiImportCsvFileNew';
 
 require('./wi-import-csv-file.less');
-
+Controller.$inject = ['$scope', '$element'];
 function Controller(
     $scope,
     $element,

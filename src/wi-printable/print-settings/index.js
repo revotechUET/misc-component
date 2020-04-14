@@ -14,7 +14,7 @@ app.component(componentName, {
     transclude: true
 });
 
-function printSettingsCtrl($scope, $timeout, $element) {
+function printSettingsCtrl() {
     let self = this;
     
     this.$onInit = function () {

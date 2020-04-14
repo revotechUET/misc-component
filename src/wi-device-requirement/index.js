@@ -12,7 +12,7 @@ app.component(componentName, {
         minHeight: '<'
     }
 });
-wiDeviceRequirementController = ['$scope', '$timeout'];
+wiDeviceRequirementController.$inject = ['$scope', '$timeout'];
 function wiDeviceRequirementController($scope,$timeout) {
     let self = this;
   

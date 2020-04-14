@@ -12,7 +12,7 @@ module.component(componentName, {
 		bindLineStyle: '<'
     }
 });
-LineStyleController = ['$scope', '$element', '$timeout', 'wiDialog'];
+LineStyleController.$inject = ['$scope', '$element', '$timeout', 'wiDialog'];
 function LineStyleController($scope, $element, $timeout, wiDialog) {
     let self = this;
     this.$onInit = function() {
