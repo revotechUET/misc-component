@@ -2,7 +2,7 @@ const wiDirectiveName = 'wiElementReady';
 // const moduleName = 'wi-element-ready';
 
 let app = angular.module(wiDirectiveName, []);
-app.directive(wiDirectiveName, function ($parse) {
+app.directive(wiDirectiveName, ['$parse', function ($parse) {
     "ngInject";
     return {
         restrict: 'A',
@@ -15,6 +15,6 @@ app.directive(wiDirectiveName, function ($parse) {
             })
         }
     }
-});
+}]);
 
 exports.name = wiDirectiveName;

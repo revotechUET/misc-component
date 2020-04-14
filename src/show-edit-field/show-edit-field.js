@@ -22,7 +22,7 @@ app.component(componentName, {
         brand: '@'
     }
 });
-app.directive('focusMe', function ($timeout, $parse) {
+app.directive('focusMe', ['$timeout', '$parse', function ($timeout, $parse) {
     return {
         link: function (scope, element, attrs) {
             var model = $parse(attrs.focusMe);
@@ -35,5 +35,5 @@ app.directive('focusMe', function ($timeout, $parse) {
             });
         }
     };
-});
+}]);
 exports.name = moduleName;
