@@ -1,37 +1,35 @@
-require('./wi-icons');
-module.exports = {
-  editable: require('./editable'),
-  sideBar : require('./side-bar/index'),
-  lineStyle: require('./line-style/index'),
-  sortable: require('./wi-sortable/index'),
-  wiBaseTreeview : require('./wi-base-treeview/wi-base-treeview'),
-  wiLogin: require('./wi-login/wi-login'),
-  wiToken: require('./wi-token/index'),
-  wiSession: require('./wi-session'),
-  katexView: require('./katex-view'),
-  wiTableView: require('./wi-table-view'),
-  wiTreeView: require('./wi-tree-view'),
-  wiDroppable: require('./wi-droppable'),
-  wiDialog: require('./wi-dialog'),
-  wiApi: require('./wi-api'),
-  wiLoading: require('./wi-loading'),
-  wiDropdownList: require('./wi-dropdown-list'),
-  wiAutocomplete: require('./wi-autocomplete'),
-  wiDiscriminator: require('./wi-discriminator'),
-  wiMapLoading: require('./wi-map-loading'),
-  wiPrintLoading: require('./wi-print-loading'),
-  wiTreeViewVirtual: require('./wi-tree-view-virtual'),
-  wiNeuralNetwork: require('./wi-neural-network'),
-  wiPrintTable: require('./wi-printable'),
-  imgPreview: require('./img-preview'),
-  wiTableResizeable: require('./wi-table-resizeable'),
-  wiFrequency: require('./wi-frequency'),
-  wiSlideshow: require('./wi-slideshow'),
-  wiLabeledInput: require('./wi-labeled-input'),
-  chartWidget: require('./chart-widget'),
-  managerDashboard: require('./manager-dashboard'),
-  wiImportCsvFile: require('./wi-import-csv-file/wi-import-csv-file'),
-  virtualUl: require('./virtual-ul'),
-  treeExplorer: require('./tree-explorer'),
-  wiDeviceRequirement: require('./wi-device-requirement')
-}
+import './wi-icons';
+export * from './editable';
+export * from './side-bar/index';
+export * from './line-style/index';
+export * from './wi-sortable/index';
+export * from './wi-base-treeview/wi-base-treeview';
+export * from './wi-login/wi-login';
+export * from './wi-token/index';
+export * from './wi-session';
+export * from './katex-view';
+export * from './wi-table-view';
+export * from './wi-tree-view';
+export * from './wi-droppable';
+export * from './wi-dialog';
+export * from './wi-api';
+export * from './wi-loading';
+export * from './wi-dropdown-list';
+export * from './wi-autocomplete';
+export * from './wi-discriminator';
+export * from './wi-map-loading';
+export * from './wi-print-loading';
+export * from './wi-tree-view-virtual';
+export * from './wi-neural-network';
+export * from './wi-printable';
+export * from './img-preview';
+export * from './wi-table-resizeable';
+export * from './wi-frequency';
+export * from './wi-slideshow';
+export * from './wi-labeled-input';
+export * from './chart-widget';
+export * from './manager-dashboard';
+export * from './wi-import-csv-file/wi-import-csv-file';
+export * from './virtual-ul';
+export * from './tree-explorer';
+export * from './wi-device-requirement';
