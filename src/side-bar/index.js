@@ -17,7 +17,7 @@ app.component(componentName, {
     },
     transclude: true
 });
-
+sideBarController.$inject = ['$element', '$timeout', '$scope'];
 function sideBarController($element, $timeout, $scope) {
     let self = this;
     this.toggle = function (x) {

@@ -1,6 +1,7 @@
 let helper = require('../DialogHelper');
 module.exports = function (ModalService, discrmnt = {}, curvesArr, callback) {
-    function ModalController(close, $scope) {
+    ModalController.$inject = ['close'];
+    function ModalController(close) {
         let self = this;
         this.curvesArr = curvesArr;
         this.conditionTree = discrmnt;

@@ -1,6 +1,6 @@
 const name = 'wiDropdownList';
 const moduleName = name;
-
+Controller.$inject = ['$timeout', '$scope'];
 function Controller($timeout, $scope) {
     let self = this;
     this.baseIndex = 0;

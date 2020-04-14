@@ -16,7 +16,7 @@ app.component(componentName, {
     },
     transclude: true
 });
-
+wiDroppableController.$inject = ['$scope', '$element'];
 function wiDroppableController($scope, $element) {
     let self = this;
     this.$onInit = function () {

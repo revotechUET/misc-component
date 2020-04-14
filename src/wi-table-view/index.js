@@ -28,8 +28,8 @@ module.component(name, {
       itemList: '<'
     },
 });
-
-function Controller($scope, $element) {
+Controller.$inject = ['$element'];
+function Controller($element) {
     let self = this;
     
     this.$onInit = function() {

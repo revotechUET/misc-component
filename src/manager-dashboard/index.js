@@ -16,7 +16,7 @@ app.component(componentName, {
         onClickChart: "<"
     }
 });
-
+ManagerDashboardController.$inject = ['$scope', '$element', 'wiDialog'];
 //const Macy = require('macy');
 function ManagerDashboardController($scope, $element, wiDialog) {
     let self = this;

@@ -1,6 +1,7 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, titleMessage, confirmMessage, callback, actions) {
+    ModalController.$inject = ['$scope', 'close'];
     function ModalController($scope, close) {
         this.title = titleMessage || 'Confirm';
         this.confirmMsg = confirmMessage;

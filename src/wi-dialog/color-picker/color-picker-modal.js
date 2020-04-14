@@ -104,6 +104,7 @@ module.exports = function (ModalService, currentColor, options, callback) {
     let modalCtrl = null;
     let timeoutFunc = null;
 
+    Controller.$inject = ['$scope', 'close', '$timeout', '$window'];
     function Controller($scope, close, $timeout, $window) {
         let self = this;
         modalCtrl = this;

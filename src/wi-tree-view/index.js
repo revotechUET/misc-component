@@ -63,6 +63,7 @@ app.component(componentName, {
     },
     transclude: true
 });
+wiTreeNodeController.$inject = ['$element', '$timeout', '$scope'];
 function wiTreeViewController($element, $timeout, $scope) {
     let self = this;
     if (!window.wiTreeCtrl)
@@ -155,6 +156,7 @@ function wiTreeViewController($element, $timeout, $scope) {
         return path[0];
     }
 }
+wiTreeNodeController.$inject = ['$element', '$timeout', '$scope'];
 function wiTreeNodeController($element, $timeout, $scope) {
     let self = this;
     this.showNode = function() {

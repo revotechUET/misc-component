@@ -16,7 +16,7 @@ angular.module(componentName, ['chart.js', 'editable', 'wiDropdownList', "wiApi"
         chartClick: "<"
     }
 });
-
+WidgetController = ['$scope', '$element', 'chartSettings', 'wiApi'];
 function WidgetController($scope, $element, chartSettings, wiApi) {
     let self = this;
     self.chartSettings = chartSettings;

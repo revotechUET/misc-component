@@ -1,6 +1,7 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, config, Upload, callback, options) {
+    ModalController.$inject = ['$scope', 'close', '$timeout', '$http', 'wiDialog', 'wiLoading'];
     function ModalController($scope, close, $timeout, $http, wiDialog, wiLoading) {
         var self = this;
         this.httpGet = function(url) {

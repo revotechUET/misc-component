@@ -1,7 +1,8 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, configs, callback) {
-    function ModalController($scope, $http, close) {
+    ModalController.$inject = ['close'];
+    function ModalController(close) {
         const self = this;
         this.fileManagerUrl = configs.fileManagerUrl || localStorage.getItem('FILE_MANAGER');
         this.filePreviewUrl = configs.filePreviewUrl || localStorage.getItem('FILE_PREVIEW');

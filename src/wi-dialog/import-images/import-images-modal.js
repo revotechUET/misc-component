@@ -1,7 +1,8 @@
 let helper = require('../DialogHelper');
 module.exports = function (ModalService, idProject, imgSetName, callback) {
     const wiDialog = this;
-    function ModalController($scope, $timeout, $element, wiApi, close, wiLoading) {
+    ModalController.$inject = ['$timeout', '$element', 'wiApi', 'close', 'wiLoading'];
+    function ModalController($timeout, $element, wiApi, close, wiLoading) {
         const self = this;
         self.selectedIdx = -1;
         self.selectedUnit = 'm';

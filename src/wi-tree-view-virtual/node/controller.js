@@ -1,4 +1,6 @@
-module.exports = function nodeController($element) {
+module.exports = nodeController
+nodeController.$inject = ['$element'];
+function nodeController($element) {
     const self = this;
     self.$onInit = function () {
         self.treeRoot = self.findChildAtIdx(self.idx);

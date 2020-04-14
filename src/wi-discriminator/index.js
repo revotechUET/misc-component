@@ -17,6 +17,7 @@ app.component(name, {
 });
 
 exports.name = name;
+Controller.$inject = ['$scope'];
 function Controller($scope) {
     let self = this;
     $scope.$on('discriminator-update', function($event) {

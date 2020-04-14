@@ -18,7 +18,7 @@ app.component(name, {
         wiDiscriminatorCtrl: "^^wiDiscriminator"
     }
 });
-
+Controller.$inject = ['$scope', '$timeout'];
 function Controller($scope, $timeout) {
     let self = this;
     this.$onInit = function () {

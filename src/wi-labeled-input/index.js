@@ -21,7 +21,7 @@ app.component(componentName, {
     }
 });
 
-function wiLabeledInputController($element, $timeout, $scope) {
+function wiLabeledInputController() {
     let self = this;
     this.value = "3434";
     this.$onInit = function () {

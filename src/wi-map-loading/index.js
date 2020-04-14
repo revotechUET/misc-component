@@ -17,5 +17,5 @@ app.component(componentName, {
 
 });
 
-function wiMapLoadingController($scope) {
+function wiMapLoadingController() {
 }

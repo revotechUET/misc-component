@@ -1,7 +1,8 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, serverInformationConfig, callback) {
-    function ModalController($scope, close) {
+    ModalController.$inject = ['close'];
+    function ModalController(close) {
         const self = this;
         this.title = serverInformationConfig.title;
         this.config = serverInformationConfig.config; 

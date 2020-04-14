@@ -18,7 +18,7 @@ app.component(componentName, {
         queryString: '<'
     }
 });
-
+wiLoginController.$inject = ['$http', '$scope', 'ngDialog', 'wiToken'];
 function wiLoginController($http, $scope, ngDialog, wiToken) {
     let self = this;
     $scope.$watch(

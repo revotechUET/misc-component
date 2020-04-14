@@ -1,4 +1,6 @@
-module.exports = function treeController($scope, $compile, $element, $timeout) {
+module.exports = treeController;
+treeController.$inject = ['$scope', '$compile', '$element', '$timeout'];
+function treeController($scope, $compile, $element, $timeout) {
   const self = this;
   const ITEM_HEIGHT = 37;
   const DEFAULT_VLIST_HEIGHT = 120;

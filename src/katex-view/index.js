@@ -12,7 +12,7 @@ module.component(componentName, {
         latexContent: "<"
     }
 });
-
+KatexViewController.$inject = ['$scope', '$element', '$timeout'];
 function KatexViewController($scope, $element, $timeout) {
     let self = this;
     this.$onInit = function() {

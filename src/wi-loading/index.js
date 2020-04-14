@@ -2,9 +2,9 @@ var serviceName = 'wiLoading';
 module.exports.name = serviceName;
 require('./style.less');
 let app = angular.module(serviceName, []);
-app.factory(serviceName, function ($timeout) {
+app.factory(serviceName, ['$timeout', function ($timeout) {
     return new wiLoadingService($timeout);
-});
+}]);
 
 function wiLoadingService($timeout) {
     let self = this;

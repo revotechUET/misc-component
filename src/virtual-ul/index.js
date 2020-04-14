@@ -1,7 +1,8 @@
 const moduleName = 'virtualUl'
 const componentName = 'virtualUl'
 
-function Controller($element, $compile, $scope, $timeout) {
+Controller.$inject = ['$element', '$compile', '$scope'];
+function Controller($element, $compile, $scope) {
   const self = this
 
   $scope.safeApply = function(fn) {

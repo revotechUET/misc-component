@@ -21,6 +21,7 @@ module.component(componentName, {
         maxValue: '<'
     }
 });
+EditableController.$inject = ['$scope', '$element', '$timeout'];
 function EditableController($scope, $element, $timeout) {
     let self = this;
     this.$onInit = function() {

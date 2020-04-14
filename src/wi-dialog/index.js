@@ -2,13 +2,13 @@ var serviceName = 'wiDialog';
 module.exports.name = serviceName;
 require('./style.less');
 let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken', 'wiLoading', "wiDropdownList", 'wiImportCsvFileNew', 'treeExplorer']);
-app.config(function($sceProvider) {
+app.config(['$sceProvider', function($sceProvider) {
     $sceProvider.enabled(false);
-});
+}]);
 
-app.factory(serviceName, function(ModalService) {
+app.factory(serviceName, ['ModalService', function (ModalService) {
     return new wiDialogService(ModalService);
-});
+}]);
 
 const errorMessageDialog = require("./error-message/error-message-modal.js");
 const promptDialog = require("./prompt/prompt-modal.js");

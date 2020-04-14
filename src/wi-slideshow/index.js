@@ -17,8 +17,8 @@ app.component(componentName, {
     },
     transclude: true
 });
-
-function wiSlideshowController($element, $timeout, $scope) {
+wiSlideshowController.$inject = ['$timeout'];
+function wiSlideshowController($timeout) {
     let self = this;
     let left = 0;
     let maxMarginLeft;

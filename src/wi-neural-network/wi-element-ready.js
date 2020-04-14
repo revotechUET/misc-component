@@ -3,6 +3,7 @@ const wiDirectiveName = 'wiElementReady';
 
 let app = angular.module(wiDirectiveName, []);
 app.directive(wiDirectiveName, function ($parse) {
+    "ngInject";
     return {
         restrict: 'A',
         link: function ($scope, elem, attrs) {

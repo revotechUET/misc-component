@@ -1,7 +1,8 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, callback) {
-    function ModalController($scope, $http, wiToken, close) {
+    ModalController.$inject = ['$http', 'wiToken', 'close'];
+    function ModalController($http, wiToken, close) {
         const self = this;
         self.title = "Image Galery";
 

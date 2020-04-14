@@ -1,6 +1,7 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, idImage, callback) {
+    ModalController.$inject = ['$scope', 'wiApi', 'close'];
     function ModalController($scope, wiApi, close) {
         let self = this;
         this.percentage = 0;

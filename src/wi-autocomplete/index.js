@@ -1,6 +1,6 @@
 const name = 'wiAutocomplete';
 const moduleName = name;
-
+Controller.$inject = ['$timeout', '$scope', '$element'];
 function Controller($timeout, $scope, $element) {
   let self = this;
   this.$onInit = function() {

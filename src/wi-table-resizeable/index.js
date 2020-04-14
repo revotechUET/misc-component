@@ -18,7 +18,7 @@ app.component(componentName, {
     },
     transclude: true
 });
-
+wiTableResizeableController.$inject = ['$element', '$timeout', '$scope'];
 function wiTableResizeableController($element, $timeout, $scope) {
     let self = this;
     const MIN_WIDTH = 40;

@@ -4,7 +4,7 @@ const componentName = 'wiNeuralNetwork';
 const graph = require('./neural-network');
 const wiElementReady = require('./wi-element-ready.js');
 
-function Controller($scope, wiDialog, $timeout) {
+function Controller() {
     let self = this;
     // let DialogUtils = wiComponentService.getComponent(wiComponentService.DIALOG_UTILS);
     // let graph = wiComponentService.getComponent(wiComponentService.GRAPH);

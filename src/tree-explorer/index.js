@@ -19,7 +19,7 @@ module.component(componentName, {
         clickFolder: "<"
     }
 });
-function TreeExplorerController($scope, $element, $timeout, $filter) {
+function TreeExplorerController() {
     let self = this;
     this.$onInit = function() {
         console.log(self.listFolders);

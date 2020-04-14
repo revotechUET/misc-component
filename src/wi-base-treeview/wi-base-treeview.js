@@ -28,8 +28,8 @@ app.component(componentName, {
 })
 
 exports.name = moduleName;
-
-function WiBaseTreeController($scope, $element, $timeout, $http, wiToken) {
+WiBaseTreeController.$inject = ['$scope', '$element', '$timeout'];
+function WiBaseTreeController($scope, $element, $timeout) {
     let self = this;
     const ignoreKeys = ['$$hashKey', 'icon', 'id', 'currentState', 'createdAt', 'createdBy', 'updatedAt', 'updatedBy', 'parentDataArr'];
 

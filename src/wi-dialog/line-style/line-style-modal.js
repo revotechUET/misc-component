@@ -1,7 +1,8 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, lineStyle, wiDialog, callback) {
-    function ModalController($scope, close) {
+    ModalController.$inject = ['close'];
+    function ModalController(close) {
 		let self = this;
 
         this.lineStyle = lineStyle;

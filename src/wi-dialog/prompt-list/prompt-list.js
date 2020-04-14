@@ -1,7 +1,8 @@
 let helper = require('../DialogHelper');
 
 module.exports = function (ModalService, promptConfig, callback) {
-    function ModalController($scope, close, $timeout) {
+    ModalController.$inject = ['close'];
+    function ModalController(close) {
         const self = this;
         this.title = promptConfig.title;
         this.inputName = promptConfig.inputName;

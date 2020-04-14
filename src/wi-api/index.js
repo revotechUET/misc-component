@@ -1,7 +1,9 @@
 const serviceName = 'wiApi';
-angular.module(serviceName, ['wiToken', 'ngFileUpload']).factory(serviceName, function($http, wiToken, Upload, $timeout) {
-    return new wiApiService($http, wiToken, Upload, $timeout);
-});
+angular.module(serviceName, ['wiToken', 'ngFileUpload'])
+    .factory(serviceName, ['$http', 'wiToken', 'Upload', '$timeout', function ($http, wiToken, Upload, $timeout) {
+        return new wiApiService($http, wiToken, Upload, $timeout);
+    }]
+    );
 
 function wiApiService($http, wiToken, Upload, $timeout) {
     let self = this;

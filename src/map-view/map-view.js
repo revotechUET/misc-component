@@ -16,7 +16,7 @@ app.component(componentName, {
   },
   transclude: true
 });
-
+mapViewController.$inject = ['$scope'];
 function mapViewController($scope) {
   let self = this;
   let map;

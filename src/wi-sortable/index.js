@@ -15,7 +15,7 @@ app.component(componentName, {
     },
     transclude: true
 })
-
+sortableController.$inject = ['$element', '$timeout', '$scope'];
 function sortableController($element, $timeout, $scope) {
     let self = this;
 

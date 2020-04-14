@@ -17,5 +17,5 @@ app.component(componentName, {
 
 });
 
-function wiPrintLoadingController($scope) {
+function wiPrintLoadingController() {
 }
