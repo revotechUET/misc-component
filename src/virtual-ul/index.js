@@ -1,3 +1,4 @@
+import WiVirtualList from 'wi-vlist';
 const moduleName = 'virtualUl'
 const componentName = 'virtualUl'
 
@@ -67,7 +68,7 @@ function Controller($element, $compile, $scope) {
   }
 }
 
-module.exports.name = moduleName
+export const name = moduleName
 angular.module(moduleName, []).component(componentName, {
   template: require('./template.html'),
   controller: Controller,
