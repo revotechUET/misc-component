@@ -16,14 +16,14 @@
                                         <ui-select-match>
                                             <svg height="10" width="100%" class="col-sm-12">
                                                 <line x1="0" y1="5" x2="100%" y2="5" stroke-dasharray="{{$select.selected.join(',')}}"
-                                                      ng-style="{stroke: wiModal.lineStyle.lineColor, 'stroke-width': 1}"></line>
+                                                      ng-style="{stroke: wiModal.lineStyle.lineColor}" style="stroke-width: 1"></line>
                                             </svg>
                                         </ui-select-match>
                                         <ui-select-choices repeat="style in wiModal.styles" class="text-left">
                                             <div class="container-fluid">
                                                 <svg height="10" width="100%" class="col-sm-12">
                                                     <line x1="0" y1="5" x2="100%" y2="5" stroke-dasharray="{{style.join(',')}}"
-                                                          ng-style="{stroke: wiModal.lineStyle.lineColor, 'stroke-width': 1}"></line>
+                                                          ng-style="{stroke: wiModal.lineStyle.lineColor}" style="stroke-width: 1"></line>
                                                 </svg>
                                             </div>
 
