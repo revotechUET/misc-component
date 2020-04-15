@@ -12,7 +12,7 @@
 			<label style="margin: 0;">
 				<form style="margin: 0 0 5px 5px;" class="form-inline" ng-if="self.step1Configs">
 					<label style="margin: 0 10px 0 0;" ng-repeat="line in self.step1Configs track by $index">{{ line.name }}
-						<input style="display: unset; max-width:130px; padding:0 0 0 5px; background-color:{{ line.color }}" type="{{line.type}}" class="form-control input-sm" ng-model="line.value" ng-change="self.setupConfig('1', line.value, $index)" ng-model-options="{updateOn: 'change'}" ng-click="self.currentConfig1 = $index">
+						<input ng-style="{'background-color':line.color}" style="display: unset; max-width:130px; padding:0 0 0 5px;" type="{{line.type}}" class="form-control input-sm" ng-model="line.value" ng-change="self.setupConfig('1', line.value, $index)" ng-model-options="{updateOn: 'change'}" ng-click="self.currentConfig1 = $index">
 					</label>
 					<label style="text-align: right; margin: 0 5px 0 0; max-width: 25%;" ng-if="self.linesShow >= -1">
 						<span>Show</span>
@@ -25,7 +25,7 @@
 					<li ng-repeat="x in self.viewContent track by $index" style="font-size: 13px;" ng-click="self.setupConfig('1',$index + 1)">
 						<label class="line">
 							<label class="index-line">{{ $index + 1}}</label>
-							<span style="white-space: nowrap; background-color: {{self.setColor('1', $index + 1)}}">{{ x.toString() }}
+							<span style="white-space: nowrap;" ng-style="{'background-color': self.setColor('1', $index + 1)}">{{ x.toString() }}
 							</span>
 						</label>
 					</li>
@@ -91,7 +91,7 @@
 			<tr>
 				<th class="info-col">
 				</th>
-				<th ng-repeat="cell in self.step1Configs[0].data track by $index" ng-click="self.setupConfig('2', $index + 1)" style="background-color: {{self.setColor('2', $index + 1)}}">
+				<th ng-repeat="cell in self.step1Configs[0].data track by $index" ng-click="self.setupConfig('2', $index + 1)" ng-style="{'background-color': self.setColor('2', $index + 1)}">
 					<span>{{ $index + 1 }}</span>
 				</th>
 			</tr>
@@ -106,10 +106,10 @@
 				<td class="info-col">
 					{{self.step1Configs[rowIdx].name}}
 				</td>
-				<td ng-repeat="header in row.data track by $index" style="background-color: {{self.setColor('2',$index + 1)}}">
+				<td ng-repeat="header in row.data track by $index" ng-style="{'background-color': self.setColor('2',$index + 1)}">
 					<div ng-if="self.checkEditCell(rowIdx) >= 0">
 						<span class="fa fa-edit" style="margin: 2% 2px 0 0;"></span>
-						<input class="cell-editable" ng-change="self.onUnitOfColChange(rowIdx, $index)" ng-model="self.step1Configs[rowIdx].data[$index]" ng-model-options="{updateOn: 'change'}" type="text" style="background-color: {{self.setColor('2', $index + 1)}}">
+						<input class="cell-editable" ng-change="self.onUnitOfColChange(rowIdx, $index)" ng-model="self.step1Configs[rowIdx].data[$index]" ng-model-options="{updateOn: 'change'}" type="text" ng-style="{'background-color': self.setColor('2', $index + 1)}">
 						<input style="margin: 3px 0 0 0; float: right;" type='checkbox' ng-true-value="1" ng-false-value="0" ng-model="self.selectFields[$index]" ng-model-options="{updateOn: 'change'}" ng-if="rowIdx == 0 && self.select && !self.setColor('2', $index + 1)">
 					</div>
 					<span ng-if="self.checkEditCell(rowIdx) < 0">{{header}}</span>
@@ -119,7 +119,7 @@
 				<td class="info-col">
 					{{ rowIdx - (self.step1Configs.length - 2) }}	
 				</td>
-				<td ng-repeat="cell in row track by $index" style="background-color: {{self.setColor('2', $index + 1)}}">
+				<td ng-repeat="cell in row track by $index" ng-style="{'background-color': self.setColor('2', $index + 1)}">
 					<span>{{cell}}</span>
 				</td>
 			</tr>
