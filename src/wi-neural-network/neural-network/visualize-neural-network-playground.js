@@ -28,7 +28,9 @@ NeuralNetwork.prototype.init = function (domElem) {
 
     this.prepareLayers();
 }
-
+NeuralNetwork.prototype.destroy = function() {
+    this.plotContainer.remove();
+}
 NeuralNetwork.prototype.setProperties = function (newProps) {
     this.inputCurves = newProps.inputCurves || this.inputCurves;
     this.outputCurves = newProps.outputCurves || this.outputCurves;
@@ -100,6 +102,7 @@ NeuralNetwork.prototype.prepareLayers = function () {
     self.nLayers = self.hiddenLayer.length;
 
     // calculate space between nodes
+    if(!self.svgContainer.node()) return;
     let svgSize = self.svgContainer.node().getBoundingClientRect();
     let maxNetworkHorizontalSize = self.nLayers + 2;
     let maxNetworkVerticalNode = d3.max([self.inputCurves.length, d3.max(self.hiddenLayer), self.outputCurves.length]);

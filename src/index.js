@@ -33,3 +33,4 @@ export * from './wi-import-csv-file/wi-import-csv-file';
 export * from './virtual-ul';
 export * from './tree-explorer';
 export * from './wi-device-requirement';
+export * from './wi-dropdown-list-new';

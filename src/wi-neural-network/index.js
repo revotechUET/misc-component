@@ -18,18 +18,18 @@ function Controller() {
         console.log(self);
         if (self.container) self.container.wiNNCtrl = self;
     }
-    // this.$onChanges = function (changeObj) {
-    //     // console.log("objectChanges: ", changeObj);
-    //     if(self.viNeuralNetwork) {
-    //         // // when visualization element is ready
-    //         Object.keys(changeObj).forEach((key)=> {
-    //             let change = {};
-    //             change[key] = self[key];
-    //             self.viNeuralNetwork.setProperties(change);
-    //             self.viNeuralNetwork.prepareLayers();
-    //         });
-    //     }
-    // }
+    this.$onChanges = function (changeObj) {
+        // console.log("objectChanges: ", changeObj);
+        if(self.viNeuralNetwork) {
+            // // when visualization element is ready
+            Object.keys(changeObj).forEach((key)=> {
+                let change = {};
+                change[key] = self[key];
+                self.viNeuralNetwork.setProperties(change);
+                self.viNeuralNetwork.prepareLayers();
+            });
+        }
+    }
     this.update = function(nnConfig) {
         if (nnConfig) {
             self.inputCurves = nnConfig.inputs;

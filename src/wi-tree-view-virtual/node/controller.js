@@ -4,7 +4,7 @@ function nodeController($element) {
     const self = this;
     self.$onInit = function () {
         self.treeRoot = self.findChildAtIdx(self.idx);
-        if(!self.noDrag) {
+        if(typeof(self.noDrag) === 'function' ? !self.noDrag(self.treeRoot) : !self.noDrag) {
           $element.draggable({
             appendTo: 'body',
             helper: function () {

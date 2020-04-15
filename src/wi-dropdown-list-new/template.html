@@ -1,0 +1,23 @@
+<ui-select style='width:100%;' ng-model="self.selectedItem" ng-change="self.onChange();">
+    <ui-select-match placeholder="{{self.placeHolder ? '[ ' + self.placeHolder + ' ]' : ''}}">
+        <!-- <span class='{{self.selectedItem.icon  || self.selectedItem.data.icon}}'></span>
+        <span>{{self.selectedItem.data.label}}</span> -->
+        {{self.selectedItem.label}}
+    </ui-select-match>
+
+    <ui-select-choices ng-style='self.choiceStyles' repeat="item in self.items|filter:{label:$select.search}">
+        <div>
+            <!-- <span class='{{item.icon || self.icon || item.data.icon}}'></span> -->
+            <span class='{{item.icon || self.icon}}'></span>
+            <span style="display: inline-block; width: calc(100% - 32px)">&nbsp;&nbsp;{{item.label}}</span>
+            <span ng-show="self.showDeleteButton" 
+                style='float:right;display:block;right: 20px;
+                        position: absolute;margin-top: -16px;' 
+                ng-if="self.onCtrlBtnClick && !item.ctrlDisable" 
+                class='{{self.ctrlBtnIcon}}' 
+                ng-click="self.onCtrlBtnClick(item, $event, self);$event.stopPropagation();">
+            </span>
+        </div>
+    </ui-select-choices>
+
+</ui-select>
