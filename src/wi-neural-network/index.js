@@ -2,6 +2,7 @@ const componentName = 'wiNeuralNetwork';
 // const moduleName = 'wi-neural-network';
 
 import * as graph from './neural-network';
+import './wi-element-ready';
 
 function Controller() {
     let self = this;
