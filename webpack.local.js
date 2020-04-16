@@ -15,7 +15,28 @@ module.exports = {
 		filename: 'misc-components.js'
 	},
 	module: {
-		rules: [{
+		rules: [
+			{
+				enforce: 'pre',
+				test: /\.js$/,
+				include: [
+					path.resolve(__dirname, './src')
+				],
+				exclude: /vendor/,
+				use: [
+					{
+						loader: 'eslint-loader',
+						options: {
+							cache: true,
+							quiet: true,
+							parserOptions: {
+								ecmaVersion: 11,
+							}
+						},
+					},
+				],
+			},
+			{
 				test: /\.html$/,
 				use: ['html-loader']
 			}, {
@@ -24,11 +45,11 @@ module.exports = {
 			},
 			{
 				test: /\.less$/,
-				use: ['style-loader','css-loader','less-loader'],
+				use: ['style-loader', 'css-loader', 'less-loader'],
 			}
 		],
 	},
-    plugins: [
-        new HardSourceWebpackPlugin()
-    ]
+	plugins: [
+		new HardSourceWebpackPlugin(),
+	]
 }

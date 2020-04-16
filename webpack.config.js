@@ -1,5 +1,6 @@
-const webpack = require('webpack');
-var HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const path = require('path');
+
 module.exports = {
 	context: __dirname + '/src',
 	mode: "development",
@@ -12,7 +13,28 @@ module.exports = {
 		filename: 'misc-components.js'
 	},
 	module: {
-		rules: [{
+		rules: [
+			{
+				enforce: 'pre',
+				test: /\.js$/,
+				include: [
+					path.resolve(__dirname, './src')
+				],
+				exclude: /vendor/,
+				use: [
+					{
+						loader: 'eslint-loader',
+						options: {
+							cache: true,
+							quiet: true,
+							parserOptions: {
+								ecmaVersion: 11,
+							}
+						},
+					},
+				],
+			},
+			{
 				test: /\.html$/,
 				use: ['html-loader']
 			}, {
@@ -21,11 +43,11 @@ module.exports = {
 			},
 			{
 				test: /\.less$/,
-				use: ['style-loader','css-loader','less-loader'],
+				use: ['style-loader', 'css-loader', 'less-loader'],
 			}
 		],
 	},
-    plugins: [
-        new HardSourceWebpackPlugin()
-    ]
+	plugins: [
+		new HardSourceWebpackPlugin(),
+	]
 }

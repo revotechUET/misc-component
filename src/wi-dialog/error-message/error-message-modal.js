@@ -1,5 +1,5 @@
-let helper = require('../DialogHelper');
-module.exports = function errorMessageDialog(ModalService, errorMessage, callback, opts) {
+import helper from '../DialogHelper';
+export default function errorMessageDialog(ModalService, errorMessage, callback, opts) {
     ModalController.$inject = ['close'];
     function ModalController(close) {
         let self = this;
@@ -21,4 +21,4 @@ module.exports = function errorMessageDialog(ModalService, errorMessage, callbac
             if (callback) callback();
         })
     });
-};
+}

@@ -1,4 +1,4 @@
-module.exports = nodeController
+export default nodeController
 nodeController.$inject = ['$element'];
 function nodeController($element) {
     const self = this;

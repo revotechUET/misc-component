@@ -1,6 +1,6 @@
 const moduleName = "line-style";
 const componentName = "lineStyle";
-module.exports.name = moduleName;
+export const name = moduleName;
 
 var module = angular.module(moduleName, ['wiDialog']);
 module.component(componentName, {

@@ -1,6 +1,6 @@
 const moduleName = "treeExplorer";
 const componentName = "treeExplorer";
-module.exports.name = moduleName;
+export const name = moduleName;
 
 var module = angular.module(moduleName, []);
 module.component(componentName, {

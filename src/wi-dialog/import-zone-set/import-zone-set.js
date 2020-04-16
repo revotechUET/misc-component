@@ -1,6 +1,6 @@
-let helper = require('../DialogHelper');
+import helper from '../DialogHelper';
 
-module.exports = function (ModalService, file, idProject, callback) {
+export default function (ModalService, file, idProject, callback) {
     function ModalController(
         $scope,
         close,
@@ -321,7 +321,7 @@ module.exports = function (ModalService, file, idProject, callback) {
                     return t.name.toUpperCase() == wellName.toUpperCase();
                 });
                 if (!exist) {
-                    wellInfo = {
+                    const wellInfo = {
                         name: wellName.trim(),
                         zoneArray: [
                             {
@@ -588,7 +588,7 @@ module.exports = function (ModalService, file, idProject, callback) {
                                 );
                                 wiApi.createZoneSetPromise(payload)
                                 .then(rs => {
-                                    zoneSet = zs;
+                                    zoneSet = rs;
                                     createListZone(
                                         wellImport.zoneArray,
                                         zoneSet,
@@ -927,4 +927,4 @@ module.exports = function (ModalService, file, idProject, callback) {
             }
         });
     });
-};
+}

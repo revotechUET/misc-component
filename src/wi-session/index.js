@@ -1,5 +1,5 @@
 var serviceName = 'wiSession';
-module.exports.name = serviceName;
+export const name = serviceName;
 
 let app = angular.module(serviceName, []);
 app.factory(serviceName, function () {

@@ -1,5 +1,5 @@
-const name = 'wiDropdownListNew';
-const moduleName = name;
+const componentName = 'wiDropdownListNew';
+const moduleName = componentName;
 
 function Controller($timeout, $scope) {
     let self = this;
@@ -54,7 +54,7 @@ function Controller($timeout, $scope) {
 
 let app = angular.module(moduleName, ['ui.select', 'ngSanitize']);
 
-app.component(name, {
+app.component(componentName, {
     template: require('./template.html'),
     style: require('./style.less'),
     controller: Controller,
@@ -74,4 +74,4 @@ app.component(name, {
     }
 });
 
-exports.name = moduleName;
+export const name = moduleName;

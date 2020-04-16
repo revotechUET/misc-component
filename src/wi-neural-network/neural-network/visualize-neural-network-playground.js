@@ -1,4 +1,4 @@
-module.exports = NeuralNetwork;
+export default NeuralNetwork;
 
 const NODE_SIZE = 30;
 const LABEL_DIST = NODE_SIZE + 10; // under node
@@ -131,7 +131,7 @@ NeuralNetwork.prototype.prepareLayers = function () {
     let links = [];
     nodes.forEach( (d) => {
         if(d.layer in layerSizes) { layerSizes[d.layer] ++;}
-        else { layerSizes[d.layer] = 1};
+        else { layerSizes[d.layer] = 1}
     });
 
     let xdist = (svgSize.width) / (maxNetworkHorizontalSize * scaleFactor);
@@ -146,13 +146,13 @@ NeuralNetwork.prototype.prepareLayers = function () {
     let lowestY = d3.min(nodes.map((n) => n.y));
     let labelContainer = container.append('g')
         .attr('class', 'neural-network-labels');
-    inputLabelX = nodes.find((n) => n.layer == 1).x;
-    outputLabelX = nodes.find((n) => n.layer == self.nLayers + 2).x;
+    const inputLabelX = nodes.find((n) => n.layer == 1).x;
+    const outputLabelX = nodes.find((n) => n.layer == self.nLayers + 2).x;
 
-    hiddenStartNode = nodes.find((n) => n.layer == 2)
-    hiddenLabelStartX = hiddenStartNode ? hiddenStartNode.x : inputLabelX + NODE_SIZE*3;
-    hiddenStopNode = nodes.find((n) => n.layer == self.nLayers + 1);
-    hiddenLabelStopX = hiddenStopNode ? hiddenStopNode.x : outputLabelX - NODE_SIZE;
+    const hiddenStartNode = nodes.find((n) => n.layer == 2)
+    const hiddenLabelStartX = hiddenStartNode ? hiddenStartNode.x : inputLabelX + NODE_SIZE*3;
+    const hiddenStopNode = nodes.find((n) => n.layer == self.nLayers + 1);
+    const hiddenLabelStopX = hiddenStopNode ? hiddenStopNode.x : outputLabelX - NODE_SIZE;
     labelContainer.append('text')
         .attr('class', 'input-layer-label')
         .attr('text-anchor', 'middle')

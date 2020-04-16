@@ -168,4 +168,4 @@ app.component(componentName, {
     }
 });
 
-exports.name = moduleName;
+export const name = moduleName;

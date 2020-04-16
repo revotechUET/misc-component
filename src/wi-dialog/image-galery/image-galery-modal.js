@@ -1,6 +1,6 @@
-let helper = require('../DialogHelper');
+import helper from '../DialogHelper';
 
-module.exports = function (ModalService, callback) {
+export default function (ModalService, callback) {
     ModalController.$inject = ['$http', 'wiToken', 'close'];
     function ModalController($http, wiToken, close) {
         const self = this;

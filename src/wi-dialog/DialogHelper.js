@@ -1,4 +1,4 @@
-function initModal(modal) {
+export function initModal(modal) {
     modal.element.modal();
     $(modal.element).prop('tabindex', 1);
     const elem = $(modal.element).find('.modal-content');
@@ -40,9 +40,13 @@ function initModal(modal) {
         }
     });
 }
-exports.initModal = initModal;
 
-exports.removeBackdrop = function () {
+export const removeBackdrop = function () {
     $('.modal-backdrop').last().remove();
     $('body').removeClass('modal-open');
+}
+
+export default {
+    initModal,
+    removeBackdrop
 }

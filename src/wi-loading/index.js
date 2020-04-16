@@ -1,8 +1,8 @@
-var serviceName = 'wiLoading';
-module.exports.name = serviceName;
-require('./style.less');
-let app = angular.module(serviceName, []);
-app.factory(serviceName, ['$timeout', function ($timeout) {
+import { Spinner } from 'spin.js';
+import './style.less';
+export const name = 'wiLoading';
+const app = angular.module(name, []);
+app.factory(name, ['$timeout', function ($timeout) {
     return new wiLoadingService($timeout);
 }]);
 
@@ -34,7 +34,6 @@ function wiLoadingService($timeout) {
     function hide() {
         if (_spinner) {
             _spinner.stop();
-            delete _spinner;
             _spinner = null;
             $(_holder).find('.wi-loading').remove();
         }

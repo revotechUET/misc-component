@@ -1,7 +1,7 @@
 const componentName = 'wiFrequency'
 const moduleName = 'wi-frequency'
 
-const calculator = require('./calculator')
+import * as calculator from './calculator'
 require('./style.less')
 
 controller.$inject = ['wiApi', '$scope', '$timeout']
@@ -129,8 +129,8 @@ function controller(wiApi, $scope, $timeout) {
           // valid data by max and min, data.x
           const maxX = parseFloat(self.maxX)
           const minX = parseFloat(self.minX)
-          const upper = maxX !== NaN ? maxX : Infinity
-          const lower = minX !== NaN ? minX : -Infinity
+          const upper = !isNaN(maxX) ? maxX : Infinity
+          const lower = !isNaN(minX) ? minX : -Infinity
 
           return data.x !== null && data.x >= lower && data.x <= upper
         })
@@ -265,4 +265,4 @@ app.component(componentName, {
 
 // y * step + startdepth
 // step and startdepth from dataset
-exports.name = moduleName
+export const name = moduleName

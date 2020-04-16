@@ -1,7 +1,7 @@
 var componentName = 'wiLogin';
-module.exports.name = componentName;
+export const name = componentName;
 require('./wi-login.less');
-var wiToken = require('../wi-token');
+import wiToken from '../wi-token';
 var app = angular.module(componentName, ['ngDialog', wiToken.name]);
 
 app.component(componentName, {
@@ -102,7 +102,6 @@ function wiLoginController($http, $scope, ngDialog, wiToken) {
 
             }).then(function (response) {
                 if (response.data.code == 200) {
-                    status = "online";
                     wiToken.setToken(response.data.content.token);
                     wiToken.setPassword(self.password);
                     // console.log(self.password);

@@ -1,6 +1,6 @@
 const moduleName = "editable";
 const componentName = "editable";
-module.exports.name = moduleName;
+export const name = moduleName;
 
 var module = angular.module(moduleName, []);
 module.component(componentName, {

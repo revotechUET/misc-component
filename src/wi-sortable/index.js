@@ -1,6 +1,6 @@
 let componentName = 'wiSortable';
 
-module.exports.name = componentName;
+export const name = componentName;
 
 let app = angular.module(componentName, []);
 app.component(componentName, {

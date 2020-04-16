@@ -1,0 +1,35 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+        "__toastr": "readonly",
+        "_": "readonly",
+        "$": "readonly",
+        "angular": "readonly",
+        "async": "readonly",
+        "d3": "readonly",
+        "ResizeSensor": "readonly",
+        "toastr": "readonly",
+        "utils": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-console": "off",
+        "no-unused-vars": "off",
+        "no-empty": "off",
+        "require-atomic-updates": "off",
+        "no-prototype-builtins": "off",
+        "no-inner-declarations": "off",
+        "no-useless-escape": "off",
+        "no-case-declarations": "off",
+        "no-unreachable": "off"
+    }
+}

@@ -1,5 +1,5 @@
 var serviceName = 'wiDialog';
-module.exports.name = serviceName;
+export const name = serviceName;
 require('./style.less');
 let app = angular.module(serviceName, ['angularModalService', 'wiTreeView', 'wiToken', 'wiLoading', "wiDropdownList", 'wiImportCsvFileNew', 'treeExplorer']);
 app.config(['$sceProvider', function($sceProvider) {
@@ -10,23 +10,23 @@ app.factory(serviceName, ['ModalService', function (ModalService) {
     return new wiDialogService(ModalService);
 }]);
 
-const errorMessageDialog = require("./error-message/error-message-modal.js");
-const promptDialog = require("./prompt/prompt-modal.js");
-const confirmDialog = require("./confirm/confirm-modal.js");
-const imageGaleryDialog = require("./image-galery/image-galery-modal.js");
-const imageUploadDialog = require("./image-upload/image-upload-modal.js");
-const importImagesDialog = require('./import-images/import-images-modal.js');
-const discriminator = require('./discriminator/discriminator.js');
-const lineStyleDialog = require('./line-style/line-style-modal.js');
-const colorPickerDialog = require('./color-picker/color-picker-modal.js');
-const promptListDialog =require('./prompt-list/prompt-list.js');
-const authenticationDialog = require('./authentication/authentication-modal.js');
-const csvImportDialog = require('./csv-import/csv-import-modal.js');
-const importZoneSet = require('./import-zone-set/import-zone-set.js');
-const importMarkerSet = require('./import-marker-set/import-marker-set.js');
-const treeExplorer = require('./tree-explorer/tree-explorer.js');
-const serverInformation = require('./server-information/server-information.js');
-const fileBrowserDialog = require('./file-browser-dialog/file-browser-dialog.js');
+import errorMessageDialog from "./error-message/error-message-modal.js";
+import promptDialog from "./prompt/prompt-modal.js";
+import confirmDialog from "./confirm/confirm-modal.js";
+import imageGaleryDialog from "./image-galery/image-galery-modal.js";
+import imageUploadDialog from "./image-upload/image-upload-modal.js";
+import importImagesDialog from './import-images/import-images-modal.js';
+import discriminator from './discriminator/discriminator.js';
+import lineStyleDialog from './line-style/line-style-modal.js';
+import colorPickerDialog from './color-picker/color-picker-modal.js';
+import promptListDialog from './prompt-list/prompt-list.js';
+import authenticationDialog from './authentication/authentication-modal.js';
+import csvImportDialog from './csv-import/csv-import-modal.js';
+import importZoneSet from './import-zone-set/import-zone-set.js';
+import importMarkerSet from './import-marker-set/import-marker-set.js';
+import treeExplorer from './tree-explorer/tree-explorer.js';
+import serverInformation from './server-information/server-information.js';
+import fileBrowserDialog from './file-browser-dialog/file-browser-dialog.js';
 
 function wiDialogService(ModalService) {
     let self = this;

@@ -1,2 +1,2 @@
-exports.imageTable = require('./image-table/image-table');
-exports.showEditField = require('./show-edit-field/show-edit-field');
+export const imageTable = require('./image-table/image-table');
+export const showEditField = require('./show-edit-field/show-edit-field');

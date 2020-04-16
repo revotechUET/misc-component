@@ -1,6 +1,6 @@
-let helper = require('../DialogHelper');
+import helper from '../DialogHelper';
 
-module.exports = function (ModalService, idImage, callback) {
+export default function (ModalService, idImage, callback) {
     ModalController.$inject = ['$scope', 'wiApi', 'close'];
     function ModalController($scope, wiApi, close) {
         let self = this;

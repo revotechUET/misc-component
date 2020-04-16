@@ -16345,7 +16345,7 @@
             // Add compatibility with IE11
 
 
-            if (!!(cn.ownerDocument.body.compareDocumentPosition(cn) & 16)) {
+            if (cn.ownerDocument.body.compareDocumentPosition(cn) & 16) {
               renderer.addText(value, fragmentCSS);
             }
           } else if (typeof cn === "string") {

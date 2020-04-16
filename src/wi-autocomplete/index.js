@@ -1,5 +1,5 @@
-const name = 'wiAutocomplete';
-const moduleName = name;
+const componentName = 'wiAutocomplete';
+const moduleName = componentName;
 Controller.$inject = ['$timeout', '$scope', '$element'];
 function Controller($timeout, $scope, $element) {
   let self = this;
@@ -115,7 +115,7 @@ function Controller($timeout, $scope, $element) {
 
 let app = angular.module(moduleName, []);
 
-app.component(name, {
+app.component(componentName, {
   template: require('./template.html'),
   style: require('./style.less'),
   controller: Controller,
@@ -129,4 +129,4 @@ app.component(name, {
   }
 });
 
-exports.name = moduleName;
+export const name = moduleName;

@@ -1,11 +1,12 @@
-require('./print-settings');
-let html2canvas = require('../../vendor/html2canvas.js');
-let jsPDF = require('../../vendor/jspdf.debug.js');
+import './print-settings';
+import html2canvas from '../../vendor/html2canvas.js';
+import jsPDF from '../../vendor/jspdf.debug.js';
+
 window.Printable = {
     component: component,
     klass: PrintableCtrl
 }
-module.exports = {
+export default {
     component: component,
     klass: PrintableCtrl
 }
@@ -147,7 +148,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         const pcpElem = document.createElement('div');
         self.pcpElem = pcpElem;
         $(pcpElem).addClass('print-cmd-panel');
-        previewScope = $scope.$new();
+        const previewScope = $scope.$new();
         previewScope._pageIdx = 1;
         previewScope.$ctrl = self;
         const pcpContent = `

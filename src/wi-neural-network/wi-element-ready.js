@@ -17,4 +17,4 @@ app.directive(wiDirectiveName, ['$parse', function ($parse) {
     }
 }]);
 
-exports.name = wiDirectiveName;
+export const name = wiDirectiveName;

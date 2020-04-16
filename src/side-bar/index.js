@@ -1,6 +1,6 @@
 var componentName = 'sideBar';
 
-module.exports.name = componentName;
+export const name = componentName;
 
 require('./side-bar.css');
 

@@ -1,6 +1,6 @@
-let helper = require('../DialogHelper');
+import helper from '../DialogHelper';
 
-module.exports = function (ModalService, currentColor, options, callback) {
+export default function (ModalService, currentColor, options, callback) {
 	if (!currentColor) currentColor = "#fff";
     if(!this.isOpen) {
         this.isOpen = true;
@@ -197,7 +197,7 @@ module.exports = function (ModalService, currentColor, options, callback) {
         this.onCancelButtonClicked = function () {
             close();
         }
-    };
+    }
     ModalService.showModal({
         template: require("./color-picker-modal.html"),
         controller: Controller,

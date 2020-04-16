@@ -1,6 +1,6 @@
 var componentName = 'wiTableResizeable';
 
-module.exports.name = componentName;
+export const name = componentName;
 
 require('./wi-table-resizeable.less');
 
@@ -25,7 +25,6 @@ function wiTableResizeableController($element, $timeout, $scope) {
     self.columnWidths = [];
     function calculateWidth(widthValues) {
        try{
-       	
         let _widthValues = widthValues || self.defaultWidths;
         let totalWidth = $element.find('.header-table-resizeable').width();
         //CREATE HEADER ARRAY
@@ -47,8 +46,6 @@ function wiTableResizeableController($element, $timeout, $scope) {
         self.onTableInit && self.onTableInit(self.columnWidths);
         //CREATE HOLDER DRAG
        } catch (e) {
-       
-       
        }
     }
     let calculateWidthDebounce = _.debounce(calculateWidth, 0);
@@ -78,7 +75,6 @@ function wiTableResizeableController($element, $timeout, $scope) {
                     offset = Math.max(offset, -1*(leftColWidth - MIN_WIDTH));
                 }
                 leftColWidth += offset;
-                leftColWidth = leftColWidth 
                 rightColWidth -= offset;
                 self.columnWidths[leftColIdx] = leftColWidth;
                 self.columnWidths[rightColIdx] = rightColWidth;

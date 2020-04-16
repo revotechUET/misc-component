@@ -1,6 +1,6 @@
-let helper = require('../DialogHelper');
+import helper from '../DialogHelper';
 
-module.exports = function (ModalService, lineStyle, wiDialog, callback) {
+export default function (ModalService, lineStyle, wiDialog, callback) {
     ModalController.$inject = ['close'];
     function ModalController(close) {
 		let self = this;

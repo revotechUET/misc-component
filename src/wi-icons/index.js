@@ -1,2 +1,2 @@
-require('./sprite.less');
-require('./custom.less');
+import './sprite.less';
+import './custom.less';

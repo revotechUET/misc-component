@@ -30,21 +30,21 @@ function splitIntoBins(curveData, step, minX, maxX) {
 //  return sanitizedBins
 }
 
-module.exports.getNumPointInEachChunk = function(curveData, step, minX, maxX) {
+export const getNumPointInEachChunk = function(curveData, step, minX, maxX) {
   const bins = splitIntoBins(curveData, step, minX, maxX)
   const countMemOfEachBins = bins.map(bin => bin.length)
 
   return countMemOfEachBins
 }
 
-module.exports.getUpperBoundInEachChunk = function(curveData, step, minX, maxX) {
+export const getUpperBoundInEachChunk = function(curveData, step, minX, maxX) {
   const bins = splitIntoBins(curveData, step, minX, maxX)
   const upperBounds = bins.map(bin => bin.x1)
 
   return upperBounds
 }
 
-module.exports.getLowerBoundInEachChunk = function(curveData, step, minX, maxX) {
+export const getLowerBoundInEachChunk = function(curveData, step, minX, maxX) {
   const bins = splitIntoBins(curveData, step, minX, maxX)
   const lowerBounds = bins.map(bin => bin.x0)
 

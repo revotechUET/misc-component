@@ -1,6 +1,8 @@
+import katex from 'katex';
+
 const moduleName = "katexView";
 const componentName = "katexView";
-module.exports.name = moduleName;
+export const name = moduleName;
 
 var module = angular.module(moduleName, []);
 module.component(componentName, {

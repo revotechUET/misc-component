@@ -36,4 +36,4 @@ app.directive('focusMe', ['$timeout', '$parse', function ($timeout, $parse) {
         }
     };
 }]);
-exports.name = moduleName;
+export const name = moduleName;

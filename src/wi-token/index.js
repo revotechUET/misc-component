@@ -1,10 +1,10 @@
-var serviceName = 'wiToken';
-//var jwt = require('jsonwebtoken');
-var jwt_decode = require('jwt-decode');
-module.exports.name = serviceName;
+import jwt_decode from 'jwt-decode';
 
-let app = angular.module(serviceName, []);
-app.factory(serviceName, function () {
+export const name = 'wiToken';
+export default { name };
+
+let app = angular.module(name, []);
+app.factory(name, function () {
     return new TokenService();
 });
 

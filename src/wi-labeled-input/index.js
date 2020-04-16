@@ -1,6 +1,6 @@
 var componentName = 'wiLabeledInput';
 
-module.exports.name = componentName;
+export const name = componentName;
 
 require('./style.less');
 

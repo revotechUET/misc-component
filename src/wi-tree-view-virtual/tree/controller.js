@@ -1,5 +1,5 @@
-const WiVirtualList = require('wi-vlist').default;
-module.exports = treeController;
+import WiVirtualList from 'wi-vlist';
+export default treeController;
 treeController.$inject = ['$scope', '$compile', '$element', '$timeout'];
 function treeController($scope, $compile, $element, $timeout) {
   const self = this;

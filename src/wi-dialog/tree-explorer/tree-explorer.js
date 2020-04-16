@@ -1,6 +1,6 @@
-let helper = require('../DialogHelper');
+import helper from '../DialogHelper';
 
-module.exports = function (ModalService, config, Upload, callback, options) {
+export default function (ModalService, config, Upload, callback, options) {
     ModalController.$inject = ['$scope', 'close', '$timeout', '$http', 'wiDialog', 'wiLoading'];
     function ModalController($scope, close, $timeout, $http, wiDialog, wiLoading) {
         var self = this;

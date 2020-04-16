@@ -1,5 +1,4 @@
-const name = "wiTableView";
-module.exports.name = name;
+export const name = "wiTableView";
 
 var module = angular.module(name, ['editable']);
 

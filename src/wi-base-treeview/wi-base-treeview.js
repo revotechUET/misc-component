@@ -1,7 +1,7 @@
 const componentName = 'wiBaseTreeviewOld';
 const moduleName = 'wi-base-treeview-old';
 require('./wi-base-treeview.less');
-var wiToken = require('../wi-token');
+import wiToken from '../wi-token';
 let app = angular.module(moduleName, [wiToken.name]);
 app.component(componentName, {
     template: require('./wi-base-treeview.html'),
@@ -27,7 +27,7 @@ app.component(componentName, {
     }
 })
 
-exports.name = moduleName;
+export const name = moduleName;
 WiBaseTreeController.$inject = ['$scope', '$element', '$timeout'];
 function WiBaseTreeController($scope, $element, $timeout) {
     let self = this;

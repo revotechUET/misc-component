@@ -1,6 +1,6 @@
-let helper = require('../DialogHelper');
+import helper from '../DialogHelper';
 
-module.exports = function (ModalService, promptConfig, callback) {
+export default function (ModalService, promptConfig, callback) {
     ModalController.$inject = ['close'];
     function ModalController(close) {
         const self = this;

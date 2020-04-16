@@ -1,6 +1,5 @@
 const componentName = 'imageTable';
 const moduleName = 'image-table';
-var angular = require('angular');
 function ImageStableController() {
     const self = this;
     this.showImage = false;
@@ -166,4 +165,4 @@ app.component(componentName, {
         uploadFileList: '=',
     }
 });
-exports.name = moduleName;
+export const name = moduleName;

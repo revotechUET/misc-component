@@ -1,4 +1,4 @@
-const name = 'wiDiscriminator';
+export const name = 'wiDiscriminator';
 
 let app = angular.module(name, ['ui.select', 'ui.bootstrap']);
 
@@ -16,7 +16,6 @@ app.component(name, {
     }
 });
 
-exports.name = name;
 Controller.$inject = ['$scope'];
 function Controller($scope) {
     let self = this;
@@ -127,7 +126,7 @@ function Controller($scope) {
                 //self.conditionTree = null;
             }
             else {
-                errorMessageDialog(ModalService, "Never happen!!");
+                // errorMessageDialog(ModalService, "Never happen!!");
             }
             self.conditionExpr = parse(self.conditionTree);
             self.conditionTree.conditionExpr = self.conditionExpr;

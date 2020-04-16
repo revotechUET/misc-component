@@ -1,4 +1,4 @@
-const name = 'wiImportCsvFileNew';
+export const name = 'wiImportCsvFileNew';
 
 require('./wi-import-csv-file.less');
 Controller.$inject = ['$scope', '$element'];
@@ -131,7 +131,7 @@ function Controller(
         if (idx >= 0) {
             self[currentConfig] = idx;
         }
-        stepConfigs = `step${step}Configs`;
+        const stepConfigs = `step${step}Configs`;
         self.hadEditStep1Configs = true;
         checkDuplicateLine(value, stepConfigs, currentConfig);
         // self[stepConfigs].forEach(c => {
@@ -150,6 +150,7 @@ function Controller(
                         ].split(new RegExp(self.detectRegex)).length;
                         self.constructCheckAll(length);
                     }
+                    break;
                 case '2':
                     if (
                         self[stepConfigs][self[currentConfig]].col ||
@@ -241,8 +242,9 @@ function Controller(
         if (self.selectFields) {
             configs.selectFields = self.selectFields;
         }
-        step1Configs = {};
-        step2Configs = {};
+        // ???
+        // step1Configs = {};
+        // step2Configs = {};
         return configs;
 
         function configsToObj(step) {
@@ -412,5 +414,3 @@ app.component(name, {
         file: '<'
     }
 });
-
-exports.name = name;

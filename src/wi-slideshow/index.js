@@ -1,6 +1,6 @@
 var componentName = 'wiSlideshow';
 
-module.exports.name = componentName;
+export const name = componentName;
 
 require('./style.less');
 
@@ -38,11 +38,9 @@ function wiSlideshowController($timeout) {
     this.slideRight = function () {
         left = left + self.stepPixel;
         if(left > 0){
-            stopMove = 0;
             self.marginLeft = 0
             left = 0;
         } else {
-            stopMove = 0;
             self.marginLeft = String(left + 'px');
         }
     }

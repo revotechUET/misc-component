@@ -1,5 +1,5 @@
 var componentName = 'wiPrintLoading';
-module.exports.name = componentName;
+export const name = componentName;
 require('./style.less');
 var app = angular.module(componentName, []);
 

@@ -1,8 +1,7 @@
 const componentName = 'wiNeuralNetwork';
 // const moduleName = 'wi-neural-network';
 
-const graph = require('./neural-network');
-const wiElementReady = require('./wi-element-ready.js');
+import * as graph from './neural-network';
 
 function Controller() {
     let self = this;
@@ -82,4 +81,4 @@ app.component(componentName, {
     }
 });
 
-exports.name = componentName;
+export const name = componentName;

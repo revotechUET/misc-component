@@ -1,6 +1,6 @@
-let helper = require('../DialogHelper');
+import helper from '../DialogHelper';
 
-module.exports = function (ModalService, file, idProject, callback) {
+export default function (ModalService, file, idProject, callback) {
     function ModalController($scope, 
         close, 
         // wiApiService, 
@@ -269,6 +269,8 @@ module.exports = function (ModalService, file, idProject, callback) {
                 unitDepth = checkUnit11.name;
                 cb(configs, unitDepth);
             } else if (!unitDepth || unitDepth == '' || !checkUnit11) {
+                // :TODO: need review
+                /*
                 DialogUtils.confirmDialog(
                     ModalService,
                     'Setting unit reference confirmation',
@@ -282,6 +284,7 @@ module.exports = function (ModalService, file, idProject, callback) {
                         }
                     }
                 );
+                */
             }
         }
 
@@ -320,11 +323,11 @@ module.exports = function (ModalService, file, idProject, callback) {
                 //     self.markerTemplates.push(newMarkerTemplate);
                 // }
 
-                exist = info.listWellsImport.find(t => {
+                const exist = info.listWellsImport.find(t => {
                     return t.name.toUpperCase() == wellName.toUpperCase();
                 });
                 if (!exist) {
-                    wellInfo = {
+                    const wellInfo = {
                         name: wellName.trim(),
                         markerArray: [
                             {
@@ -885,4 +888,4 @@ module.exports = function (ModalService, file, idProject, callback) {
             }
         });
     });
-};
+}

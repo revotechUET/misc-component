@@ -1,7 +1,7 @@
 var moduleName = 'printSettings';
 require('./style.less');
 var componentName = 'printSettings';
-module.exports.name = componentName;
+export const name = componentName;
 
 var app = angular.module(moduleName, []);
 app.component(componentName, {

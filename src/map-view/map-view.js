@@ -1,5 +1,5 @@
 var componentName = 'mapView';
-module.exports.name = componentName;
+export const name = componentName;
 require('./map-view.css');
 
 var app = angular.module(componentName, []);

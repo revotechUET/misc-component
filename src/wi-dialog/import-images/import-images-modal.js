@@ -1,5 +1,5 @@
-let helper = require('../DialogHelper');
-module.exports = function (ModalService, idProject, imgSetName, callback) {
+import helper from '../DialogHelper';
+export default function (ModalService, idProject, imgSetName, callback) {
     const wiDialog = this;
     ModalController.$inject = ['$timeout', '$element', 'wiApi', 'close', 'wiLoading'];
     function ModalController($timeout, $element, wiApi, close, wiLoading) {

@@ -1,12 +1,14 @@
-const componentName = 'wiTreeViewVirtual';
-module.exports.name = componentName;
+import TreeController from './tree/controller';
+import NodeController from './node/controller';
 
-require('./style.less');
+import './style.less';
 
-angular.module(componentName, [])
+export const name = 'wiTreeViewVirtual';
+
+angular.module(name, [])
   .component('wiTreeNodeVirtual', {
     template: require('./node/template.html'),
-    controller: require('./node/controller'),
+    controller: NodeController,
     controllerAs: 'self',
     bindings: {
       // treeRoot: "<",
@@ -43,9 +45,9 @@ angular.module(componentName, [])
     //   wiTreeViewVirtual: "^^wiTreeViewVirtual"
     // }
   })
-  .component(componentName, {
+  .component(name, {
     template: require('./tree/template.html'),
-    controller: require('./tree/controller'),
+    controller: TreeController,
     controllerAs: 'self',
     bindings: {
       treeRoot: "<",

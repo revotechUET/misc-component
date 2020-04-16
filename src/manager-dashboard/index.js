@@ -1,8 +1,7 @@
 const componentName = "managerDashboard";
-module.exports = componentName;
-//require('angular-drag-and-drop-lists');
-require('../chart-widget');
-require('angular-ui-sortable')
+export default componentName;
+import '../chart-widget';
+import 'angular-ui-sortable';
 var app = angular.module('managerDashboard', ['chartWidget', 'dndLists', 'wiDialog', 'ui.sortable']);
 app.component(componentName, {
     template: require("./template.html"),
@@ -17,7 +16,6 @@ app.component(componentName, {
     }
 });
 ManagerDashboardController.$inject = ['$scope', '$element', 'wiDialog'];
-//const Macy = require('macy');
 function ManagerDashboardController($scope, $element, wiDialog) {
     let self = this;
     /*

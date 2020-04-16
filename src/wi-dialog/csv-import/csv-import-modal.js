@@ -1,6 +1,6 @@
-let helper = require('../DialogHelper');
+import helper from '../DialogHelper';
 
-module.exports = function (ModalService, file, callback) {
+export default function (ModalService, file, callback) {
     function ModalController(
         $scope,
         close,
@@ -174,8 +174,7 @@ module.exports = function (ModalService, file, callback) {
                 let current = parseFloat(cell);
                 let before = parseFloat(
                     configs.allContent[idxData + i - 1]
-                        .split(delimiter)
-                    [idxRef].replace(decimal, '.')
+                        .split(delimiter)[idxRef].replace(decimal, '.')
                 );
                 if (i >= 2 && ((current - before).toFixed(4) != step || step <= 0)) {
                     isContinous = false;
@@ -359,4 +358,4 @@ module.exports = function (ModalService, file, callback) {
             helper.removeBackdrop();
         });
     });
-};
+}
