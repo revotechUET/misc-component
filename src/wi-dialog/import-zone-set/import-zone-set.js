@@ -213,7 +213,6 @@ export default function (ModalService, file, idProject, callback) {
                                 existZST.name
                                 } has been existed, Are you sure you want to replace it?`,
                                 function (res) {
-                                    wiLoading.show(document.getElementsByTagName("body")[0]);
                                     if ( res == 'replace') {
                                         self.replace = true;
                                         // wiApiService.deleteZoneSetTemplate({idZoneSetTemplate: existZST.idZoneSetTemplate}, (res, err) => {
