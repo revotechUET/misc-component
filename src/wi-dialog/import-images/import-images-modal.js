@@ -147,8 +147,8 @@ export default function (ModalService, idProject, imgSetName, callback) {
             doUploadFiles(this.uploadFileList, function (success) {
                 wiLoading.hide();
                 if (success) {
-                    this.uploadFileList = [];
-                    this.showImage = false;
+                    self.uploadFileList = [];
+                    self.showImage = false;
                     self.closeModal();
                     __toastr && __toastr.success("Images upload successfull");
                 }

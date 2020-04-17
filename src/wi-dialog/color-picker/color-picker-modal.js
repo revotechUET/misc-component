@@ -1,13 +1,14 @@
 import helper from '../DialogHelper';
 
-export default function (ModalService, currentColor, options, callback) {
+export default dialog;
+function dialog (ModalService, currentColor, options, callback) {
 	if (!currentColor) currentColor = "#fff";
-    if(!this.isOpen) {
-        this.isOpen = true;
+    if(!dialog.isOpen) {
+        dialog.isOpen = true;
     } else {
         return;
     }
-    let dialog = this;
+    // let dialog = this;
     function colorToString(color) {
         Object.keys(color).forEach(k => {
             if(color[k] == null) color[k] = 0;
