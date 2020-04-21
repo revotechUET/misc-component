@@ -1,12 +1,19 @@
 const serviceName = 'wiApi';
+var clientHash = {};
+
 angular.module(serviceName, ['wiToken', 'ngFileUpload'])
     .factory(serviceName, ['$http', 'wiToken', 'Upload', '$timeout', function ($http, wiToken, Upload, $timeout) {
-        return new wiApiService($http, wiToken, Upload, $timeout);
+        let service = new wiApiService($http, wiToken, Upload, $timeout);
+        service.doInit();
+        return service;
     }]
     );
 
-function wiApiService($http, wiToken, Upload, $timeout) {
+
+function wiApiService($http, wiToken, Upload, $timeout, idClient) {
     let self = this;
+    this.idClient = idClient || 'WI_ANGULAR';
+    clientHash[this.idClient] = this;
     this.$http = $http;
     // this.baseUrl = window.localStorage.getItem('__BASE_URL') || 'http://dev.i2g.cloud';
     let __cache_BaseUrl = null
@@ -22,13 +29,22 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     let paletteTable;
     this.getFamilyTable = () => familyTable
     this.getUnitTable = () => unitTable;
+
+    this.client = function(_idClient) {
+        if (!clientHash[_idClient]) {
+            clientHash[_idClient] = new wiApiService($http, wiToken, Upload, $timeout, _idClient);
+            clientHash[_idClient].setBaseUrl(this.getBaseUrl());
+        }
+        return clientHash[_idClient];
+    }
     function postPromise(url, data, opts = {}) {
         return new Promise(function(resolve, reject) {
             const salt = "wi-hash";
             const baseUrl = opts.baseUrl || self.getBaseUrl();
             const headers = opts.noToken ? {} : {
                 Authorization: wiToken.getToken(),
-                'Service': opts.service ? opts.service : 'WI_BACKEND' 
+                'Service': opts.service ? opts.service : 'WI_BACKEND',
+                'WHOAMI': self.idClient
             };
             const payloadHash = genPayloadHash((data || {}), SHA256(salt + wiToken.getToken()));
             $http({
@@ -75,6 +91,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
             cb && cb();
         }).catch(err => console.error(err));
     }
+    this.doInit = doInit;
     function doInit() {
         getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
         updatePalettes();
@@ -832,7 +849,7 @@ function wiApiService($http, wiToken, Upload, $timeout) {
     function createMarkerPromise(payload) {
         return postPromise('/project/well/marker-set/marker/new', payload);
     }
-    doInit();
+    //doInit();
 }
 
 function SHA256(s){
