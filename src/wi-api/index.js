@@ -618,7 +618,8 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
             headers: {
                 'Referrer-Policy': 'no-referrer',
                 Authorization: wiToken.getToken(),
-                'Service': 'WI_BACKEND'
+                'Service': 'WI_BACKEND',
+                'WHOAMI': self.idClient
                 // CurrentProject: window.localStorage.getItem('LProject') ? JSON.parse(window.localStorage.getItem('LProject')).name : 'Unknown'
             },
             data: {
