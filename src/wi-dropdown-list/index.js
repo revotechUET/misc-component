@@ -8,7 +8,7 @@ function Controller($timeout, $scope) {
 
     this.isShown = function(item) {
         if (!self.filter || !self.filter.length) return true;
-        return self.filterRegExp.test(item.data.label);
+        return self.filterRegExp.test((item.data || {}).label || item.label);
     }
     this.filterChange = function() {
         self.filterRegExp = new RegExp(self.filter);
@@ -16,14 +16,18 @@ function Controller($timeout, $scope) {
     this.$onInit = function() {
         $scope.$watchCollection(() => ([self.items, self.currentSelect]), () => {
             if (self.currentSelect && self.currentSelect.length && self.items && self.items.length) {
-                self.selectedItem = self.items.find(item => item.data.label === self.currentSelect);
+                self.selectedItem = self.items.find(item => {
+                  if (item.data) return item.data.label === self.currentSelect;
+                  return item.label === self.currentSelect;
+                  //return (item.data|| {}).label === self.currentSelect;
+                });
                 self.onChange();
             }
         });
         $timeout(function() {
             self.onWiDropdownInit && self.onWiDropdownInit(self, self.params);
             //if(self.initML) return;
-            if (!self.selectedItem && self.items && self.items.length) {
+            if (!self.selectedItem && (!self.currentSelect || !self.currentSelect.length) && self.items && self.items.length) {
                 self.selectedItem = self.items[0];
                 self.onChange();
             }
@@ -35,7 +39,12 @@ function Controller($timeout, $scope) {
         self.showDeleteButton = !self.hideDeleteButton;
     }
     this.onChange = function() {
-        self.onItemChanged && self.onItemChanged((self.selectedItem || {}).properties, self.params);
+        if (self.bareList) {
+            self.onItemChanged && self.onItemChanged(self.selectedItem, self.params);
+        }
+        else {
+            self.onItemChanged && self.onItemChanged((self.selectedItem || {}).properties, self.params);
+        }
     }
 }
 
@@ -57,7 +66,14 @@ app.component(componentName, {
         ctrlBtnIcon: "@",
         onCtrlBtnClick: "<",
         choiceStyles: '@',
-        hideDeleteButton: '<'
+        hideDeleteButton: '<',
+        bareList: "<"
+    }
+});
+app.filter("itemFilter", function() {
+    return function(items, match) {
+        if (!items || !items.length) return [];
+        return items.filter(item =>( (((item.data||{}).label || item.label) || "").includes(match.toUpperCase()) ));
     }
 });
 
