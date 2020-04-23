@@ -15,13 +15,21 @@ function Controller($timeout, $scope) {
     }
     this.$onInit = function() {
         $scope.$watchCollection(() => ([self.items, self.currentSelect]), () => {
-            if (self.currentSelect && self.currentSelect.length && self.items && self.items.length) {
-                self.selectedItem = self.items.find(item => {
-                  if (item.data) return item.data.label === self.currentSelect;
-                  return item.label === self.currentSelect;
-                  //return (item.data|| {}).label === self.currentSelect;
-                });
-                self.onChange();
+            if (self.currentSelect && self.currentSelect.length) {
+                if (self.items && self.items.length) {
+                    self.selectedItem = self.items.find(item => {
+                      if (item.data) return item.data.label === self.currentSelect;
+                      return item.label === self.currentSelect;
+                      //return (item.data|| {}).label === self.currentSelect;
+                    });
+                    self.onChange();
+                }
+            }
+            else {
+                if (self.items && self.items.length) {
+                    self.selectedItem = self.items[0];
+                    self.onChange();
+                }
             }
         });
         $timeout(function() {
