@@ -13,6 +13,12 @@ editable div.my-content input {
     outline:none;
     text-align: inherit;
 }
+editable div.my-content > div {
+    width: 95%;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+}
 editable form {
     margin-bottom: 0;
 }
