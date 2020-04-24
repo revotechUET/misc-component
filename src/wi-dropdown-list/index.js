@@ -47,9 +47,9 @@ function Controller($timeout, $scope) {
         self.showDeleteButton = !self.hideDeleteButton;
     }
     this.onChange = function() {
-        if (!self.selectedItem && self.items && self.items.length) {
-            self.selectedItem = self.items[0];
-        }
+        //if (!self.selectedItem && self.items && self.items.length) {
+        //    self.selectedItem = self.items[0];
+        //}
         if (self.bareList) {
             (self.onItemChanged && self.selectedItem) && self.onItemChanged(self.selectedItem, self.params);
         }
