@@ -47,11 +47,14 @@ function Controller($timeout, $scope) {
         self.showDeleteButton = !self.hideDeleteButton;
     }
     this.onChange = function() {
+        if (!self.selectedItem && self.items && self.items.length) {
+            self.selectedItem = self.items[0];
+        }
         if (self.bareList) {
-            self.onItemChanged && self.onItemChanged(self.selectedItem, self.params);
+            (self.onItemChanged && self.selectedItem) && self.onItemChanged(self.selectedItem, self.params);
         }
         else {
-            self.onItemChanged && self.onItemChanged((self.selectedItem || {}).properties, self.params);
+            (self.onItemChanged && self.selectedItem) && self.onItemChanged((self.selectedItem || {}).properties, self.params);
         }
     }
 }
