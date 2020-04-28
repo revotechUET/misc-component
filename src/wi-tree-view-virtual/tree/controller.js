@@ -218,6 +218,10 @@ function treeController($scope, $compile, $element, $timeout) {
 
     if (!$event.metaKey && !$event.shiftKey && !$event.ctrlKey) {
       // deselect all execpt the current node
+      self.treeRoot.forEach(n => {
+        if (n != node)
+          n._selected = false;
+      })
       for (const selectedNode of self.selectedNodes) {
 
         //avoid double click current node, select go away
