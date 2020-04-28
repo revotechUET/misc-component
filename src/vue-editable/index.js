@@ -20,7 +20,7 @@ const component = {
     computed: {
         viewValue: function() {
             let toRet = this.getValue(this.params);
-            if (!toRet || !("" + toRet).length) return this.empty ? this.empty : "[empty]";
+            if (!("" + toRet).length) return this.empty ? this.empty : "[empty]";
             return toRet;
         },
         rawValue: function() {
