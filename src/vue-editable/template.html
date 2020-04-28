@@ -1,0 +1,13 @@
+<div style="clear: both;">
+<label :style="styleLabel" v-if="itemLabel" v-html="itemLabel" @click.self="show=!show;showEdit();"></label>
+    <div :style="styleItem">
+        <div v-show="show" @click="show=!show;showEdit();" >
+            <span>{{viewValue}}</span>
+        </div>
+        <div v-show="!show">
+            <form @submit.prevent="unFocus">
+                <input ref="input" type='text' v-model="temp" @blur="setValue(params, temp);show=!show">
+            </form>
+        </div>
+    </div>
+</div>

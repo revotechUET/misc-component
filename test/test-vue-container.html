@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script src="../bower_components/angular/angular.js"></script>
+        <!-- <script src="../bower_components/vue/dist/vue.js"></script> -->
+        <script src="../dist/misc-components.js"></script>
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myController">
+            {{vueData}}
+            <div> ----------- </div>
+            <vue-container vue-data="vueData" vue-methods="{getValue, setValue}" vue-components="vueComponents">
+                <vue-editable 
+                    :style-label="{display: 'inline-block',  width: '150px'}" 
+                    :style-item="{display: 'inline-block'}" 
+                    :item-label="itemLabel" 
+                    :get-value="getValue"
+                    :set-value="setValue"
+                    :empty="'Not'"
+                    >
+                </vue-editable>
+            </vue-container>
+            <div> ----------- </div>
+        </div>
+        <script>
+            angular.module('myApp', ['vueContainer']).controller('myController', function($scope, $timeout) {
+                $scope.vueData = { 
+                                    name: "The Nam",
+                                    itemValue: 12,
+                                    itemLabel: "Field",
+                                    editType: 'number',
+                                    minValue: 10,
+                                    maxValue: 20
+                                };
+                // $scope.vueComponents = {VueEditable: 'VueEditable'}
+                $scope.setValue = function(params, value) {
+                    console.log('Set value', value);
+                    let val = parseFloat(value);
+                    if (isNaN(val)) {
+                        val = "";
+                    }
+                    $timeout(() => {
+                        $scope.vueData.itemValue = val;
+                    })
+                }
+                $scope.getValue = function(params) {
+                    return $scope.vueData.itemValue;
+                }
+                $scope.upperCase = function(str) {
+                    $scope.vueData.name = str.toUpperCase();
+                }
+            });
+        </script>
+    </body>
+</html>

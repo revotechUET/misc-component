@@ -35,6 +35,7 @@
     "jwt-decode": "^2.2.0",
     "katex": "^0.11.1",
     "spin.js": "^4.1.0",
+    "vue": "^2.6.11",
     "webpack-cli": "^3.3.5",
     "wi-vlist": "https://github.com/revotechUET/wi-vlist/archive/master.tar.gz"
   }

@@ -12,7 +12,12 @@ module.exports = {
 		path: __dirname + '/dist',
 		// path: __dirname + '../../multi-well-crossplot/bower_components/misc-component/dist',
 		filename: 'misc-components.js'
-	},
+	}, 
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.min.js'
+        }
+    },
 	module: {
 		rules: [
 			{
