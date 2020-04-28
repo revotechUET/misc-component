@@ -25,11 +25,9 @@ function Controller($timeout, $scope) {
                     self.onChange();
                 }
             }
-            else {
-                if (self.items && self.items.length) {
-                    self.selectedItem = self.items[0];
-                    self.onChange();
-                }
+            else if (!self.nullable && self.items && self.items.length) {
+                self.selectedItem = self.items[0];
+                self.onChange();
             }
         });
         $timeout(function() {
@@ -78,7 +76,8 @@ app.component(componentName, {
         onCtrlBtnClick: "<",
         choiceStyles: '@',
         hideDeleteButton: '<',
-        bareList: "<"
+        bareList: "<",
+        nullable: "<",
     }
 });
 app.filter("itemFilter", function() {
