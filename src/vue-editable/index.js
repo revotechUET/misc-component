@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import template from './template.html' 
+import './style.less'
 const nameComponent = 'vue-editable'
 const component = {
     props: ["getValue", "setValue", "itemLabel", "params", "empty", "styleLabel", "styleItem"],
