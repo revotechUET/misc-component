@@ -39,6 +39,13 @@ function treeController($scope, $compile, $element, $timeout) {
 
     $scope.$watchCollection(() => ([self.treeRoot, (self.treeRoot || {}).length]), () => {
       self.selectedNodes = [];
+      for (const n of toArray(self.treeRoot)) {
+        visit(n, (node) => {
+          if (node._selected) {
+            self.selectedNodes.push(node);
+          }
+        })
+      }
       if (!self.vListWrapper) {
         self.vListWrapper = createVirtualListWrapper(self.getVlistHeight());
       }
@@ -218,10 +225,10 @@ function treeController($scope, $compile, $element, $timeout) {
 
     if (!$event.metaKey && !$event.shiftKey && !$event.ctrlKey) {
       // deselect all execpt the current node
-      self.treeRoot.forEach(n => {
-        if (n != node)
-          n._selected = false;
-      })
+      // toArray(self.treeRoot).forEach(n => {
+      //   if (n != node)
+      //     n._selected = false;
+      // })
       for (const selectedNode of self.selectedNodes) {
 
         //avoid double click current node, select go away
