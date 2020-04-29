@@ -32,3 +32,7 @@ const component = {
 }
 Vue.component(nameComponent, component)
 export const name = component
+export default {
+    nameComponent,
+    component
+}
