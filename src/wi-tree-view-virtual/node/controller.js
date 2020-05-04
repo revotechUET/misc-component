@@ -23,6 +23,11 @@ function nodeController($element) {
 
                 return wrapper;
             },
+            drag: function($event, ui) {
+                var top = getTop(ui.helper);
+                ui.helper.css('position', 'fixed');
+                ui.helper.css('top', top+"px");
+            },
             start: function ($event, ui) {
 
                 ui.helper.addClass('dragging');
@@ -37,7 +42,15 @@ function nodeController($element) {
 
         }    
     }
+    
+    function getTop(ele)
+    {
+        var eTop = ele.offset().top;
+        var wTop = $(window).scrollTop();
+        var top = eTop - wTop;
 
+        return top; 
+    }
     self.onClick = function ($event) {
         // const thisHtml = $element.find('.node-content')[0].cloneNode(true)
         // const thisHtml = $element[0].cloneNode(true)
