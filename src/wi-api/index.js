@@ -286,6 +286,10 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
     function getCurveDataPromise(idCurve) {
         return postPromise('/project/well/dataset/curve/getData', {idCurve})
     }
+    this.getCurveRawDataPromise = getCurveRawDataPromise;
+    function getCurveRawDataPromise(idCurve) {
+        return postPromise('/project/well/dataset/curve/getRawData', {idCurve});
+    }
 
     const __CACHE_CURVE = {};
     const CACHE_LIFE_TIME = 10 * 1000;
