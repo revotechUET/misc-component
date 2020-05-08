@@ -1,8 +1,9 @@
-import path from 'path';
-import fs from 'fs';
-import svgToDataURL from 'svg-to-dataurl';
+const path = require('path');
+const fs = require('fs');
+const svgToDataURL = require('svg-to-dataurl');
+const arrayToTxtFile = require('array-to-txt-file');
+
 const directoryPath = path.join("../../", 'icon-svg');
-import arrayToTxtFile from 'array-to-txt-file';
 var array = [];
 
 creatCss();
