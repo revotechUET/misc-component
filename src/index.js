@@ -34,5 +34,10 @@ import './virtual-ul';
 import './tree-explorer';
 import './wi-device-requirement';
 import './wi-dropdown-list-new';
-import './vue-container';
+
+// import Vue from 'vue';
+// Vue.use();
+import './ng-vue';
 import './vue-editable';
+export { default as WiTree } from './wi-tree/WiTree.vue';
+export { default as WiDroppable } from './WiDroppable.vue';
