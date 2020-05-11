@@ -38,10 +38,11 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
         return clientHash[_idClient];
     }
     function get(url, opts = {}) {
+        const baseUrl = opts.baseUrl || self.getBaseUrl();
         return new Promise((resolve, reject) => {
             $http({
                 ...opts.config,
-                url,
+                url: baseUrl + url,
                 method: 'GET',
                 headers: {
                     'Service': opts.service ? opts.service : 'WI_BACKEND',
