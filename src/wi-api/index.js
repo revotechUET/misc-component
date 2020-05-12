@@ -874,6 +874,10 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
     this.getImage = function (url) {
         return get(url, {config: {responseType: 'blob'}}).then(res => URL.createObjectURL(res));
     }
+    this.createZoneTrackPromise = createZoneTrackPromise;
+    function createZoneTrackPromise(payload) {
+        return postPromise('/project/plot/zone-track/new', payload)
+    }
 }
 
 function SHA256(s){
