@@ -1,8 +1,7 @@
 {
   "name": "misc-component",
   "version": "1.0.0",
-  "description": "This is The Nam",
-  "main": "./src/index.js",
+  "main": "./dist/misc-components.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack -w --config webpack.local.js"
@@ -27,6 +26,8 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "style-loader": "^0.23.1",
+    "vue-loader": "^15.9.2",
+    "vue-template-compiler": "^2.6.11",
     "webpack": "^4.30.0"
   },
   "dependencies": {

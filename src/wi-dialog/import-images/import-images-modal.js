@@ -191,7 +191,7 @@ export default function (ModalService, idProject, imgSetName, callback) {
 
                 if (well) {
                     wiApi.createOrGetImageSetPromise(well.idWell, self.imgSetName).then(([imageSet, isNew]) => {
-                        if (!isNew && !askedAlready(self.imgSetName)) {
+                        if (!askedAlready(self.imgSetName) && !isNew) {
                             wiLoading.hide();
                             wiDialog.confirmDialog("Confirmation",`Image set ${self.imgSetName} already exist. New images will be uploaded into this image set. Do you want to continue?`, function(ret) {
                                 wiLoading.show($element.find('.modal-dialog')[0]);

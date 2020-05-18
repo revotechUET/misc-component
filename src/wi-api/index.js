@@ -22,7 +22,7 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
         if(!__cache_BaseUrl) {
             __cache_BaseUrl = window.localStorage.getItem('BASE_URL');
         }
-        return __cache_BaseUrl || 'http://dev.i2g.cloud';
+        return __cache_BaseUrl || 'http://users.i2g.cloud';
     };
     let unitTable = undefined;
     let familyTable;
@@ -36,6 +36,22 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
             clientHash[_idClient].setBaseUrl(this.getBaseUrl());
         }
         return clientHash[_idClient];
+    }
+    function get(url, opts = {}) {
+        const baseUrl = opts.baseUrl || self.getBaseUrl();
+        return new Promise((resolve, reject) => {
+            $http({
+                ...opts.config,
+                url: baseUrl + url,
+                method: 'GET',
+                headers: {
+                    'Service': opts.service ? opts.service : 'WI_BACKEND',
+                    'WHOAMI': self.idClient
+                }
+            }).then(function (res) { resolve(res.data) }, function (err) {
+                reject(err);
+            });
+        });
     }
     function postPromise(url, data, opts = {}) {
         return new Promise(function(resolve, reject) {
@@ -855,6 +871,13 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
         return postPromise('/project/well/marker-set/marker/new', payload);
     }
     //doInit();
+    this.getImage = function (url) {
+        return get(url, {config: {responseType: 'blob'}}).then(res => URL.createObjectURL(res));
+    }
+    this.createZoneTrackPromise = createZoneTrackPromise;
+    function createZoneTrackPromise(payload) {
+        return postPromise('/project/plot/zone-track/new', payload)
+    }
 }
 
 function SHA256(s){
