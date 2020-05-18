@@ -90,6 +90,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.paperSize = 'A4';
         self.paperSizeList = [
             // in millimeters
+            {data:{label:'Customize'}, properties:{name:'Customize'}},
             {data:{label:'A0'}, properties:{name:'A0', width:841, height: 1189}},
             {data:{label:'A1'}, properties:{name:'A1', width:594, height: 841}},
             {data:{label:'A2'}, properties:{name:'A2', width:420, height: 594}},

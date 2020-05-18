@@ -98,7 +98,7 @@
             style="margin-right: 8px;" ng-click="self.plotCtrl.isPageBreak=!self.plotCtrl.isPageBreak"
             class="button-with-label">Page Break</span>
     </div>
-    <div class="selection-sidebar" style="padding: 9px 10px 5px 10px;">
+    <div class="selection-sidebar" style="padding: 9px 10px 5px 10px;" ng-show="self.plotCtrl.paperSize == 'Customize'">
         <editable style="flex:1;display:flex;flex-direction:row;overflow:hidden;"
             item-label="'Width(mm)'" item-value="self.plotCtrl.printWidth"
             set-value="self.plotCtrl.setPrintWidth" enabled="true" label-style="{}"
