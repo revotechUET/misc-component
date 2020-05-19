@@ -100,9 +100,9 @@
     </div>
     <div class="selection-sidebar" style="padding: 9px 10px 5px 10px;" ng-show="self.plotCtrl.paperSize == 'Customize'">
         <editable style="flex:1;display:flex;flex-direction:row;overflow:hidden;"
-            item-label="'Width(mm)'" item-value="self.plotCtrl.printWidth"
+            item-label="'Width(mm)'" item-value="self.plotCtrl.printWidth" edit-type="'number'"
             set-value="self.plotCtrl.setPrintWidth" enabled="true" label-style="{}"
-            content-style="{flex:1,float:'none','text-align':'right'}">
+            content-style="{flex:1,float:'none','text-align':'right'}" max-value="4000">
         </editable>
     </div>
 </div>
