@@ -100,6 +100,13 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
             })
         });
     }
+
+    this.addShareSession = function (client, owner, project) {
+        return postPromise('/project/add-share-session', {
+            client, owner, project
+        })
+    }
+
     this.updatePalettes = updatePalettes;
     function updatePalettes(cb) {
         getPalettesPromise().then(paltable => {
