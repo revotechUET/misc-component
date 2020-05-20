@@ -26,8 +26,6 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "style-loader": "^0.23.1",
-    "vue-loader": "^15.9.2",
-    "vue-template-compiler": "^2.6.11",
     "webpack": "^4.30.0"
   },
   "dependencies": {
