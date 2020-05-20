@@ -1,6 +1,7 @@
 import './print-settings';
 import html2canvas from '../../vendor/html2canvas.js';
 import jsPDF from '../../vendor/jspdf.debug.js';
+import pdfMake from '../../vendor/pdfmake';
 
 window.Printable = {
     component: component,
@@ -21,6 +22,7 @@ function component(componentData) {
             aspectRatio: "<",
             alignment: "<",
             printWidth: "<",
+            printHeight: "<",
             useBorder: "<",
             verticalMargin: "<",
             horizontalMargin: "<",
@@ -71,6 +73,9 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     this.getPDFjs = function() {
         return jsPDF;
     }
+    this.getPDFMake = function() {
+        return pdfMake;
+    }
     this.getCssText = getCssTextDefault;
     this.getCssTextDefault = getCssTextDefault;
     function getCssTextDefault() {
@@ -82,7 +87,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.orientation = self.orientation || "portrait";
         self.aspectRatio = self.aspectRatio || "4:3";
         self.alignment = self.alignment || "left";
-        self.printWidth = self.printWidth || 200; // in millimeters
+        self.printWidth = self.printWidth || 210; // in millimeters
+        self.printHeight = self.printHeight || 297; // in millimeters
         self.verticalMargin = self.verticalMargin || 0; // in millimeters
         self.horizontalMargin = self.horizontalMargin || 0; // in millimeters
         self.printElement = self.printElement || ".printable";
@@ -212,6 +218,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     }
     this.calcPrintHeight = calcPrintHeightDefault;
     function calcPrintHeightDefault(w, ratio, htmlElem) {
+        if (self.paperSize == "Customize")
+            return wiApi.mmToPixel(self.printHeight);
         return wiApi.mmToPixel(calcPrintHeightMMDefault(w, ratio, htmlElem));
     }
 
@@ -346,6 +354,10 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     this.setPrintWidth = setPrintWidth;
     function setPrintWidth(notUse, newValue) {
         self.printWidth = parseFloat(newValue);
+    }
+    this.setPrintHeight = setPrintHeight;
+    function setPrintHeight(notUse, newValue) {
+        self.printHeight = parseFloat(newValue);
     }
     this.setVerticalMargin = setVerticalMargin;
     function setVerticalMargin(notUse, newValue) {
