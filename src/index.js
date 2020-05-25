@@ -34,6 +34,3 @@ import './virtual-ul';
 import './tree-explorer';
 import './wi-device-requirement';
 import './wi-dropdown-list-new';
-
-import './ng-vue';
-import './vue-editable';
