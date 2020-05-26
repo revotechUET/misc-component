@@ -23,7 +23,7 @@ function KatexViewController($scope, $element, $timeout) {
         }, showEquation);
     }
     function showEquation() {
-        let html = katex.renderToString(self.latexContent,{displayMode: false});
+        let html = katex.renderToString(self.latexContent,{displayMode: false, throwOnError: false});
         $element.find('.latex').empty().append(html);
     }
 }
