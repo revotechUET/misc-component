@@ -25,9 +25,14 @@ function Controller($timeout, $scope) {
                     self.onChange();
                 }
             }
-            else if (!self.nullable && self.items && self.items.length) {
-                self.selectedItem = self.items[0];
-                self.onChange();
+            else if (!self.nullable) {
+                if(self.items && self.items.length) {
+                    self.selectedItem = self.items[0];
+                    self.onChange();
+                }else {
+                    self.selectedItem = null;
+                    self.onChange();
+                }
             }
         });
         $timeout(function() {
