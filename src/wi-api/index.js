@@ -106,6 +106,9 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
             client, owner, project
         })
     }
+    this.removeShareSession = function () {
+        return postPromise('/project/remove-share-session');
+    }
 
     this.updatePalettes = updatePalettes;
     function updatePalettes(cb) {
