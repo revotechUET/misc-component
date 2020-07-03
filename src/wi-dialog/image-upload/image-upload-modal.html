@@ -19,7 +19,7 @@
 			</div>
 			<div class="modal-footer">
                 <button class="btn btn-default" ngf-select ng-model="wiModal.file" name="file" ngf-pattern="'image/*'"
-                    ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100">Choose image ...</button>
+                accept="image/png,image/gif,image/jpg,image/jpeg" ngf-max-size="20MB" ngf-min-height="100">Choose image ...</button>
 				<button class='btn btn-default' ng-click='wiModal.upload()' style="color: #000">
                     <span class="ok-16x16"></span>&nbsp;Upload
                 </button>

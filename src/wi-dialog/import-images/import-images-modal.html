@@ -322,7 +322,7 @@
                 <span class="error-mess" ng-show="self.errorMsg">
                     <i class="fa fa-exclamation-circle" style="margin-right: 15px;"aria-hidden="true"></i>
                     {{self.errorMsg}}</span>
-                <button default-button="1" class="btn btn-default" ngf-select="self.addForUpload($files)" ngf-multiple="true" ngf-accept="'image/*'">
+                <button default-button="1" class="btn btn-default" ngf-select="self.addForUpload($files)" ngf-multiple="true" accept="image/png,image/gif,image/jpg,image/jpeg">
                     <span class="more-16x16"></span>&nbsp;Select Files
                 </button>
                 <button class="btn btn-default" ng-click="self.addForUploadPDB()">
