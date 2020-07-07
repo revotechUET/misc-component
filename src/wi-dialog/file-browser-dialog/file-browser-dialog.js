@@ -15,6 +15,7 @@ export default function (ModalService, configs, callback) {
         this.showMe = true;
         this.files = [];
         this.close = close;
+        this.clickFile = configs.clickFile.bind(this)
         // this.onOkButtonClicked = function () {
         //     console.log(self.fileCtrl.selectedList);
         //     async.eachSeries(self.fileCtrl.selectedList, (e, next) => {
