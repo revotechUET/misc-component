@@ -29,7 +29,8 @@ function TokenService() {
     }
     this.getUserName = function () {
         if (this.token === undefined || (localStorage.getItem("token")) === null) {
-            localStorage.clear();
+            window.localStorage.removeItem('token');
+            window.localStorage.removeItem('refreshToken');
         }
         return localStorage.getItem("username");
     }
@@ -56,6 +57,7 @@ function TokenService() {
         localStorage.setItem('username', decoded.username);
     }
     this.removeToken = function () {
-        localStorage.clear();
+        window.localStorage.removeItem('token');
+        window.localStorage.removeItem('refreshToken');
     }
 }
