@@ -112,19 +112,20 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
 
     this.updatePalettes = updatePalettes;
     function updatePalettes(cb) {
-        getPalettesPromise().then(paltable => {
-            paletteTable = paltable;
+        getPalettesPromise().then(res => {
+            paletteTable = res;
             cb && cb();
-        }).catch(err => console.error(err));
+        }).catch();
     }
     this.doInit = doInit;
-    function doInit() {
-        getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
-        updatePalettes();
-        getAllFamilyPromise()
-        .then(familytable => {
-                        familyTable = familytable;
-        }).catch(err => console.error(err));
+    async function doInit() {
+        try {
+            unitTable = await getAllUnitPromise();
+            familyTable = await getAllFamilyPromise();
+            updatePalettes();
+        } catch (error) {
+            setTimeout(doInit, 5000);
+        }
     }
     // getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
     // updatePalettes();
