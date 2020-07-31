@@ -27,12 +27,18 @@ function EditableController($scope, $element, $timeout) {
     this.$onInit = function() {
     }
     this.focusMe = function() {
+        if (!self.enabled) return;
+        $scope.temp = self.getItemValue();
+        $scope.editting = true;
         $timeout(() => {$element.find('form input')[0].focus();});
     }
-    
-    this.unfocusMe = function() {
-        console.log("UnfocusMe");
+    this.unfocusMe = function () {
         $timeout(() => {$element.find('form input')[0].blur();});
+    }
+    this.onBlur = function () {
+        if (!self.enabled) return;
+        self.setItemValue($scope.temp);
+        $scope.editting = false;
     }
     this.handleEmptyString = function(value) {
         if (typeof value === 'string' && !value.length) 

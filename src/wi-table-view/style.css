@@ -4,6 +4,8 @@ wi-table-view div.table {
     border: 1px solid #ccc;
     position: relative;
     outline: none;
+    padding-right: 4px;
+    padding-bottom: 4px;
 }
 wi-table-view .icon-array {
     display: flex;

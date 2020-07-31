@@ -115,25 +115,17 @@ function Controller($element) {
     }
     this.indicatorStyle = function() {
         let display = 'none';
-        try {
-            if (self.selectedRow !== undefined && self.selectedCol !== undefined) {
-                display = 'block';
-                let row = $element.find('.row')[self.selectedRow];
-                let cell = $(row).find('.cell')[self.selectedCol];
-                return {
-                    display: 'block',
-                    width: cell.clientWidth,
-                    height: cell.clientHeight,
-                    top: cell.offsetTop,
-                    left: cell.offsetLeft 
-                }
-            }
+        let row = $element.find('.row')[self.selectedRow];
+        if (!row) return { display };
+        let cell = $(row).find('.cell')[self.selectedCol];
+        if (!cell) return { display };
+        return {
+            display: 'block',
+            width: cell.clientWidth,
+            height: cell.clientHeight,
+            top: cell.offsetTop,
+            left: cell.offsetLeft 
         }
-        catch(e) {
-            console.log(e);
-            display = 'none';
-        }
-        return {display};
     }
     this.keyUp = function($event) {
         if ($event.keyCode == 27) {
