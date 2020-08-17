@@ -1,10 +1,10 @@
 const SALT = "wi-hash";
 export default function genWiid (payload, token) {
-  return genPayloadHash((payload || {}), SHA256(SALT + token), SHA256);
+  return genPayloadHash((payload || {}), SHA256(SALT + token));
 }
 
 function genPayloadHash(payload, salt) {
-  return SHA256(JSON.stringify(payload) + salt);
+  return SHA256(angular.toJson(payload) + salt);
 }
 
 function SHA256(s) {
