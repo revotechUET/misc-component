@@ -1,4 +1,4 @@
-import genWiid from './wiid';
+import { wiid as genWiid} from '@revotechuet/misc-component-vue';
 const serviceName = 'wiApi';
 var clientHash = {};
 

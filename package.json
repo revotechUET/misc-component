@@ -2,6 +2,7 @@
   "name": "misc-component",
   "version": "1.0.0",
   "main": "./dist/misc-components.js",
+  "module": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack -w --config webpack.local.js"
@@ -29,6 +30,7 @@
     "webpack": "^4.30.0"
   },
   "dependencies": {
+    "@revotechuet/misc-component-vue": "^1.1.27",
     "angular-ui-sortable": "^0.19.0",
     "chartjs-plugin-labels": "^1.1.0",
     "jwt-decode": "^2.2.0",
