@@ -2,9 +2,9 @@ export const name = "wiTableView";
 
 var module = angular.module(name, ['editable']);
 
+require('./style.css');
 
 module.component(name, {
-    style: require('./style.css'),
     template: require("./template.html"),
     controller: Controller,
     controllerAs: "self",
