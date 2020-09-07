@@ -888,4 +888,39 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
     function createZoneTrackPromise(payload) {
         return postPromise('/project/plot/zone-track/new', payload)
     }
+    this.getWellFullInfoPromise = getWellFullInfoPromise;
+    function getWellFullInfoPromise(idWell) {
+        return postPromise('/project/well/full-info', {idWell});
+    }
+    this.getWellDepth = getWellDepth
+    function getWellDepth(idWell) {
+        return this.getWellFullInfoPromise(idWell)
+        .then(well => {
+            let { datasets } = well;
+            let topDepth = Math.min(...datasets.map(d => +d.top));
+            let bottomDepth = Math.max(...datasets.map(d => +d.bottom));
+            return new Promise(resolve => resolve({ topDepth, bottomDepth }));
+        })
+    }
+    const __CACHE_DEPTH = {}
+    this.getCachedWellDepth = getCachedWellDepth;
+    async function getCachedWellDepth(idWell) {
+        let cachedItem = __CACHE_DEPTH[idWell]
+        if(!cachedItem || (Date.now() - cachedItem.ts ) > CACHE_LIFE_TIME) {
+            cachedItem = cachedItem || {}
+            cachedItem.ts = Date.now();
+            cachedItem.depth = {};
+            // let { datasets } = await this.getWellFullInfoPromise(idWell)
+            return this.getWellFullInfoPromise(idWell)
+            .then(well => {
+                let { datasets } = well;
+                cachedItem.depth.topDepth = Math.min(...datasets.map(d => +d.top));
+                cachedItem.depth.bottomDepth = Math.max(...datasets.map(d => +d.bottom));
+                __CACHE_DEPTH[idWell] = cachedItem;
+                return cachedItem;
+            })
+        }else {
+            return new Promise(res => res(cachedItem));
+        }
+    }
 }
