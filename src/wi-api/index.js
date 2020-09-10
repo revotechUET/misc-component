@@ -5,7 +5,7 @@ var clientHash = {};
 angular.module(serviceName, ['wiToken', 'ngFileUpload'])
     .factory(serviceName, ['$http', 'wiToken', 'Upload', '$timeout', function ($http, wiToken, Upload, $timeout) {
         let service = new wiApiService($http, wiToken, Upload, $timeout);
-        service.doInit();
+        // service.doInit();
         return service;
     }]
     );
@@ -126,12 +126,6 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
             setTimeout(doInit, 5000);
         }
     }
-    // getAllUnitPromise().then(unittable => unitTable = unittable).catch(err => console.error(err));
-    // updatePalettes();
-    // getAllFamilyPromise()
-        // .then(familytable => {
-        //                 familyTable = familytable;
-        // }).catch(err => console.error(err));
     
     this.getPalette = function(palName) {
         if (paletteTable) 
@@ -207,7 +201,6 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
         __cache_BaseUrl = null;
         window.localStorage.setItem("BASE_URL", baseUrl);
         doInit();
-        // self.baseUrl = baseUrl;
     }
     function getAllUnitPromise() {
         return postPromise('/family/all-unit', {});
