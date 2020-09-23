@@ -5,7 +5,7 @@ var clientHash = {};
 angular.module(serviceName, ['wiToken', 'ngFileUpload'])
     .factory(serviceName, ['$http', 'wiToken', 'Upload', '$timeout', function ($http, wiToken, Upload, $timeout) {
         let service = new wiApiService($http, wiToken, Upload, $timeout);
-        // service.doInit();
+        service.doInit();
         return service;
     }]
     );
@@ -126,9 +126,9 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
             setTimeout(doInit, 5000);
         }
     }
-    
+
     this.getPalette = function(palName) {
-        if (paletteTable) 
+        if (paletteTable)
             return paletteTable[palName];
     }
     this.getPalettes = function() {
@@ -257,7 +257,7 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
     function getOverlayLinePromise(idOverlayLine, idCurveX, idCurveY){
         return postPromise('/project/cross-plot/overlay-line/info/', {idOverlayLine, idCurveX, idCurveY});
     }
-     
+
     this.getWellPromise = getWellPromise;
     function getWellPromise(idWell) {
         return postPromise('/project/well/info', {idWell: idWell});
@@ -384,7 +384,7 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
             }
         }).then(
             resp => successCb(resp.data.content),
-            resp => errorCb(resp), 
+            resp => errorCb(resp),
             evt => progressCb(parseFloat(100.0 * evt.loaded / evt.total))
         ).catch(err => errorCb(err));
     }
@@ -478,7 +478,7 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
         catch(e) {
             return Promise.reject(e);
         }
-        
+
         function findCurve(condition, curveSet) {
             if (condition && condition.children && condition.children.length) {
                 condition.children.forEach(function (child) {
@@ -489,7 +489,7 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
                 if (condition.right.type == 'curve') {
                     curveSet.add(condition.right.value);
                 }
-            } 
+            }
         }
 
         function evaluate(condition, index) {
@@ -899,7 +899,8 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
     this.getCachedWellDepth = getCachedWellDepth;
     async function getCachedWellDepth(idWell) {
         let cachedItem = __CACHE_DEPTH[idWell]
-        if(!cachedItem || (Date.now() - cachedItem.ts ) > CACHE_LIFE_TIME) {
+        if (!cachedItem || (Date.now() - cachedItem.ts) > CACHE_LIFE_TIME) {
+            delete __CACHE_DEPTH[idWell];
             cachedItem = cachedItem || {}
             cachedItem.ts = Date.now();
             cachedItem.depth = {};
