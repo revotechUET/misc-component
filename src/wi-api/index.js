@@ -315,20 +315,26 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
     this.getCachedCurveDataPromise = getCachedCurveDataPromise;
     function getCachedCurveDataPromise(idCurve) {
         let cachedItem = __CACHE_CURVE[idCurve];
-        if (!cachedItem || ( Date.now() - cachedItem.ts ) > CACHE_LIFE_TIME ) {
+        if (!cachedItem || (Date.now() - cachedItem.ts) > CACHE_LIFE_TIME) {
+
             cachedItem = cachedItem || {};
-          return postPromise('/project/well/dataset/curve/getData', {idCurve})
-            .then((dataCurve) => {
-              cachedItem.ts = Date.now();
-              cachedItem.dataCurve = dataCurve;
-              __CACHE_CURVE[idCurve] = cachedItem;
-              return dataCurve;
-            })
-            .catch(err => {
-              return err;
-            });
+            return postPromise('/project/well/dataset/curve/getData', { idCurve })
+                .then((dataCurve) => {
+                    const now = Date.now();
+                    cachedItem.ts = now;
+                    cachedItem.dataCurve = dataCurve;
+                    __CACHE_CURVE[idCurve] = cachedItem;
+                    for (const key in __CACHE_CURVE) {
+                        if (now - __CACHE_CURVE[key].ts > CACHE_LIFE_TIME) delete __CACHE_CURVE[key];
+                    }
+                    delete __CACHE_CURVE[idCurve];
+                    return dataCurve;
+                })
+                .catch(err => {
+                    return err;
+                });
         }
-        return new Promise(function(resolve) {
+        return new Promise(function (resolve) {
             cachedItem.ts = Date.now();
             resolve(cachedItem.dataCurve);
         });
