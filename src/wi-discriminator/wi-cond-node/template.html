@@ -20,7 +20,7 @@
 -->
             <ui-select ng-model='self.item.comparison'
                 ng-change="self.update()"
-                search-enabled='false'>
+                search-enabled='false'style=" min-width: 90px;" >
                 <ui-select-match>{{$select.selected}}</ui-select-match>
                 <ui-select-choices repeat='com in self.comparisons'>{{com}}</ui-select-choices>
             </ui-select>
