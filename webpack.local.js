@@ -1,6 +1,4 @@
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const path = require('path');
-const webpack = require('webpack');
 
 const output = path.resolve(__dirname, '../wi-machine-learning/public/bower_components/misc-component/dist');
 // const output = path.resolve(__dirname, '../wi-angular/watch/bower_components/misc-component/dist');
@@ -52,6 +50,5 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new HardSourceWebpackPlugin(),
 	]
 }
