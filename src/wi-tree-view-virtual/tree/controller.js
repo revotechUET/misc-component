@@ -355,7 +355,8 @@ function treeController($scope, $compile, $element, $timeout) {
       }
     });
     vListWrapper.setContainerStyle({
-      'border': 'none'
+      'border': 'none',
+      'height': '100%'
     });
     vListWrapper.vList.container.addEventListener('scroll', e => $scope.safeApply())
     return vListWrapper;
