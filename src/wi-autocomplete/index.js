@@ -146,6 +146,9 @@ app.directive('autocomplete', ['$parse', function ($parse) {
               }, 0);
             },
           });
+          $element.autocomplete('instance')._resizeMenu = function () {
+            this.menu.element.css('max-height', window.innerHeight - this.element.offset().top - this.element.outerHeight());
+          }
         }
       });
       $element.on('focus', function () {
