@@ -129,4 +129,30 @@ app.component(componentName, {
   }
 });
 
+app.directive('autocomplete', ['$parse', function ($parse) {
+  return {
+    restrict: 'A',
+    require: 'ngModel',
+    link: function ($scope, $element, attrs) {
+      $scope.$watch(() => attrs.source, () => {
+        const source = $parse(attrs.source)($scope);
+        if (Array.isArray(source) && source.length) {
+          $element.autocomplete({
+            source,
+            minLength: 0,
+            select: function () {
+              setTimeout(function () {
+                $element.trigger('input');
+              }, 0);
+            },
+          });
+        }
+      });
+      $element.on('focus', function () {
+        $(this).autocomplete('instance') && $(this).autocomplete('search', this.value);
+      });
+    }
+  };
+}]);
+
 export const name = moduleName;
