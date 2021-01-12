@@ -134,9 +134,9 @@ app.directive('autocomplete', ['$parse', function ($parse) {
     restrict: 'A',
     require: 'ngModel',
     link: function ($scope, $element, attrs) {
-      $scope.$watch(() => attrs.source, () => {
-        const source = $parse(attrs.source)($scope);
+      const unwatch = $scope.$watch(() => $parse(attrs.source)($scope), (source) => {
         if (Array.isArray(source) && source.length) {
+          // unwatch();
           $element.autocomplete({
             source,
             minLength: 0,
@@ -149,10 +149,10 @@ app.directive('autocomplete', ['$parse', function ($parse) {
           $element.autocomplete('instance')._resizeMenu = function () {
             this.menu.element.css('max-height', window.innerHeight - this.element.offset().top - this.element.outerHeight());
           }
+          $element.on('focus', function () {
+            $(this).autocomplete('search', this.value);
+          });
         }
-      });
-      $element.on('focus', function () {
-        $(this).autocomplete('instance') && $(this).autocomplete('search', this.value);
       });
     }
   };
