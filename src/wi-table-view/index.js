@@ -24,13 +24,13 @@ module.component(name, {
         getRowIconStyle: "<",
         validRow: "<",
         rowHeaderCellStyle: '<',
-      itemList: '<'
+        itemList: '<',
     },
 });
 Controller.$inject = ['$element'];
 function Controller($element) {
     let self = this;
-    
+
     this.$onInit = function() {
         this.colLabels = this.colLabels || {};
         this.rowLabels = this.rowLabels || {};
@@ -124,7 +124,7 @@ function Controller($element) {
             width: cell.clientWidth,
             height: cell.clientHeight,
             top: cell.offsetTop,
-            left: cell.offsetLeft 
+            left: cell.offsetLeft
         }
     }
     this.keyUp = function($event) {
@@ -139,6 +139,11 @@ function Controller($element) {
         } else if (self.validRow){
             return self.validRow;
         } else return true;
+    }
+    this.onRowClick = function ($event, row) {
+        if (typeof self.rowClickFn !== 'function') return;
+        console.log($event.target);
+        self.rowClickFn(row);
     }
     function headerRowCount() {
         return self.colHeaders ? (self.showOriginHeader?2:1):0;
