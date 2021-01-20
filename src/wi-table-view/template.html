@@ -15,13 +15,11 @@
         <div class="cell header">Label</div>
         <div class="cell" ng-repeat="col in self.getCols() track by $index">
             <editable params="$index" item-value="self.getColHeader($index)" set-value="self.setColHeader"
-                    enabled="self.headerEditable"
-                    content-style="{width:'100%',height:'100%',float:'none'}">
+                    enabled="self.headerEditable">
             </editable>
         </div>
     </div>
-    <div class="row" ng-repeat="row in self.getRows() track by $index" ng-show="self.isValidRow($index)"
-        ng-click="self.onRowClick($event, row)">
+    <div class="row" ng-repeat="row in self.getRows() track by $index" ng-show="self.isValidRow($index)">
         <div ng-if="self.showOriginHeader" class="cell header">
             {{self.getOriginRowHeader($index)}}
         </div>
@@ -31,13 +29,12 @@
                     <i ng-style="self.getRowIconStyle(row)" class="{{icon}}" ng-repeat="icon in self.getRowIcons(row) track by $index"></i>
                 </div>
                 <editable params="$index" item-value="self.getRowHeader($index)" set-value="self.setRowHeader"
-                    enabled="self.headerEditable"
-                    content-style="{width:'100%',height:'100%',float:'none'}">
+                    enabled="self.headerEditable">
                 </editable>
             </div>
         </div>
-        <div class="cell" ng-repeat="col in self.getCols(row) track by $index"
-            ng-click="self.cellClick(row, col);" ng-switch="self.getTypeOfAccessor([row, col])" ng-init="cell = self.accessor([row, col])">
+        <div class="cell" ng-repeat="cell in table[row] track by $index"
+            ng-click="self.cellClick(row, $index);" ng-switch="self.getTypeOfAccessor([row, $index])"">
             <input ng-switch-when="checkbox"
               type="checkbox" style="z-index: 1;"
               ng-model="self.itemList[row].selected">
@@ -45,9 +42,12 @@
                 <i ng-if="cell.icon" ng-class="cell.icon" title="{{cell.text}}"></i>
                 <button ng-if="!cell.icon">{{cell.text}}</button>
             </div>
-            <editable params="[row, col]" item-value="cell" set-value="self.setter"
+            <editable ng-switch-when="custom" params="[row, $index]" item-value="cell.value" set-value="self.setter"
                 enabled="self.cellEditable"
-                content-style="{width:'100%',height:'100%',float:'none'}"
+                content-style="cell.style">
+            </editable>
+            <editable params="[row, $index]" item-value="cell" set-value="self.setter"
+                enabled="self.cellEditable"
                 ng-switch-default>
             </editable>
         </div>

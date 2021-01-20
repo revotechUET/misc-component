@@ -54,3 +54,6 @@ wi-table-view div.handle {
     bottom: -3px;
     right: -3px;
 }
+wi-table-view editable > div.my-content {
+    float: none;
+}

@@ -27,8 +27,8 @@ module.component(name, {
         itemList: '<',
     },
 });
-Controller.$inject = ['$element'];
-function Controller($element) {
+Controller.$inject = ['$element', '$scope'];
+function Controller($element, $scope) {
     let self = this;
 
     this.$onInit = function() {
@@ -37,6 +37,12 @@ function Controller($element) {
         this.getRowIcons = this.getRowIcons || function() { return [] };
         this.getRowIconStyle = this.getRowIconStyle || function() { return {} };
         self.cellStyle = self.cellStyle || {};
+        $scope.table = [];
+        $scope.$watchCollection('self.itemList', () => {
+            const rows = self.getRows();
+            const cols = self.getCols();
+            $scope.table = rows.map(r => cols.map(c => self.accessor([r, c])));
+        })
     }
     this.getRowHeaderCellStyle = function($index) {
         if (typeof self.rowHeaderCellStyle == 'function') {
@@ -139,11 +145,6 @@ function Controller($element) {
         } else if (self.validRow){
             return self.validRow;
         } else return true;
-    }
-    this.onRowClick = function ($event, row) {
-        if (typeof self.rowClickFn !== 'function') return;
-        console.log($event.target);
-        self.rowClickFn(row);
     }
     function headerRowCount() {
         return self.colHeaders ? (self.showOriginHeader?2:1):0;
