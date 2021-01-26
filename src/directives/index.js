@@ -1,0 +1,1 @@
+import './wi-right-click'

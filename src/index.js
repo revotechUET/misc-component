@@ -1,3 +1,4 @@
+import './directives'
 import './wi-icons';
 import './editable';
 import './side-bar/index';

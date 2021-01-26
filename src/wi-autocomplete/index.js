@@ -133,8 +133,11 @@ app.directive('autocomplete', ['$parse', function ($parse) {
   return {
     restrict: 'A',
     require: 'ngModel',
+    scope: {
+      source: '<'
+    },
     link: function ($scope, $element, attrs) {
-      const unwatch = $scope.$watch(() => $parse(attrs.source)($scope), (source) => {
+      const unwatch = $scope.$watch('source', (source) => {
         if (Array.isArray(source) && source.length) {
           // unwatch();
           $element.autocomplete({
