@@ -1,12 +1,11 @@
 import './directives'
 import './wi-icons';
 import './editable';
-import './side-bar/index';
-import './line-style/index';
-import './wi-sortable/index';
+import './side-bar';
+import './line-style';
+import './wi-sortable';
 import './wi-base-treeview/wi-base-treeview';
-import './wi-login/wi-login';
-import './wi-token/index';
+import './wi-token';
 import './wi-session';
 import './katex-view';
 import './wi-table-view';
