@@ -129,7 +129,7 @@ app.component(componentName, {
   }
 });
 
-app.directive('autocomplete', ['$parse', function ($parse) {
+app.directive('wi-autocomplete', ['$parse', function ($parse) {
   return {
     restrict: 'A',
     require: 'ngModel',
