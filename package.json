@@ -1,6 +1,6 @@
 {
   "name": "@revotechuet/misc-component",
-  "version": "1.3.10",
+  "version": "1.3.11",
   "main": "./dist/misc-components.js",
   "files": [
     "dist/*"

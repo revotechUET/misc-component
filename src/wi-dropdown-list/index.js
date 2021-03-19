@@ -86,9 +86,10 @@ app.component(componentName, {
     }
 });
 app.filter("itemFilter", function() {
-    return function(items, match) {
+    return function (items, match) {
         if (!items || !items.length) return [];
-        return items.filter(item =>( (((item.data||{}).label || item.label) || "").includes(match.toUpperCase()) ));
+        if (!match) return items;
+        return items.filter(item => ((((item.data || {}).label || item.label).toUpperCase() || "").includes(match.toUpperCase())));
     }
 });
 
