@@ -38,11 +38,13 @@ function Controller($element, $scope) {
         this.getRowIconStyle = this.getRowIconStyle || function() { return {} };
         self.cellStyle = self.cellStyle || {};
         $scope.table = [];
-        $scope.$watchCollection('self.itemList', () => {
+        function setTable() {
             const rows = self.getRows();
             const cols = self.getCols();
             $scope.table = rows.map(r => cols.map(c => self.accessor([r, c])));
-        })
+        }
+        $scope.$watchCollection('self.itemList', setTable)
+        $scope.$watchGroup([()=>JSON.stringify(self.getOriginColHeaders()), ()=>JSON.stringify(self.getOriginRowHeader())], setTable)
     }
     this.getRowHeaderCellStyle = function($index) {
         if (typeof self.rowHeaderCellStyle == 'function') {
