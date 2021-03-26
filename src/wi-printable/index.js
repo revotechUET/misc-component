@@ -42,13 +42,20 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     this.cssClassName = `print-${Date.now()}`;
     let pcpElemHeight = "25px";
     const cssText = `
-        .${self.cssClassName} {
+        .printable-wrapper {
             position: fixed !important;
             z-index: 999;
-            top: ${pcpElemHeight};
-            right: auto;
+            top: 0;
             left: 0;
             visibility: visible;
+            height: 100vh;
+            width: unset;
+            overflow: auto;
+        }
+        .${self.cssClassName} {
+            position: relative;
+            top: ${pcpElemHeight};
+            margin-bottom: ${pcpElemHeight};
             background-color: #ffffff;
         }
         .${self.cssClassName} * {
@@ -129,6 +136,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     this.preview4Print = preview4PrintDefault;
     function preview4PrintDefault() {
         const printElem = $element.find(self.printElement);
+        printElem.wrapAll('<div class="printable-wrapper"></div>');
         self.printElem = printElem;
         self.originalWidth = printElem[0].offsetWidth;
         self.originalHeight = printElem[0].offsetHeight;
@@ -157,14 +165,14 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         previewScope._pageIdx = 1;
         previewScope.$ctrl = self;
         const pcpContent = `
-            <div style="height: ${pcpElemHeight};">
+            <div style="height: ${pcpElemHeight};background:#fff">
                 <span>{{$ctrl.getPrintInfo()}}</span>
                 <button ng-click="$ctrl.exitPreview()">Close</button>
-                <button ng-click="$ctrl.doPrint()" ng-if="!$ctrl.isPageBreak">Print</button>
+                <button ng-click="$ctrl.doPrint()" ng-if="$ctrl.isPageBreak">Print</button>
+                <button ng-click="$ctrl.doPrintAll($ctrl, 'download')">Print All</button>
+                <button ng-click="$ctrl.doPrintAll($ctrl, 'save')">Save to DB</button>
                 <div style="display: inline-block;"
                     ng-if="$ctrl.showCtrlPage">
-                    <button ng-click="$ctrl.doPrintAll($ctrl, 'download')">Print All</button>
-                    <button ng-click="$ctrl.doPrintAll($ctrl, 'save')">Save to DB</button>
                     <button ng-click="$ctrl.firstPage($ctrl)">First Page</button>
                     <button ng-click="$ctrl.previousPage($ctrl)">Previous</button>
                     <editable style="display:inline-block;" enabled='true' item-value="$ctrl.getPageIdx" set-value="$ctrl.setPageIdx" content-style='{
@@ -234,6 +242,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.pcpElem.remove();
         self.printElem.width(self.originalWidth);
         self.printElem.height(self.originalHeight);
+        self.printElem.unwrap();
         if (self.printMode === 'image') {
             self.printElem[0].style.marginTop = self.originalMarginTop;
             self.printElem[0].style.marginBottom = self.originalMarginBottom;
@@ -241,27 +250,27 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             self.printElem[0].style.marginRight = self.originalMarginRight;
         }
     }
-    function html2Canvas(htmlElem, config, callback) {
-        html2canvas(htmlElem, {
+    async function html2Canvas(htmlElem, config, callback) {
+        const canvases = []
+        canvases.push(await html2canvas(htmlElem, {
             allowTaint: true,
-            foreignObjectRendering:true,
-            x: (htmlElem.offsetLeft - wiApi.mmToPixel(self.horizontalMargin)) / 2,
-            y: (htmlElem.offsetTop - wiApi.mmToPixel(self.verticalMargin)) / 2,
-            scale: 1,
-            width: _.max([
-                htmlElem.scrollWidth,
-                htmlElem.offsetWidth,
-                htmlElem.clientWidth
-            ]) + wiApi.mmToPixel(self.horizontalMargin) * 2,
-            height: _.max([
-                htmlElem.scrollHeight,
-                htmlElem.offsetHeight,
-                htmlElem.clientHeight
-            ]) + wiApi.mmToPixel(self.verticalMargin) * 2,
+            foreignObjectRendering: true,
+            // x: -wiApi.mmToPixel(self.horizontalMargin) / 2,
+            // y: -wiApi.mmToPixel(self.verticalMargin) / 2,
+            // scale: 1,
+            // width: _.max([
+            //     htmlElem.scrollWidth,
+            //     htmlElem.offsetWidth,
+            //     htmlElem.clientWidth
+            // ]) + wiApi.mmToPixel(self.horizontalMargin) * 2,
+            // height: _.max([
+            //     htmlElem.scrollHeight,
+            //     htmlElem.offsetHeight,
+            //     htmlElem.clientHeight
+            // ]) + wiApi.mmToPixel(self.verticalMargin) * 2,
             ...config
-        }).then(canvas => {
-            callback && callback(canvas);
-        })
+        }));
+        callback && callback(canvases)
     }
     this.exportAsImage = exportAsImage;
     function exportAsImage(newConfig = {}, callback) {
@@ -305,17 +314,20 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     }
     this.exportAsPDF = exportAsPDF;
     function exportAsPDF(newConfig = {}, callback) {
-        let imgWidth = self.calcPrintWidth(self.printWidth, self.printElem);
-        let maxViewWidth = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).width - self.horizontalMargin * 2);
-        let imgHeight = self.calcPrintHeight(self.printWidth, self.aspectRatio, self.printElem);
-        let maxViewHeight = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).height - self.verticalMargin * 2);
-        let cb = callback || function(canvas) {
-            let imgData = canvas.toDataURL("image/png");
+        // let imgWidth = self.calcPrintWidth(self.printWidth, self.printElem);
+        // let maxViewWidth = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).width - self.horizontalMargin * 2);
+        // let imgHeight = self.calcPrintHeight(self.printWidth, self.aspectRatio, self.printElem);
+        // let maxViewHeight = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).height - self.verticalMargin * 2);
+        let cb = callback || function (canvases) {
             let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
-            pdf.addImage(
-                imgData, 'PNG',
-                self.horizontalMargin, self.verticalMargin
-            );
+            for (const canvas of canvases) {
+                let imgData = canvas.toDataURL("image/png");
+                pdf.addImage(
+                    imgData, 'PNG',
+                    self.horizontalMargin,
+                    self.verticalMargin
+                );
+            }
             pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
                         || 'myPDF'}.pdf`);
         }
