@@ -44,7 +44,14 @@ function Controller($element, $scope) {
             $scope.table = rows.map(r => cols.map(c => self.accessor([r, c])));
         }
         $scope.$watchCollection('self.itemList', setTable)
-        $scope.$watchGroup([()=>JSON.stringify(self.getOriginColHeaders()), ()=>JSON.stringify(self.getOriginRowHeader())], setTable)
+        $scope.$watchGroup([
+            () => JSON.stringify(self.getOriginColHeaders()),
+            () => {
+                if (typeof self.rowHeaders === 'function')
+                    return JSON.stringify(self.rowHeaders())
+                return JSON.stringify(self.rowHeaders)
+            }
+        ], setTable)
     }
     this.getRowHeaderCellStyle = function($index) {
         if (typeof self.rowHeaderCellStyle == 'function') {
