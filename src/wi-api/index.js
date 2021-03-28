@@ -612,7 +612,7 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
     }
     this.mmToPixel = mmToPixel;
     function mmToPixel(mmValue, dpi = 96) {
-        return mmValue * getDpi(false) / 25.4;
+        return mmValue * getDpi() / 25.4;
     }
     this.cmToPixel = cmToPixel;
     function cmToPixel(cmValue) {
@@ -620,7 +620,7 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
     }
     this.pixelTomm = pixelTomm;
     function pixelTomm(pixel, dpi = 96) {
-        return pixel * 25.4 / getDpi(false);
+        return pixel * 25.4 / getDpi();
     }
     this.pixelToCm = pixelToCm;
     function pixelToCm(pixel, dpi = 96) {

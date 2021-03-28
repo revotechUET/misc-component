@@ -68,6 +68,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             position: fixed;
             top: 0;
             left: 0;
+            z-index: 99;
         }
         .${self.cssClassName} ~ .print-cmd-panel * {
             visibility: initial;
