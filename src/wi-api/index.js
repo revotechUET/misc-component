@@ -70,7 +70,12 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
                 headers: headers
             }).then((response) => {
                 if (response.data.code === 200) resolve(response.data.content);
-                else reject(new Error(response.data.reason));
+                else {
+                    if (!opts.silent) {
+                        __toastr && __toastr.error(response.data.reason);
+                    }
+                    reject(new Error(response.data.reason));
+                }
             }, (err) => {
                 reject(err);
             })
@@ -923,4 +928,8 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
             return new Promise(res => res(cachedItem));
         }
     }
+    function checkObjectPermission(obj) {
+        return postPromise('/permission/check', { perm: obj });
+    }
+    this.checkObjectPermission = checkObjectPermission
 }
