@@ -1,10 +1,20 @@
 <div class="main-table-resizeable">
     <div class="header-table-resizeable">
-        <div ng-repeat="header in self.headers track by $index" class="item" ng-style="{width : self.columnWidths[$index] + 'px'}">
-            <div class="name">
-                {{header}}
+        <div ng-repeat="header in self.headers track by $index" ng-style="{width : self.columnWidths[$index] + 'px'}">
+            <div ng-if="typeof(header) === 'object'" class="item">
+                <div class="name" ng-click="self.orderBy(header.key)">
+                    {{header.label}}
+                    <div ng-if="self.orderHeader === header.key" class="fa" ng-class="self.orderReverse ? 'fa-chevron-up' : 'fa-chevron-down'"></div>
+                </div>
+                <div ng-if="$index !== (self.headers.length - 1)" class="holder-resizeable" ordinal="{{$index}}"> </div>
             </div>
-            <div ng-if="$index !== (self.headers.length - 1)" class="holder-resizeable" ordinal="{{$index}}"> </div>
+            <div ng-if="typeof(header) === 'string'" class="item">
+                <div class="name" ng-click="self.orderBy(header)">
+                    {{header}}
+                    <div ng-if="self.orderHeader === header" class="fa" ng-class="self.orderReverse ? 'fa-chevron-up' : 'fa-chevron-down'"></div>
+                </div>
+                <div ng-if="$index !== (self.headers.length - 1)" class="holder-resizeable" ordinal="{{$index}}"> </div>
+            </div>
         </div>
     </div>
     <div class="content">

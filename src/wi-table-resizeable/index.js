@@ -14,7 +14,9 @@ app.component(componentName, {
         headers: '<',
         defaultWidths: '<',
         onHeaderWidthChanged: "<",
-        onTableInit: "<"
+        onTableInit: "<",
+        orderHeader: '=',
+        orderReverse: '=',
     },
     transclude: true
 });
@@ -66,7 +68,7 @@ function wiTableResizeableController($element, $timeout, $scope) {
                 let rightColIdx = self.holderDraggingIdx + 1;
                 let leftColWidth = self.columnWidths[leftColIdx];
                 let rightColWidth = self.columnWidths[rightColIdx];
-                
+
                 let offset = self.newPosition - self.oldPosition;
                 if (offset > 0) {
                     offset = Math.min(offset, rightColWidth - MIN_WIDTH);
@@ -94,5 +96,15 @@ function wiTableResizeableController($element, $timeout, $scope) {
             calculateWidth();
             setupResizers();
         }, 500)
+    }
+    $scope.typeof = function (arg) {
+        return typeof arg;
+    }
+    this.orderBy = function (header) {
+        if (self.orderHeader === header) {
+            self.orderReverse = !self.orderReverse;
+            return;
+        }
+        self.orderHeader = header;
     }
 }

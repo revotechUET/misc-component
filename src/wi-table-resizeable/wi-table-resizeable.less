@@ -25,7 +25,10 @@ wi-table-resizeable {
                     overflow     : hidden;
                     white-space  : nowrap;
                     text-overflow: ellipsis;
-
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
                 }
 
                 .holder-resizeable {
@@ -65,7 +68,7 @@ wi-table-resizeable {
         80% {
             opacity: 100%;
         }
-    
+
         100% {
             opacity: 30%;
         }
