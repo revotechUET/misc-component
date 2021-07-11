@@ -16,7 +16,12 @@ app.component(componentName, {
 
 function printSettingsCtrl() {
     let self = this;
-    
+
     this.$onInit = function () {
+    }
+
+    this.imageMode = function () {
+        self.plotCtrl.printMode = 'image';
+        self.plotCtrl.isPageBreak = false;
     }
 }
