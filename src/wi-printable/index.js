@@ -167,10 +167,9 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.tmpElements.push(pcpElem);
         $(pcpElem).addClass('print-cmd-panel');
         const previewScope = $scope.$new();
-        previewScope._pageIdx = 1;
         previewScope.$ctrl = self;
         const pcpContent = `
-                <span>{{$ctrl.getPrintInfo()}}</span>
+                <span ng-bind="$ctrl.getPrintInfo()"></span>
                 <button ng-click="$ctrl.exitPreview()">Close</button>
                 <button ng-click="$ctrl.doPrint()" ng-if="!$ctrl.isPageBreak">Print</button>
                 <div style="display: inline-block;"
@@ -189,9 +188,9 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
                     <button ng-click="$ctrl.lastPage($ctrl)">Last Page</button>
                 </div>
         `;
-        //`<input ng-model="_pageIdx" ng-change="$ctrl.pageIdx = _pageIdx - 1; $ctrl.goToPage($ctrl)" ng-model-options="{updateOn: 'change'}">`
         $(pcpElem).append($compile(pcpContent)(previewScope));
         printElem.parent()[0].prepend(pcpElem);
+        $timeout(); // fix weird bug! sometime pcp not rendered properly
     }
     this.getPageIdx = function() {
         return 0;
