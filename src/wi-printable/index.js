@@ -171,7 +171,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         const pcpContent = `
                 <span ng-bind="$ctrl.getPrintInfo()"></span>
                 <button ng-click="$ctrl.exitPreview()">Close</button>
-                <button ng-click="$ctrl.doPrint()" ng-if="!$ctrl.isPageBreak">Print</button>
+                <button ng-click="$ctrl.doPrint()" ng-if="$ctrl.showCtrlPage || !$ctrl.isPageBreak">Print</button>
                 <div style="display: inline-block;"
                 ng-if="$ctrl.showCtrlPage && $ctrl.isPageBreak">
                     <button ng-click="$ctrl.doPrintAll($ctrl, 'download')">Print All</button>
@@ -315,10 +315,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     }
     this.exportAsPDF = exportAsPDF;
     function exportAsPDF(newConfig = {}, callback) {
-        // let imgWidth = self.calcPrintWidth(self.printWidth, self.printElem);
-        // let maxViewWidth = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).width - self.horizontalMargin * 2);
-        // let imgHeight = self.calcPrintHeight(self.printWidth, self.aspectRatio, self.printElem);
-        // let maxViewHeight = wiApi.mmToPixel(getPaperSizeDefault(self.paperSize).height - self.verticalMargin * 2);
         let cb = callback || function (canvases) {
             let pdf = new jsPDF(self.orientation, 'mm', self.paperSize.toLowerCase());
             for (const canvas of canvases) {
@@ -331,11 +327,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             pdf.save(`${(self.getConfigTitle && self.getConfigTitle())
                         || 'myPDF'}.pdf`);
         }
-        //let defaultConfig = {x: 0, y: 0,
-            //width: _.min([imgWidth, maxViewWidth]) + 3,
-            //height: _.min([imgHeight, maxViewHeight]) + 3
-        //};
-        //let defaultConfig = {x: 0, y: 0};
         let defaultConfig = {x: self.printElem[0].offsetLeft / 2, y: 0};
         let config = {...defaultConfig, ...newConfig};
         html2Canvas(self.printElem[0], config, cb)
