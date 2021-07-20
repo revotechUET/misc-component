@@ -140,6 +140,10 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     this.preview4Print = preview4PrintDefault;
     function preview4PrintDefault() {
         self.tmpElements = [];
+        let styleElem = document.createElement("style");
+        styleElem.appendChild(document.createTextNode(self.getCssText()));
+        document.head.appendChild(styleElem);
+        self.tmpElements.push(styleElem);
         const printElem = $element.find(self.printElement);
         printElem.wrapAll('<div class="printable-wrapper"></div>');
         self.printElem = printElem;
@@ -155,11 +159,6 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
             self.printElem[0].style.marginLeft = `${self.horizontalMargin}mm`;
             self.printElem[0].style.marginRight = `${self.horizontalMargin}mm`;
         }
-        let styleElem = document.createElement("style");
-        self.tmpElements.push(styleElem);
-        styleElem.type = "text/css";
-        styleElem.appendChild(document.createTextNode(self.getCssText()));
-        document.head.appendChild(styleElem);
         printElem.addClass(self.cssClassName);
         printElem.width(self.calcPrintWidth(self.printWidth, printElem));
         printElem.height(self.calcPrintHeight(self.printWidth, self.aspectRatio, printElem));
@@ -257,6 +256,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         canvases.push(await html2canvas(htmlElem, {
             allowTaint: true,
             foreignObjectRendering: true,
+            scale: 1,
+            imageTimeout: 0,
             ...config
         }));
         callback && callback(canvases)

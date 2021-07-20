@@ -606,8 +606,8 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
         let inch = document.createElement('inch');
         inch.style = 'height: 1in; width: 1in; left: -100%; position: absolute; top: -100%;';
         document.body.appendChild(inch);
-        let devicePixelRatio = window.devicePixelRatio || 1;
-        let dpi = inch.clientWidth * devicePixelRatio;
+        // let devicePixelRatio = window.devicePixelRatio || 1;
+        let dpi = inch.clientWidth// * devicePixelRatio;
         document.body.removeChild(inch);
 
         __cachedDpi.value = dpi;
