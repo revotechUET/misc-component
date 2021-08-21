@@ -63,3 +63,5 @@ typings/
 .next
 yarn.lock
 pnpm-lock.yaml
+
+dist/
