@@ -42,11 +42,11 @@
                 <i ng-if="cell.icon" ng-class="cell.icon" title="{{cell.text}}"></i>
                 <button ng-if="!cell.icon">{{cell.text}}</button>
             </div>
-            <editable ng-switch-when="custom" params="[row, $index]" item-value="cell.value" set-value="self.setter"
+            <editable ng-switch-when="custom" params="[row, $index]" item-value="cell.value" set-value="setter"
                 enabled="self.cellEditable"
                 content-style="cell.style">
             </editable>
-            <editable params="[row, $index]" item-value="cell" set-value="self.setter"
+            <editable params="[row, $index]" item-value="cell" set-value="setter"
                 enabled="self.cellEditable"
                 ng-switch-default>
             </editable>

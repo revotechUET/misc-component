@@ -31,6 +31,11 @@ Controller.$inject = ['$element', '$scope'];
 function Controller($element, $scope) {
     let self = this;
 
+    function setTable() {
+        const rows = self.getRows();
+        const cols = self.getCols();
+        $scope.table = rows.map(r => cols.map(c => self.accessor([r, c])));
+    }
     this.$onInit = function() {
         this.colLabels = this.colLabels || {};
         this.rowLabels = this.rowLabels || {};
@@ -38,11 +43,6 @@ function Controller($element, $scope) {
         this.getRowIconStyle = this.getRowIconStyle || function() { return {} };
         self.cellStyle = self.cellStyle || {};
         $scope.table = [];
-        function setTable() {
-            const rows = self.getRows();
-            const cols = self.getCols();
-            $scope.table = rows.map(r => cols.map(c => self.accessor([r, c])));
-        }
         $scope.$watchCollection('self.itemList', setTable)
         $scope.$watchGroup([
             () => JSON.stringify(self.getOriginColHeaders()),
@@ -52,6 +52,11 @@ function Controller($element, $scope) {
                 return JSON.stringify(self.rowHeaders)
             }
         ], setTable)
+    }
+    $scope.setter = async function (...args) {
+        await self.setter(...args);
+        setTable();
+        if (!$scope.$root.$$phase) $scope.$digest();
     }
     this.getRowHeaderCellStyle = function($index) {
         if (typeof self.rowHeaderCellStyle == 'function') {
