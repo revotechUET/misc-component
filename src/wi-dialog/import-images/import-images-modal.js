@@ -343,8 +343,8 @@ export default function (ModalService, idProject, imgSetName, callback) {
             // console.log(arrayPatternProcess);
 
             // let arrayStringProcess = stringProcess.split('-');
-            let arrayString = stringProcess.replace(/[ #@*^$%!~]/g, '-');
-            let arrayStringProcess = arrayString.split('-');
+            let arrayString = stringProcess.replace(/[ #@*^$%!]/g, '~');
+            let arrayStringProcess = arrayString.split('~');
             // console.log(arrayStringProcess);
             let arrayPattern = [];
             file.information = {};
