@@ -1,5 +1,9 @@
 const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
+/**
+ * @type {import('webpack').Configuration}
+ */
 module.exports = {
 	context: __dirname + '/src',
 	mode: "development",
@@ -14,26 +18,6 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				enforce: 'pre',
-				test: /\.js$/,
-				include: [
-					path.resolve(__dirname, './src')
-				],
-				exclude: /vendor/,
-				use: [
-					{
-						loader: 'eslint-loader',
-						options: {
-							cache: true,
-							quiet: true,
-							parserOptions: {
-								ecmaVersion: 11,
-							}
-						},
-					},
-				],
-			},
-			{
 				test: /\.html$/,
 				use: ['html-loader']
 			}, {
@@ -47,5 +31,10 @@ module.exports = {
 		],
 	},
 	plugins: [
+		new ESLintPlugin({
+			context: path.resolve(__dirname, './src'),
+			cache: true,
+			quiet: true,
+		}),
 	],
 }

@@ -1,4 +1,5 @@
 const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 // const output = path.resolve(__dirname, '../wi-machine-learning/public/bower_components/misc-component/dist');
 // const output = path.resolve(__dirname, '../wi-angular/watch/bower_components/misc-component/dist');
@@ -16,26 +17,26 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{
-				enforce: 'pre',
-				test: /\.js$/,
-				include: [
-					path.resolve(__dirname, './src')
-				],
-				exclude: /vendor/,
-				use: [
-					{
-						loader: 'eslint-loader',
-						options: {
-							cache: true,
-							quiet: true,
-							parserOptions: {
-								ecmaVersion: 11,
-							}
-						},
-					},
-				],
-			},
+			// {
+			// 	enforce: 'pre',
+			// 	test: /\.js$/,
+			// 	include: [
+			// 		path.resolve(__dirname, './src')
+			// 	],
+			// 	exclude: /vendor/,
+			// 	use: [
+			// 		{
+			// 			loader: 'eslint-loader',
+			// 			options: {
+			// 				cache: true,
+			// 				quiet: true,
+			// 				parserOptions: {
+			// 					ecmaVersion: 11,
+			// 				}
+			// 			},
+			// 		},
+			// 	],
+			// },
 			{
 				test: /\.html$/,
 				use: ['html-loader']
@@ -50,5 +51,10 @@ module.exports = {
 		],
 	},
 	plugins: [
+		new ESLintPlugin({
+			context: './src',
+			cache: true,
+			// quiet: true,
+		}),
 	]
 }

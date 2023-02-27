@@ -23,7 +23,7 @@ function wiApiService($http, wiToken, Upload, $timeout, idClient) {
         if(!__cache_BaseUrl) {
             __cache_BaseUrl = window.localStorage.getItem('BASE_URL');
         }
-        return __cache_BaseUrl || 'http://users.i2g.cloud';
+        return __cache_BaseUrl || 'https://users.i2g.cloud';
     };
     let unitTable = undefined;
     let familyTable;
