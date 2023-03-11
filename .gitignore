@@ -64,3 +64,4 @@ yarn.lock
 pnpm-lock.yaml
 
 dist/
+link.config.json
