@@ -32,6 +32,8 @@ function component(componentData) {
             isFitWidth: "<",
             isPageBreak: "<",
             showCtrlPage: "<",
+            topDepthPrint: "<",
+            bottomDepthPrint: "<",
             ...componentData.bindings
         },
         transclude: componentData.transclude || false
@@ -100,6 +102,8 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
         self.printHeight = self.printHeight || 297; // in millimeters
         self.verticalMargin = self.verticalMargin || 0; // in millimeters
         self.horizontalMargin = self.horizontalMargin || 0; // in millimeters
+        self.topDepthPrint = self.topDepthPrint || 0;
+        self.bottomDepthPrint = self.bottomDepthPrint || 0;
         self.printElement = self.printElement || ".printable";
         self.printMode = self.printMode || "pdf";
         self.paperSize = 'A4';
