@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>toolbox_16x16</title>
+    <g id="toolbox_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" stroke="#0077BE" x="0.5" y="3" width="15" height="12" rx="2"></rect>
+        <path d="M10,1 C10.4142136,1 10.7892136,1.16789322 11.0606602,1.43933983 C11.3321068,1.71078644 11.5,2.08578644 11.5,2.5 L11.5,2.5 L11.5,3 L4.5,3 L4.5,2.5 C4.5,2.08578644 4.66789322,1.71078644 4.93933983,1.43933983 C5.21078644,1.16789322 5.58578644,1 6,1 L6,1 Z" id="Rectangle" stroke="#0077BE" fill="#FFFFFF"></path>
+        <path d="M0,8 L16,8 L16,12.5 C16,14.1568542 14.6568542,15.5 13,15.5 L3,15.5 C1.34314575,15.5 2.02906125e-16,14.1568542 0,12.5 L0,8 L0,8 Z" id="Rectangle-Copy-10" fill="#0077BE"></path>
+        <rect id="Rectangle" stroke="#FFFFFF" fill="#0077BE" x="6.5" y="5.75" width="3" height="4.5" rx="1.5"></rect>
+    </g>
+</svg>

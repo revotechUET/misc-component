@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>tenary_cross_16x16</title>
+    <g id="tenary_cross_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Triangle" stroke="#0077BE" points="8 0 16 16 0 16"></polygon>
+        <polygon id="Triangle" stroke="#0077BE" points="6 4 13 18 -1 18"></polygon>
+        <polygon id="Triangle" stroke="#0077BE" points="6 4 13 18 -1 18"></polygon>
+        <polygon id="Triangle" stroke="#0077BE" points="9.5 4 16 17 3 17"></polygon>
+    </g>
+</svg>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>density_gramma_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="76.7029485%" y2="8.20085208%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="126.894402%" y2="-16.5999945%" id="linearGradient-3">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="density_gramma_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Fill-1" fill="#0477BD" points="0 16 1 16 1 0 0 0"></polygon>
+        <circle id="Oval-Copy-21" fill="url(#linearGradient-1)" cx="3" cy="13" r="1"></circle>
+        <circle id="Oval-Copy-22" fill="url(#linearGradient-1)" cx="7" cy="12" r="1"></circle>
+        <circle id="Oval-Copy-23" fill="url(#linearGradient-2)" cx="4" cy="9" r="1"></circle>
+        <circle id="Oval-Copy-24" fill="url(#linearGradient-2)" cx="11" cy="13" r="1"></circle>
+        <circle id="Oval-Copy-25" fill="url(#linearGradient-1)" cx="3" cy="5" r="1"></circle>
+        <g id="Group-Copy" transform="translate(6.000000, 0.000000)" fill="url(#linearGradient-3)">
+            <rect id="Rectangle-Copy-7" x="0" y="0" width="10" height="10" rx="2"></rect>
+        </g>
+        <path d="M10.7225167,7.99642187 C11.0512944,7.99642187 11.321474,7.96224253 11.5330636,7.89388281 C11.9106697,7.76692905 12.2199114,7.52279087 12.460798,7.16146094 C12.6528562,6.87174595 12.7912012,6.50065591 12.8758371,6.04817969 C12.9246654,5.77799604 12.9490792,5.52734751 12.9490792,5.29622656 C12.9490792,4.40755024 12.772486,3.71745298 12.4192941,3.22591406 C12.0661022,2.73437515 11.4972602,2.48860937 10.7127511,2.48860937 L8.9891183,2.48860937 L8.9891183,7.99642187 L10.7225167,7.99642187 Z M8.0125558,1.65364844 L10.9178292,1.65364844 C11.9041623,1.65364844 12.6691286,2.00357983 13.2127511,2.70345312 C13.6977796,3.3349667 13.9402902,4.14387788 13.9402902,5.13021094 C13.9402902,5.8919335 13.7970624,6.58040317 13.5106027,7.19564062 C13.0060429,8.28288564 12.1385385,8.8265 10.9080636,8.8265 L8.0125558,8.8265 L8.0125558,1.65364844 Z" id="D" fill="#FFFFFF" fill-rule="nonzero"></path>
+        <polygon id="Fill-2" fill="#0477BD" points="1 16 16 16 16 15 1 15"></polygon>
+    </g>
+</svg>

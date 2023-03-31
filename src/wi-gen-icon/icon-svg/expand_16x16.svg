@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>expand_16x16</title>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="92.9753765%" y1="50%" x2="-30.6806867%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="187.764374%" x2="50%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="expand_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(1.000000, 1.000000)">
+            <circle id="Oval" stroke="url(#linearGradient-1)" transform="translate(7.000000, 7.000000) rotate(-270.000000) translate(-7.000000, -7.000000) " cx="7" cy="7" r="6.5"></circle>
+            <path d="M9.01195699,8.43917536 L5.31234752,5.47948779 C5.09671656,5.30698301 4.78207037,5.3419437 4.6095656,5.55757467 C4.53864038,5.64623119 4.5,5.75638644 4.5,5.86992219 L4.5,11.7892973 C4.5,12.0654397 4.72385763,12.2892973 5,12.2892973 C5.11353575,12.2892973 5.223691,12.250657 5.31234752,12.1797317 L9.01195699,9.22004417 C9.22758796,9.0475394 9.26254865,8.73289321 9.09004388,8.51726224 C9.06697799,8.48842989 9.04078935,8.46224124 9.01195699,8.43917536 Z" id="Fill-3" fill="url(#linearGradient-2)" transform="translate(7.000000, 8.829610) rotate(-270.000000) translate(-7.000000, -8.829610) "></path>
+            <rect id="Rectangle" fill="url(#linearGradient-3)" x="5.5" y="4" width="3" height="2.92263796" rx="0.5"></rect>
+        </g>
+    </g>
+</svg>

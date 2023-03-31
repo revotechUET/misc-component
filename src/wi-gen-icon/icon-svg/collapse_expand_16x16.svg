@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>collapse_expand_16x16</title>
+    <g id="collapse_expand_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-7" fill="#0077BE" x="7" y="2.5" width="8" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-9" fill="#0077BE" x="0.965403121" y="9.5" width="14.0345969" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="7" y="6" width="8" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-10" fill="#0077BE" x="0.965403121" y="13" width="14.0345969" height="1" rx="0.5"></rect>
+        <path d="M4.57239954,4.62436061 L1.8299925,2.21520492 C1.6225326,2.0329551 1.30661044,2.0533919 1.12436061,2.26085181 C1.04420506,2.35209504 1,2.46939374 1,2.59084431 L1,7.40915569 C1,7.68529807 1.22385763,7.90915569 1.5,7.90915569 C1.62145057,7.90915569 1.73874927,7.86495063 1.8299925,7.78479508 L4.57239954,5.37563939 C4.77985944,5.19338956 4.80029624,4.8774674 4.61804642,4.6700075 C4.60382994,4.65382449 4.58858254,4.6385771 4.57239954,4.62436061 Z" id="Fill-3" fill="#0077BE"></path>
+    </g>
+</svg>

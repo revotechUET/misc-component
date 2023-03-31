@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>build_pc_model_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.83016%" y1="92.6110365%" x2="0.635999848%" y2="-28.0016767%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="build_pc_model_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0.5,16 C0.776142375,16 1,15.7761424 1,15.5 L1,1.5 C1,1.22385763 0.776142375,1 0.5,1 C0.223857625,1 -3.38176876e-17,1.22385763 0,1.5 L0,15.5 C3.38176876e-17,15.7761424 0.223857625,16 0.5,16 Z" id="Fill-7" fill="#0477BD"></path>
+        <path d="M0.5,16 L14.5,16 C14.7761424,16 15,15.7761424 15,15.5 C15,15.2238576 14.7761424,15 14.5,15 L0.5,15 C0.223857625,15 -3.38176876e-17,15.2238576 0,15.5 C3.38176876e-17,15.7761424 0.223857625,16 0.5,16 Z" id="Fill-2" fill="#0477BD"></path>
+        <path d="M3.4952088,1.47739199 L3.4952088,7.47463234 C3.4952088,10.2360561 5.73378505,12.4746323 8.4952088,12.4746323 L14.4746111,12.4746323 L14.4746111,12.4746323" id="Line-3" stroke="url(#linearGradient-1)" stroke-linecap="round"></path>
+        <path d="M7,1.47739199 L7,5 C7,7.209139 8.790861,9 11,9 L14.4746111,9 L14.4746111,9" id="Line-3" stroke="url(#linearGradient-2)" stroke-linecap="round"></path>
+        <path d="M10.5168987,1.47739199 L10.5168987,2.51272672 C10.5168987,4.16958097 11.8600444,5.51272672 13.5168987,5.51272672 L14.4746111,5.51272672 L14.4746111,5.51272672" id="Line-3" stroke="url(#linearGradient-3)" stroke-linecap="round"></path>
+    </g>
+</svg>

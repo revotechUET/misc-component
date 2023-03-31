@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>color_zaxes_16x16</title>
+    <g id="color_zaxes_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-20-Copy-67" fill="#F1F064" x="0" y="8" width="2" height="8"></rect>
+        <rect id="Rectangle-20-Copy-68" fill="#1EBE00" x="2" y="8" width="2" height="8"></rect>
+        <rect id="Rectangle-20-Copy-69" fill="#002A87" x="6" y="8" width="2" height="8"></rect>
+        <rect id="Rectangle-20-Copy-72" fill="#F81CC2" x="12" y="8" width="2" height="8"></rect>
+        <rect id="Rectangle-20-Copy-71" fill="#8F64F1" x="8" y="8" width="2" height="8"></rect>
+        <rect id="Rectangle-20-Copy-73" fill="#8B2A2A" x="14" y="8" width="2" height="8"></rect>
+        <rect id="Rectangle-20-Copy-70" fill="#02D07C" x="4" y="8" width="2" height="8"></rect>
+        <rect id="Rectangle-20-Copy-74" fill="#C223F5" x="10" y="8" width="2" height="8"></rect>
+        <rect id="Rectangle-20-Copy-42" fill="#0077BE" x="3" y="0" width="1" height="4"></rect>
+        <rect id="Rectangle-20-Copy-45" fill="#0077BE" x="6" y="-1" width="1" height="4"></rect>
+        <rect id="Rectangle-20-Copy-49" fill="#0077BE" x="12" y="-1" width="1" height="4"></rect>
+        <rect id="Rectangle-20-Copy-46" fill="#0077BE" x="9" y="0" width="1" height="4"></rect>
+        <rect id="Rectangle-20-Copy-43" fill="#0077BE" x="0" y="-1" width="1" height="4"></rect>
+        <rect id="Rectangle-20-Copy-47" fill="#0077BE" x="15" y="0" width="1" height="4"></rect>
+        <rect id="Rectangle-20-Copy-48" fill="#0077BE" x="0" y="0" width="16" height="1"></rect>
+    </g>
+</svg>

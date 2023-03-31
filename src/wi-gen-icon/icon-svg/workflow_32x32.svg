@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>workflow_32x32</title>
+    <g id="workflow_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-Copy-6" stroke="#0077BE" x="22.5" y="2.5" width="8" height="8" rx="2"></rect>
+        <rect id="Rectangle-Copy-9" stroke="#0077BE" x="1.5" y="12.5" width="8" height="8" rx="2"></rect>
+        <rect id="Rectangle-Copy-7" stroke="#0077BE" x="22.5" y="12.5" width="8" height="8" rx="2"></rect>
+        <rect id="Rectangle-Copy-8" stroke="#0077BE" x="22.5" y="22.5" width="8" height="8" rx="2"></rect>
+        <rect id="Rectangle" fill="#F16464" x="11" y="16" width="9" height="1" rx="0.5"></rect>
+        <path d="M19,6.5 L17,6.5 C15.8954305,6.5 15,7.3954305 15,8.5 L15,24.5 C15,25.6045695 15.8954305,26.5 17,26.5 L19,26.5 L19,26.5" id="Line" stroke="#F16464" stroke-linecap="square"></path>
+        <polygon id="Fill-22" fill="#F16464" transform="translate(20.250000, 6.500000) rotate(-270.000000) translate(-20.250000, -6.500000) " points="20.25 5.75 18.9375 7.25 21.5625 7.25"></polygon>
+        <polygon id="Fill-22-Copy" fill="#F16464" transform="translate(20.250000, 16.500000) rotate(-270.000000) translate(-20.250000, -16.500000) " points="20.25 15.75 18.9375 17.25 21.5625 17.25"></polygon>
+        <polygon id="Fill-22-Copy-2" fill="#F16464" transform="translate(20.250000, 26.500000) rotate(-270.000000) translate(-20.250000, -26.500000) " points="20.25 25.75 18.9375 27.25 21.5625 27.25"></polygon>
+        <rect id="Rectangle-Copy-10" fill="#0077BE" x="4" y="18" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-12" fill="#0077BE" x="4" y="16" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-11" fill="#0077BE" x="4" y="14" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-13" fill="#0077BE" x="25" y="6" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-13" fill="#0077BE" x="25" y="16" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-14" fill="#0077BE" x="25" y="26" width="3" height="1" rx="0.5"></rect>
+    </g>
+</svg>

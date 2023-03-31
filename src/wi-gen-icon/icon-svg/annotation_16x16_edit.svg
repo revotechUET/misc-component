@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>annotation_16x16_edit</title>
+    <defs>
+        <linearGradient x1="28.2376982%" y1="50%" x2="50%" y2="76.6278281%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="annotation_16x16_edit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(1.000000, 1.000000)" fill-rule="nonzero">
+            <path d="M10.807209,-0.438875505 C11.2456835,-0.438875505 11.6867978,-0.240969743 11.9912708,0.0635033076 L11.9912708,0.0635033076 L13.9607624,2.03299483 C14.26271,2.3349425 14.4631412,2.80485996 14.4631412,3.24078551 C14.4631412,3.67926009 14.2652354,4.12037433 13.9607624,4.42484738 L13.9607624,4.42484738 L13.2014403,5.18416941 L11.7777115,6.60789822 L4.53922227,13.8463875 L-0.167961139,14.4702311 L0.115733455,9.6190535 L9.61430899,0.0723839129 C9.923019,-0.264418282 10.3634039,-0.438875505 10.807209,-0.438875505 Z" id="Path" stroke="#FFFFFF" fill="url(#linearGradient-1)"></path>
+            <polygon id="Path" fill="#FFFFFF" points="1.90890389 13.230616 0.769920836 12.091633 0.983480158 10.3594296 3.61737846 12.9933279"></polygon>
+            <polygon id="Path" fill="#FFFFFF" points="11.2580564 5.73231094 8.26822592 2.74248043 9.35975134 1.650955 12.3495819 4.64078551"></polygon>
+        </g>
+    </g>
+</svg>

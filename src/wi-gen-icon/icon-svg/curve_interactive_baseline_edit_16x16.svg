@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>curve_interactive_baseline_edit_16x16</title>
+    <defs>
+        <linearGradient x1="60.0611435%" y1="15.6593998%" x2="40.3107348%" y2="90.579711%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="7.14365927%" y1="47.8667285%" x2="100%" y2="47.8667285%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="curve_interactive_baseline_edit_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(4.000000, 0.000000)">
+            <path d="M2.72727273,0.5 C5.90909091,1.05000234 7.5,2.41363871 7.5,4.59090909 C7.5,9.16493955 3.10862447e-15,7.99289056 3.10862447e-15,12.0766836 C3.10862447e-15,13.6770764 0.909090909,14.8181818 2.72727273,15.5 L2.72727273,0.5 Z" id="Rectangle" fill="url(#linearGradient-1)"></path>
+            <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="2.5" y="0" width="1" height="16" rx="0.5"></rect>
+        </g>
+        <path d="M0.351304411,8.3111172 L2.64421185,10.6332893 C2.83823191,10.8297857 3.15480804,10.8317931 3.35130441,10.6377731 C3.44644732,10.5438292 3.5,10.4156921 3.5,10.2819849 L3.5,5.69622726 C3.5,5.42008488 3.27614237,5.19622726 3,5.19622726 C2.86850416,5.19622726 2.74230142,5.24802798 2.64872457,5.34041049 L0.355816767,7.60405362 C0.159275983,7.7980287 0.157242758,8.11460466 0.351246821,8.31111683 C0.351256358,8.31112649 0.351265896,8.31113615 0.351304411,8.3111172 Z" id="Fill-12-Copy" fill="url(#linearGradient-2)" transform="translate(1.750000, 8.000000) rotate(-360.000000) translate(-1.750000, -8.000000) "></path>
+        <path d="M12.8513044,8.3111172 L15.1442118,10.6332893 C15.3382319,10.8297857 15.654808,10.8317931 15.8513044,10.6377731 C15.9464473,10.5438292 16,10.4156921 16,10.2819849 L16,5.69622726 C16,5.42008488 15.7761424,5.19622726 15.5,5.19622726 C15.3685042,5.19622726 15.2423014,5.24802798 15.1487246,5.34041049 L12.8558168,7.60405362 C12.659276,7.7980287 12.6572428,8.11460466 12.8512468,8.31111683 C12.8512564,8.31112649 12.8512659,8.31113615 12.8513044,8.3111172 Z" id="Fill-12-Copy" fill="url(#linearGradient-2)" transform="translate(14.250000, 8.000000) rotate(-180.000000) translate(-14.250000, -8.000000) "></path>
+    </g>
+</svg>

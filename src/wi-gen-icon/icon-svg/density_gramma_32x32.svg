@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>density_gramma_32x32</title>
+    <defs>
+        <linearGradient x1="31.9738957%" y1="66.6420118%" x2="106.863922%" y2="30.0180583%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="59.7762187%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="76.7029485%" y2="8.20085208%" id="linearGradient-3">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="density_gramma_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(11.000000, -0.038475)">
+            <rect id="Rectangle-Copy-7" fill="url(#linearGradient-1)" x="0.2" y="0" width="20.8" height="12" rx="2"></rect>
+            <path d="M6.3671875,8.95188925 C6.72884295,8.95188925 7.0260405,8.91429197 7.25878906,8.83909628 C7.67415572,8.69944714 8.01432159,8.43089514 8.27929688,8.03343222 C8.49056095,7.71474573 8.64274042,7.30654668 8.73583984,6.80882284 C8.78955105,6.51162084 8.81640625,6.23590745 8.81640625,5.9816744 C8.81640625,5.00413045 8.62215364,4.24502346 8.23364258,3.70433065 C7.84513152,3.16363785 7.21940536,2.8932955 6.35644531,2.8932955 L4.46044922,2.8932955 L4.46044922,8.95188925 L6.3671875,8.95188925 Z M3.38623047,1.97483847 L6.58203125,1.97483847 C7.66699761,1.97483847 8.50846055,2.359763 9.10644531,3.12962362 C9.63997663,3.82428855 9.90673828,4.71409085 9.90673828,5.79905722 C9.90673828,6.63695203 9.74918777,7.39426868 9.43408203,8.07102987 C8.87906624,9.26699939 7.92481146,9.86497519 6.57128906,9.86497519 L3.38623047,9.86497519 L3.38623047,1.97483847 Z M14.6923828,1.7707369 C15.4335975,1.7707369 16.0745416,1.91396464 16.6152344,2.2004244 C17.399418,2.61221032 17.8792309,3.33372003 18.0546875,4.36497519 L16.996582,4.36497519 C16.8676751,3.78847491 16.6009135,3.36863861 16.1962891,3.1054537 C15.7916646,2.84226879 15.2814158,2.71067831 14.6655273,2.71067831 C13.9350549,2.71067831 13.3200709,2.98460135 12.8205566,3.53245565 C12.3210424,4.08030996 12.0712891,4.89670804 12.0712891,5.9816744 C12.0712891,6.91983014 12.2771789,7.683413 12.6889648,8.27244589 C13.1007508,8.86147878 13.7721308,9.15599081 14.703125,9.15599081 C15.4156937,9.15599081 16.0056129,8.94920577 16.4729004,8.53562948 C16.9401879,8.1220532 17.1791992,7.45335871 17.1899414,6.52952597 L14.7192383,6.52952597 L14.7192383,5.6432955 L18.1835938,5.6432955 L18.1835938,9.86497519 L17.4960938,9.86497519 L17.2382812,8.84983847 C16.8766258,9.24730139 16.5561537,9.52301478 16.2768555,9.6769869 C15.8077776,9.94196219 15.2115922,10.0744478 14.4882812,10.0744478 C13.5537063,10.0744478 12.7498406,9.77187925 12.0766602,9.166733 C11.342607,8.40761462 10.9755859,7.36563285 10.9755859,6.04075644 C10.9755859,4.71946077 11.3336553,3.66852727 12.0498047,2.8879244 C12.7301466,2.14312901 13.6109972,1.7707369 14.6923828,1.7707369 Z" id="DG" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+        <g id="Group-6" transform="translate(0.000000, 4.000000)">
+            <g id="Group-5">
+                <g id="Group-3">
+                    <g id="Group-2">
+                        <polygon id="Fill-1" fill="#0477BD" points="2 26 3 26 3 0.5 2 0.5"></polygon>
+                        <polygon id="Fill-1-Copy" fill="#0477BD" points="2 26 30 26 30 25 2 25"></polygon>
+                        <path d="M2,27 L3,27 C3.55228475,27 4,26.5522847 4,26 L4,25 C4,24.4477153 3.55228475,24 3,24 L2,24 C1.44771525,24 1,24.4477153 1,25 L1,26 C1,26.5522847 1.44771525,27 2,27 Z" id="Fill-1-Copy-2" fill="#0477BD"></path>
+                        <line x1="2.5" y1="0.5" x2="1.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round"></line>
+                        <line x1="3.5" y1="0.5" x2="2.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round" transform="translate(3.000000, 1.000000) rotate(-270.000000) translate(-3.000000, -1.000000) "></line>
+                        <line x1="1.76870651" y1="5.76870651" x2="1.76870651" y2="7.76870651" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 7.000000) rotate(-270.000000) translate(-2.268707, -7.000000) "></line>
+                        <line x1="1.76870651" y1="10.2687065" x2="1.76870651" y2="12.2687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 11.500000) rotate(-270.000000) translate(-2.268707, -11.500000) "></line>
+                        <line x1="1.76870651" y1="14.7687065" x2="1.76870651" y2="16.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 16.000000) rotate(-270.000000) translate(-2.268707, -16.000000) "></line>
+                        <line x1="1.76870651" y1="19.7687065" x2="1.76870651" y2="21.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 21.000000) rotate(-270.000000) translate(-2.268707, -21.000000) "></line>
+                    </g>
+                    <line x1="7.5" y1="24.5" x2="7.5" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                    <line x1="13" y1="24.5" x2="13" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                    <line x1="18.5" y1="24.5" x2="18.5" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                    <line x1="24" y1="24.5" x2="24" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                </g>
+                <g id="Group-4" transform="translate(28.000000, 24.000000)" stroke="#0077BE" stroke-linecap="round">
+                    <line x1="2" y1="0.5" x2="1" y2="1.5" id="Line" transform="translate(1.500000, 1.000000) rotate(-270.000000) translate(-1.500000, -1.000000) "></line>
+                    <line x1="2" y1="1.5" x2="1" y2="2.5" id="Line" transform="translate(1.500000, 2.000000) rotate(-180.000000) translate(-1.500000, -2.000000) "></line>
+                </g>
+            </g>
+            <circle id="Oval-Copy-21" fill="url(#linearGradient-2)" cx="24" cy="19" r="2"></circle>
+            <circle id="Oval-Copy-19" fill="url(#linearGradient-3)" cx="26" cy="12" r="2"></circle>
+            <circle id="Oval-Copy-20" fill="url(#linearGradient-2)" cx="15" cy="19" r="2"></circle>
+            <circle id="Oval-Copy-24" fill="url(#linearGradient-2)" cx="19" cy="14" r="2"></circle>
+            <circle id="Oval-Copy-22" fill="url(#linearGradient-2)" cx="11" cy="13.5" r="2"></circle>
+            <circle id="Oval-Copy-23" fill="url(#linearGradient-3)" cx="8" cy="20" r="2"></circle>
+        </g>
+    </g>
+</svg>

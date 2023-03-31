@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>curve_transformation_32x32</title>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="23.4948234%" id="linearGradient-1">
+            <stop stop-color="#F99D9D" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="77.1089166%" y1="100%" x2="77.1089166%" y2="0%" id="linearGradient-2">
+            <stop stop-color="#F99D9D" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="61.5497821%" y1="15.6593998%" x2="38.8771191%" y2="90.579711%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="curve_transformation_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(12.000000, 18.500000)">
+            <polygon id="Fill-22" fill="#F16464" transform="translate(3.020536, 5.000000) rotate(-450.000000) translate(-3.020536, -5.000000) " points="3.02053587 2.5 -1.97946413 7.5 8.02053587 7.5"></polygon>
+            <polygon id="Fill-21" fill="url(#linearGradient-1)" transform="translate(7.739732, 5.000000) rotate(-450.000000) translate(-7.739732, -5.000000) " points="5.23973206 7.26026794 10.2397321 7.26026794 10.2397321 2.73973206 5.23973206 2.73973206"></polygon>
+            <polygon id="Fill-21-Copy" fill="#FFFFFF" transform="translate(17.000000, 5.000000) scale(1, -1) rotate(270.000000) translate(-17.000000, -5.000000) " points="12.5 5.5 21.5 5.5 21.5 4.5 12.5 4.5"></polygon>
+            <polygon id="Fill-22" fill="#F16464" transform="translate(17.000000, 5.000000) rotate(-270.000000) translate(-17.000000, -5.000000) " points="17 2.5 12 7.5 22 7.5"></polygon>
+            <polygon id="Fill-21" fill="url(#linearGradient-2)" transform="translate(12.250000, 5.000000) rotate(-270.000000) translate(-12.250000, -5.000000) " points="9.75 7.25 14.75 7.25 14.75 2.75 9.75 2.75"></polygon>
+        </g>
+        <g id="Group" transform="translate(4.500000, 0.758105)">
+            <path d="M5.45454545,1 C11.8181818,2.02667104 15,4.57212559 15,8.63636364 C15,17.1745538 1.50990331e-14,14.9867291 1.50990331e-14,22.6098095 C1.50990331e-14,25.5972092 1.81818182,27.7272727 5.45454545,29 L5.45454545,1 Z" id="Rectangle" fill="url(#linearGradient-3)"></path>
+            <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="5" y="0" width="1" height="30" rx="0.5"></rect>
+        </g>
+    </g>
+</svg>

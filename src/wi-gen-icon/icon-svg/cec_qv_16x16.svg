@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>cec_qv_16x16</title>
+    <g id="cec_qv_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-7" stroke="#0077BE" x="0.5" y="3.5" width="15" height="9" rx="2"></rect>
+        <text id="Cec" font-family="Helvetica" font-size="12" font-weight="normal" fill="#0077BE">
+            <tspan x="-7.33984375" y="15">Cec</tspan>
+        </text>
+    </g>
+</svg>

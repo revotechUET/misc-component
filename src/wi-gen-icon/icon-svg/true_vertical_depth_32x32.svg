@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>true_vertical_depth_32x32</title>
+    <defs>
+        <linearGradient x1="83.1582131%" y1="73.0807996%" x2="18.7468241%" y2="40.892309%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#15A0F2" offset="50.7947977%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="94.9146935%" y1="55.1521844%" x2="10.3793657%" y2="37.1353699%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" stop-opacity="0.225062274" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="true_vertical_depth_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5" transform="translate(0.000000, 4.000000)">
+            <g id="Group-3">
+                <g id="Group-2">
+                    <polygon id="Fill-1" fill="#0477BD" points="2 26 3 26 3 0.5 2 0.5"></polygon>
+                    <polygon id="Fill-1-Copy" fill="#0477BD" points="2 26 30 26 30 25 2 25"></polygon>
+                    <path d="M2,27 L3,27 C3.55228475,27 4,26.5522847 4,26 L4,25 C4,24.4477153 3.55228475,24 3,24 L2,24 C1.44771525,24 1,24.4477153 1,25 L1,26 C1,26.5522847 1.44771525,27 2,27 Z" id="Fill-1-Copy-2" fill="#0477BD"></path>
+                    <line x1="2.5" y1="0.5" x2="1.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round"></line>
+                    <line x1="3.5" y1="0.5" x2="2.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round" transform="translate(3.000000, 1.000000) rotate(-270.000000) translate(-3.000000, -1.000000) "></line>
+                    <line x1="1.76870651" y1="5.76870651" x2="1.76870651" y2="7.76870651" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 7.000000) rotate(-270.000000) translate(-2.268707, -7.000000) "></line>
+                    <line x1="1.76870651" y1="10.2687065" x2="1.76870651" y2="12.2687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 11.500000) rotate(-270.000000) translate(-2.268707, -11.500000) "></line>
+                    <line x1="1.76870651" y1="14.7687065" x2="1.76870651" y2="16.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 16.000000) rotate(-270.000000) translate(-2.268707, -16.000000) "></line>
+                    <line x1="1.76870651" y1="19.7687065" x2="1.76870651" y2="21.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 21.000000) rotate(-270.000000) translate(-2.268707, -21.000000) "></line>
+                </g>
+                <line x1="7.5" y1="24.5" x2="7.5" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                <line x1="13" y1="24.5" x2="13" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                <line x1="18.5" y1="24.5" x2="18.5" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                <line x1="24" y1="24.5" x2="24" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+            </g>
+            <g id="Group-4" transform="translate(28.000000, 24.000000)" stroke="#0077BE" stroke-linecap="round">
+                <line x1="2" y1="0.5" x2="1" y2="1.5" id="Line" transform="translate(1.500000, 1.000000) rotate(-270.000000) translate(-1.500000, -1.000000) "></line>
+                <line x1="2" y1="1.5" x2="1" y2="2.5" id="Line" transform="translate(1.500000, 2.000000) rotate(-180.000000) translate(-1.500000, -2.000000) "></line>
+            </g>
+        </g>
+        <line x1="6" y1="23" x2="8" y2="25" id="Line-4" stroke="#F16464" stroke-linecap="round"></line>
+        <line x1="10" y1="23" x2="8" y2="25" id="Line-4" stroke="#F16464" stroke-linecap="round"></line>
+        <line x1="8" y1="5" x2="8" y2="24.6733983" id="Line-3" stroke="#F16464" stroke-linecap="round"></line>
+        <line x1="22" y1="23" x2="24" y2="25" id="Line-4" stroke="#F16464" stroke-linecap="round" transform="translate(23.000000, 24.000000) rotate(-90.000000) translate(-23.000000, -24.000000) "></line>
+        <line x1="24" y1="21" x2="22" y2="23" id="Line-4" stroke="#F16464" stroke-linecap="round" transform="translate(23.000000, 22.000000) rotate(-90.000000) translate(-23.000000, -22.000000) "></line>
+        <path d="M26.5638339,8.08465663 C21.6731859,7.90773451 17.5481859,8.85823767 14.1888339,10.9361661 C10.8294819,13.0140945 8.95448188,16.0140945 8.5638339,19.9361661" id="Line-3" stroke="#F16464" stroke-linecap="round" transform="translate(17.563834, 14.000000) rotate(-90.000000) translate(-17.563834, -14.000000) "></path>
+        <rect id="Rectangle-15-Copy-17" fill="#FFFFFF" x="26.9742508" y="8" width="3" height="2"></rect>
+        <rect id="Rectangle-15-Copy-18" fill="#FFFFFF" x="15.9742508" y="7" width="3" height="2"></rect>
+        <g id="Untitled-1" transform="translate(15.500000, 3.000000)">
+            <path d="M13.4512031,6.39525125 L11.6577093,6.39525125 C11.4335226,3.83715075 9.28133011,1.82721464 6.72560153,1.82721464 C5.38048122,1.82721464 4.1250356,2.37537904 3.22828873,3.28898636 L1.97284311,2.00993611 C3.18345139,0.776566223 4.88727044,0 6.72560153,0 C10.2677517,0 13.2270163,2.8321827 13.4512031,6.39525125 Z" id="Path" fill="url(#linearGradient-1)"></path>
+            <path d="M11.4783599,11.6941737 C10.2677517,12.9275436 8.56393261,13.7041098 6.72560153,13.7041098 C3.18345139,13.7041098 0.224186718,10.8719271 0,7.30885857 L1.79349374,7.30885857 C2.01768046,9.86695907 4.1250356,11.8768952 6.72560153,11.8768952 C8.07072183,11.8768952 9.32616745,11.3287308 10.2229143,10.4151235 L11.4783599,11.6941737 Z" id="Path" fill="url(#linearGradient-2)"></path>
+            <polygon id="Path" fill="#0077BE" points="4.93210779 5.02484027 0.448373435 5.02484027 0.448373435 0.456803661 1.97284311 2.00993611 3.22828873 3.28898636"></polygon>
+            <polygon id="Path" fill="#F16464" points="13.0028296 8.67926956 13.0028296 13.2473062 11.4783599 11.6941737 10.2229143 10.4151235 8.51909527 8.67926956"></polygon>
+        </g>
+    </g>
+</svg>

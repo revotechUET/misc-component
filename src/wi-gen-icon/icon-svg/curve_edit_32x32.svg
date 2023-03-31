@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>curve_edit_32x32</title>
+    <defs>
+        <linearGradient x1="86.5876568%" y1="17.1593952%" x2="24.7723847%" y2="92.4930067%" id="linearGradient-1">
+            <stop stop-color="#F99D9D" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="61.5497821%" y1="15.6593998%" x2="38.8771191%" y2="90.579711%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="curve_edit_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(14.000000, 14.000000)" fill-rule="nonzero">
+            <path d="M13.1230395,-0.425777399 C13.6276157,-0.425777399 14.1348317,-0.197363163 14.4850674,0.1528726 L14.4850674,0.1528726 L16.8765929,2.54439802 C17.2243032,2.89210841 17.4552429,3.4332123 17.4552429,3.93523955 C17.4552429,4.43981582 17.2268286,4.94703175 16.8765929,5.29726752 L16.8765929,5.29726752 L5.46183243,16.7120279 L-0.0894187804,17.4477359 L0.245123271,11.7270669 L11.7520414,0.161885845 C12.1065296,-0.225835086 12.6130696,-0.425777399 13.1230395,-0.425777399 Z" id="Path" stroke="#FFFFFF" fill="url(#linearGradient-1)"></path>
+            <polygon id="Path" fill="#FFFFFF" points="2.31795472 16.065748 0.934903872 14.6826972 1.19422591 12.5793073 4.39253099 15.7776124"></polygon>
+            <polygon id="Path" fill="#FFFFFF" points="13.6704971 6.96066328 10.0399886 3.3301548 11.3654123 2.00473108 14.9959208 5.63523955"></polygon>
+        </g>
+        <g id="Group" transform="translate(4.000000, 1.000000)">
+            <path d="M5.45454545,1 C11.8181818,2.02667104 15,4.57212559 15,8.63636364 C15,17.1745538 1.50990331e-14,14.9867291 1.50990331e-14,22.6098095 C1.50990331e-14,25.5972092 1.81818182,27.7272727 5.45454545,29 L5.45454545,1 Z" id="Rectangle" fill="url(#linearGradient-2)"></path>
+            <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="5" y="0" width="1" height="30" rx="0.5"></rect>
+        </g>
+    </g>
+</svg>

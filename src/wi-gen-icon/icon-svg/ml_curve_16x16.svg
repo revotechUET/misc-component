@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ml_curve_16x16</title>
+    <g id="ml_curve_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <path d="M10,13 C6,12.2856932 4,11.2856932 4,10 C4,7.06521739 12,8.29784793 12,5.5 C12,4.10869565 9.33333333,3.10869565 4,2.5" id="Line-7" stroke="#0077BE"></path>
+        <line x1="7.99331444" y1="5" x2="8" y2="6" id="Line-4" stroke="#0077BE" transform="translate(8.000000, 5.500000) rotate(-360.000000) translate(-8.000000, -5.500000) "></line>
+        <line x1="7.99665722" y1="-0.5" x2="8" y2="1.5" id="Line-4" stroke="#0077BE" transform="translate(8.000000, 0.500000) rotate(-360.000000) translate(-8.000000, -0.500000) "></line>
+        <line x1="8" y1="9.5" x2="8" y2="10.5" id="Line-4" stroke="#0077BE" transform="translate(8.000000, 10.000000) rotate(-360.000000) translate(-8.000000, -10.000000) "></line>
+        <line x1="8" y1="14.5" x2="8" y2="16.5" id="Line-4" stroke="#0077BE" transform="translate(8.000000, 15.500000) rotate(-360.000000) translate(-8.000000, -15.500000) "></line>
+    </g>
+</svg>

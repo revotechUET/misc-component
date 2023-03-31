@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>smooth_curve_16x16</title>
+    <defs>
+        <linearGradient x1="60.0611435%" y1="15.6593998%" x2="40.3107348%" y2="90.579711%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="smooth_curve_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M8.26303475,15.3617109 C7.65597416,13.6309017 7.62341205,12.2230944 8.16534843,11.1382891 C9.12508033,9.21717383 13.1741563,8.83828911 13.1741563,5.13828911 C13.1741563,3.42705055 12.2358385,1.92705055 10.3592029,0.638289112" id="Line-7" stroke="#F16464" stroke-linecap="round"></path>
+        <g id="Group" transform="translate(2.000000, 0.000000)">
+            <path d="M2.72727273,0.5 C5.90909091,1.05000234 7.5,2.41363871 7.5,4.59090909 C7.5,9.16493955 3.10862447e-15,7.99289056 3.10862447e-15,12.0766836 C3.10862447e-15,13.6770764 0.909090909,14.8181818 2.72727273,15.5 L2.72727273,0.5 Z" id="Rectangle" fill="url(#linearGradient-1)"></path>
+            <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="2.5" y="0" width="1" height="16" rx="0.5"></rect>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>well_new_32x32</title>
+    <defs>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="94.4018434%" y2="4.08845942%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="40.6307266%" y1="26.624498%" x2="90.6870367%" y2="65.9792711%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="well_new_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polyline id="Line" stroke="#0077BE" stroke-linecap="round" transform="translate(14.218782, 18.000000) scale(-1, 1) translate(-14.218782, -18.000000) " points="9.4375633 28 12.5112037 8 15.9263596 8 19 28"></polyline>
+        <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="2" y="28" width="19" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-10" fill="#0077BE" x="4.5" y="23" width="4" height="6" rx="1"></rect>
+        <rect id="Rectangle-7-Copy-10" fill="#0077BE" x="11.5547122" y="12" width="5.32813885" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-11" fill="#0077BE" x="11" y="16" width="6.39410156" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-12" fill="#0077BE" x="10.392422" y="20" width="7.80143603" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-13" fill="#0077BE" x="9.81806363" y="24" width="8.55252665" height="1" rx="0.5"></rect>
+        <rect id="Rectangle" fill="#0077BE" x="6" y="10.5" width="1" height="15" rx="0.5"></rect>
+        <rect id="Rectangle-Copy" fill="#0077BE" x="13.7187817" y="8" width="1" height="20.5" rx="0.5"></rect>
+        <g id="Group" transform="translate(18.000000, 18.000000)">
+            <g id="Group-4" fill="url(#linearGradient-1)" stroke="#FFFFFF">
+                <circle id="Oval-2" cx="6.49759615" cy="6.49759615" r="6.99759615"></circle>
+            </g>
+            <rect id="Rectangle" fill="#FFFFFF" x="5.74879808" y="2.16826923" width="1.49759615" height="8.66346154" rx="0.748798077"></rect>
+            <rect id="Rectangle" fill="#FFFFFF" x="2.16586538" y="5.75" width="8.66346154" height="1.5" rx="0.75"></rect>
+        </g>
+        <rect id="Rectangle-7-Copy-9" fill="url(#linearGradient-2)" transform="translate(14.337315, 8.406301) scale(-1, 1) rotate(10.000000) translate(-14.337315, -8.406301) " x="3.32435914" y="7.06109446" width="22.025911" height="2.6904127" rx="0.5"></rect>
+        <path d="M25.604742,1.30141881 L25.604742,12.4450871 C25.6048146,12.7212696 25.3809245,12.9451597 25.104742,12.9451597 C25.0119754,12.9451597 24.9210373,12.9193558 24.8420958,12.8706333 C22.3691532,11.3443382 21.1326819,9.31533567 21.1326819,6.78362568 C21.1326819,4.24643822 22.3745094,2.27403748 24.8581642,0.866423463 C25.0984049,0.730216426 25.4035627,0.8146008 25.5397317,1.05486314 C25.5823437,1.13004965 25.604742,1.2149966 25.604742,1.30141881 Z" id="Rectangle-7-Copy-9" fill="url(#linearGradient-3)" transform="translate(23.368712, 6.891484) scale(-1, 1) rotate(10.000000) translate(-23.368712, -6.891484) "></path>
+    </g>
+</svg>

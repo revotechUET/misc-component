@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>explorer_reload_16x16</title>
+    <g id="explorer_reload_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#0077BE" transform="translate(8.000000, 8.000000) rotate(-180.000000) translate(-8.000000, -8.000000) " cx="8" cy="8" r="5.5"></circle>
+        <rect id="Rectangle" fill="#F4F4F4" x="2" y="6" width="2" height="3"></rect>
+        <rect id="Rectangle-Copy" fill="#F4F4F4" x="12" y="7" width="2" height="3"></rect>
+        <path d="M5.75857864,6 L2,6 L2,6 L2,2.24142136 C2,2.18619288 2.04477153,2.14142136 2.1,2.14142136 C2.12652165,2.14142136 2.15195704,2.15195704 2.17071068,2.17071068 L3.36,3.36 L3.36,3.36 L4.48,4.48 L5.82928932,5.82928932 C5.86834175,5.86834175 5.86834175,5.93165825 5.82928932,5.97071068 C5.81053568,5.98946432 5.78510029,6 5.75857864,6 Z" id="Path" stroke="#0077BE" fill="#F4F4F4"></path>
+        <path d="M13.2585786,14 L9.5,14 L9.5,14 L9.5,10.2414214 C9.5,10.1861929 9.54477153,10.1414214 9.6,10.1414214 C9.62652165,10.1414214 9.65195704,10.151957 9.67071068,10.1707107 L10.86,11.36 L10.86,11.36 L11.98,12.48 L13.3292893,13.8292893 C13.3683418,13.8683418 13.3683418,13.9316582 13.3292893,13.9707107 C13.3105357,13.9894643 13.2851003,14 13.2585786,14 Z" id="Path" stroke="#0077BE" fill="#F4F4F4" transform="translate(11.500000, 12.000000) rotate(-180.000000) translate(-11.500000, -12.000000) "></path>
+    </g>
+</svg>

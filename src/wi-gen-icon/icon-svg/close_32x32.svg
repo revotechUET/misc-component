@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>close_32x32</title>
+    <g id="close_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(4.000000, 4.000000)" stroke="#F16464">
+            <circle id="Oval-2" cx="12" cy="12" r="11.5"></circle>
+            <line x1="11.9975588" y1="5.14285714" x2="12.0024412" y2="18.8571429" id="Line-4" stroke-width="2" stroke-linecap="round" transform="translate(12.000000, 12.000000) rotate(-315.000000) translate(-12.000000, -12.000000) "></line>
+            <line x1="12.0109493" y1="5.14285714" x2="11.9890507" y2="18.8571429" id="Line-4" stroke-width="2" stroke-linecap="round" transform="translate(12.000000, 12.000000) rotate(-585.000000) translate(-12.000000, -12.000000) "></line>
+        </g>
+    </g>
+</svg>

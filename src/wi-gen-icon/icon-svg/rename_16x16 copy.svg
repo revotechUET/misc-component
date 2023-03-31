@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>rename_16x16 copy</title>
+    <g id="rename_16x16-copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-20-Copy-32" fill="#F16464" x="2" y="6" width="5" height="4" rx="1"></rect>
+        <rect id="Rectangle-20-Copy-32" stroke="#0077BE" x="0.5" y="4.5" width="15" height="7" rx="2"></rect>
+        <polygon id="Fill-11" fill="#FFFFFF" points="9.5 14 13.5 14 13.5 2 9.5 2"></polygon>
+        <polygon id="Fill-11" fill="#0077BE" points="11 14 12 14 12 2 11 2"></polygon>
+        <path d="M9.5,2 L13.5,2 C13.7761424,2 14,1.77614237 14,1.5 C14,1.22385763 13.7761424,1 13.5,1 L9.5,1 C9.22385763,1 9,1.22385763 9,1.5 C9,1.77614237 9.22385763,2 9.5,2 Z" id="Fill-11" fill="#0077BE"></path>
+        <path d="M9.5,15 L13.5,15 C13.7761424,15 14,14.7761424 14,14.5 C14,14.2238576 13.7761424,14 13.5,14 L9.5,14 C9.22385763,14 9,14.2238576 9,14.5 C9,14.7761424 9.22385763,15 9.5,15 Z" id="Fill-11-Copy-2" fill="#0077BE"></path>
+    </g>
+</svg>

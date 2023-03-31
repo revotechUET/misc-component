@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>flow_unit_analysis_32x32</title>
+    <g id="flow_unit_analysis_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" stroke="#0077BE" x="5.5" y="9.5" width="21" height="15" rx="2"></rect>
+        <path d="M20,6.5 C20.4142136,6.5 20.7892136,6.66789322 21.0606602,6.93933983 C21.3321068,7.21078644 21.5,7.58578644 21.5,8 L21.5,8 L21.5,9.5 L10.5,9.5 L10.5,8 C10.5,7.58578644 10.6678932,7.21078644 10.9393398,6.93933983 C11.2107864,6.66789322 11.5857864,6.5 12,6.5 L12,6.5 L20,6.5 Z" id="Rectangle" stroke="#0077BE" fill="#FFFFFF"></path>
+        <path d="M5,15.5 L27,15.5 L27,21.5 C27,23.1568542 25.6568542,24.5 24,24.5 L8,24.5 C6.34314575,24.5 5,23.1568542 5,21.5 L5,15.5 L5,15.5 Z" id="Rectangle-Copy-10" fill="#0077BE"></path>
+        <rect id="Rectangle" stroke="#FFFFFF" fill="#0077BE" x="13.5" y="12.5" width="5" height="6" rx="2.5"></rect>
+    </g>
+</svg>

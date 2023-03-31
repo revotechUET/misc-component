@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>gradient_fpress_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#B0E1FF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="gradient_fpress_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12.4285714,14.5714286 C12.4285714,15.36 11.7885714,16 11,16 C10.2114286,16 9.57142857,15.36 9.57142857,14.5714286 C9.57142857,13.7828571 11,11 11,11 C11,11 12.4285714,13.7828571 12.4285714,14.5714286" id="Fill-10" fill="#F16464"></path>
+        <g id="Group-3">
+            <g id="Group" transform="translate(0.714286, 1.000000)">
+                <polygon id="Fill-2" fill="#0077BE" opacity="0.541341146" points="0 6.125 3.57142857 6.125 3.57142857 2.625 0 2.625"></polygon>
+                <polygon id="Fill-2-Copy" fill="#0077BE" opacity="0.214053199" points="0 2.625 3.57142857 2.625 3.57142857 0 0 0"></polygon>
+                <polygon id="Fill-3" fill="#0077BE" opacity="0.789155506" points="0 10.5 3.57142857 10.5 3.57142857 6.125 0 6.125"></polygon>
+                <polygon id="Fill-5" fill="#0477BD" points="0 14 3.57142857 14 3.57142857 10.5 0 10.5"></polygon>
+            </g>
+            <rect id="Rectangle-Copy" stroke="#0077BE" x="0.5" y="0.5" width="4" height="15" rx="2"></rect>
+        </g>
+        <path d="M7.695,14.1349032 C7.16333333,13.4241668 6.83333333,12.5505887 6.83333333,11.5888046 C6.83333333,9.2479545 8.7,7.3481341 11,7.3481341 C13.3,7.3481341 15.1666667,9.2479545 15.1666667,11.5888046 C15.1666667,12.5683995 14.8266667,13.4597885 14.2766667,14.1781581 C14.4483333,14.4342946 14.5875,14.7107863 14.7,15 C15.505,14.0967372 16,12.9025644 16,11.5888046 C16,8.78148074 13.7575,6.5 11,6.5 C8.24166667,6.5 6,8.78148074 6,11.5888046 C6,12.8839054 6.48416667,14.0602674 7.26833333,14.9584414 C7.38166667,14.6683796 7.5225,14.3910397 7.695,14.1349032" id="Fill-8" fill="#0477BD"></path>
+        <g id="Group-3" fill="url(#linearGradient-1)">
+            <rect id="Rectangle-Copy" x="0" y="0" width="5" height="16" rx="2"></rect>
+        </g>
+    </g>
+</svg>

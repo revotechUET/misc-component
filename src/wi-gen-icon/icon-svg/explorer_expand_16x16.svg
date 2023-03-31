@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>explorer_expand_16x16</title>
+    <g id="explorer_expand_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-7" fill="#9B9B9B" x="8" y="3" width="6.01729844" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-9" fill="#9B9B9B" x="0.98270156" y="9" width="13.0345969" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-8" fill="#9B9B9B" x="7.98270156" y="6" width="6.01729844" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-10" fill="#9B9B9B" x="0.98270156" y="12" width="13.0345969" height="1" rx="0.5"></rect>
+        <path d="M5.5,6.4 L5.5,2.74142136 C5.5,2.68619288 5.45522847,2.64142136 5.4,2.64142136 C5.37347835,2.64142136 5.34804296,2.65195704 5.32928932,2.67071068 L1.67071068,6.32928932 C1.63165825,6.36834175 1.63165825,6.43165825 1.67071068,6.47071068 C1.68946432,6.48946432 1.71489971,6.5 1.74142136,6.5 L5.4,6.5 C5.45522847,6.5 5.5,6.45522847 5.5,6.4 Z" id="Triangle" stroke="#0077BE"></path>
+    </g>
+</svg>

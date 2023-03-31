@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>curve_interpolation_32x32</title>
+    <defs>
+        <linearGradient x1="25.5187587%" y1="69.948103%" x2="111.997181%" y2="12.2610373%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="61.5497821%" y1="15.6593998%" x2="38.8771191%" y2="90.579711%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="curve_interpolation_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-Copy-7" stroke="#FFFFFF" fill="url(#linearGradient-1)" x="11.5" y="17.5" width="20" height="14" rx="2"></rect>
+        <g id="Group-3" transform="translate(15.000000, 20.516851)" fill="#FFFFFF">
+            <rect id="Rectangle" x="0.288622771" y="5.42518571" width="1" height="3.05796376" rx="0.5"></rect>
+            <rect id="Rectangle-Copy" x="6.2700548" y="3.48004493" width="1" height="5.00310455" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-2" x="12.2514868" y="0.91335684" width="1" height="7.56979263" rx="0.5"></rect>
+        </g>
+        <line x1="21.5" y1="24" x2="27.5" y2="21.1395018" id="Line" stroke="#FFFFFF" stroke-width="0.5" fill="#FFFFFF" stroke-linecap="square"></line>
+        <line x1="15.5" y1="25.5600862" x2="21.5" y2="24" id="Line" stroke="#FFFFFF" stroke-width="0.5" fill="#FFFFFF" stroke-linecap="square"></line>
+        <circle id="Oval-Copy" fill="#FFFFFF" cx="15.5427634" cy="25.5" r="1"></circle>
+        <circle id="Oval-Copy-2" fill="#FFFFFF" cx="21.5" cy="24" r="1"></circle>
+        <circle id="Oval-Copy-3" fill="#FFFFFF" cx="27.5239952" cy="21" r="1"></circle>
+        <g id="Group" transform="translate(3.000000, 1.000000)">
+            <path d="M5.45454545,1 C11.8181818,2.02667104 15,4.57212559 15,8.63636364 C15,17.1745538 1.50990331e-14,14.9867291 1.50990331e-14,22.6098095 C1.50990331e-14,25.5972092 1.81818182,27.7272727 5.45454545,29 L5.45454545,1 Z" id="Rectangle" fill="url(#linearGradient-2)"></path>
+            <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="5" y="0" width="1" height="30" rx="0.5"></rect>
+        </g>
+    </g>
+</svg>

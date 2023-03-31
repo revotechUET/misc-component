@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>custom_flag_16x16</title>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#FF8D8D" offset="0%"></stop>
+            <stop stop-color="#FFBFBF" offset="42.1374594%"></stop>
+            <stop stop-color="#F16464" offset="71.6801214%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="custom_flag_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(3.000000, 0.500000)">
+            <g id="Group-4" transform="translate(0.000000, 0.500000)" fill="url(#linearGradient-1)">
+                <path d="M0.5,8.5 C1.23958707,7.45297783 2.31022384,6.78631117 3.71191032,6.5 C5.25170615,6.18547835 5.25170615,7.19641193 7.30952381,6.85544846 C8.7396831,6.61848282 10.1365085,5.5 11.5,3.5 C10.7734995,3.91071734 9.83931026,4.11607601 8.69743238,4.11607601 C6.33422961,4.11607601 6.12615738,2.52056858 4.16666667,1.5 C3.28560507,1.04111353 2.06338285,0.707780196 0.5,0.5 L0.5,8.5 Z" id="Fill-2-Copy"></path>
+            </g>
+            <rect id="Rectangle" fill="#0077BE" x="0" y="0" width="1" height="13.5" rx="0.5"></rect>
+        </g>
+        <circle id="Oval" fill="#0077BE" cx="3.5" cy="13.5" r="1.5"></circle>
+    </g>
+</svg>

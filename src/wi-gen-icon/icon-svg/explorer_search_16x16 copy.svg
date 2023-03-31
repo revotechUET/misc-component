@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="41px" viewBox="0 0 27 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>explorer_search_16x16 copy</title>
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="46.3206738%" gradientTransform="translate(0.500000,0.500000),scale(0.518519,1.000000),rotate(90.000000),scale(1.000000,1.946941),translate(-0.500000,-0.500000)" id="radialGradient-1">
+            <stop stop-color="#000000" stop-opacity="0.354761096" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.0492527174" offset="48.2884754%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="explorer_search_16x16-copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(0.000000, 2.000000)">
+            <ellipse id="Oval" fill="url(#radialGradient-1)" cx="13.5" cy="31" rx="13.5" ry="7"></ellipse>
+            <g id="Group" transform="translate(2.000000, 0.000000)">
+                <path d="M11.5,31 C19.3272616,23.0137565 23.1605949,16.5137565 23,11.5 C22.7591076,3.97936526 17.0894908,7.10542736e-15 11.5,7.10542736e-15 C5.91050924,7.10542736e-15 -1.0658141e-14,4.14277879 -1.0658141e-14,11.5 C-1.0658141e-14,16.4048141 3.83333333,22.9048141 11.5,31 Z" id="Oval" fill="#3F87DA"></path>
+                <circle id="Oval" fill="#FFFFFF" cx="11.5" cy="11.5" r="4.5"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

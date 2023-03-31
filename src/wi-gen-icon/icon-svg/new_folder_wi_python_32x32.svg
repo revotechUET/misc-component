@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>new_folder_wi_python_32x32</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="74.7960273%" y1="-13.8786952%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AFF68" offset="0%"></stop>
+            <stop stop-color="#15BE00" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="new_folder_wi_python_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M22.4975763,8 L17.7426407,8 C16.9469912,8 16.1839295,7.68392948 15.6213203,7.12132034 L14.3786797,5.87867966 C13.8160705,5.31607052 13.0530088,5 12.2573593,5 L4.5,5 C3.3954305,5 2.5,5.8954305 2.5,7 L2.5,24.0040406 C2.5,25.1063786 3.39362145,26 4.49595936,26 L6.49191873,26 L22.4975763,26 C24.1544305,26 25.4975763,24.6568542 25.4975763,23 L25.4975763,13.0692734 L25.4975763,13.0692734 L25.4975763,11 C25.4975763,9.34314575 24.1544305,8 22.4975763,8 Z" id="Line" stroke="url(#linearGradient-1)" stroke-linecap="round"></path>
+        <path d="M24,12.5 C24.4142136,12.5 24.7892136,12.6678932 25.0606602,12.9393398 C25.3321068,13.2107864 25.5,13.5857864 25.5,14 L25.5,14 L25.5,24.5 C25.5,24.9142136 25.3321068,25.2892136 25.0606602,25.5606602 C24.7892136,25.8321068 24.4142136,26 24,26 L24,26 L5.5,26 C5.85140182,25.8465467 6.16542735,25.6629998 6.41421356,25.4142136 C6.77614237,25.0522847 7,24.5522847 7,24 L7,24 L7,14 C7,13.5857864 7.16789322,13.2107864 7.43933983,12.9393398 C7.71078644,12.6678932 8.08578644,12.5 8.5,12.5 L8.5,12.5 Z" id="Rectangle" stroke="url(#linearGradient-2)" fill="url(#linearGradient-2)"></path>
+        <g id="Group" transform="translate(19.500000, 4.500000)">
+            <circle id="Oval-Copy" stroke="#FFFFFF" fill="url(#linearGradient-3)" cx="6" cy="6" r="6"></circle>
+            <rect id="Rectangle-Copy-4" fill="#FFFFFF" x="3.25" y="5.5" width="5.5" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-4" fill="#FFFFFF" transform="translate(6.000000, 6.000000) rotate(-270.000000) translate(-6.000000, -6.000000) " x="3.25" y="5.5" width="5.5" height="1" rx="0.5"></rect>
+        </g>
+    </g>
+</svg>

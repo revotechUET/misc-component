@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>img_show_16x16</title>
+    <g id="img_show_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(1.000000, 1.000000)" stroke="#0077BE">
+            <g id="Group">
+                <rect id="Rectangle-7-Copy-12" x="0.5" y="0.5" width="11" height="11" rx="2"></rect>
+            </g>
+            <polyline id="Line-3" stroke-linecap="round" points="0.553342137 7.04579584 4 3.04579584 7 6.52086398 8.53425087 5 11.4295924 8"></polyline>
+        </g>
+        <rect id="Rectangle" fill="#FFFFFF" x="11.5" y="9" width="2" height="2"></rect>
+        <rect id="Rectangle-Copy" fill="#FFFFFF" x="5" y="11.5" width="2" height="2"></rect>
+        <path d="M11,15 C9.89579888,15 9,14.1042011 9,13 C9,11.8957989 9.89579888,11 11,11 C12.1042011,11 13,11.8957989 13,13 C13,14.1042011 12.1042011,15 11,15 M10.9965414,10 C8.8475905,10 6.97686573,11.2079802 6,12.9925675 C6.97302283,14.7841961 8.8475905,16 11.0034586,16 C13.1524095,16 15.0231343,14.7920198 16,13.0066501 C15.0269772,11.2150215 13.1524095,10 10.9965414,10" id="Fill-1" fill="#F16464"></path>
+        <circle id="Oval" fill="#FFFFFF" cx="11" cy="13" r="2"></circle>
+    </g>
+</svg>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>lm_close_16x16</title>
+    <g id="lm_close_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval-2" stroke="#0077BE" cx="8" cy="8" r="5.5"></circle>
+        <rect id="Rectangle" fill="#0077BE" transform="translate(8.000000, 8.000000) rotate(-315.000000) translate(-8.000000, -8.000000) " x="7.5" y="5" width="1" height="6" rx="0.5"></rect>
+        <rect id="Rectangle" fill="#0077BE" transform="translate(8.000000, 8.000000) rotate(-225.000000) translate(-8.000000, -8.000000) " x="7.5" y="5" width="1" height="6" rx="0.5"></rect>
+    </g>
+</svg>

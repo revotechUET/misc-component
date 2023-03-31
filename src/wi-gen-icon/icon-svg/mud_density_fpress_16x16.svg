@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>mud_density_fpress_16x16</title>
+    <g id="mud_density_fpress_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12.5,14.5 C12.5,15.328 11.828,16 11,16 C10.172,16 9.5,15.328 9.5,14.5 C9.5,13.672 11,10.75 11,10.75 C11,10.75 12.5,13.672 12.5,14.5" id="Fill-10" fill="#F16464"></path>
+        <path d="M7.695,14.1349032 C7.16333333,13.4241668 6.83333333,12.5505887 6.83333333,11.5888046 C6.83333333,9.2479545 8.7,7.3481341 11,7.3481341 C13.3,7.3481341 15.1666667,9.2479545 15.1666667,11.5888046 C15.1666667,12.5683995 14.8266667,13.4597885 14.2766667,14.1781581 C14.4483333,14.4342946 14.5875,14.7107863 14.7,15 C15.505,14.0967372 16,12.9025644 16,11.5888046 C16,8.78148074 13.7575,6.5 11,6.5 C8.24166667,6.5 6,8.78148074 6,11.5888046 C6,12.8839054 6.48416667,14.0602674 7.26833333,14.9584414 C7.38166667,14.6683796 7.5225,14.3910397 7.695,14.1349032" id="Fill-8" fill="#0477BD"></path>
+        <rect id="Rectangle-2-Copy" fill="#0077BE" x="0" y="2.5" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-2-Copy-5" fill="#0077BE" x="0" y="10.5" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-2-Copy-2" fill="#0077BE" x="0" y="4.5" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-2-Copy-6" fill="#0077BE" x="0" y="12.5" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-2-Copy-3" fill="#F16464" x="0" y="6.5" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-2-Copy-4" fill="#F16464" x="0" y="8.5" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy" stroke="#0077BE" x="0.5" y="0.5" width="4" height="15" rx="2"></rect>
+    </g>
+</svg>

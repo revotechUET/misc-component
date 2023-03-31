@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>image_track_16x16</title>
+    <g id="image_track_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-10" stroke="#0077BE" x="0.5" y="0.5" width="6.5" height="15" rx="2"></rect>
+        <rect id="Rectangle-7-Copy-12" stroke="#F16464" fill="#FFFFFF" x="4.5" y="3" width="11" height="10" rx="2"></rect>
+        <path d="M4,9.5 L7.5,5.53662109 L11.1354011,9.5 L13,7.5 L16,10.5 L16,11.5 C16,12.6045695 15.1045695,13.5 14,13.5 L6,13.5 C4.8954305,13.5 4,12.6045695 4,11.5 L4,9.5 L4,9.5 Z" id="Rectangle-7-Copy-12" fill="#F16464"></path>
+    </g>
+</svg>

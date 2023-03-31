@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>gradient_ftemp_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#B0E1FF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="gradient_ftemp_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" stroke="#0077BE">
+            <rect id="Rectangle-Copy" x="0.5" y="0.5" width="6" height="15" rx="2"></rect>
+        </g>
+        <g id="Group-3" fill="url(#linearGradient-1)">
+            <rect id="Rectangle-Copy" x="0" y="0" width="7" height="16" rx="2"></rect>
+        </g>
+        <g id="Group-2" transform="translate(8.000000, 0.000000)">
+            <path d="M3.46062572,15.5 C1.84913408,15.5 0.539492834,14.155 0.539492834,12.5 C0.539492834,11.615 0.914371554,10.815 1.51320379,10.27 C1.65926044,10.13 1.8247913,10.005 2.00005928,9.905 L2.00005928,2 C2.00005928,1.17 2.65244562,0.5 3.46062572,0.5 C4.26880581,0.5 4.92119216,1.17 4.92119216,2 L4.92119216,9.905 C5.09646013,10.005 5.26199099,10.13 5.40804764,10.27 C6.00687988,10.815 6.3817586,11.615 6.3817586,12.5 C6.3817586,14.155 5.07211736,15.5 3.46062572,15.5" id="Path" stroke="#0077BE" stroke-width="0.5"></path>
+            <circle id="Oval" fill="#F16464" cx="3.5" cy="12.5" r="1.5"></circle>
+            <line x1="3.5" y1="12.5" x2="3.5" y2="3" id="Line" stroke="#F16464" stroke-width="0.5" stroke-linecap="round"></line>
+        </g>
+    </g>
+</svg>

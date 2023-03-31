@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>build_mineral_parameter2_16x16</title>
+    <defs>
+        <linearGradient x1="25.5187587%" y1="65.4626056%" x2="93.2424503%" y2="35.1481139%" id="linearGradient-1">
+            <stop stop-color="#D53B3B" offset="0%"></stop>
+            <stop stop-color="#FF7C7D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="33.1339702%" y1="92.6110365%" x2="79.7913184%" y2="9.07195215%" id="linearGradient-2">
+            <stop stop-color="#D53B3B" offset="0%"></stop>
+            <stop stop-color="#FF7C7D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="38.0041918%" y1="92.6110365%" x2="71.1888006%" y2="9.07195215%" id="linearGradient-3">
+            <stop stop-color="#D53B3B" offset="0%"></stop>
+            <stop stop-color="#FF7C7D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="93.2424503%" y2="9.07195215%" id="linearGradient-4">
+            <stop stop-color="#D53B3B" offset="0%"></stop>
+            <stop stop-color="#FF7C7D" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="build_mineral_parameter2_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(7.630022, 8.474569) scale(-1, 1) rotate(-101.000000) translate(-7.630022, -8.474569) translate(1.130022, 2.474569)">
+            <polygon id="Rectangle" fill="url(#linearGradient-1)" opacity="0.695521763" points="2.72649411 0.90883137 11.8148078 1.0658141e-14 8.17948233 5.47474126 6.36181959 5.47474126"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-2)" points="8.17948233 5.47474126 11.8148078 -1.55431223e-14 12.7236392 5.45298822"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-3)" points="2.72649411 0.90883137 6.36181959 5.45298822 -4.24226061e-15 9.99714507"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-4)" points="6.36181959 5.45298822 6.36181959 11.8148078 0 9.99714507"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-4)" opacity="0.695521763" points="6.36181959 5.47474126 6.36181959 11.8148078 12.7236392 5.45298822"></polygon>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>curve_hide_16x16</title>
+    <g id="curve_hide_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#0077BE" opacity="0.489769345" cx="8" cy="8" r="7.5"></circle>
+        <path d="M8,10.4 C6.67495865,10.4 5.6,9.32504135 5.6,8 C5.6,6.67495865 6.67495865,5.6 8,5.6 C9.32504135,5.6 10.4,6.67495865 10.4,8 C10.4,9.32504135 9.32504135,10.4 8,10.4 M7.99584967,4.4 C5.4171086,4.4 3.17223887,5.84957622 2,7.99108098 C3.16762739,10.1410353 5.4171086,11.6 8.00415033,11.6 C10.5828914,11.6 12.8277611,10.1504238 14,8.00798018 C12.8323726,5.85802582 10.5828914,4.4 7.99584967,4.4" id="Fill-1" fill="#F16464"></path>
+        <line x1="13.5" y1="3.5" x2="3" y2="12.5" id="Line-6" stroke="#0077BE" opacity="0.44405692" stroke-linecap="square"></line>
+    </g>
+</svg>

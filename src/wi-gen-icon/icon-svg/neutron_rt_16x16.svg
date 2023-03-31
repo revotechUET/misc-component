@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>neutron_rt_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="76.7029485%" y2="8.20085208%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="63.9138078%" x2="103.462337%" y2="26.9648261%" id="linearGradient-3">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="neutron_rt_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <circle id="Oval-Copy-21" fill="url(#linearGradient-1)" cx="3" cy="13" r="1"></circle>
+            <circle id="Oval-Copy-22" fill="url(#linearGradient-1)" cx="8" cy="12" r="1"></circle>
+            <circle id="Oval-Copy-23" fill="url(#linearGradient-2)" cx="5" cy="10" r="1"></circle>
+            <circle id="Oval-Copy-26" fill="url(#linearGradient-1)" cx="12.0641416" cy="9.97894941" r="1"></circle>
+            <circle id="Oval-Copy-24" fill="url(#linearGradient-2)" cx="12" cy="13" r="1"></circle>
+            <circle id="Oval-Copy-25" fill="#0077BE" cx="3" cy="5" r="1"></circle>
+            <polygon id="Fill-1" fill="#0477BD" points="0 16 1 16 1 0 0 0"></polygon>
+            <polygon id="Fill-2" fill="#0477BD" points="1 16 16 16 16 15 1 15"></polygon>
+        </g>
+        <rect id="Rectangle-Copy-7" fill="url(#linearGradient-3)" x="2" y="0" width="14" height="8" rx="2"></rect>
+        <path d="M4.68846962,1.47900391 L5.49169227,1.47900391 L8.02782509,5.54638672 L8.02782509,1.47900391 L8.67382118,1.47900391 L8.67382118,6.5 L7.91161415,6.5 L5.33788368,2.43603516 L5.33788368,6.5 L4.68846962,6.5 L4.68846962,1.47900391 Z M12.0781181,3.77929688 C12.3971301,3.77929688 12.6494876,3.71549543 12.8351981,3.58789062 C13.0209087,3.46028582 13.1137626,3.23014489 13.1137626,2.89746094 C13.1137626,2.53971175 12.9838811,2.29589909 12.7241141,2.16601562 C12.5851161,2.09765591 12.3994083,2.06347656 12.1669852,2.06347656 L10.5058524,2.06347656 L10.5058524,3.77929688 L12.0781181,3.77929688 Z M9.82567665,1.47900391 L12.1498954,1.47900391 C12.5327098,1.47900391 12.8482991,1.53483017 13.0966727,1.64648438 C13.5683548,1.86067815 13.8041923,2.25601925 13.8041923,2.83251953 C13.8041923,3.13330229 13.7420998,3.37939357 13.617913,3.57080078 C13.4937262,3.76220799 13.3199812,3.91601504 13.0966727,4.03222656 C13.2926373,4.11197957 13.4401781,4.21679623 13.5392997,4.34667969 C13.6384213,4.47656315 13.6936779,4.68733578 13.7050712,4.97900391 L13.728997,5.65234375 C13.7358329,5.84375096 13.7517833,5.9861649 13.7768485,6.07958984 C13.8178644,6.23909585 13.8907803,6.34163389 13.9955985,6.38720703 L13.9955985,6.5 L13.1616141,6.5 C13.1388276,6.45670551 13.1205986,6.40087925 13.1069266,6.33251953 C13.0932547,6.26415981 13.0818616,6.13199968 13.072747,5.93603516 L13.0317313,5.09863281 C13.0157807,4.77050617 12.8938744,4.55061905 12.6660087,4.43896484 C12.5361252,4.3774411 12.3321885,4.34667969 12.0541923,4.34667969 L10.5058524,4.34667969 L10.5058524,6.5 L9.82567665,6.5 L9.82567665,1.47900391 Z" id="NR" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

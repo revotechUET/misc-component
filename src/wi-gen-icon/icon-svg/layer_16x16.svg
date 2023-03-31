@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>layer_16x16</title>
+    <g id="layer_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M7.23046062,0.864190123 C7.69608557,0.585961776 8.27457982,0.5810272 8.74420841,0.849386394 L8.74420841,0.849386394 L15.1620325,4.51671447 L8.76953938,9.13580988 C8.30391443,9.41403822 7.72542018,9.4189728 7.25579159,9.15061361 L7.25579159,9.15061361 L0.837967457,5.48328553 Z" id="Rectangle" stroke="#FFFFFF" fill="#0077BE"></path>
+        <path d="M2,8 L7.49612897,11.2060752 C7.80749149,11.3877034 8.19250851,11.3877034 8.50387103,11.2060752 L14,8 L14,8" id="Line-9" stroke="#0077BE" stroke-linecap="round"></path>
+        <path d="M2,11 L7.49612897,14.2060752 C7.80749149,14.3877034 8.19250851,14.3877034 8.50387103,14.2060752 L14,11 L14,11" id="Line-9" stroke="#0077BE" stroke-linecap="round"></path>
+    </g>
+</svg>

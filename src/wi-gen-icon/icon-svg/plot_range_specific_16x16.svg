@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>plot_range_specific_16x16</title>
+    <defs>
+        <linearGradient x1="7.14365927%" y1="47.8667285%" x2="100%" y2="47.8667285%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="plot_range_specific_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#F16464" x="8.5" y="5" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-4" fill="#F16464" x="8.5" y="10.0066947" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-2" fill="#F16464" x="12.5" y="5.00301278" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-5" fill="#F16464" x="12.5" y="10.0097075" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy" fill="#F16464" x="10.5" y="5" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-6" fill="#F16464" x="10.5" y="10.0066947" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-3" fill="#F16464" x="14.5" y="5.00301278" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-7" fill="#F16464" x="14.5" y="10.0097075" width="1" height="1" rx="0.5"></rect>
+        <g id="Group" transform="translate(0.500000, 0.500000)">
+            <polyline id="Line" stroke="#0077BE" stroke-linecap="round" points="1.14679327 14.020864 2.99739666 1 5 1 7 14.020864"></polyline>
+            <rect id="Rectangle-7-Copy-7" fill="#0077BE" x="1.50837665" y="8.28571429" width="5.08972693" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="1.97107909" y="5.71428571" width="4.16432203" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-7-Copy-9" fill="#0077BE" x="2.43378154" y="3.14285714" width="3.23891714" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-7-Copy-6" fill="#0077BE" x="1.0456742" y="10.8571429" width="6.01513183" height="1" rx="0.5"></rect>
+            <line x1="4" y1="1" x2="4" y2="14.020864" id="Line-2" stroke="#0077BE" stroke-width="0.5" stroke-linecap="round"></line>
+            <rect id="Rectangle-7-Copy-10" fill="#0077BE" x="1.91783898" y="-8.8817842e-16" width="4.16432203" height="1" rx="0.5"></rect>
+            <g id="Rectangle-7-Copy-11" transform="translate(0.000000, 14.000000)" fill="#0077BE">
+                <rect id="Rectangle-7-Copy-10" x="0" y="-9.99200722e-16" width="2" height="1" rx="0.5"></rect>
+            </g>
+            <g id="Rectangle-7-Copy-12" transform="translate(3.000000, 14.000000)" fill="#0077BE">
+                <rect id="Rectangle-7-Copy-10" x="0" y="-9.99200722e-16" width="2" height="1" rx="0.5"></rect>
+            </g>
+            <g id="Rectangle-7-Copy-13" transform="translate(6.000000, 14.000000)" fill="#0077BE">
+                <rect id="Rectangle-7-Copy-10" x="0" y="-9.99200722e-16" width="2" height="1" rx="0.5"></rect>
+            </g>
+        </g>
+        <path d="M10.3513044,2.80473564 L13.1442118,5.63328931 C13.3382319,5.82978568 13.654808,5.83179312 13.8513044,5.63777305 C13.9464473,5.54382917 14,5.41569214 14,5.2819849 L14,-0.303772741 C14,-0.579915115 13.7761424,-0.803772741 13.5,-0.803772741 C13.3685042,-0.803772741 13.2423014,-0.751972021 13.1487246,-0.659589507 L10.3558168,2.09767205 C10.159276,2.29164714 10.1572428,2.6082231 10.3512468,2.80473527 C10.3512564,2.80474493 10.3512659,2.80475459 10.3513044,2.80473564 Z" id="Fill-12-Copy" fill="url(#linearGradient-1)" transform="translate(12.000000, 2.500000) rotate(-270.000000) translate(-12.000000, -2.500000) "></path>
+        <path d="M10.3513044,13.8047356 L13.1442118,16.6332893 C13.3382319,16.8297857 13.654808,16.8317931 13.8513044,16.6377731 C13.9464473,16.5438292 14,16.4156921 14,16.2819849 L14,10.6962273 C14,10.4200849 13.7761424,10.1962273 13.5,10.1962273 C13.3685042,10.1962273 13.2423014,10.248028 13.1487246,10.3404105 L10.3558168,13.0976721 C10.159276,13.2916471 10.1572428,13.6082231 10.3512468,13.8047353 C10.3512564,13.8047449 10.3512659,13.8047546 10.3513044,13.8047356 Z" id="Fill-12-Copy" fill="url(#linearGradient-1)" transform="translate(12.000000, 13.500000) rotate(-90.000000) translate(-12.000000, -13.500000) "></path>
+    </g>
+</svg>

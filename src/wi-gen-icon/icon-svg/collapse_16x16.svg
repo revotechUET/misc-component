@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>collapse_16x16</title>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="92.9753765%" y1="50%" x2="-30.6806867%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="187.764374%" x2="50%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="collapse_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="url(#linearGradient-1)" transform="translate(8.000000, 8.000000) rotate(-90.000000) translate(-8.000000, -8.000000) " cx="8" cy="8" r="6.5"></circle>
+        <path d="M10.011957,5.77995583 L6.31234752,2.82026825 C6.09671656,2.64776348 5.78207037,2.68272417 5.6095656,2.89835513 C5.53864038,2.98701166 5.5,3.09716691 5.5,3.21070266 L5.5,9.13007781 C5.5,9.40622018 5.72385763,9.63007781 6,9.63007781 C6.11353575,9.63007781 6.223691,9.59143743 6.31234752,9.52051221 L10.011957,6.56082464 C10.227588,6.38831986 10.2625486,6.07367368 10.0900439,5.85804271 C10.066978,5.82921036 10.0407893,5.80302171 10.011957,5.77995583 Z" id="Fill-3" fill="url(#linearGradient-2)" transform="translate(8.000000, 6.170390) rotate(-90.000000) translate(-8.000000, -6.170390) "></path>
+        <rect id="Rectangle" fill="url(#linearGradient-3)" transform="translate(8.000000, 9.538681) rotate(-180.000000) translate(-8.000000, -9.538681) " x="6.5" y="8.07736204" width="3" height="2.92263796" rx="0.5"></rect>
+    </g>
+</svg>

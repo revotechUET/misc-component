@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>tool_tip_16x16</title>
+    <g id="tool_tip_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Rectangle-7-Copy-22" fill="#F16464" points="7 7 16 10 11 11 10 16"></polygon>
+        <rect id="Rectangle-7-Copy-12" fill="#0077BE" opacity="0.477934338" x="1" y="1" width="10" height="5" rx="1"></rect>
+        <rect id="Rectangle-7-Copy-12" fill="#FFFFFF" x="2" y="2" width="8" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-13" fill="#FFFFFF" x="2" y="4" width="4" height="1" rx="0.5"></rect>
+    </g>
+</svg>

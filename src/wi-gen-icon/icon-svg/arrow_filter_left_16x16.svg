@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow_filter_left_16x16</title>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="92.9753765%" y1="50%" x2="-30.6806867%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="187.764374%" x2="50%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="arrow_filter_left_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="url(#linearGradient-1)" transform="translate(8.000000, 8.000000) rotate(-180.000000) translate(-8.000000, -8.000000) " cx="8" cy="8" r="6.5"></circle>
+        <path d="M8.18234723,7.6095656 L4.48273776,4.64987802 C4.26710679,4.47737324 3.9524606,4.51233393 3.77995583,4.7279649 C3.70903061,4.81662142 3.67039023,4.92677668 3.67039023,5.04031242 L3.67039023,10.9596876 C3.67039023,11.23583 3.89424786,11.4596876 4.17039023,11.4596876 C4.28392598,11.4596876 4.39408123,11.4210472 4.48273776,11.350122 L8.18234723,8.3904344 C8.3979782,8.21792963 8.43293888,7.90328344 8.26043411,7.68765248 C8.23736823,7.65882012 8.21117958,7.63263148 8.18234723,7.6095656 Z" id="Fill-3" fill="url(#linearGradient-2)" transform="translate(6.170390, 8.000000) rotate(-180.000000) translate(-6.170390, -8.000000) "></path>
+        <rect id="Rectangle" fill="url(#linearGradient-3)" transform="translate(9.538681, 8.000000) rotate(-270.000000) translate(-9.538681, -8.000000) " x="8.03868102" y="6.53868102" width="3" height="2.92263796" rx="0.5"></rect>
+    </g>
+</svg>

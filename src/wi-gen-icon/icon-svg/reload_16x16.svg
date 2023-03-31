@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>reload_16x16</title>
+    <defs>
+        <linearGradient x1="83.1582131%" y1="73.0807996%" x2="18.7468241%" y2="40.892309%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#15A0F2" offset="50.7947977%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="94.9146935%" y1="55.1521844%" x2="10.3793657%" y2="37.1353699%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" stop-opacity="0.225062274" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="reload_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Untitled-1" transform="translate(0.500000, 0.000000)">
+            <path d="M14.4512031,7.39525125 L12.6577093,7.39525125 C12.4335226,4.83715075 10.2813301,2.82721464 7.72560153,2.82721464 C6.38048122,2.82721464 5.1250356,3.37537904 4.22828873,4.28898636 L2.97284311,3.00993611 C4.18345139,1.77656622 5.88727044,1 7.72560153,1 C11.2677517,1 14.2270163,3.8321827 14.4512031,7.39525125 Z" id="Path" fill="url(#linearGradient-1)"></path>
+            <path d="M12.4783599,12.6941737 C11.2677517,13.9275436 9.56393261,14.7041098 7.72560153,14.7041098 C4.18345139,14.7041098 1.22418672,11.8719271 1,8.30885857 L2.79349374,8.30885857 C3.01768046,10.8669591 5.1250356,12.8768952 7.72560153,12.8768952 C9.07072183,12.8768952 10.3261675,12.3287308 11.2229143,11.4151235 L12.4783599,12.6941737 Z" id="Path" fill="url(#linearGradient-2)"></path>
+            <polygon id="Path" fill="#0077BE" points="6.82885466 6.93844759 0.551626565 6.93844759 0.551626565 0.543196339 2.68588412 2.71758176 4.44350798 4.50825212"></polygon>
+            <polygon id="Path" fill="#F16464" points="14.5 9.17275148 14.5 14.7538242 12.6374545 12.8562595 11.1035934 11.2935591 9.02192489 9.17275148"></polygon>
+        </g>
+    </g>
+</svg>

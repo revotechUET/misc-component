@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>paletter_16x16</title>
+    <g id="paletter_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Triangle" fill="#D8D8D8" points="8 8 10.9404408 15 5.5 15"></polygon>
+        <polygon id="Triangle" fill="#D8D8D8" transform="translate(11.500000, 8.024430) rotate(-90.000000) translate(-11.500000, -8.024430) " points="11.5244303 4.52443026 14.3600943 11.5244303 8.63990575 11.5244303"></polygon>
+        <polygon id="Triangle" fill="#D8D8D8" transform="translate(10.497217, 10.469894) rotate(-45.000000) translate(-10.497217, -10.469894) " points="10.4778969 6.9576162 13.391476 13.943532 7.60295794 13.9821722"></polygon>
+        <polygon id="Triangle" fill="#B75AFF" points="8 8 10.9404408 15 5.23517573 15"></polygon>
+        <polygon id="Triangle" fill="#71FA87" transform="translate(11.500000, 8.024430) rotate(-90.000000) translate(-11.500000, -8.024430) " points="11.5244303 4.52443026 14.3600943 11.5244303 8.63990575 11.5244303"></polygon>
+        <polygon id="Triangle" fill="#6189FF" transform="translate(10.497217, 10.469894) rotate(-45.000000) translate(-10.497217, -10.469894) " points="10.4778969 6.9576162 13.391476 13.943532 7.60295794 13.9821722"></polygon>
+        <polygon id="Triangle" fill="#FFEA6F" transform="translate(7.998478, 4.538092) rotate(-180.000000) translate(-7.998478, -4.538092) " points="7.96963354 1 10.8814015 8.07618329 5.11555481 8.07618329"></polygon>
+        <polygon id="Triangle" fill="#D8FC84" transform="translate(10.471563, 5.553312) rotate(-135.000000) translate(-10.471563, -5.553312) " points="10.4159623 2.04103415 13.4021023 9.06212846 7.54102334 9.06559016"></polygon>
+        <polygon id="Triangle" fill="#FF5EF6" transform="translate(5.548477, 10.511219) rotate(-315.000000) translate(-5.548477, -10.511219) " points="5.54081492 7.03658041 8.50635649 13.9014346 2.59059806 13.9858585"></polygon>
+        <polygon id="Triangle" fill="#FF5145" transform="translate(4.500000, 8.024430) rotate(-270.000000) translate(-4.500000, -8.024430) " points="4.52443026 4.52443026 7.36009425 11.5244303 1.63990575 11.5244303"></polygon>
+        <polygon id="Triangle" fill="#FFC07C" transform="translate(5.551995, 5.568936) rotate(-225.000000) translate(-5.551995, -5.568936) " points="5.56026756 2.04363419 8.48814426 9.07027936 2.61584532 9.09423794"></polygon>
+        <circle id="Oval-2" stroke="#FFFFFF" cx="8" cy="8" r="7.5"></circle>
+        <circle id="Oval-2" fill="#FFFFFF" cx="8" cy="8" r="4"></circle>
+    </g>
+</svg>

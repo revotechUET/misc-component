@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>phi_total_histogram_16x16</title>
+    <defs>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="106.893965%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="14.3554567%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="14.3554567%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="14.3554567%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="phi_total_histogram_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-Copy" transform="translate(6.000000, 0.000000)">
+            <rect id="Rectangle-Copy-7" fill="url(#linearGradient-1)" x="0" y="0" width="10" height="10" rx="2"></rect>
+            <path d="M2.61314174,1.65364844 L5.8406808,1.65364844 C6.47870483,1.65364844 6.9930226,1.8334969 7.38364955,2.19319922 C7.77427651,2.55290154 7.96958705,3.05826758 7.96958705,3.7093125 C7.96958705,4.26921113 7.79543515,4.75667371 7.44712612,5.17171484 C7.09881708,5.58675598 6.56334067,5.79427344 5.8406808,5.79427344 L3.58482143,5.79427344 L3.58482143,8.8265 L2.61314174,8.8265 L2.61314174,1.65364844 Z M6.98814174,3.71419531 C6.98814174,3.18684893 6.79283119,2.82877959 6.40220424,2.63997656 C6.18735942,2.5390646 5.89276601,2.48860937 5.51841518,2.48860937 L3.58482143,2.48860937 L3.58482143,4.97396094 L5.51841518,4.97396094 C5.95461528,4.97396094 6.30861564,4.88118843 6.5804269,4.69564062 C6.85223815,4.51009282 6.98814174,4.18294766 6.98814174,3.71419531 Z" id="P" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+        <polygon id="Fill-1" fill="url(#linearGradient-2)" points="5 16 9 16 9 11 5 11"></polygon>
+        <polygon id="Fill-2" fill="url(#linearGradient-3)" points="0 16 4 16 4 6 0 6"></polygon>
+        <polygon id="Fill-2-Copy" fill="url(#linearGradient-4)" points="10 16 14 16 14 13 10 13"></polygon>
+    </g>
+</svg>

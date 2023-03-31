@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>selector_tool_16x16</title>
+    <defs>
+        <linearGradient x1="34.9376237%" y1="17.7336208%" x2="29.9360802%" y2="68.4987345%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="selector_tool_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="0" y="0" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-9" fill="#0077BE" x="0" y="6" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-10" fill="#0077BE" x="6" y="0" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-20" fill="#0077BE" x="2" y="10" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-12" fill="#0077BE" x="4" y="0" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-13" fill="#0077BE" x="10" y="0" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-16" fill="#0077BE" x="0" y="2" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-18" fill="#0077BE" x="0" y="8" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-15" fill="#0077BE" x="10" y="2" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-17" fill="#0077BE" x="0" y="4" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-25" fill="#0077BE" x="10" y="4" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-19" fill="#0077BE" x="0" y="10" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-11" fill="#0077BE" x="2" y="0" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-14" fill="#0077BE" x="8" y="0" width="1" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-23" fill="#0077BE" x="4" y="10" width="1" height="1" rx="0.5"></rect>
+        <path d="M4.06720047,3.41393019 L14.494985,7.77222723 C14.964629,7.96851513 15.1862279,8.50835956 14.98994,8.97800353 C14.8466018,9.32095855 14.5112785,9.54424269 14.1395744,9.54424269 L10.0443895,9.54424269 C9.76824708,9.54424269 9.54438945,9.76810032 9.54438945,10.0442427 L9.54438945,14.1637518 C9.54438945,14.6740087 9.13074451,15.0876537 8.62048762,15.0876537 C8.24750767,15.0876537 7.911109,14.8633879 7.76765517,14.5190987 L3.4128498,4.06756581 C3.30664119,3.81266515 3.42717991,3.51992826 3.68208057,3.41371965 C3.80533244,3.36236471 3.94400482,3.36244052 4.06720047,3.41393019 Z" id="Rectangle-7-Copy-22" fill="url(#linearGradient-1)"></path>
+    </g>
+</svg>

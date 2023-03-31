@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>lld_histogram_16x16</title>
+    <defs>
+        <linearGradient x1="96.4388941%" y1="5.69496491%" x2="8.80209151%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F99D9D" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="14.3554567%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="14.3554567%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="14.3554567%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="lld_histogram_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-Copy" transform="translate(6.000000, 0.000000)">
+            <rect id="Rectangle-Copy-7" fill="url(#linearGradient-1)" x="0" y="0" width="10" height="10" rx="2"></rect>
+            <polygon id="L" fill="#FFFFFF" fill-rule="nonzero" points="2.91448103 1.32714844 3.88616071 1.32714844 3.88616071 7.64550781 7.51897321 7.64550781 7.51897321 8.5 2.91448103 8.5"></polygon>
+        </g>
+        <polygon id="Fill-1" fill="url(#linearGradient-2)" points="5 16 9 16 9 11 5 11"></polygon>
+        <polygon id="Fill-2" fill="url(#linearGradient-3)" points="0 16 4 16 4 6 0 6"></polygon>
+        <polygon id="Fill-2-Copy" fill="url(#linearGradient-4)" points="10 16 14 16 14 13 10 13"></polygon>
+    </g>
+</svg>

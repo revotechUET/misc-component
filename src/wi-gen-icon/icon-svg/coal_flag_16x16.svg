@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>coal_flag_16x16</title>
+    <defs>
+        <linearGradient x1="7.10585027%" y1="50%" x2="100%" y2="34.9381934%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="91.4687737%" y1="315.337806%" x2="77.3668501%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="76.9308606%" y1="-26.2790371%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="coal_flag_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(1.000000, 2.000000)">
+            <polygon id="Rectangle" fill="url(#linearGradient-1)" opacity="0.695521763" points="3 1 13 1.0658141e-14 9 6.02393518 7 6.02393518"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-2)" points="9 6.02393518 13 -1.55431223e-14 14 6"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-3)" points="3 1 7 6 -3.10862447e-15 11"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-4)" points="7 6 7 13 0 11"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-5)" opacity="0.695521763" points="7 6.02393518 7 13 14 6"></polygon>
+        </g>
+    </g>
+</svg>

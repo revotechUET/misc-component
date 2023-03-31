@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>del_file_wi_python_32x32</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="93.2424503%" y2="9.07195215%" id="linearGradient-2">
+            <stop stop-color="#D53B3B" offset="0%"></stop>
+            <stop stop-color="#FF7C7D" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="354.371784%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-6">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="del_file_wi_python_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M15.0801302,3.5 C15.5180175,3.5 15.9340418,3.69134409 16.2190151,4.02381294 L16.2190151,4.02381294 L21.1388849,9.76366109 C21.3719118,10.0355258 21.5,10.3817812 21.5,10.7398482 L21.5,10.7398482 L21.5,27 C21.5,27.4142136 21.3321068,27.7892136 21.0606602,28.0606602 C20.7892136,28.3321068 20.4142136,28.5 20,28.5 L20,28.5 L5,28.5 C4.58578644,28.5 4.21078644,28.3321068 3.93933983,28.0606602 C3.66789322,27.7892136 3.5,27.4142136 3.5,27 L3.5,27 L3.5,5 C3.5,4.58578644 3.66789322,4.21078644 3.93933983,3.93933983 C4.21078644,3.66789322 4.58578644,3.5 5,3.5 L5,3.5 Z" id="Rectangle" stroke="url(#linearGradient-1)"></path>
+        <g id="Group" transform="translate(16.000000, 15.000000)">
+            <circle id="Oval-Copy" stroke="#FFFFFF" fill="url(#linearGradient-2)" cx="6" cy="6" r="6"></circle>
+            <rect id="Rectangle-Copy-4" fill="#FFFFFF" transform="translate(6.000000, 6.000000) rotate(-45.000000) translate(-6.000000, -6.000000) " x="3.25" y="5.5" width="5.5" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-4" fill="#FFFFFF" transform="translate(6.000000, 6.000000) rotate(-315.000000) translate(-6.000000, -6.000000) " x="3.25" y="5.5" width="5.5" height="1" rx="0.5"></rect>
+        </g>
+        <path d="M16,4 L16,8.82930457 C16,9.38158932 16.4477153,9.82930457 17,9.82930457 L20.979352,9.82930457 L20.979352,9.82930457" id="Line-11" stroke="url(#linearGradient-3)" stroke-linecap="round"></path>
+        <rect id="Rectangle" fill="url(#linearGradient-4)" x="7" y="13" width="8" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-2" fill="url(#linearGradient-5)" x="7" y="23" width="4" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy" fill="url(#linearGradient-6)" x="7" y="18" width="7" height="1" rx="0.5"></rect>
+    </g>
+</svg>

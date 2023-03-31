@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow_up_16x16</title>
+    <g id="arrow_up_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(8.000000, 8.500000) rotate(-180.000000) translate(-8.000000, -8.500000) translate(3.000000, 4.000000)" fill="#F16464">
+            <polygon id="Fill-21" transform="translate(5.000000, 2.000000) rotate(-180.000000) translate(-5.000000, -2.000000) " points="3 4 7 4 7 0 3 0"></polygon>
+            <polygon id="Fill-22" transform="translate(5.000000, 6.500000) rotate(-180.000000) translate(-5.000000, -6.500000) " points="5 4 0 9 10 9"></polygon>
+        </g>
+    </g>
+</svg>

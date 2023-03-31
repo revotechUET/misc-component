@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>log_windows_32x32</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="log_windows_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M5,4 L20,4 C21.1045695,4 22,4.8954305 22,6 L22,8 L22,8 L3,8 L3,6 C3,4.8954305 3.8954305,4 5,4 Z" id="Rectangle-7-Copy" fill="url(#linearGradient-1)"></path>
+        <path d="M27,8.5 C27.4142136,8.5 27.7892136,8.66789322 28.0606602,8.93933983 C28.3321068,9.21078644 28.5,9.58578644 28.5,10 L28.5,10 L28.5,26 C28.5,26.4142136 28.3321068,26.7892136 28.0606602,27.0606602 C27.7892136,27.3321068 27.4142136,27.5 27,27.5 L27,27.5 L5,27.5 C4.58578644,27.5 4.21078644,27.3321068 3.93933983,27.0606602 C3.66789322,26.7892136 3.5,26.4142136 3.5,26 L3.5,26 L3.5,8.5 Z" id="Rectangle-7-Copy-10" stroke="#0077BE"></path>
+        <rect id="Rectangle-Copy-10" fill="#F16464" x="7" y="13" width="3.9960831" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-11" fill="#F16464" x="7" y="18" width="4" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-10" fill="#0077BE" opacity="0.444917225" x="14" y="13" width="3.9960831" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-13" fill="#0077BE" opacity="0.444917225" x="14.0019585" y="18" width="3.9960831" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-14" fill="#0077BE" opacity="0.444917225" x="21" y="18" width="3.9960831" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-15" fill="#0077BE" opacity="0.444917225" x="14.0019585" y="23" width="3.9960831" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-16" fill="#0077BE" opacity="0.444917225" x="21" y="23" width="3.9960831" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-12" fill="#0077BE" opacity="0.444917225" x="21" y="13" width="3.9960831" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-11" fill="#F16464" x="7" y="23" width="4" height="1" rx="0.5"></rect>
+    </g>
+</svg>

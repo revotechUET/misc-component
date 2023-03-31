@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>print_16x16</title>
+    <g id="print_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12,1 C12.4142136,1 12.7892136,1.16789322 13.0606602,1.43933983 C13.3321068,1.71078644 13.5,2.08578644 13.5,2.5 L13.5,2.5 L13.5,5 L2.5,5 L2.5,2.5 C2.5,2.08578644 2.66789322,1.71078644 2.93933983,1.43933983 C3.21078644,1.16789322 3.58578644,1 4,1 L4,1 Z" id="Rectangle" stroke="#0077BE" fill-opacity="0.443755661" fill="#0077BE"></path>
+        <rect id="Rectangle-19" stroke="#0077BE" x="0.5" y="5" width="15" height="7.5" rx="2"></rect>
+        <rect id="Rectangle-19" stroke="#0077BE" fill="#FFFFFF" x="2.5" y="8.5" width="11" height="7" rx="2"></rect>
+        <rect id="Rectangle-2" stroke="#0077BE" fill="#0077BE" x="9" y="11.5" width="1" height="1" rx="0.5"></rect>
+    </g>
+</svg>

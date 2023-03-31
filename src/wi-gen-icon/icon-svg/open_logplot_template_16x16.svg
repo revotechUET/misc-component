@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>open_logplot_template_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="4.46945126%" x2="88.1802617%" y2="132.832063%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="open_logplot_template_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M8,4 L4.50461966,7.19260855 L6.64373546,7.19260855 C6.64373546,8.20360716 7.00278854,9.11727383 7.72089471,9.93360856 C8.43900088,10.7499433 9.38566638,11.4387404 10.5608912,12 C10.1122057,11.568619 9.77125559,10.9810691 9.53804097,10.23735 C9.30482635,9.49363097 9.18821904,8.47871715 9.18821904,7.19260855 L11.4953803,7.19260855 L8,4 Z" id="Fill-22" fill="url(#linearGradient-1)" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000) "></path>
+        <circle id="Oval-2" stroke="#0077BE" cx="8" cy="8" r="6.5"></circle>
+    </g>
+</svg>

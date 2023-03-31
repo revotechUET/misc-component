@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>build_mineral_parameter_16x16</title>
+    <defs>
+        <linearGradient x1="7.10585027%" y1="50%" x2="100%" y2="34.9381934%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="91.4687737%" y1="315.337806%" x2="77.3668501%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="76.9308606%" y1="-26.2790371%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="84.3262749%" x2="100%" y2="-0.310050851%" id="linearGradient-6">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="build_mineral_parameter_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(5.500000, 11.615870) rotate(-103.000000) translate(-5.500000, -11.615870) translate(0.500000, 7.115870)">
+            <polygon id="Rectangle" fill="url(#linearGradient-1)" opacity="0.695521763" points="2.07692308 0.692307692 9 1.0658141e-14 6.23076923 4.17041666 4.84615385 4.17041666"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-2)" points="6.23076923 4.17041666 9 -1.55431223e-14 9.69230769 4.15384615"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-3)" points="2.07692308 0.692307692 4.84615385 4.15384615 -6.93462382e-15 7.61538462"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-4)" points="4.84615385 4.15384615 4.84615385 9 0 7.61538462"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-5)" opacity="0.695521763" points="4.84615385 4.17041666 4.84615385 9 9.69230769 4.15384615"></polygon>
+        </g>
+        <g id="Group-Copy" transform="translate(5.500000, -0.500000)" fill="url(#linearGradient-6)" stroke="#FFFFFF">
+            <rect id="Rectangle-Copy-7" x="0.096352163" y="0.0555555556" width="10.9036478" height="9.88888889" rx="2"></rect>
+        </g>
+        <polygon id="x" fill="#FFFFFF" fill-rule="nonzero" points="8.17578125 1.16460937 9.54101562 1.16460937 10.9824219 3.37359375 12.4414062 1.16460937 13.7246094 1.19390625 11.609375 4.22320312 13.8183594 7.44 12.4707031 7.44 10.9121094 5.08453125 9.40039062 7.44 8.06445312 7.44 10.2734375 4.22320312"></polygon>
+    </g>
+</svg>

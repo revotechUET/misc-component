@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>collapse_all_16x16</title>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="92.9753765%" y1="50%" x2="0%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="92.9753765%" y1="50%" x2="-187.128748%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="collapse_all_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(8.000000, 8.000000) rotate(-180.000000) translate(-8.000000, -8.000000) translate(1.000000, 1.000000)">
+            <circle id="Oval" stroke="url(#linearGradient-1)" transform="translate(7.000000, 7.000000) rotate(-270.000000) translate(-7.000000, -7.000000) " cx="7" cy="7" r="6.5"></circle>
+            <path d="M9.01195699,8.93917536 L5.31234752,5.97948779 C5.09671656,5.80698301 4.78207037,5.8419437 4.6095656,6.05757467 C4.53864038,6.14623119 4.5,6.25638644 4.5,6.36992219 L4.5,12.2892973 C4.5,12.5654397 4.72385763,12.7892973 5,12.7892973 C5.11353575,12.7892973 5.223691,12.750657 5.31234752,12.6797317 L9.01195699,9.72004417 C9.22758796,9.5475394 9.26254865,9.23289321 9.09004388,9.01726224 C9.06697799,8.98842989 9.04078935,8.96224124 9.01195699,8.93917536 Z" id="Fill-3" fill="url(#linearGradient-2)" transform="translate(7.000000, 9.329610) rotate(-270.000000) translate(-7.000000, -9.329610) "></path>
+            <path d="M9.01195699,5.6095656 L5.31234752,2.64987802 C5.09671656,2.47737324 4.78207037,2.51233393 4.6095656,2.7279649 C4.53864038,2.81662142 4.5,2.92677668 4.5,3.04031242 L4.5,8.95968758 C4.5,9.23582995 4.72385763,9.45968758 5,9.45968758 C5.11353575,9.45968758 5.223691,9.4210472 5.31234752,9.35012198 L9.01195699,6.3904344 C9.22758796,6.21792963 9.26254865,5.90328344 9.09004388,5.68765248 C9.06697799,5.65882012 9.04078935,5.63263148 9.01195699,5.6095656 Z" id="Fill-3" fill="url(#linearGradient-3)" transform="translate(7.000000, 6.000000) rotate(-270.000000) translate(-7.000000, -6.000000) "></path>
+        </g>
+    </g>
+</svg>

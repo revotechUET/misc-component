@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>true_vertical_depth_16x16</title>
+    <g id="true_vertical_depth_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Fill-6-Copy-3" fill="#0077BE" points="2 32 3 32 3 0 2 0"></polygon>
+        <polygon id="Fill-6-Copy-4" fill="#F16464" points="6 10 7 10 7 0 6 0"></polygon>
+        <polygon id="Fill-6-Copy-5" fill="#F16464" points="6 11 13 11 13 10 6 10"></polygon>
+        <polygon id="Fill-22-Copy" fill="#0077BE" transform="translate(2.500000, 14.500000) rotate(-180.000000) translate(-2.500000, -14.500000) " points="2.5 13 0 16 5 16"></polygon>
+        <polygon id="Fill-22-Copy" fill="#0077BE" transform="translate(2.500000, 14.500000) rotate(-180.000000) translate(-2.500000, -14.500000) " points="2.5 13 0 16 5 16"></polygon>
+        <polygon id="Fill-22" fill="#F16464" transform="translate(14.500000, 10.500000) rotate(-270.000000) translate(-14.500000, -10.500000) " points="14.5 9 12 12 17 12"></polygon>
+        <polygon id="Fill-22" fill="#F16464" transform="translate(14.500000, 10.500000) rotate(-270.000000) translate(-14.500000, -10.500000) " points="14.5 9 12 12 17 12"></polygon>
+    </g>
+</svg>

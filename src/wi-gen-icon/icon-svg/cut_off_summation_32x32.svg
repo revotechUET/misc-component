@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>cut_off_summation_32x32</title>
+    <defs>
+        <linearGradient x1="68.9496951%" y1="12.5466985%" x2="22.8323283%" y2="96.070223%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" stop-opacity="0.132302989" offset="0%"></stop>
+            <stop stop-color="#0077BE" stop-opacity="0.580672554" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="cut_off_summation_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-11-Copy-4" fill="#FFFFFF" x="7" y="1.5" width="2" height="3"></rect>
+        <rect id="Rectangle-11-Copy-12" fill="#FFFFFF" x="15" y="1.5" width="2" height="3"></rect>
+        <rect id="Rectangle-11-Copy-5" fill="#FFFFFF" x="11" y="1.5" width="2" height="3"></rect>
+        <rect id="Rectangle-11-Copy-13" fill="#FFFFFF" x="19" y="1.5" width="2" height="3"></rect>
+        <rect id="Rectangle-11-Copy-14" fill="#FFFFFF" x="23" y="1.5" width="2" height="3"></rect>
+        <rect id="Rectangle-Copy" stroke="#0077BE" fill="url(#linearGradient-1)" x="3.5" y="6" width="19" height="25.5" rx="2"></rect>
+        <rect id="Rectangle" stroke="#0077BE" fill="#FFFFFF" x="8.5" y="3" width="19" height="23.5" rx="2"></rect>
+        <rect id="Rectangle" stroke="#0077BE" fill="#FFFFFF" x="12.5" y="1.49110144" width="11" height="3" rx="1.5"></rect>
+        <rect id="Rectangle-Copy-9" fill="#0077BE" x="17.0065729" y="14.5088986" width="6.99342711" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-11" fill="#0077BE" x="17.0065729" y="8.5" width="6.99342711" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-10" fill="#0077BE" x="17" y="20.5177971" width="6.99342711" height="1" rx="0.5"></rect>
+        <path d="M12.4420187,13.9421463 C11.8526604,14.5314861 11.8526604,15.486311 12.4420187,16.0756508 C13.0315655,16.6651792 13.9862316,16.6651792 14.5757784,16.0756508 C15.1651367,15.486311 15.1651367,14.5314861 14.5757784,13.9421463 C13.9862316,13.3526179 13.0315655,13.3526179 12.4420187,13.9421463" id="Path-Copy-7" fill="#DB4D4D"></path>
+        <path d="M12.4420187,7.93324776 C11.8526604,8.52258759 11.8526604,9.47741241 12.4420187,10.0667522 C13.0315655,10.6562807 13.9862316,10.6562807 14.5757784,10.0667522 C15.1651367,9.47741241 15.1651367,8.52258759 14.5757784,7.93324776 C13.9862316,7.34371934 13.0315655,7.34371934 12.4420187,7.93324776" id="Path-Copy-9" fill="#DB4D4D"></path>
+        <path d="M12.4420187,19.9510449 C11.8526604,20.5403847 11.8526604,21.4952095 12.4420187,22.0845494 C13.0315655,22.6740778 13.9862316,22.6740778 14.5757784,22.0845494 C15.1651367,21.4952095 15.1651367,20.5403847 14.5757784,19.9510449 C13.9862316,19.3615165 13.0315655,19.3615165 12.4420187,19.9510449" id="Path-Copy-8" fill="#DB4D4D"></path>
+    </g>
+</svg>

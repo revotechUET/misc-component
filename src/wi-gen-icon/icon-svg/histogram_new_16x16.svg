@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>histogram_new_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="histogram_new_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-16" transform="translate(8.000000, 7.500000) scale(-1, 1) translate(-8.000000, -7.500000) translate(0.000000, 1.000000)">
+            <path d="M1.4898722,13 L3.4898722,13 C4.04215695,13 4.4898722,12.5522847 4.4898722,12 L4.4898722,4 C4.4898722,3.44771525 4.04215695,3 3.4898722,3 L1.4898722,3 C0.937587446,3 0.489872196,3.44771525 0.489872196,4 L0.489872196,12 C0.489872196,12.5522847 0.937587446,13 1.4898722,13 Z" id="Fill-2" fill="url(#linearGradient-1)"></path>
+            <path d="M7,13 L9,13 C9.55228475,13 10,12.5522847 10,12 L10,1 C10,0.44771525 9.55228475,-1.01453063e-16 9,0 L7,0 C6.44771525,1.01453063e-16 6,0.44771525 6,1 L6,12 C6,12.5522847 6.44771525,13 7,13 Z" id="Fill-3" fill="url(#linearGradient-2)"></path>
+            <path d="M12.5101278,13 L14.5101278,13 C15.0624126,13 15.5101278,12.5522847 15.5101278,12 L15.5101278,8 C15.5101278,7.44771525 15.0624126,7 14.5101278,7 L12.5101278,7 C11.9578431,7 11.5101278,7.44771525 11.5101278,8 L11.5101278,12 C11.5101278,12.5522847 11.9578431,13 12.5101278,13 Z" id="Fill-4" fill="url(#linearGradient-3)"></path>
+        </g>
+        <path d="M1,15.5 L15,15.5 C15.2761424,15.5 15.5,15.2761424 15.5,15 C15.5,14.7238576 15.2761424,14.5 15,14.5 L1,14.5 C0.723857625,14.5 0.5,14.7238576 0.5,15 C0.5,15.2761424 0.723857625,15.5 1,15.5 Z" id="Fill-2" fill="#0477BD"></path>
+        <g id="Group-3" transform="translate(8.000000, 8.000000)">
+            <circle id="Oval-2" stroke="#FFFFFF" fill="#F16464" transform="translate(4.000000, 4.000000) rotate(-90.000000) translate(-4.000000, -4.000000) " cx="4" cy="4" r="4.5"></circle>
+            <g id="Group-2" transform="translate(1.000000, 1.000000)" fill="#FFFFFF">
+                <rect id="Rectangle" transform="translate(3.000000, 3.000000) rotate(-360.000000) translate(-3.000000, -3.000000) " x="2.5" y="0.545454545" width="1" height="4.90909091" rx="0.5"></rect>
+                <path d="M3,0.545454545 C3.27614237,0.545454545 3.5,0.769312171 3.5,1.04545455 L3.5,4.95454545 C3.5,5.23068783 3.27614237,5.45454545 3,5.45454545 C2.72385763,5.45454545 2.5,5.23068783 2.5,4.95454545 L2.5,1.04545455 C2.5,0.769312171 2.72385763,0.545454545 3,0.545454545 Z" id="Rectangle" transform="translate(3.000000, 3.000000) rotate(-630.000000) translate(-3.000000, -3.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>potassium_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="190.349849%" id="linearGradient-1">
+            <stop stop-color="#00ACFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#6EC5F9" stop-opacity="0.673601676" offset="49.9796785%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="166.026655%" y1="122.0402%" x2="3.60144321%" y2="24.9032107%" id="linearGradient-2">
+            <stop stop-color="#00ACFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#6EC5F9" stop-opacity="0.673601676" offset="19.8605838%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="117.775229%" y1="-81.979256%" x2="34.0821212%" y2="72.4308461%" id="linearGradient-3">
+            <stop stop-color="#00ACFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#6EC5F9" stop-opacity="0.673601676" offset="49.9796785%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="potassium_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(1.000000, -1.000000)">
+            <polygon id="Rectangle" fill="url(#linearGradient-1)" points="0.358406875 5.29754321 6.94218519 1.50931081 13.6472184 5.3869085 6.94218519 9.26450618"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-2)" points="7.20602504 9.26450618 13.4361272 5.95870371 13.4361272 12.7261817 7.20602504 16.2066914"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-3)" points="0.540202698 12.6866702 0.540202698 5.72283666 6.91450714 9.26450618 6.58377832 16.2066914"></polygon>
+            <path d="M6.25579159,1.93451282 C6.7169406,1.6709991 7.2830594,1.6709991 7.74420841,1.93451282 L7.74420841,1.93451282 L12.7442084,4.79165567 C12.9778897,4.92518781 13.1668376,5.11620768 13.2973651,5.34113016 C13.4278927,5.56605264 13.5,5.82487775 13.5,6.09402039 L13.5,6.09402039 L13.5,11.9060636 C13.5,12.1752062 13.4278927,12.4340313 13.2973651,12.6589538 C13.1668376,12.8838763 12.9778897,13.0748961 12.7442084,13.2084283 L12.7442084,13.2084283 L7.74420841,16.0655711 C7.2830594,16.3290849 6.7169406,16.3290849 6.25579159,16.0655711 L6.25579159,16.0655711 L1.25579159,13.2084283 C1.02211034,13.0748961 0.833162446,12.8838763 0.70263486,12.6589538 C0.572107274,12.4340313 0.5,12.1752062 0.5,11.9060636 L0.5,11.9060636 L0.5,6.09402039 C0.5,5.82487775 0.572107274,5.56605264 0.70263486,5.34113016 C0.833162446,5.11620768 1.02211034,4.92518781 1.25579159,4.79165567 L1.25579159,4.79165567 Z" id="Path" stroke="#0077BE"></path>
+            <path d="M1,5.62812346 L5.92956428,8.75153643 C6.58311605,9.16563227 7.41688395,9.16563227 8.07043572,8.75153643 L13,5.62812346 L13,5.62812346" id="Line-2" stroke="#0077BE" stroke-linecap="round"></path>
+            <line x1="7" y1="9.15173818" x2="7" y2="16.2066914" id="Line-3" stroke="#0077BE" stroke-linecap="round"></line>
+        </g>
+    </g>
+</svg>

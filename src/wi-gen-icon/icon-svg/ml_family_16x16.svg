@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ml_family_16x16</title>
+    <g id="ml_family_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M3.5,4.5 L3.5,3.5 C3.5,2.94771525 3.94771525,2.5 4.5,2.5 L11.5,2.5 C12.0522847,2.5 12.5,2.94771525 12.5,3.5 L12.5,13.5 C12.5,14.0522847 12.0522847,14.5 11.5,14.5 L4.5,14.5 C3.94771525,14.5 3.5,14.0522847 3.5,13.5 L3.5,12.5 L3.5,4.5 Z" id="Line-12" stroke="#0077BE" stroke-linecap="square"></path>
+        <rect id="Rectangle" fill="#0077BE" x="2" y="4" width="2" height="1" rx="0.5"></rect>
+        <rect id="Rectangle" fill="#0077BE" x="6" y="5" width="4" height="1" rx="0.5"></rect>
+        <rect id="Rectangle" fill="#0077BE" x="6" y="8" width="4" height="1" rx="0.5"></rect>
+        <rect id="Rectangle" fill="#0077BE" x="6" y="11" width="4" height="1" rx="0.5"></rect>
+        <rect id="Rectangle" fill="#0077BE" x="2" y="6.5" width="2" height="1" rx="0.5"></rect>
+        <rect id="Rectangle" fill="#0077BE" x="2" y="9.5" width="2" height="1" rx="0.5"></rect>
+        <rect id="Rectangle" fill="#0077BE" x="2" y="12" width="2" height="1" rx="0.5"></rect>
+    </g>
+</svg>

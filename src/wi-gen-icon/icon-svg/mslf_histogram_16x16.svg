@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>mslf_histogram_16x16</title>
+    <defs>
+        <linearGradient x1="25.5187587%" y1="85.2157326%" x2="106.952391%" y2="8.67768595%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="14.3554567%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="14.3554567%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="14.3554567%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="mslf_histogram_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-Copy" transform="translate(5.000000, 0.000000)">
+            <rect id="Rectangle-Copy-7" fill="url(#linearGradient-1)" x="0" y="0" width="11" height="10" rx="2"></rect>
+            <path d="M1.96667537,1.65364844 L3.35827694,1.65364844 L5.41882381,7.71810156 L7.46472225,1.65364844 L8.84167537,1.65364844 L8.84167537,8.8265 L7.91882381,8.8265 L7.91882381,4.59310156 C7.91882381,4.44661646 7.92207899,4.20410586 7.92858944,3.8655625 C7.93509989,3.52701914 7.93835506,3.16406704 7.93835506,2.77669531 L5.89245662,8.8265 L4.93054256,8.8265 L2.86999569,2.77669531 L2.86999569,2.99642187 C2.86999569,3.172204 2.87406466,3.43994221 2.88220272,3.79964453 C2.89034078,4.15934685 2.89440975,4.42382988 2.89440975,4.59310156 L2.89440975,8.8265 L1.96667537,8.8265 L1.96667537,1.65364844 Z" id="M" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+        <polygon id="Fill-1" fill="url(#linearGradient-2)" points="5 16 9 16 9 11 5 11"></polygon>
+        <polygon id="Fill-2" fill="url(#linearGradient-3)" points="0 16 4 16 4 6 0 6"></polygon>
+        <polygon id="Fill-2-Copy" fill="url(#linearGradient-4)" points="10 16 14 16 14 13 10 13"></polygon>
+    </g>
+</svg>

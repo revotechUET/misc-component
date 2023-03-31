@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>neutron_density_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="76.7029485%" y2="8.20085208%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="63.9138078%" x2="103.462337%" y2="26.9648261%" id="linearGradient-3">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="neutron_density_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <circle id="Oval-Copy-21" fill="url(#linearGradient-1)" cx="3" cy="13" r="1"></circle>
+            <circle id="Oval-Copy-22" fill="url(#linearGradient-1)" cx="8" cy="12" r="1"></circle>
+            <circle id="Oval-Copy-23" fill="url(#linearGradient-2)" cx="5" cy="10" r="1"></circle>
+            <circle id="Oval-Copy-26" fill="url(#linearGradient-1)" cx="12.0641416" cy="9.97894941" r="1"></circle>
+            <circle id="Oval-Copy-24" fill="url(#linearGradient-2)" cx="12" cy="13" r="1"></circle>
+            <circle id="Oval-Copy-25" fill="#0077BE" cx="3" cy="5" r="1"></circle>
+            <polygon id="Fill-1" fill="#0477BD" points="0 16 1 16 1 0 0 0"></polygon>
+            <polygon id="Fill-2" fill="#0477BD" points="1 16 16 16 16 15 1 15"></polygon>
+        </g>
+        <rect id="Rectangle-Copy-7" fill="url(#linearGradient-3)" x="2" y="0" width="14" height="8" rx="2"></rect>
+        <path d="M4.68846962,1.47900391 L5.49169227,1.47900391 L8.02782509,5.54638672 L8.02782509,1.47900391 L8.67382118,1.47900391 L8.67382118,6.5 L7.91161415,6.5 L5.33788368,2.43603516 L5.33788368,6.5 L4.68846962,6.5 L4.68846962,1.47900391 Z M11.6713798,5.91894531 C11.9015242,5.91894531 12.0906499,5.89501977 12.2387626,5.84716797 C12.5030868,5.75830034 12.719556,5.58740361 12.8881766,5.33447266 C13.0226174,5.13167216 13.1194589,4.87190914 13.178704,4.55517578 C13.2128839,4.36604723 13.2299735,4.19059326 13.2299735,4.02880859 C13.2299735,3.40673517 13.1063582,2.92366708 12.8591239,2.57958984 C12.6118896,2.2355126 12.2137002,2.06347656 11.6645438,2.06347656 L10.4580009,2.06347656 L10.4580009,5.91894531 L11.6713798,5.91894531 Z M9.77440712,1.47900391 L11.8080985,1.47900391 C12.4985317,1.47900391 13.0340081,1.72395588 13.4145438,2.21386719 C13.7540638,2.65592669 13.9238212,3.22216452 13.9238212,3.91259766 C13.9238212,4.44580345 13.8235618,4.92773222 13.6230399,5.35839844 C13.2698481,6.11946995 12.662595,6.5 11.8012626,6.5 L9.77440712,6.5 L9.77440712,1.47900391 Z" id="ND" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

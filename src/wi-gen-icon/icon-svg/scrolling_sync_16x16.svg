@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>scrolling_sync_16x16</title>
+    <defs>
+        <linearGradient x1="83.1582131%" y1="73.0807996%" x2="18.7468241%" y2="40.892309%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#15A0F2" offset="50.7947977%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="94.9146935%" y1="55.1521844%" x2="10.3793657%" y2="37.1353699%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" stop-opacity="0.225062274" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="scrolling_sync_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-12" stroke="#0077BE" x="0.5" y="0.5" width="5" height="15" rx="2"></rect>
+        <g id="Untitled-1" transform="translate(7.000000, 7.000000)">
+            <path d="M8.78597122,4.17720952 L7.61450839,4.17720952 C7.46807554,2.50632571 6.06232014,1.19348843 4.39298561,1.19348843 C3.51438849,1.19348843 2.69436451,1.55153496 2.10863309,2.14827918 L1.28860911,1.31283728 C2.07934652,0.507232584 3.19223621,0 4.39298561,0 C6.7066247,0 8.63953837,1.84990707 8.78597122,4.17720952 Z" id="Path" fill="url(#linearGradient-1)"></path>
+            <path d="M7.49736211,7.63832598 C6.7066247,8.44393067 5.59373501,8.95116326 4.39298561,8.95116326 C2.07934652,8.95116326 0.146432854,7.10125618 0,4.77395374 L1.17146283,4.77395374 C1.31789568,6.44483754 2.69436451,7.75767482 4.39298561,7.75767482 C5.27158273,7.75767482 6.09160671,7.39962829 6.67733813,6.80288407 L7.49736211,7.63832598 Z" id="Path" fill="url(#linearGradient-2)"></path>
+            <polygon id="Path" fill="#0077BE" points="3.22152278 3.28209319 0.292865707 3.28209319 0.292865707 0.298372109 1.28860911 1.31283728 2.10863309 2.14827918"></polygon>
+            <polygon id="Path" fill="#F16464" points="8.49310551 5.66907006 8.49310551 8.65279115 7.49736211 7.63832598 6.67733813 6.80288407 5.56444844 5.66907006"></polygon>
+        </g>
+        <path d="M5.5,5.5 L5.5,2.5 C5.5,1.3954305 6.3954305,0.5 7.5,0.5 L8.5,0.5 C9.6045695,0.5 10.5,1.3954305 10.5,2.5 L10.5,5.5 L10.5,5.5" id="Line-6" stroke="#0077BE" stroke-linecap="round"></path>
+        <path d="M10.5,5.5 L10.5,2.5 C10.5,1.3954305 11.3954305,0.5 12.5,0.5 L13.5,0.5 C14.6045695,0.5 15.5,1.3954305 15.5,2.5 L15.5,5.5 L15.5,5.5" id="Line-6" stroke="#0077BE" stroke-linecap="round"></path>
+    </g>
+</svg>

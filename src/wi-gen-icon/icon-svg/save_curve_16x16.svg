@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>save_curve_16x16</title>
+    <g id="save_curve_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill="#FFFFFF" stroke="#0077BE">
+            <rect id="Rectangle-7-Copy-12" x="0.5" y="0.5" width="14.984375" height="15" rx="2"></rect>
+        </g>
+        <g id="Group" transform="translate(2.464381, -2.500000)" stroke="#0077BE">
+            <rect id="Rectangle-7-Copy-12" x="1.04538469" y="1" width="8.99023437" height="6" rx="2"></rect>
+            <rect id="Rectangle-7-Copy-13" x="1.04538469" y="11" width="8.99023437" height="9" rx="2"></rect>
+            <rect id="Rectangle-7-Copy-13" x="4.03561906" y="14" width="3" height="1" rx="0.5"></rect>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>import_markerset_16x16</title>
+    <g id="import_markerset_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-12" stroke="#0077BE" x="5.5" y="0.5" width="10" height="15" rx="2"></rect>
+        <rect id="Rectangle-2-Copy-13" fill="#0077BE" x="7.5" y="3" width="6" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-2-Copy-15" fill="#F16464" x="9.5" y="6" width="4" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-2-Copy-14" fill="#FFFFFF" x="4" y="5" width="4" height="9" rx="1"></rect>
+        <polyline id="Line-7" stroke="#0077BE" stroke-linecap="round" points="6 7 8.5 9.5 6 12"></polyline>
+        <line x1="0.5" y1="9.5" x2="8" y2="9.5" id="Line" stroke="#0077BE" stroke-linecap="round"></line>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>curve_convolution_16x16</title>
+    <g id="curve_convolution_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" stroke="#0077BE">
+            <rect id="Rectangle-Copy-7" x="0.5" y="0.5" width="15" height="15" rx="2"></rect>
+        </g>
+        <g id="Group-2">
+            <polygon id="Fill-22" fill="#F16464" transform="translate(13.000000, 3.000000) rotate(-45.000000) translate(-13.000000, -3.000000) " points="14.4142136 3 11.5857864 5.82842712 11.5857864 0.171572875"></polygon>
+            <line x1="13" y1="3" x2="9.5" y2="6.5" id="Line" stroke="#F16464" stroke-linecap="round"></line>
+            <polygon id="Fill-22" fill="#F16464" transform="translate(3.000000, 13.000000) rotate(-225.000000) translate(-3.000000, -13.000000) " points="4.41421356 13 1.58578644 15.8284271 1.58578644 10.1715729"></polygon>
+            <line x1="7" y1="10" x2="3.5" y2="13.5" id="Line" stroke="#F16464" stroke-linecap="round" transform="translate(5.000000, 11.500000) rotate(-180.000000) translate(-5.000000, -11.500000) "></line>
+        </g>
+        <g id="Group-2" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000) ">
+            <polygon id="Fill-22" fill="#F16464" transform="translate(13.000000, 3.000000) rotate(-45.000000) translate(-13.000000, -3.000000) " points="14.4142136 3 11.5857864 5.82842712 11.5857864 0.171572875"></polygon>
+            <line x1="13" y1="3" x2="9.5" y2="6.5" id="Line" stroke="#F16464" stroke-linecap="round"></line>
+            <polygon id="Fill-22" fill="#F16464" transform="translate(3.000000, 13.000000) rotate(-225.000000) translate(-3.000000, -13.000000) " points="4.41421356 13 1.58578644 15.8284271 1.58578644 10.1715729"></polygon>
+            <line x1="7" y1="10" x2="3.5" y2="13.5" id="Line" stroke="#F16464" stroke-linecap="round" transform="translate(5.000000, 11.500000) rotate(-180.000000) translate(-5.000000, -11.500000) "></line>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>basemap_32x32</title>
+    <defs>
+        <linearGradient x1="50%" y1="10.9802572%" x2="50%" y2="97.5075758%" id="linearGradient-1">
+            <stop stop-color="#00ACFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#00A6F7" stop-opacity="0.118938634" offset="49.2255238%"></stop>
+            <stop stop-color="#008DD9" stop-opacity="0.582762374" offset="87.0597001%"></stop>
+            <stop stop-color="#0C88D1" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="100%" x2="0%" y2="14.0956676%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="100%" x2="0%" y2="25.3303513%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#00AFE0" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="basemap_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M7.42773874,12.5 L25.1155365,12.5 C25.533153,12.5 25.9067943,12.7595173 26.0526042,13.1508522 L31.2689504,27.1508522 C31.4617794,27.6683804 31.1985587,28.2442387 30.6810305,28.4370677 C30.569329,28.4786872 30.4510859,28.5 30.3318827,28.5 L2.21139258,28.5 C1.65910783,28.5 1.21139258,28.0522847 1.21139258,27.5 C1.21139258,27.3807968 1.23270537,27.2625537 1.27432492,27.1508522 L6.49067107,13.1508522 C6.63648094,12.7595173 7.01012229,12.5 7.42773874,12.5 Z" id="Rectangle" fill="url(#linearGradient-1)" opacity="0.552664621"></path>
+        <g id="Group-2" transform="translate(18.621366, 7.000000)">
+            <path d="M5.95675904,0.0278234125 C5.95675904,0.0326364423 4.97271433,2.95124344 3.65854819,5.02782341 C2.11666628,7.46424012 0.667684456,8.90727799 0.526845553,11.2577798 C0.329440546,14.55233 2.78174069,17.0000053 5.95675904,17.0000053 C9.13177738,17.0000053 11.6402003,14.557255 11.4810711,11.2577798 C11.3735235,9.02782341 9.96091748,7.54470933 8.32253336,5.02782341 C7.17644292,3.26720818 5.95675904,0.0230210577 5.95675904,0.0278234125 Z" id="Fill-1" fill="url(#linearGradient-2)" transform="translate(6.001979, 8.513914) rotate(-180.000000) translate(-6.001979, -8.513914) "></path>
+            <circle id="Oval" fill="#FFFFFF" cx="6" cy="5.27829041" r="1.72170959"></circle>
+        </g>
+        <g id="Group-2" opacity="0.665178571" transform="translate(11.094392, 1.994853)">
+            <path d="M3.8543735,0.0180033845 C3.8543735,0.021117698 3.21763868,1.90962811 2.36729589,3.25330096 C1.36960759,4.82980243 0.432031119,5.76353282 0.340900063,7.28444577 C0.213167412,9.41621352 1.79994986,11.0000035 3.8543735,11.0000035 C5.90879713,11.0000035 7.53189433,9.41940031 7.42892834,7.28444577 C7.35933875,5.84153625 6.44529954,4.88187074 5.38516865,3.25330096 C4.64358071,2.11407588 3.8543735,0.0148959785 3.8543735,0.0180033845 Z" id="Fill-1" fill="url(#linearGradient-3)" transform="translate(3.883634, 5.509003) rotate(-180.000000) translate(-3.883634, -5.509003) "></path>
+            <circle id="Oval" fill="#FFFFFF" cx="3.88235294" cy="3.41536438" r="1.11404738"></circle>
+        </g>
+        <g id="Group" transform="translate(4.000000, 10.000000)">
+            <polyline id="Line" stroke="#0077BE" stroke-linecap="round" points="1.14679327 14.020864 2.99739666 1 5 1 7 14.020864"></polyline>
+            <rect id="Rectangle-7-Copy-7" fill="#0077BE" x="1.50837665" y="8.28571429" width="5.08972693" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="1.97107909" y="5.71428571" width="4.16432203" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-7-Copy-9" fill="#0077BE" x="2.43378154" y="3.14285714" width="3.23891714" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-7-Copy-6" fill="#0077BE" x="1.0456742" y="10.8571429" width="6.01513183" height="1" rx="0.5"></rect>
+            <line x1="4" y1="1" x2="4" y2="14.020864" id="Line-2" stroke="#0077BE" stroke-width="0.5" stroke-linecap="round"></line>
+            <rect id="Rectangle-7-Copy-10" fill="#0077BE" x="1.91783898" y="-8.8817842e-16" width="4.16432203" height="1" rx="0.5"></rect>
+            <g id="Rectangle-7-Copy-11" transform="translate(0.000000, 14.000000)" fill="#0077BE">
+                <rect id="Rectangle-7-Copy-10" x="0" y="-9.99200722e-16" width="2" height="1" rx="0.5"></rect>
+            </g>
+            <g id="Rectangle-7-Copy-12" transform="translate(3.000000, 14.000000)" fill="#0077BE">
+                <rect id="Rectangle-7-Copy-10" x="0" y="-9.99200722e-16" width="2" height="1" rx="0.5"></rect>
+            </g>
+            <g id="Rectangle-7-Copy-13" transform="translate(6.000000, 14.000000)" fill="#0077BE">
+                <rect id="Rectangle-7-Copy-10" x="0" y="-9.99200722e-16" width="2" height="1" rx="0.5"></rect>
+            </g>
+        </g>
+        <circle id="Oval-Copy-3" fill="url(#linearGradient-4)" cx="17.6373577" cy="22.9595795" r="1"></circle>
+        <circle id="Oval-Copy-9" fill="url(#linearGradient-4)" cx="19.2223748" cy="23.6268864" r="1"></circle>
+        <circle id="Oval-Copy-10" fill="url(#linearGradient-4)" cx="20.8760585" cy="24.2030386" r="1"></circle>
+        <circle id="Oval-Copy-11" fill="url(#linearGradient-4)" cx="22.4919527" cy="24.8154672" r="1"></circle>
+        <circle id="Oval-Copy-13" fill="url(#linearGradient-4)" cx="24.6404033" cy="25.536706" r="1"></circle>
+        <circle id="Oval-Copy-4" fill="url(#linearGradient-4)" cx="16.0188992" cy="22.340053" r="1"></circle>
+        <circle id="Oval-Copy-5" fill="url(#linearGradient-4)" opacity="0.456682478" cx="14.7223748" cy="15.8263626" r="1"></circle>
+        <circle id="Oval-Copy-17" fill="url(#linearGradient-4)" opacity="0.456682478" cx="17.4940124" cy="17.5" r="1"></circle>
+        <circle id="Oval-Copy-18" fill="url(#linearGradient-4)" opacity="0.456682478" cx="16.0188992" cy="16.6626267" r="1"></circle>
+        <circle id="Oval-Copy-12" fill="url(#linearGradient-4)" opacity="0.602934338" cx="17.3577417" cy="19.5" r="1"></circle>
+        <circle id="Oval-Copy-16" fill="url(#linearGradient-4)" opacity="0.602934338" cx="19.0372468" cy="18.5" r="1"></circle>
+        <circle id="Oval-Copy-14" fill="url(#linearGradient-4)" opacity="0.602934338" cx="15.9377895" cy="20.5" r="1"></circle>
+        <circle id="Oval-Copy-15" fill="url(#linearGradient-4)" opacity="0.602934338" cx="14.2223748" cy="21.5" r="1"></circle>
+        <circle id="Oval-Copy-6" fill="url(#linearGradient-4)" opacity="0.311151414" cx="13.1443829" cy="14.915" r="1"></circle>
+        <circle id="Oval-Copy-7" fill="url(#linearGradient-4)" opacity="0.311151414" cx="14.7223748" cy="13.915" r="1"></circle>
+    </g>
+</svg>

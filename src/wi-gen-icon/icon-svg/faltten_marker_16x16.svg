@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>faltten_marker_16x16</title>
+    <defs>
+        <linearGradient x1="77.79037%" y1="32.5280033%" x2="50%" y2="54.7337278%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="169.427872%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="94.1194069%" y1="54.8804229%" x2="0%" y2="47.3593013%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="88.9613448%" y1="124.572864%" x2="-95.9420416%" y2="-52.7667508%" id="linearGradient-4">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="75.2010624%" y1="94.3792224%" x2="-153.77776%" y2="-39.9983362%" id="linearGradient-5">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="faltten_marker_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-20-Copy-56" fill="#FFFFFF" x="2" y="5" width="1" height="1"></rect>
+        <g id="Group-3" transform="translate(1.000000, 0.000000)">
+            <g id="Group" transform="translate(0.500000, 11.000000)" fill="url(#linearGradient-1)">
+                <rect id="Rectangle-7-Copy-12" x="0" y="0" width="13" height="4" rx="1"></rect>
+            </g>
+            <g id="Group-Copy" opacity="0.3335891" transform="translate(0.000000, 6.000000)" fill="url(#linearGradient-2)">
+                <path d="M1.5,0 L5,0 L5,0 L5,4 L1.5,4 C0.94771525,4 0.5,3.55228475 0.5,3 L0.5,1 C0.5,0.44771525 0.94771525,1.01453063e-16 1.5,0 Z" id="Rectangle-7-Copy-12"></path>
+                <path d="M10,0 L13.5,0 L13.5,0 L13.5,4 L10,4 C9.44771525,4 9,3.55228475 9,3 L9,1 C9,0.44771525 9.44771525,1.01453063e-16 10,0 Z" id="Rectangle-7-Copy-12" transform="translate(11.250000, 2.000000) scale(-1, 1) translate(-11.250000, -2.000000) "></path>
+            </g>
+            <g id="Group-2" transform="translate(7.000000, 7.000000) rotate(-90.000000) translate(-7.000000, -7.000000) translate(0.000000, 3.000000)" stroke-linecap="round" stroke-width="1.5">
+                <line x1="0.472272578" y1="4" x2="12" y2="4" id="Line-5" stroke="url(#linearGradient-3)"></line>
+                <line x1="10" y1="0.5" x2="13" y2="4" id="Line-5" stroke="url(#linearGradient-4)"></line>
+                <line x1="10" y1="7.5" x2="13" y2="4" id="Line-5" stroke="url(#linearGradient-5)"></line>
+            </g>
+        </g>
+    </g>
+</svg>

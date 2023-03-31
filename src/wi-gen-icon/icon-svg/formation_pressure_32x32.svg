@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>formation_pressure_32x32</title>
+    <defs>
+        <linearGradient x1="67.8547509%" y1="24.9495083%" x2="28.8021508%" y2="77.6071776%" id="linearGradient-1">
+            <stop stop-color="#F99D9D" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="formation_pressure_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(13.000000, 3.500000)">
+            <g id="Group-12" transform="translate(0.450329, 2.450329)" stroke="#0077BE">
+                <path d="M8.55625,0 C3.8332,0 0,3.8332 0,8.55625 C0,13.2793 3.8332,17.1125 8.55625,17.1125 C13.2793,17.1125 17.1125,13.2793 17.1125,8.55625 C17.1125,3.8332 13.2793,0 8.55625,0" id="Fill-6"></path>
+            </g>
+            <g id="Group-2" transform="translate(9.659272, 7.269311) rotate(24.000000) translate(-9.659272, -7.269311) translate(4.159272, 2.769311)" fill="url(#linearGradient-1)">
+                <path d="M6.4329489,2.48076255 L6.4329489,4.19083486 C5.30318831,4.19083486 4.33814897,4.58555175 3.53783087,5.37498552 C2.73751277,6.16441929 2.3243507,7.12916028 2.29834465,8.26920849 L0.644502955,8.26920849 C0.607015877,6.69034095 1.15829644,5.33088307 2.29834465,4.19083486 C3.43839286,3.05078665 4.81659428,2.48076255 6.4329489,2.48076255 Z" id="Rectangle"></path>
+                <path d="M9.31118081,1.2780405 L9.09776836,2.98856542 C8.11028274,2.98826369 7.21638088,3.38282971 6.41606279,4.17226348 C5.61574469,4.96169725 5.20258262,5.92643824 5.17657657,7.06648645 L3.52273487,7.06648645 C3.48524779,5.48761891 4.03652836,4.12816103 5.17657657,2.98811282 C6.31662478,1.84806461 7.69482619,1.2780405 9.31118081,1.2780405 Z" id="Rectangle" transform="translate(6.416063, 4.172263) rotate(-315.000000) translate(-6.416063, -4.172263) "></path>
+            </g>
+        </g>
+        <rect id="Rectangle" fill="#0077BE" x="10.8447187" y="27" width="21.1552813" height="2"></rect>
+        <polygon id="Triangle" fill="#0077BE" points="22 13 23 19 21 19"></polygon>
+        <rect id="Rectangle" fill="#0077BE" x="21" y="23" width="2" height="6"></rect>
+        <circle id="Oval" stroke="#0077BE" fill="#FFFFFF" cx="22" cy="19" r="1"></circle>
+        <g id="Group" transform="translate(1.000000, 1.000000)">
+            <rect id="Rectangle" stroke="url(#linearGradient-2)" x="1.86363636" y="0.5" width="7.63636364" height="29"></rect>
+            <rect id="Rectangle" fill="#F16464" x="2.27272727" y="7" width="4.09090909" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-4" fill="#F16464" x="2.27272727" y="15" width="4.09090909" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-8" fill="#0077BE" x="1.81818182" y="23" width="4.54545455" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-9" fill="#0077BE" x="2.27272727" y="19" width="3.18181818" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-2" fill="#2FB1FF" x="1.81818182" y="3" width="2.72727273" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-7" fill="#F16464" x="2.27272727" y="11" width="3.18181818" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-15" fill="#0077BE" x="1.81818182" y="27" width="2.72727273" height="1" rx="0.5"></rect>
+            <rect id="Rectangle" fill="url(#linearGradient-3)" x="0" y="0" width="2.72727273" height="30"></rect>
+        </g>
+    </g>
+</svg>

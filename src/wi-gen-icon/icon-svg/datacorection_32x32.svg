@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>datacorection_32x32</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F99D9D" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#65A3C8" offset="0%"></stop>
+            <stop stop-color="#4D7A95" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="datacorection_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(0.000000, 3.000000)">
+            <g id="Group-2">
+                <polygon id="Fill-1" fill="#0477BD" points="2 26 3 26 3 0.5 2 0.5"></polygon>
+                <polygon id="Fill-1-Copy" fill="#0477BD" points="2 26 30 26 30 25 2 25"></polygon>
+                <path d="M2,27 L3,27 C3.55228475,27 4,26.5522847 4,26 L4,25 C4,24.4477153 3.55228475,24 3,24 L2,24 C1.44771525,24 1,24.4477153 1,25 L1,26 C1,26.5522847 1.44771525,27 2,27 Z" id="Fill-1-Copy-2" fill="#0477BD"></path>
+                <line x1="2.5" y1="0.5" x2="1.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round"></line>
+                <line x1="3.5" y1="0.5" x2="2.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round" transform="translate(3.000000, 1.000000) rotate(-270.000000) translate(-3.000000, -1.000000) "></line>
+                <line x1="1.76870651" y1="5.76870651" x2="1.76870651" y2="7.76870651" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 7.000000) rotate(-270.000000) translate(-2.268707, -7.000000) "></line>
+                <line x1="1.76870651" y1="10.2687065" x2="1.76870651" y2="12.2687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 11.500000) rotate(-270.000000) translate(-2.268707, -11.500000) "></line>
+                <line x1="1.76870651" y1="14.7687065" x2="1.76870651" y2="16.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 16.000000) rotate(-270.000000) translate(-2.268707, -16.000000) "></line>
+                <line x1="1.76870651" y1="19.7687065" x2="1.76870651" y2="21.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 21.000000) rotate(-270.000000) translate(-2.268707, -21.000000) "></line>
+            </g>
+            <line x1="7.5" y1="24.5" x2="7.5" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+        </g>
+        <polyline id="Line-4" stroke="#4A93BF" stroke-linecap="square" points="8.6035674 6.5 14.5276467 9 21.5209125 8.57544457 25.5078521 13.5 29 19"></polyline>
+        <polyline id="Line-4" stroke="#4A93BF" stroke-linecap="square" points="8.6035674 13 14.5764252 15.4802807 20.5508338 17 25 23"></polyline>
+        <g id="Group-4" transform="translate(28.000000, 27.000000)" stroke="#0077BE" stroke-linecap="round">
+            <line x1="2" y1="0.5" x2="1" y2="1.5" id="Line" transform="translate(1.500000, 1.000000) rotate(-270.000000) translate(-1.500000, -1.000000) "></line>
+            <line x1="2" y1="1.5" x2="1" y2="2.5" id="Line" transform="translate(1.500000, 2.000000) rotate(-180.000000) translate(-1.500000, -2.000000) "></line>
+        </g>
+        <g id="Group" transform="translate(6.000000, 17.000000)">
+            <polyline id="Line-4" stroke="#F16464" stroke-linecap="square" points="2 2 7 6 13 7"></polyline>
+            <circle id="Oval" fill="url(#linearGradient-1)" cx="2" cy="2" r="2"></circle>
+            <circle id="Oval-Copy" fill="url(#linearGradient-1)" cx="7" cy="6" r="2"></circle>
+            <circle id="Oval-Copy-2" fill="url(#linearGradient-1)" cx="13" cy="7" r="2"></circle>
+        </g>
+        <circle id="Oval" fill="url(#linearGradient-2)" cx="8.5" cy="13" r="2"></circle>
+        <circle id="Oval-Copy" fill="url(#linearGradient-2)" cx="14" cy="15.5" r="2"></circle>
+        <circle id="Oval-Copy-2" fill="url(#linearGradient-2)" cx="20.5" cy="17" r="2"></circle>
+        <circle id="Oval-Copy-2" fill="url(#linearGradient-2)" cx="25" cy="23" r="2"></circle>
+        <circle id="Oval-Copy-2" fill="url(#linearGradient-3)" cx="29" cy="19" r="2"></circle>
+        <circle id="Oval" fill="url(#linearGradient-3)" cx="8.5" cy="6.5" r="2"></circle>
+        <circle id="Oval-Copy" fill="url(#linearGradient-3)" cx="14.5" cy="9" r="2"></circle>
+        <circle id="Oval-Copy-2" fill="url(#linearGradient-3)" cx="21.5" cy="8.5" r="2"></circle>
+        <circle id="Oval-Copy-2" fill="url(#linearGradient-3)" cx="25.5" cy="13.5" r="2"></circle>
+        <rect id="Rectangle" fill="#0077BE" x="13" y="27" width="1" height="3" rx="0.5"></rect>
+        <rect id="Rectangle-Copy" fill="#0077BE" x="19" y="27" width="1" height="3" rx="0.5"></rect>
+        <rect id="Rectangle-Copy-2" fill="#0077BE" x="25" y="27" width="1" height="3" rx="0.5"></rect>
+    </g>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow_filter_right_16x16</title>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="92.9753765%" y1="50%" x2="-30.6806867%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="187.764374%" x2="50%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="arrow_filter_right_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="url(#linearGradient-1)" cx="8" cy="8" r="6.5"></circle>
+        <path d="M11.8415668,7.6095656 L8.14195729,4.64987802 C7.92632632,4.47737324 7.61168014,4.51233393 7.43917536,4.7279649 C7.36825014,4.81662142 7.32960977,4.92677668 7.32960977,5.04031242 L7.32960977,10.9596876 C7.32960977,11.23583 7.55346739,11.4596876 7.82960977,11.4596876 C7.94314551,11.4596876 8.05330077,11.4210472 8.14195729,11.350122 L11.8415668,8.3904344 C12.0571977,8.21792963 12.0921584,7.90328344 11.9196536,7.68765248 C11.8965878,7.65882012 11.8703991,7.63263148 11.8415668,7.6095656 Z" id="Fill-3" fill="url(#linearGradient-2)"></path>
+        <rect id="Rectangle" fill="url(#linearGradient-3)" transform="translate(6.461319, 8.000000) rotate(-90.000000) translate(-6.461319, -8.000000) " x="4.96131898" y="6.53868102" width="3" height="2.92263796" rx="0.5"></rect>
+    </g>
+</svg>

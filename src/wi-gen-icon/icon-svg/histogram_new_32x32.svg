@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>histogram_new_32x32</title>
+    <defs>
+        <linearGradient x1="50%" y1="15.6163999%" x2="50%" y2="73.0039874%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="15.6163999%" x2="50%" y2="73.0039874%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="15.6163999%" x2="50%" y2="73.0039874%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="15.6163999%" x2="50%" y2="73.0039874%" id="linearGradient-4">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="93.2424503%" y2="9.07195215%" id="linearGradient-5">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="histogram_new_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(0.000000, 2.000000)">
+            <g id="Group-2">
+                <polygon id="Fill-1" fill="#0477BD" points="2 26 3 26 3 0.5 2 0.5"></polygon>
+                <polygon id="Fill-1-Copy" fill="#0477BD" points="2 26 19 26 19 25 2 25"></polygon>
+                <path d="M2,27 L3,27 C3.55228475,27 4,26.5522847 4,26 L4,25 C4,24.4477153 3.55228475,24 3,24 L2,24 C1.44771525,24 1,24.4477153 1,25 L1,26 C1,26.5522847 1.44771525,27 2,27 Z" id="Fill-1-Copy-2" fill="#0477BD"></path>
+                <line x1="2.5" y1="0.5" x2="1.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round"></line>
+                <line x1="3.5" y1="0.5" x2="2.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round" transform="translate(3.000000, 1.000000) rotate(-270.000000) translate(-3.000000, -1.000000) "></line>
+                <line x1="1.76870651" y1="5.76870651" x2="1.76870651" y2="7.76870651" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 7.000000) rotate(-270.000000) translate(-2.268707, -7.000000) "></line>
+                <line x1="1.76870651" y1="10.2687065" x2="1.76870651" y2="12.2687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 11.500000) rotate(-270.000000) translate(-2.268707, -11.500000) "></line>
+                <line x1="1.76870651" y1="14.7687065" x2="1.76870651" y2="16.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 16.000000) rotate(-270.000000) translate(-2.268707, -16.000000) "></line>
+                <line x1="1.76870651" y1="19.7687065" x2="1.76870651" y2="21.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 21.000000) rotate(-270.000000) translate(-2.268707, -21.000000) "></line>
+            </g>
+            <line x1="7.5" y1="24.5" x2="7.5" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+        </g>
+        <polygon id="Fill-1" fill="url(#linearGradient-1)" points="10 25 14 25 14 4 10 4"></polygon>
+        <polygon id="Fill-2" fill="url(#linearGradient-2)" points="5 25 9 25 9 10 5 10"></polygon>
+        <polygon id="Fill-3" fill="url(#linearGradient-3)" points="15 25 19 25 19 12 15 12"></polygon>
+        <polygon id="Fill-4" fill="url(#linearGradient-2)" points="20 25 24 25 24 10 20 10"></polygon>
+        <polygon id="Fill-5" fill="url(#linearGradient-4)" points="25 25 29 25 29 6 25 6"></polygon>
+        <g id="Group" transform="translate(15.000000, 15.000000)">
+            <g id="Group-4" fill="url(#linearGradient-5)" stroke="#FFFFFF">
+                <circle id="Oval-2" cx="8" cy="8" r="8.5"></circle>
+            </g>
+            <rect id="Rectangle" fill="#FFFFFF" x="7.25" y="3.5" width="1.5" height="9" rx="0.75"></rect>
+            <rect id="Rectangle" fill="#FFFFFF" x="3.5" y="7.25" width="9" height="1.5" rx="0.75"></rect>
+        </g>
+        <rect id="Rectangle" fill="#0077BE" x="12" y="26" width="1" height="3" rx="0.5"></rect>
+    </g>
+</svg>

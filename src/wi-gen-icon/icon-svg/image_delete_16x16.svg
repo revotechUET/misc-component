@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>image_delete_16x16</title>
+    <g id="image_delete_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-12" stroke="#AAAAAA" x="0.5" y="0.5" width="11" height="11" rx="2"></rect>
+        <polyline id="Line-3" stroke="#B4B4B4" stroke-linecap="round" points="0.553342137 7.04579584 4 3.04579584 7 6.52086398 8.53425087 5 11.5693467 8"></polyline>
+        <g id="Group-3" transform="translate(12.000000, 12.000000) rotate(-315.000000) translate(-12.000000, -12.000000) translate(8.000000, 8.000000)">
+            <circle id="Oval-2" stroke="#FFFFFF" fill="#F16464" transform="translate(4.000000, 4.000000) rotate(-90.000000) translate(-4.000000, -4.000000) " cx="4" cy="4" r="4.5"></circle>
+            <g id="Group-2" transform="translate(1.000000, 1.000000)" fill="#FFFFFF">
+                <rect id="Rectangle" transform="translate(3.000000, 3.000000) rotate(-360.000000) translate(-3.000000, -3.000000) " x="2.5" y="0.545454545" width="1" height="4.90909091" rx="0.5"></rect>
+                <path d="M3,0.545454545 C3.27614237,0.545454545 3.5,0.769312171 3.5,1.04545455 L3.5,4.95454545 C3.5,5.23068783 3.27614237,5.45454545 3,5.45454545 C2.72385763,5.45454545 2.5,5.23068783 2.5,4.95454545 L2.5,1.04545455 C2.5,0.769312171 2.72385763,0.545454545 3,0.545454545 Z" id="Rectangle" transform="translate(3.000000, 3.000000) rotate(-630.000000) translate(-3.000000, -3.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

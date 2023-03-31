@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>data_mining_16x16</title>
+    <defs>
+        <linearGradient x1="23.7819474%" y1="0%" x2="23.7819474%" y2="92.2996132%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="data_mining_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-7" fill="#9B9B9B" x="8" y="2" width="6.01729844" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-9" fill="#9B9B9B" x="0.98270156" y="8" width="9.01729844" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-8" fill="#9B9B9B" x="7.98270156" y="5" width="6.01729844" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-10" fill="#9B9B9B" x="0.98270156" y="11" width="7.01729844" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-11" fill="#9B9B9B" x="0.98270156" y="14" width="7.01729844" height="1" rx="0.5"></rect>
+        <path d="M5.5,5.4 L5.5,1.74142136 C5.5,1.68619288 5.45522847,1.64142136 5.4,1.64142136 C5.37347835,1.64142136 5.34804296,1.65195704 5.32928932,1.67071068 L1.67071068,5.32928932 C1.63165825,5.36834175 1.63165825,5.43165825 1.67071068,5.47071068 C1.68946432,5.48946432 1.71489971,5.5 1.74142136,5.5 L5.4,5.5 C5.45522847,5.5 5.5,5.45522847 5.5,5.4 Z" id="Triangle" stroke="#0077BE"></path>
+        <g id="Group-2" transform="translate(9.000000, 6.000000)">
+            <polygon id="Fill-21" fill="url(#linearGradient-1)" transform="translate(3.500000, 3.240677) rotate(-180.000000) translate(-3.500000, -3.240677) " points="2 6 5 6 5 0.481353565 2 0.481353565"></polygon>
+            <polygon id="Fill-22" fill="#F16464" transform="translate(3.500000, 8.000000) rotate(-180.000000) translate(-3.500000, -8.000000) " points="3.5 6 4.26325641e-14 10 7 10"></polygon>
+        </g>
+    </g>
+</svg>

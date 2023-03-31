@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>marker_from_zoneset_add_16x16</title>
+    <defs>
+        <linearGradient x1="0%" y1="100%" x2="0%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#F99D9D" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="marker_from_zoneset_add_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-2-Copy-14" fill="#F16464" opacity="0.23" x="1" y="1" width="5" height="6"></rect>
+        <rect id="Rectangle-7-Copy-12" stroke="#0077BE" x="0.5" y="0.5" width="6" height="15" rx="2"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#0077BE" x="0" y="2" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-9" fill="#F16464" x="4" y="2" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-11" fill="#F16464" x="2" y="2" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#0077BE" x="6" y="2" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#0077BE" x="0" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-9" fill="#F16464" x="4" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-11" fill="#F16464" x="2" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#0077BE" x="6" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#0077BE" x="0" y="4" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-9" fill="#F16464" x="4" y="4" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-11" fill="#F16464" x="2" y="4" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#0077BE" x="6" y="4" width="1" height="1"></rect>
+        <rect id="Rectangle-7-Copy-12" stroke="#0077BE" x="9.5" y="0.5" width="6" height="15" rx="2"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#0077BE" x="9" y="2" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#0077BE" x="15" y="2" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#0077BE" x="9" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#0077BE" x="15" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#0077BE" x="9" y="4" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-9" fill="#F16464" x="11" y="3" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#0077BE" x="15" y="4" width="1" height="1"></rect>
+        <polygon id="Fill-21" fill="#FFFFFF" transform="translate(8.000000, 11.000000) rotate(-270.000000) translate(-8.000000, -11.000000) " points="6 14 10 14 10 8 6 8"></polygon>
+        <polygon id="Fill-21" fill="url(#linearGradient-1)" transform="translate(7.000000, 11.000000) rotate(-270.000000) translate(-7.000000, -11.000000) " points="6 15 8 15 8 7 6 7"></polygon>
+        <polygon id="Fill-22" fill="#F16464" transform="translate(12.500000, 11.036362) rotate(-270.000000) translate(-12.500000, -11.036362) " points="12.5 9.53636197 9.5 12.536362 15.5 12.536362"></polygon>
+    </g>
+</svg>

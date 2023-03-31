@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>nphi_histogram_32x32</title>
+    <defs>
+        <linearGradient x1="34.1146879%" y1="59.8765432%" x2="108.859676%" y2="33.4953434%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="14.8608177%"></stop>
+            <stop stop-color="#F79494" offset="56.9135184%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="26.082764%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="26.082764%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="26.082764%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="26.082764%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="nphi_histogram_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(5.000000, -0.038475)">
+            <rect id="Rectangle-Copy-7" fill="url(#linearGradient-1)" x="0" y="0" width="27" height="12" rx="2"></rect>
+            <path d="M3.60618239,2.87093359 L4.63889724,2.87093359 L7.89963942,8.10042578 L7.89963942,2.87093359 L8.73020583,2.87093359 L8.73020583,9.3265 L7.75022536,9.3265 L4.44114333,4.10140234 L4.44114333,9.3265 L3.60618239,9.3265 L3.60618239,2.87093359 Z M10.1891902,2.87093359 L13.0939754,2.87093359 C13.668197,2.87093359 14.131083,3.03279721 14.4826472,3.3565293 C14.8342115,3.68026138 15.009991,4.13509082 15.009991,4.72103125 C15.009991,5.22494002 14.8532543,5.66365634 14.5397761,6.03719336 C14.226298,6.41073038 13.7443692,6.59749609 13.0939754,6.59749609 L11.0637019,6.59749609 L11.0637019,9.3265 L10.1891902,9.3265 L10.1891902,2.87093359 Z M14.1266902,4.72542578 C14.1266902,4.25081403 13.9509107,3.92855163 13.5993465,3.75862891 C13.4059861,3.66780814 13.140852,3.62239844 12.8039363,3.62239844 L11.0637019,3.62239844 L11.0637019,5.85921484 L12.8039363,5.85921484 C13.1965164,5.85921484 13.5151167,5.77571958 13.7597468,5.60872656 C14.004377,5.44173354 14.1266902,5.14730289 14.1266902,4.72542578 Z M16.1305965,2.87093359 L17.0138972,2.87093359 L17.0138972,5.53841406 L20.3713191,5.53841406 L20.3713191,2.87093359 L21.2546199,2.87093359 L21.2546199,9.3265 L20.3713191,9.3265 L20.3713191,6.30745703 L17.0138972,6.30745703 L17.0138972,9.3265 L16.1305965,9.3265 L16.1305965,2.87093359 Z M22.8058894,2.87093359 L23.6891902,2.87093359 L23.6891902,9.3265 L22.8058894,9.3265 L22.8058894,2.87093359 Z" id="NPHI" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+        <g id="Group-5" transform="translate(0.000000, 4.000000)">
+            <g id="Group-3">
+                <g id="Group-2">
+                    <polygon id="Fill-1" fill="#0477BD" points="2 26 3 26 3 0.5 2 0.5"></polygon>
+                    <polygon id="Fill-1-Copy" fill="#0477BD" points="2 26 30 26 30 25 2 25"></polygon>
+                    <path d="M2,27 L3,27 C3.55228475,27 4,26.5522847 4,26 L4,25 C4,24.4477153 3.55228475,24 3,24 L2,24 C1.44771525,24 1,24.4477153 1,25 L1,26 C1,26.5522847 1.44771525,27 2,27 Z" id="Fill-1-Copy-2" fill="#0477BD"></path>
+                    <line x1="2.5" y1="0.5" x2="1.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round"></line>
+                    <line x1="3.5" y1="0.5" x2="2.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round" transform="translate(3.000000, 1.000000) rotate(-270.000000) translate(-3.000000, -1.000000) "></line>
+                    <line x1="1.76870651" y1="5.76870651" x2="1.76870651" y2="7.76870651" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 7.000000) rotate(-270.000000) translate(-2.268707, -7.000000) "></line>
+                    <line x1="1.76870651" y1="10.2687065" x2="1.76870651" y2="12.2687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 11.500000) rotate(-270.000000) translate(-2.268707, -11.500000) "></line>
+                    <line x1="1.76870651" y1="14.7687065" x2="1.76870651" y2="16.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 16.000000) rotate(-270.000000) translate(-2.268707, -16.000000) "></line>
+                    <line x1="1.76870651" y1="19.7687065" x2="1.76870651" y2="21.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 21.000000) rotate(-270.000000) translate(-2.268707, -21.000000) "></line>
+                </g>
+                <line x1="7.5" y1="24.5" x2="7.5" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                <line x1="13" y1="24.5" x2="13" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                <line x1="18.5" y1="24.5" x2="18.5" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                <line x1="24" y1="24.5" x2="24" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+            </g>
+            <g id="Group-4" transform="translate(28.000000, 24.000000)" stroke="#0077BE" stroke-linecap="round">
+                <line x1="2" y1="0.5" x2="1" y2="1.5" id="Line" transform="translate(1.500000, 1.000000) rotate(-270.000000) translate(-1.500000, -1.000000) "></line>
+                <line x1="2" y1="1.5" x2="1" y2="2.5" id="Line" transform="translate(1.500000, 2.000000) rotate(-180.000000) translate(-1.500000, -2.000000) "></line>
+            </g>
+        </g>
+        <polygon id="Fill-1" fill="url(#linearGradient-2)" points="10 27 14 27 14 14 10 14"></polygon>
+        <polygon id="Fill-2" fill="url(#linearGradient-3)" points="5 27 9 27 9 18 5 18"></polygon>
+        <polygon id="Fill-3" fill="url(#linearGradient-4)" points="15 27 19 27 19 17 15 17"></polygon>
+        <polygon id="Fill-4" fill="url(#linearGradient-5)" points="20 27 24 27 24 21 20 21"></polygon>
+        <polygon id="Fill-5" fill="url(#linearGradient-5)" points="25 27 29 27 29 21 25 21"></polygon>
+    </g>
+</svg>

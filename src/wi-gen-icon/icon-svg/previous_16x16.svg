@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>previous_16x16 </title>
+    <g id="previous_16x16-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Fill-87" fill="#FFFFFF" transform="translate(0.500000, 7.500000) rotate(-270.000000) translate(-0.500000, -7.500000) " points="-1.77635684e-15 8 1 8 1 7 -1.77635684e-15 7"></polygon>
+        <polygon id="Fill-88" fill="#FFFFFF" transform="translate(0.500000, 8.500000) rotate(-270.000000) translate(-0.500000, -8.500000) " points="-1.77635684e-15 9 1 9 1 8 -1.77635684e-15 8"></polygon>
+        <polygon id="Fill-21" fill="#0077BE" transform="translate(10.500000, 8.000000) rotate(-450.000000) translate(-10.500000, -8.000000) " points="8.5 10 12.5 10 12.5 6 8.5 6"></polygon>
+        <polygon id="Fill-22" fill="#0077BE" transform="translate(6.000000, 8.000000) rotate(-450.000000) translate(-6.000000, -8.000000) " points="6 5.5 1 10.5 11 10.5"></polygon>
+    </g>
+</svg>

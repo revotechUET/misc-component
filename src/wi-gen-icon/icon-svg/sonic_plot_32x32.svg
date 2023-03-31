@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>sonic_plot_32x32</title>
+    <defs>
+        <linearGradient x1="25.5187587%" y1="81.9110018%" x2="107.10298%" y2="12.5554734%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="76.7029485%" y2="8.20085208%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="sonic_plot_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(18.000000, -0.038475)">
+            <rect id="Rectangle-Copy-7" fill="url(#linearGradient-1)" x="0.133333333" y="0" width="13.8666667" height="12" rx="2"></rect>
+            <path d="M4.41546474,7.58763144 C4.44280863,8.07591513 4.55804185,8.47239554 4.76116787,8.77708456 C5.14788855,9.34739991 5.82952236,9.63255331 6.80608974,9.63255331 C7.24359193,9.63255331 7.64202545,9.57005394 8.00140224,9.44505331 C8.69671822,9.2028646 9.04437099,8.76927519 9.04437099,8.14427206 C9.04437099,7.67551972 8.89788808,7.34153868 8.60491787,7.14231894 C8.30804138,6.94700546 7.84320228,6.77708528 7.21038662,6.63255331 L6.04437099,6.36888144 C5.28264843,6.19700558 4.74359133,6.00755435 4.42718349,5.80052206 C3.88030576,5.44114526 3.60687099,4.90404126 3.60687099,4.18919394 C3.60687099,3.41575257 3.87444644,2.78099329 4.40960537,2.28489706 C4.94476429,1.78880083 5.70256922,1.54075644 6.68304287,1.54075644 C7.58539113,1.54075644 8.35198503,1.7585277 8.98284756,2.19407675 C9.61371009,2.6296258 9.92913662,3.3259079 9.92913662,4.28294394 L8.83343349,4.28294394 C8.77483945,3.82200413 8.6498407,3.46849204 8.45843349,3.22239706 C8.10296297,2.77317606 7.49945338,2.54856894 6.64788662,2.54856894 C5.96038318,2.54856894 5.4662475,2.69309874 5.16546474,2.98216269 C4.86468199,3.27122663 4.71429287,3.60716077 4.71429287,3.98997519 C4.71429287,4.4118523 4.89007236,4.72044296 5.24163662,4.91575644 C5.47210652,5.04075644 5.99358568,5.1970055 6.80608974,5.38450644 L8.01312099,5.65989706 C8.59515515,5.79271022 9.04436941,5.97434903 9.36077724,6.20481894 C9.90765498,6.6071647 10.1810897,7.19114323 10.1810897,7.95677206 C10.1810897,8.90990183 9.83441352,9.59153563 9.14105068,10.0016939 C8.44768784,10.4118522 7.64203183,10.6169283 6.72405849,10.6169283 C5.65374064,10.6169283 4.8158584,10.3434935 4.21038662,9.79661581 C3.60491484,9.25364435 3.30804281,8.51732358 3.31976162,7.58763144 L4.41546474,7.58763144 Z" id="S" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+        <g id="Group-6" transform="translate(0.000000, 4.000000)">
+            <g id="Group-5">
+                <g id="Group-3">
+                    <g id="Group-2">
+                        <polygon id="Fill-1" fill="#0477BD" points="2 26 3 26 3 0.5 2 0.5"></polygon>
+                        <polygon id="Fill-1-Copy" fill="#0477BD" points="2 26 30 26 30 25 2 25"></polygon>
+                        <path d="M2,27 L3,27 C3.55228475,27 4,26.5522847 4,26 L4,25 C4,24.4477153 3.55228475,24 3,24 L2,24 C1.44771525,24 1,24.4477153 1,25 L1,26 C1,26.5522847 1.44771525,27 2,27 Z" id="Fill-1-Copy-2" fill="#0477BD"></path>
+                        <line x1="2.5" y1="0.5" x2="1.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round"></line>
+                        <line x1="3.5" y1="0.5" x2="2.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="round" transform="translate(3.000000, 1.000000) rotate(-270.000000) translate(-3.000000, -1.000000) "></line>
+                        <line x1="1.76870651" y1="5.76870651" x2="1.76870651" y2="7.76870651" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 7.000000) rotate(-270.000000) translate(-2.268707, -7.000000) "></line>
+                        <line x1="1.76870651" y1="10.2687065" x2="1.76870651" y2="12.2687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 11.500000) rotate(-270.000000) translate(-2.268707, -11.500000) "></line>
+                        <line x1="1.76870651" y1="14.7687065" x2="1.76870651" y2="16.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 16.000000) rotate(-270.000000) translate(-2.268707, -16.000000) "></line>
+                        <line x1="1.76870651" y1="19.7687065" x2="1.76870651" y2="21.7687065" id="Line-Copy" stroke="#0077BE" stroke-linecap="round" transform="translate(2.268707, 21.000000) rotate(-270.000000) translate(-2.268707, -21.000000) "></line>
+                    </g>
+                    <line x1="7.5" y1="24.5" x2="7.5" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                    <line x1="13" y1="24.5" x2="13" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                    <line x1="18.5" y1="24.5" x2="18.5" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                    <line x1="24" y1="24.5" x2="24" y2="26.5" id="Line-2" stroke="#0077BE" stroke-linecap="round"></line>
+                </g>
+                <g id="Group-4" transform="translate(28.000000, 24.000000)" stroke="#0077BE" stroke-linecap="round">
+                    <line x1="2" y1="0.5" x2="1" y2="1.5" id="Line" transform="translate(1.500000, 1.000000) rotate(-270.000000) translate(-1.500000, -1.000000) "></line>
+                    <line x1="2" y1="1.5" x2="1" y2="2.5" id="Line" transform="translate(1.500000, 2.000000) rotate(-180.000000) translate(-1.500000, -2.000000) "></line>
+                </g>
+            </g>
+            <circle id="Oval-Copy-18" fill="url(#linearGradient-2)" cx="15" cy="7.58264538" r="2"></circle>
+            <circle id="Oval-Copy-21" fill="url(#linearGradient-3)" cx="24" cy="19" r="2"></circle>
+            <circle id="Oval-Copy-19" fill="url(#linearGradient-2)" cx="26" cy="12" r="2"></circle>
+            <circle id="Oval-Copy-20" fill="url(#linearGradient-3)" cx="15" cy="19" r="2"></circle>
+            <circle id="Oval-Copy-24" fill="url(#linearGradient-3)" cx="19" cy="14" r="2"></circle>
+            <circle id="Oval-Copy-22" fill="url(#linearGradient-3)" cx="11" cy="13.5" r="2"></circle>
+            <circle id="Oval-Copy-23" fill="url(#linearGradient-2)" cx="8" cy="20" r="2"></circle>
+        </g>
+    </g>
+</svg>

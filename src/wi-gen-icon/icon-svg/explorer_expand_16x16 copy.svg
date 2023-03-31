@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>explorer_expand_16x16 copy</title>
+    <g id="explorer_expand_16x16-copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-7" fill="#9B9B9B" x="10" y="4" width="5.01729844" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-9" fill="#9B9B9B" x="1" y="10" width="14.0172984" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-8" fill="#9B9B9B" x="10" y="7" width="5" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-10" fill="#9B9B9B" x="1" y="13" width="14.0172984" height="1" rx="0.5"></rect>
+        <circle id="Oval-2" stroke="#F16464" cx="4.79360977" cy="4.79360977" r="3.29360977"></circle>
+        <path d="M5.85336508,3.73385446 L3.73385446,5.85336508 L5.85336508,3.73385446 Z" id="Line-4" stroke="#F16464" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M5.85336508,5.85336508 L3.73385446,3.73385446 L5.85336508,5.85336508 Z" id="Line-4" stroke="#F16464" stroke-linecap="round" stroke-linejoin="round"></path>
+    </g>
+</svg>

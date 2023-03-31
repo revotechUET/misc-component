@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>curve_filter_32x32</title>
+    <defs>
+        <linearGradient x1="61.5497821%" y1="15.6593998%" x2="38.8771191%" y2="90.579711%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="46.6064998%" y1="96.8085102%" x2="46.6064998%" y2="0%" id="linearGradient-2">
+            <stop stop-color="#FFE5E5" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="curve_filter_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(2.500000, 0.758105)">
+            <path d="M5.45454545,1 C11.8181818,2.02667104 15,4.57212559 15,8.63636364 C15,17.1745538 1.50990331e-14,14.9867291 1.50990331e-14,22.6098095 C1.50990331e-14,25.5972092 1.81818182,27.7272727 5.45454545,29 L5.45454545,1 Z" id="Rectangle" fill="url(#linearGradient-1)"></path>
+            <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="5" y="0" width="1" height="30" rx="0.5"></rect>
+        </g>
+        <path d="M15.2134148,30.2528675 C14.6896093,27.4066118 15.2851377,24.6501506 17,21.9834839 C19.5722934,17.9834839 23.3798878,15.403213 23.6090332,9.94071404 C23.7502141,6.5751639 22.1461491,3.59492589 18.7968382,1" id="Line-7" stroke="#F16464" stroke-linecap="round"></path>
+        <path d="M24.0926041,30.2528675 C23.8514408,28.5443306 24.0813128,26.4590066 24.7822201,23.9968955 C26.1384795,19.2326976 29,16.0047311 29,9.5 C29,6.5 28.4114226,3.66666667 27.2342678,1" id="Line-7" stroke="#0077BE" stroke-linecap="round"></path>
+        <g id="Group-2" transform="translate(10.617599, 18.000000)" fill="url(#linearGradient-2)" stroke="#FFFFFF">
+            <path d="M6.15432706,-2.60868483 L11.2778687,2.90897543 L8.79575386,2.90897543 L8.79575386,10.3277491 L3.51290026,10.3277491 L3.51290026,2.90897543 L1.03078539,2.90897543 L6.15432706,-2.60868483 Z" id="Fill-22" transform="translate(6.154327, 3.976935) rotate(-270.000000) translate(-6.154327, -3.976935) "></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>project_export_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="70.3087224%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="23.7819474%" y1="0%" x2="23.7819474%" y2="92.2996132%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="project_export_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-6" fill="#0077BE" x="3" y="5" width="6" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy-7" fill="#0077BE" x="3" y="8" width="3" height="1" rx="0.5"></rect>
+        <rect id="Rectangle-7-Copy" fill="url(#linearGradient-1)" x="0" y="0" width="13" height="3" rx="1"></rect>
+        <path d="M14,2.5 C14.4142136,2.5 14.7892136,2.66789322 15.0606602,2.93933983 C15.3321068,3.21078644 15.5,3.58578644 15.5,4 L15.5,4 L15.5,14 C15.5,14.4142136 15.3321068,14.7892136 15.0606602,15.0606602 C14.7892136,15.3321068 14.4142136,15.5 14,15.5 L14,15.5 L2,15.5 C1.58578644,15.5 1.21078644,15.3321068 0.939339828,15.0606602 C0.667893219,14.7892136 0.5,14.4142136 0.5,14 L0.5,14 L0.5,2.5 Z" id="Rectangle-7-Copy-10" stroke="#0077BE"></path>
+        <g id="Group-2" transform="translate(9.518646, 11.000000) rotate(-90.000000) translate(-9.518646, -11.000000) translate(6.018646, 6.000000)">
+            <polygon id="Fill-21" fill="url(#linearGradient-2)" transform="translate(3.500000, 3.240677) rotate(-180.000000) translate(-3.500000, -3.240677) " points="2 6 5 6 5 0.481353565 2 0.481353565"></polygon>
+            <polygon id="Fill-22" fill="#F16464" transform="translate(3.500000, 8.000000) rotate(-180.000000) translate(-3.500000, -8.000000) " points="3.5 6 4.26325641e-14 10 7 10"></polygon>
+        </g>
+    </g>
+</svg>

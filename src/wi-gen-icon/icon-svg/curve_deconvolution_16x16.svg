@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>curve_deconvolution_16x16</title>
+    <g id="curve_deconvolution_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" stroke="#0077BE">
+            <rect id="Rectangle-Copy-7" x="0.5" y="0.5" width="15" height="15" rx="2"></rect>
+        </g>
+        <g id="Group-2" transform="translate(2.000000, 2.000000)">
+            <polygon id="Fill-22" fill="#F16464" transform="translate(4.000000, 4.000000) rotate(-315.000000) translate(-4.000000, -4.000000) " points="5.41421356 4 2.58578644 6.82842712 2.58578644 1.17157288"></polygon>
+            <line x1="4.5" y1="0.5" x2="1" y2="4" id="Line" stroke="#F16464" stroke-linecap="round" transform="translate(2.500000, 2.000000) rotate(-270.000000) translate(-2.500000, -2.000000) "></line>
+            <polygon id="Fill-22" fill="#F16464" transform="translate(8.000000, 8.000000) rotate(-495.000000) translate(-8.000000, -8.000000) " points="9.41421356 8 6.58578644 10.8284271 6.58578644 5.17157288"></polygon>
+            <line x1="11.5" y1="8.5" x2="8" y2="12" id="Line" stroke="#F16464" stroke-linecap="round" transform="translate(9.500000, 10.000000) rotate(-450.000000) translate(-9.500000, -10.000000) "></line>
+        </g>
+        <g id="Group-2" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000) translate(2.000000, 2.000000)">
+            <polygon id="Fill-22" fill="#F16464" transform="translate(4.000000, 4.000000) rotate(-315.000000) translate(-4.000000, -4.000000) " points="5.41421356 4 2.58578644 6.82842712 2.58578644 1.17157288"></polygon>
+            <line x1="4.5" y1="0.5" x2="1" y2="4" id="Line" stroke="#F16464" stroke-linecap="round" transform="translate(2.500000, 2.000000) rotate(-270.000000) translate(-2.500000, -2.000000) "></line>
+            <polygon id="Fill-22" fill="#F16464" transform="translate(8.000000, 8.000000) rotate(-495.000000) translate(-8.000000, -8.000000) " points="9.41421356 8 6.58578644 10.8284271 6.58578644 5.17157288"></polygon>
+            <line x1="11.5" y1="8.5" x2="8" y2="12" id="Line" stroke="#F16464" stroke-linecap="round" transform="translate(9.500000, 10.000000) rotate(-450.000000) translate(-9.500000, -10.000000) "></line>
+        </g>
+    </g>
+</svg>

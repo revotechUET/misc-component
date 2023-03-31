@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>density_rt_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="76.7029485%" y2="8.20085208%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="126.894402%" y2="-16.5999945%" id="linearGradient-3">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="density_rt_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Fill-1" fill="#0477BD" points="0 16 1 16 1 0 0 0"></polygon>
+        <polygon id="Fill-2" fill="#0477BD" points="1 16 16 16 16 15 1 15"></polygon>
+        <circle id="Oval-Copy-21" fill="url(#linearGradient-1)" cx="3" cy="13" r="1"></circle>
+        <circle id="Oval-Copy-22" fill="url(#linearGradient-1)" cx="7" cy="12" r="1"></circle>
+        <circle id="Oval-Copy-23" fill="url(#linearGradient-2)" cx="4" cy="9" r="1"></circle>
+        <circle id="Oval-Copy-24" fill="url(#linearGradient-2)" cx="11" cy="13" r="1"></circle>
+        <circle id="Oval-Copy-25" fill="url(#linearGradient-1)" cx="3" cy="5" r="1"></circle>
+        <g id="Group-Copy" transform="translate(6.000000, 0.000000)">
+            <rect id="Rectangle-Copy-7" fill="url(#linearGradient-3)" x="0" y="0" width="10" height="10" rx="2"></rect>
+            <path d="M4.72251674,7.99642187 C5.05129443,7.99642187 5.32147402,7.96224253 5.53306362,7.89388281 C5.91066967,7.76692905 6.21991137,7.52279087 6.46079799,7.16146094 C6.65285624,6.87174595 6.79120121,6.50065591 6.87583705,6.04817969 C6.92466542,5.77799604 6.94907924,5.52734751 6.94907924,5.29622656 C6.94907924,4.40755024 6.77248595,3.71745298 6.41929408,3.22591406 C6.06610221,2.73437515 5.49726025,2.48860937 4.71275112,2.48860937 L2.9891183,2.48860937 L2.9891183,7.99642187 L4.72251674,7.99642187 Z M2.0125558,1.65364844 L4.91782924,1.65364844 C5.9041623,1.65364844 6.66912861,2.00357983 7.21275112,2.70345312 C7.69777958,3.3349667 7.94029018,4.14387788 7.94029018,5.13021094 C7.94029018,5.8919335 7.79706244,6.58040317 7.51060268,7.19564062 C7.00604286,8.28288564 6.13853852,8.8265 4.90806362,8.8265 L2.0125558,8.8265 L2.0125558,1.65364844 Z" id="D" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

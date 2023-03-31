@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>formation_resistivity_32x32</title>
+    <defs>
+        <linearGradient x1="47.5609426%" y1="92.6110365%" x2="62.6333857%" y2="28.0339021%" id="linearGradient-1">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="formation_resistivity_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M23,31 C19.69,31 17,28.31 17,25 C17,23.23 17.77,21.63 19,20.54 C19.3,20.26 19.64,20.01 20,19.81 L20,4 C20,2.34 21.34,1 23,1 C24.66,1 26,2.34 26,4 L26,19.81 C26.36,20.01 26.7,20.26 27,20.54 C28.23,21.63 29,23.23 29,25 C29,28.31 26.31,31 23,31" id="Path" stroke="#0077BE"></path>
+        <path d="M26,25 C26,26.66 24.66,28 23,28 C21.34,28 20,26.66 20,25 C20,23.69 20.83,22.58 22,22.18 L22,10 C22.1057186,9.32740096 22.4390519,8.99110144 23,8.99110144 C23.5609481,8.99110144 23.8942814,9.32740096 24,10 L24,22.18 C25.17,22.58 26,23.69 26,25 L23.0462488,10.1424962" id="Fill-3" fill="url(#linearGradient-1)"></path>
+        <g id="Group" transform="translate(3.000000, 1.000000)">
+            <rect id="Rectangle" stroke="url(#linearGradient-2)" x="2" y="0.5" width="8.5" height="29"></rect>
+            <rect id="Rectangle" fill="#F16464" x="2.5" y="7" width="4.5" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-4" fill="#F16464" x="2.5" y="15" width="4.5" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-8" fill="#0077BE" x="2" y="23" width="5" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-9" fill="#0077BE" x="2.5" y="19" width="3.5" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-2" fill="#2FB1FF" x="2" y="3" width="3" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-7" fill="#F16464" x="2.5" y="11" width="3.5" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-15" fill="#0077BE" x="2" y="27" width="3" height="1" rx="0.5"></rect>
+            <rect id="Rectangle" fill="url(#linearGradient-3)" x="0" y="0" width="3" height="30"></rect>
+        </g>
+    </g>
+</svg>

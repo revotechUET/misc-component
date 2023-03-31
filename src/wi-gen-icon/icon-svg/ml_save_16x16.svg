@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ml_save_16x16</title>
+    <g id="ml_save_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M5.75,4.75 L9.25,4.75 C9.80228475,4.75 10.25,5.19771525 10.25,5.75 L10.25,16.75 C10.25,17.3022847 9.80228475,17.75 9.25,17.75 L5.75,17.75 L5.75,17.75" id="Line-12" stroke="#0077BE" stroke-linecap="square" transform="translate(8.000000, 11.250000) rotate(-270.000000) translate(-8.000000, -11.250000) "></path>
+        <rect id="Rectangle" fill="#0077BE" transform="translate(8.000000, 6.000000) rotate(-270.000000) translate(-8.000000, -6.000000) " x="4" y="5.5" width="8" height="1" rx="0.5"></rect>
+        <polyline id="Line-13" stroke="#0077BE" stroke-linecap="round" transform="translate(8.000000, 8.750000) rotate(-270.000000) translate(-8.000000, -8.750000) " points="6.75 6.25 9.25 8.75 6.75 11.25"></polyline>
+    </g>
+</svg>

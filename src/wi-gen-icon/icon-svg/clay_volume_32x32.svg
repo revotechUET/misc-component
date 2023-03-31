@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>clay_volume_32x32</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="190.349849%" id="linearGradient-1">
+            <stop stop-color="#00ACFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#6EC5F9" stop-opacity="0.673601676" offset="49.9796785%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="166.026655%" y1="122.0402%" x2="3.60144321%" y2="24.9032107%" id="linearGradient-2">
+            <stop stop-color="#00ACFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#6EC5F9" stop-opacity="0.673601676" offset="19.8605838%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="117.775229%" y1="-81.979256%" x2="34.0821212%" y2="72.4308461%" id="linearGradient-3">
+            <stop stop-color="#00ACFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#6EC5F9" stop-opacity="0.673601676" offset="49.9796785%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="clay_volume_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(5.500000, 4.000000)">
+            <polygon id="Rectangle" fill="url(#linearGradient-1)" points="0.542087554 6.5 10.5 0.770328561 20.6413096 6.63516428 10.5 12.5"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-2)" points="10.8990557 12.5 20.3220357 7.5 20.3220357 17.7357567 10.8990557 23"></polygon>
+            <polygon id="Rectangle" fill="url(#linearGradient-3)" points="0.817052293 17.6759958 0.817052293 7.14325296 10.4581372 12.5 9.95791245 23"></polygon>
+            <path d="M9.75579159,1.0011375 C10.2169406,0.737623785 10.7830594,0.737623785 11.2442084,1.0011375 L11.2442084,1.0011375 L19.7442084,5.85828036 C19.9778897,5.9918125 20.1668376,6.18283236 20.2973651,6.40775484 C20.4278927,6.63267733 20.5,6.89150244 20.5,7.16064507 L20.5,7.16064507 L20.5,17.0393549 C20.5,17.3084976 20.4278927,17.5673227 20.2973651,17.7922452 C20.1668376,18.0171676 19.9778897,18.2081875 19.7442084,18.3417196 L19.7442084,18.3417196 L11.2442084,23.1988625 C10.7830594,23.4623762 10.2169406,23.4623762 9.75579159,23.1988625 L9.75579159,23.1988625 L1.25579159,18.3417196 C1.02211034,18.2081875 0.833162446,18.0171676 0.70263486,17.7922452 C0.572107274,17.5673227 0.5,17.3084976 0.5,17.0393549 L0.5,17.0393549 L0.5,7.16064507 C0.5,6.89150244 0.572107274,6.63267733 0.70263486,6.40775484 C0.833162446,6.18283236 1.02211034,5.9918125 1.25579159,5.85828036 L1.25579159,5.85828036 Z" id="Path" stroke="#0077BE"></path>
+            <path d="M0.5,7 L9.50306226,12.1767296 C10.1203061,12.5316427 10.8796939,12.5316427 11.4969377,12.1767296 L20.5,7 L20.5,7" id="Line-2" stroke="#0077BE" stroke-linecap="round"></path>
+            <line x1="10.5" y1="12.5" x2="10.5" y2="23.1705607" id="Line-3" stroke="#0077BE" stroke-linecap="round"></line>
+        </g>
+    </g>
+</svg>

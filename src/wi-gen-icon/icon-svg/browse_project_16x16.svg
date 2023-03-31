@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>browse_project_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="browse_project_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(0.000000, 1.000000)">
+            <ellipse id="Oval-Copy-2" stroke="#F4F4F4" stroke-width="1.5" fill="#0077BE" cx="8" cy="11.25" rx="6.75" ry="3"></ellipse>
+            <rect id="Rectangle-2" fill="#0077BE" x="1.99350649" y="6.94805195" width="12.0064935" height="4.16326531"></rect>
+            <ellipse id="Oval-Copy-2" stroke="#F4F4F4" stroke-width="1.5" fill="#0077BE" cx="8" cy="7.34508349" rx="6.75" ry="2.90491651"></ellipse>
+            <rect id="Rectangle-2" fill="#0077BE" x="1.99350649" y="3.31168831" width="12.0064935" height="4.16326531"></rect>
+            <ellipse id="Oval-Copy" stroke="#F4F4F4" stroke-width="1.5" fill="url(#linearGradient-1)" cx="8" cy="2.65491651" rx="6.75324675" ry="3.40491651"></ellipse>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>median_filter_16x16</title>
+    <defs>
+        <linearGradient x1="113.571506%" y1="-10.1470297%" x2="50%" y2="95.3514739%" id="linearGradient-1">
+            <stop stop-color="#F99D9D" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="median_filter_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="#0077BE" x="0.5" y="7.5" width="8" height="1"></rect>
+        <polygon id="Rectangle" fill="#0077BE" points="0.5 9.5 8.5 9.5 5.64285714 12.86 5.64285714 15.5 3.35714286 15.5 3.35714286 12.86"></polygon>
+        <g id="Group-Copy" transform="translate(5.000000, 0.000000)">
+            <rect id="Rectangle-Copy-7" stroke="#FFFFFF" fill="url(#linearGradient-1)" x="0" y="-0.5" width="11.5" height="11" rx="2"></rect>
+            <path d="M2.33579799,1.65364844 L3.72739955,1.65364844 L5.78794643,7.71810156 L7.83384487,1.65364844 L9.21079799,1.65364844 L9.21079799,8.8265 L8.28794643,8.8265 L8.28794643,4.59310156 C8.28794643,4.44661646 8.2912016,4.20410586 8.29771205,3.8655625 C8.3042225,3.52701914 8.30747768,3.16406704 8.30747768,2.77669531 L6.26157924,8.8265 L5.29966518,8.8265 L3.2391183,2.77669531 L3.2391183,2.99642187 C3.2391183,3.172204 3.24318727,3.43994221 3.25132533,3.79964453 C3.2594634,4.15934685 3.26353237,4.42382988 3.26353237,4.59310156 L3.26353237,8.8265 L2.33579799,8.8265 L2.33579799,1.65364844 Z" id="M" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

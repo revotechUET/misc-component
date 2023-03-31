@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>plot_whole_well_16x16</title>
+    <g id="plot_whole_well_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M11.3333333,5.26666667 C10.5235858,5.26666667 9.86666667,4.60974749 9.86666667,3.8 C9.86666667,2.99025251 10.5235858,2.33333333 11.3333333,2.33333333 C12.1430808,2.33333333 12.8,2.99025251 12.8,3.8 C12.8,4.60974749 12.1430808,5.26666667 11.3333333,5.26666667 M11.330797,1.6 C9.7548997,1.6 8.38303487,2.48585213 7.66666667,3.79454948 C8.38021674,5.10841048 9.7548997,6 11.3358696,6 C12.911767,6 14.2836318,5.11414787 15,3.80487678 C14.2864499,2.49101578 12.911767,1.6 11.330797,1.6" id="Fill-1" fill="#F16464"></path>
+        <g id="Group" transform="translate(0.500000, 0.500000)">
+            <polyline id="Line" stroke="#0077BE" stroke-linecap="round" points="1.14679327 14.020864 2.99739666 1 5 1 7 14.020864"></polyline>
+            <rect id="Rectangle-7-Copy-7" fill="#0077BE" x="1.50837665" y="8.28571429" width="5.08972693" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="1.97107909" y="5.71428571" width="4.16432203" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-7-Copy-9" fill="#0077BE" x="2.43378154" y="3.14285714" width="3.23891714" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-7-Copy-6" fill="#0077BE" x="1.0456742" y="10.8571429" width="6.01513183" height="1" rx="0.5"></rect>
+            <line x1="4" y1="1" x2="4" y2="14.020864" id="Line-2" stroke="#0077BE" stroke-width="0.5" stroke-linecap="round"></line>
+            <rect id="Rectangle-7-Copy-10" fill="#0077BE" x="1.91783898" y="-8.8817842e-16" width="4.16432203" height="1" rx="0.5"></rect>
+            <g id="Rectangle-7-Copy-11" transform="translate(0.000000, 14.000000)" fill="#0077BE">
+                <rect id="Rectangle-7-Copy-10" x="0" y="-9.99200722e-16" width="2" height="1" rx="0.5"></rect>
+            </g>
+            <g id="Rectangle-7-Copy-12" transform="translate(3.000000, 14.000000)" fill="#0077BE">
+                <rect id="Rectangle-7-Copy-10" x="0" y="-9.99200722e-16" width="2" height="1" rx="0.5"></rect>
+            </g>
+            <g id="Rectangle-7-Copy-13" transform="translate(6.000000, 14.000000)" fill="#0077BE">
+                <rect id="Rectangle-7-Copy-10" x="0" y="-9.99200722e-16" width="2" height="1" rx="0.5"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

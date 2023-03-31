@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>pickett_plot_16x16</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="76.7029485%" y2="8.20085208%" id="linearGradient-2">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="25.5187587%" y1="92.6110365%" x2="126.894402%" y2="-16.5999945%" id="linearGradient-3">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="pickett_plot_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <polygon id="Fill-1" fill="#0477BD" points="0 16 1 16 1 0 0 0"></polygon>
+            <circle id="Oval-Copy-21" fill="url(#linearGradient-1)" cx="3" cy="13" r="1"></circle>
+            <circle id="Oval-Copy-22" fill="url(#linearGradient-1)" cx="7" cy="12" r="1"></circle>
+            <circle id="Oval-Copy-23" fill="url(#linearGradient-2)" cx="4" cy="9" r="1"></circle>
+            <circle id="Oval-Copy-24" fill="url(#linearGradient-2)" cx="11" cy="13" r="1"></circle>
+            <circle id="Oval-Copy-25" fill="url(#linearGradient-1)" cx="3" cy="5" r="1"></circle>
+            <g id="Group-Copy" transform="translate(6.000000, 0.000000)">
+                <rect id="Rectangle-Copy-7" fill="url(#linearGradient-3)" x="0" y="0" width="10" height="10" rx="2"></rect>
+                <path d="M2.69468471,2.37093359 L5.59946987,2.37093359 C6.17369149,2.37093359 6.63657748,2.53279721 6.98814174,2.8565293 C7.339706,3.18026138 7.51548549,3.63509082 7.51548549,4.22103125 C7.51548549,4.72494002 7.35874878,5.16365634 7.04527065,5.53719336 C6.73179252,5.91073038 6.24986374,6.09749609 5.59946987,6.09749609 L3.56919643,6.09749609 L3.56919643,8.8265 L2.69468471,8.8265 L2.69468471,2.37093359 Z M6.63218471,4.22542578 C6.63218471,3.75081403 6.45640522,3.42855163 6.10484096,3.25862891 C5.91148062,3.16780814 5.64634655,3.12239844 5.3094308,3.12239844 L3.56919643,3.12239844 L3.56919643,5.35921484 L5.3094308,5.35921484 C5.70201089,5.35921484 6.02061122,5.27571958 6.26524135,5.10872656 C6.50987148,4.94173354 6.63218471,4.64730289 6.63218471,4.22542578 Z" id="P" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+            <polygon id="Fill-2" fill="#0477BD" points="1 16 16 16 16 15 1 15"></polygon>
+        </g>
+    </g>
+</svg>

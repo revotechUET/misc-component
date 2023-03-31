@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>swap_templates_of_two_zones_16x16</title>
+    <defs>
+        <linearGradient x1="0%" y1="100%" x2="0%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#F99D9D" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="swap_templates_of_two_zones_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(0.500000, 0.000000)">
+            <rect id="Rectangle-7-Copy-12" stroke="#0077BE" x="1.5" y="0.5" width="12" height="15" rx="2"></rect>
+            <polygon id="Fill-21" fill="#FFFFFF" transform="translate(13.500000, 6.000000) rotate(-180.000000) translate(-13.500000, -6.000000) " points="12.5 10 14.5 10 14.5 2 12.5 2"></polygon>
+            <polygon id="Fill-21-Copy" fill="#FFFFFF" transform="translate(1.500000, 10.000000) rotate(-180.000000) translate(-1.500000, -10.000000) " points="0.5 14 2.5 14 2.5 6 0.5 6"></polygon>
+        </g>
+        <polygon id="Fill-21" fill="url(#linearGradient-1)" transform="translate(9.000000, 6.000000) rotate(-270.000000) translate(-9.000000, -6.000000) " points="8 10 10 10 10 2 8 2"></polygon>
+        <polygon id="Fill-22" fill="#F16464" transform="translate(14.500000, 6.036362) rotate(-270.000000) translate(-14.500000, -6.036362) " points="14.5 4.53636197 11.5 7.53636197 17.5 7.53636197"></polygon>
+        <polygon id="Fill-21" fill="url(#linearGradient-1)" transform="translate(7.000000, 10.000000) rotate(-90.000000) translate(-7.000000, -10.000000) " points="6 14 8 14 8 6 6 6"></polygon>
+        <polygon id="Fill-22" fill="#F16464" transform="translate(1.500000, 9.963638) rotate(-90.000000) translate(-1.500000, -9.963638) " points="1.5 8.46363803 -1.5 11.463638 4.5 11.463638"></polygon>
+    </g>
+</svg>

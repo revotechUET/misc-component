@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>zaxes_cross_16x16</title>
+    <g id="zaxes_cross_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-20-Copy-42" fill="#F16464" x="6" y="0" width="1" height="16"></rect>
+        <rect id="Rectangle-20-Copy-50" fill="#0077BE" x="0" y="9" width="16" height="1"></rect>
+        <line x1="1.5" y1="14.5" x2="14.5" y2="1.5" id="Line" stroke="#0077BE" stroke-linecap="square"></line>
+    </g>
+</svg>

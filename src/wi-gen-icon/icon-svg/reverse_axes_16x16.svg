@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>reverse_axes_16x16</title>
+    <g id="reverse_axes_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-20-Copy-42" fill="#0077BE" x="1" y="0" width="1" height="16"></rect>
+        <rect id="Rectangle-20-Copy-50" fill="#0077BE" x="0" y="14" width="16" height="1"></rect>
+        <rect id="Rectangle-16-Copy-36" fill="#F16464" x="5" y="1" width="1" height="5"></rect>
+        <rect id="Rectangle-16-Copy-39" fill="#F16464" x="10" y="10" width="5" height="1"></rect>
+        <rect id="Rectangle-16-Copy-40" fill="#F16464" x="11" y="11" width="3" height="1"></rect>
+        <rect id="Rectangle-16-Copy-41" fill="#F16464" x="12" y="12" width="1" height="1"></rect>
+        <rect id="Rectangle-16-Copy-37" fill="#F16464" x="4" y="2" width="1" height="3"></rect>
+        <rect id="Rectangle-16-Copy-38" fill="#F16464" x="7" y="3" width="1" height="1"></rect>
+        <rect id="Rectangle-16-Copy-42" fill="#F16464" x="3" y="3" width="1" height="1"></rect>
+        <rect id="Rectangle-16-Copy-43" fill="#F16464" x="9" y="3" width="1" height="1"></rect>
+        <rect id="Rectangle-16-Copy-44" fill="#F16464" x="11" y="3" width="1" height="1"></rect>
+        <rect id="Rectangle-16-Copy-45" fill="#F16464" x="12" y="4" width="1" height="1"></rect>
+        <rect id="Rectangle-16-Copy-46" fill="#F16464" x="12" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-16-Copy-47" fill="#F16464" x="12" y="8" width="1" height="1"></rect>
+    </g>
+</svg>

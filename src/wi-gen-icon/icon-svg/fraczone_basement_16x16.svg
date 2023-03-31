@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>fraczone_basement_16x16</title>
+    <g id="fraczone_basement_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-2-Copy-8" fill="#0077BE" x="4.5" y="8" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-13" fill="#0077BE" opacity="0.216448103" x="3.5" y="7" width="9" height="6"></rect>
+        <rect id="Rectangle-2-Copy-9" fill="#0077BE" x="8.5" y="8" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-11" fill="#0077BE" x="6.5" y="8" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#0077BE" x="10.5" y="8" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#0077BE" x="4.5" y="10" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-9" fill="#0077BE" x="8.5" y="10" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-10" fill="#F16464" opacity="0.23" x="3.5" y="1" width="9" height="6"></rect>
+        <rect id="Rectangle-2-Copy-11" fill="#0077BE" x="6.5" y="10" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#0077BE" x="10.5" y="10" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#0077BE" x="4.5" y="12" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-9" fill="#0077BE" x="8.5" y="12" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-11" fill="#0077BE" x="6.5" y="12" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#0077BE" x="10.5" y="12" width="1" height="1"></rect>
+        <rect id="Rectangle-7-Copy-12" stroke="#0077BE" x="3" y="0.5" width="10" height="15" rx="2"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#F16464" x="4.5" y="2" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-9" fill="#F16464" x="8.5" y="2" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-11" fill="#F16464" x="6.5" y="2" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#F16464" x="10.5" y="2" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#F16464" x="4.5" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-9" fill="#F16464" x="8.5" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-11" fill="#F16464" x="6.5" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#F16464" x="10.5" y="6" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-8" fill="#F16464" x="4.5" y="4" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-9" fill="#F16464" x="8.5" y="4" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-11" fill="#F16464" x="6.5" y="4" width="1" height="1"></rect>
+        <rect id="Rectangle-2-Copy-12" fill="#F16464" x="10.5" y="4" width="1" height="1"></rect>
+        <rect id="Rectangle" stroke="#FFFFFF" fill="#0077BE" x="-0.5" y="5.5" width="17" height="2"></rect>
+        <rect id="Rectangle-Copy" stroke="#FFFFFF" fill="#0077BE" x="-0.5" y="11.5" width="17" height="2"></rect>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>from_zone_bottom_16x16</title>
+    <defs>
+        <linearGradient x1="0%" y1="20.6431205%" x2="77.79037%" y2="-262.329574%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="0%" y1="44.9033195%" x2="77.79037%" y2="-4.2238843%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="from_zone_bottom_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-7-Copy-13" fill="url(#linearGradient-1)" opacity="0.227539062" transform="translate(8.000000, 10.000000) rotate(-180.000000) translate(-8.000000, -10.000000) " x="2" y="4" width="12" height="12" rx="1"></rect>
+        <rect id="Rectangle-7-Copy-12" fill="url(#linearGradient-2)" transform="translate(8.000000, 2.500000) rotate(-180.000000) translate(-8.000000, -2.500000) " x="2" y="0" width="12" height="5" rx="1"></rect>
+    </g>
+</svg>

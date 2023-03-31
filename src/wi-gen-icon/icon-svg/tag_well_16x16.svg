@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>tag_well_16x16</title>
+    <defs>
+        <linearGradient x1="19.5445489%" y1="39.7260347%" x2="77.0372549%" y2="65.0414698%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="tag_well_16x16" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(-2.000000, 0.000000)">
+            <path d="M5.3117388,4.90148034 L15.683933,4.90148034 C16.2362178,4.90148034 16.683933,5.34919559 16.683933,5.90148034 L16.683933,12.4734133 C16.683933,13.025698 16.2362178,13.4734133 15.683933,13.4734133 L5.3117388,13.4734133 C5.04652231,13.4734133 4.7921684,13.3680564 4.60463202,13.1805201 L1.31866555,9.89455359 C0.928141263,9.50402929 0.928141263,8.87086432 1.31866555,8.48034002 L4.60463202,5.19437356 C4.7921684,5.00683718 5.04652231,4.90148034 5.3117388,4.90148034 Z" id="Rectangle" fill="url(#linearGradient-1)" transform="translate(8.869659, 9.187447) rotate(-44.724704) translate(-8.869659, -9.187447) "></path>
+            <circle id="Oval" fill="#FFFFFF" transform="translate(6.500000, 11.500000) rotate(-90.000000) translate(-6.500000, -11.500000) " cx="6.5" cy="11.5" r="1.5"></circle>
+        </g>
+    </g>
+</svg>

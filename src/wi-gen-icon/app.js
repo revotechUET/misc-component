@@ -1,53 +1,43 @@
 const path = require('path');
-const fs = require('fs');
+const fs = require('fs/promises');
 const svgToDataURL = require('svg-to-dataurl');
 const arrayToTxtFile = require('array-to-txt-file');
 
-const directoryPath = path.join("../../", 'icon-svg');
+const directoryPath = path.join(__dirname, './icon-svg');
 var array = [];
 
-creatCss();
-writeCss(10000);
+createCss().then(() => {
+    writeCss();
+})
 
-function creatCss() {
-    fs.readdir(directoryPath, function (err, files) {
-        if (err) {
-            return console.log('Unable to scan directory: ' + err);
+async function createCss() {
+    const files = await fs.readdir(directoryPath);
+    for (const file of files) {
+        if (!file.endsWith('.svg')) continue;
+        const data = await fs.readFile(path.join(directoryPath, file), 'utf-8');
+        let dataUrl = "background-image: url('" + svgToDataURL(data) + "');";
+        let fileName = file.split("_").join("-");
+        fileName = fileName.split(".svg").join("");
+        if (fileName.search(/32x32/) !== -1) {
+            let addCss = "background-repeat: no-repeat;display: inline-block !important; overflow: hidden;text-indent: -9999px;text-align: left;width: 32px;height: 32px;"
+            let css = "." + fileName + "," + "." + fileName + "\\" + ":regular{" + dataUrl + addCss + "}";
+            console.log(fileName);
+            array.push(css);
+        } else {
+            let addCss = "background-repeat: no-repeat;display: inline-block !important; overflow: hidden;text-indent: -9999px;text-align: left;width: 16px;height: 16px;"
+            let css = "." + fileName + "," + "." + fileName + "\\" + ":regular{" + dataUrl + addCss + "}";
+            console.log(fileName);
+            array.push(css);
         }
-        files.forEach(function (file) {
-            if (file !== ".DS_Store") {
-                fs.readFile("../../icon-svg/" + file, 'utf-8', (err, data) => {
-                    if (err) throw err;
-                    let dataUrl = "background-image: url('" + svgToDataURL(data) + "');";
-                    let fileName = file.split("_").join("-");
-                    fileName = fileName.split(".svg").join("");
-                    if (fileName.search(/32x32/) !== -1) {
-                        let addCss = "background-repeat: no-repeat;display: inline-block !important; overflow: hidden;text-indent: -9999px;text-align: left;width: 32px;height: 32px;"
-                        let css = "." + fileName + "," + "." + fileName + "\\" + ":regular{" + dataUrl + addCss + "}";
-                        console.log(fileName);
-                        array.push(css);
-                    } else {
-                        let addCss = "background-repeat: no-repeat;display: inline-block !important; overflow: hidden;text-indent: -9999px;text-align: left;width: 16px;height: 16px;"
-                        let css = "." + fileName + "," + "." + fileName + "\\" + ":regular{" + dataUrl + addCss + "}";
-                        console.log(fileName);
-                        array.push(css);
-                    }
-                });
-            }
-        });
-    });
-
+    }
 }
 
 function writeCss(time) {
-    setTimeout(function () {
-        arrayToTxtFile(array, '../wi-icons/sprite.less', err => {
-            if (err) {
-                console.error(err)
-                return;
-            }
-            console.log('C   R   E   A   T   E  D    S   T   Y   L   E')
-        })
-    }, time)
-
+    arrayToTxtFile(array, path.resolve(__dirname, '../wi-icons/sprite.less'), err => {
+        if (err) {
+            console.error(err)
+            return;
+        }
+        console.log('CREATED STYLE')
+    })
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>curve_combination_32x32</title>
+    <defs>
+        <linearGradient x1="61.5497821%" y1="15.6593998%" x2="38.8771191%" y2="90.579711%" id="linearGradient-1">
+            <stop stop-color="#1AAAFF" offset="0%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="83.1582131%" y1="73.0807996%" x2="18.7468241%" y2="40.892309%" id="linearGradient-2">
+            <stop stop-color="#1AAAFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#15A0F2" offset="50.7947977%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="94.9146935%" y1="55.1521844%" x2="10.3793657%" y2="37.1353699%" id="linearGradient-3">
+            <stop stop-color="#F16464" offset="0%"></stop>
+            <stop stop-color="#F79494" offset="54.49984%"></stop>
+            <stop stop-color="#FFD3D3" stop-opacity="0.225062274" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="curve_combination_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(4.500000, 1.000000)">
+            <path d="M5.45454545,1 C11.8181818,2.02667104 15,4.57212559 15,8.63636364 C15,17.1745538 1.50990331e-14,14.9867291 1.50990331e-14,22.6098095 C1.50990331e-14,25.5972092 1.81818182,27.7272727 5.45454545,29 L5.45454545,1 Z" id="Rectangle" fill="url(#linearGradient-1)"></path>
+            <rect id="Rectangle-7-Copy-8" fill="#0077BE" x="5" y="0" width="1" height="30" rx="0.5"></rect>
+        </g>
+        <g id="Untitled-1" transform="translate(15.500000, 17.000000)">
+            <path d="M13.4512031,6.39525125 L11.6577093,6.39525125 C11.4335226,3.83715075 9.28133011,1.82721464 6.72560153,1.82721464 C5.38048122,1.82721464 4.1250356,2.37537904 3.22828873,3.28898636 L1.97284311,2.00993611 C3.18345139,0.776566223 4.88727044,0 6.72560153,0 C10.2677517,0 13.2270163,2.8321827 13.4512031,6.39525125 Z" id="Path" fill="url(#linearGradient-2)"></path>
+            <path d="M11.4783599,11.6941737 C10.2677517,12.9275436 8.56393261,13.7041098 6.72560153,13.7041098 C3.18345139,13.7041098 0.224186718,10.8719271 0,7.30885857 L1.79349374,7.30885857 C2.01768046,9.86695907 4.1250356,11.8768952 6.72560153,11.8768952 C8.07072183,11.8768952 9.32616745,11.3287308 10.2229143,10.4151235 L11.4783599,11.6941737 Z" id="Path" fill="url(#linearGradient-3)"></path>
+            <polygon id="Path" fill="#0077BE" points="4.93210779 5.02484027 0.448373435 5.02484027 0.448373435 0.456803661 1.97284311 2.00993611 3.22828873 3.28898636"></polygon>
+            <polygon id="Path" fill="#F16464" points="13.0028296 8.67926956 13.0028296 13.2473062 11.4783599 11.6941737 10.2229143 10.4151235 8.51909527 8.67926956"></polygon>
+        </g>
+    </g>
+</svg>

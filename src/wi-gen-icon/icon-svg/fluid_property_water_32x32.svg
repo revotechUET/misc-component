@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>fluid_property_water_32x32</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.49530347%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#00ACFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#6EC5F9" stop-opacity="0.673601676" offset="49.9796785%"></stop>
+            <stop stop-color="#0077BE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="13.2613127%" x2="12.0351381%" y2="77.3585471%" id="linearGradient-2">
+            <stop stop-color="#F99D9D" offset="0%"></stop>
+            <stop stop-color="#F16464" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="fluid_property_water_32x32" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M10.6085282,2.35468811 C11.1838653,3.70593464 12.2409516,5.99889389 13.5781185,8.05304544 C14.134057,8.90707655 14.7109776,9.74096982 15.2806532,10.5642773 C17.6165814,13.9402114 19.8626765,17.1259465 19.8626765,20.8500487 C19.8626765,23.6308886 18.8826055,26.0480513 17.2278518,27.7680789 C15.5776511,29.4833738 13.2596889,30.5 10.5979089,30.5 C7.95128377,30.5 5.6837335,29.4942748 4.07642097,27.7945146 C2.44763725,26.0720482 1.5,23.6441677 1.5,20.8500487 C1.5,16.633389 3.51353455,13.8881858 5.6326923,10.9532383 C6.30723681,10.0190215 6.99445326,9.06674804 7.63938953,8.04764921 C9.11485196,5.71619086 10.0871326,3.60729513 10.6085282,2.35468811 Z" id="Fill-1" stroke="#0077BE" fill="url(#linearGradient-1)"></path>
+        <g id="Group-3" transform="translate(15.000000, 4.000000)">
+            <g id="Group" fill="url(#linearGradient-2)" stroke="#FFFFFF">
+                <rect id="Rectangle-Copy-7" x="-0.5" y="-0.5" width="17" height="14" rx="2"></rect>
+            </g>
+            <rect id="Rectangle-Copy-8" fill="#FFFFFF" x="7" y="4" width="6" height="1" rx="0.5"></rect>
+            <rect id="Rectangle-Copy-9" fill="#FFFFFF" x="7" y="8" width="6" height="1" rx="0.5"></rect>
+            <path d="M3.29294129,3.80395904 C2.9023529,4.19453522 2.9023529,4.82733112 3.29294129,5.2179073 C3.68365466,5.60860846 4.31634534,5.60860846 4.70705871,5.2179073 C5.0976471,4.82733112 5.0976471,4.19453522 4.70705871,3.80395904 C4.31634534,3.41325788 3.68365466,3.41325788 3.29294129,3.80395904" id="Path-Copy-6" fill="#FFFFFF"></path>
+            <path d="M3.29294129,7.80395904 C2.9023529,8.19453522 2.9023529,8.82733112 3.29294129,9.2179073 C3.68365466,9.60860846 4.31634534,9.60860846 4.70705871,9.2179073 C5.0976471,8.82733112 5.0976471,8.19453522 4.70705871,7.80395904 C4.31634534,7.41325788 3.68365466,7.41325788 3.29294129,7.80395904" id="Path-Copy-7" fill="#FFFFFF"></path>
+        </g>
+        <path d="M6,21 C6,22.4197414 6.50219575,23.5942186 7.50658724,24.5234316 C8.51097874,25.4526447 9.67544966,25.9448341 11,26" id="Line-6" stroke="#FFFFFF" stroke-linecap="round"></path>
+    </g>
+</svg>
