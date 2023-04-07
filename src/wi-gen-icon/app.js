@@ -12,6 +12,8 @@ createCss().then(() => {
 
 async function createCss() {
     const files = await fs.readdir(directoryPath);
+    files.sort((a, b) => a.localeCompare(b)); // ensure order cross platform
+    console.log(files);
     for (const file of files) {
         if (!file.endsWith('.svg')) continue;
         const data = await fs.readFile(path.join(directoryPath, file), 'utf-8');
