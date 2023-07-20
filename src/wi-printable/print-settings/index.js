@@ -24,4 +24,12 @@ function printSettingsCtrl() {
         self.plotCtrl.printMode = 'image';
         self.plotCtrl.isPageBreak = false;
     }
+
+    this.enableCompositeLog = function () {
+        self.plotCtrl.enableCompositeLog = true;
+    }
+
+    this.disableCompositeLog = function () {
+        self.plotCtrl.enableCompositeLog = false;
+    }
 }
