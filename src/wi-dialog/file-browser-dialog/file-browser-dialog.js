@@ -24,7 +24,7 @@ export default function (ModalService, configs = {}, callback) {
         //                 .then((file) => {
         //                     self.files.push(file);
         //                     next();
-        //                 }) : (() => {__toastr.error(`Don't accept file type ${e.rootName.split('.').pop().toLowerCase()}`); next("File type error");})();
+        //                 }) : (() => {window.__toastr.error(`Don't accept file type ${e.rootName.split('.').pop().toLowerCase()}`); next("File type error");})();
         //     }, (err) => {
         //         if(err) {
         //             self.files = [];

@@ -1,9 +1,9 @@
 import helper from '../DialogHelper';
 
 export default function (ModalService, file, idProject, callback) {
-    function ModalController($scope, 
-        close, 
-        // wiApiService, 
+    function ModalController($scope,
+        close,
+        // wiApiService,
         // wiComponentService,
         wiApi,
         wiDialog,
@@ -386,14 +386,14 @@ export default function (ModalService, file, idProject, callback) {
             //                 self.markerTemplates,
             //                 (mt, next) => {
             //                     if (!mt.name) {
-            //                         __toastr.error("Marker template's name cannot be empty");
+            //                         window.__toastr.error("Marker template's name cannot be empty");
             //                         next();
             //                     } else {
             //                         if (mt.new) {
             //                             let payload = angular.copy(mt);
             //                             wiApiService.createMarkerTemplate(payload, (mt, err) => {
             //                                 if (err) {
-            //                                     __toastr.error('Can not create marker');
+            //                                     window.__toastr.error('Can not create marker');
             //                                     next();
             //                                 } else {
             //                                     info.markerTemplatesInfo.push(mt);
@@ -461,14 +461,14 @@ export default function (ModalService, file, idProject, callback) {
                         self.markerTemplates,
                         (mt, next) => {
                             if (!mt.name) {
-                                __toastr.error("Marker template's name cannot be empty");
+                                window.__toastr.error("Marker template's name cannot be empty");
                                 next();
                             } else {
                                 if (mt.new) {
                                     let payload = angular.copy(mt);
                                     // wiApiService.createMarkerTemplate(payload, (mt, err) => {
                                     //     if (err) {
-                                    //         __toastr.error('Can not create marker');
+                                    //         window.__toastr.error('Can not create marker');
                                     //         next();
                                     //     } else {
                                     //         info.markerTemplatesInfo.push(mt);
@@ -481,7 +481,7 @@ export default function (ModalService, file, idProject, callback) {
                                         next();
                                     })
                                     .catch((err) => {
-                                        __toastr.error('Can not create marker');
+                                        window.__toastr.error('Can not create marker');
                                         next();
                                     });
                                 } else {
@@ -714,7 +714,7 @@ export default function (ModalService, file, idProject, callback) {
                             //     wiComponentService.WI_EXPLORER_HANDLERS
                             // );
                             // handlers.ReloadProjectButtonClicked();
-                            __toastr.success('Successfully Imported Marker Set');
+                            window.__toastr.success('Successfully Imported Marker Set');
                         }
                     }
                 );

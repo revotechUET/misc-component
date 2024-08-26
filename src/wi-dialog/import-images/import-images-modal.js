@@ -101,7 +101,7 @@ export default function (ModalService, idProject, imgSetName, callback) {
                                 .then((file) => {
                                     this.files.push(file);
                                     next();
-                                }) : (() => {__toastr.error(`Don't accept file type ${e.rootName.split('.').pop().toLowerCase()}`); next("File type error");})();
+                                }) : (() => {window.__toastr.error(`Don't accept file type ${e.rootName.split('.').pop().toLowerCase()}`); next("File type error");})();
                     }, (err) => {
                         if(err) {
                             this.files = [];
@@ -150,7 +150,7 @@ export default function (ModalService, idProject, imgSetName, callback) {
                     self.uploadFileList = [];
                     self.showImage = false;
                     self.closeModal();
-                    __toastr && __toastr.success("Images upload successfull");
+                    window.__toastr && window.__toastr.success("Images upload successfull");
                 }
             });
         }
@@ -171,7 +171,7 @@ export default function (ModalService, idProject, imgSetName, callback) {
             let newFiles = files.sort(function (f1, f2) {
                 return parseFloat(f1.information.TOPDEPTH) - parseFloat(f2.information.TOPDEPTH);
             });
-            async.eachOfSeries(newFiles, function (file, idx, cb) {      
+            async.eachOfSeries(newFiles, function (file, idx, cb) {
                 let well;
                 let height;
 

@@ -380,7 +380,7 @@ export default function (ModalService, file, idProject, callback) {
 
                     async.eachSeries(self.zoneTemplates, (zone, next) => {
                         if (!zone.name) {
-                            __toastr.error("Zone template's name cannot be empty");
+                            window.__toastr.error("Zone template's name cannot be empty");
                             next();
                         } else {
                             if (zone.new) {
@@ -453,7 +453,7 @@ export default function (ModalService, file, idProject, callback) {
 
             //                 async.eachSeries(self.zoneTemplates, (zone, next) => {
             //                     if (!zone.name) {
-            //                         __toastr.error("Zone template's name cannot be empty");
+            //                         window.__toastr.error("Zone template's name cannot be empty");
             //                         next();
             //                     } else {
             //                         if (zone.new) {
@@ -640,7 +640,7 @@ export default function (ModalService, file, idProject, callback) {
                         //     wiComponentService.WI_EXPLORER_HANDLERS
                         // );
                         // handlers.ReloadProjectButtonClicked();
-                        __toastr.success('Successfully Imported Zone Set');
+                        window.__toastr.success('Successfully Imported Zone Set');
                     }
                 }
             );

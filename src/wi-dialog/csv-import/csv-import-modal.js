@@ -168,7 +168,7 @@ export default function (ModalService, file, callback) {
             for (let i = 0; i < nLoops; i++) {
                 let cell = configs.allContent[idxData + i].split(delimiter)[idxRef].replace(decimal, '.');
                 if (cell === '' || isNaN(cell)) {
-                    __toastr.error('Reference cannot contain alphanumerical values');
+                    window.__toastr.error('Reference cannot contain alphanumerical values');
                     return;
                 }
                 let current = parseFloat(cell);
@@ -228,9 +228,9 @@ export default function (ModalService, file, callback) {
             wiApi.uploadFilesToInventory(configs, function (response) {
                 console.log('===>Upload files done', response);
                 if (response === 'UPLOAD FILES FAILED') {
-                    __toastr.error('Some errors while upload file');
+                    window.__toastr.error('Some errors while upload file');
                 } else {
-                    __toastr.success('Successfully uploaded');
+                    window.__toastr.success('Successfully uploaded');
                     // $timeout(function () {
                     //     refreshInventory();
                     // }, 500);

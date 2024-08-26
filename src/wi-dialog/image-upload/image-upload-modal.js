@@ -17,7 +17,7 @@ export default function (ModalService, idImage, callback, idProject) {
             wiApi.uploadImage(self.file, idImage, (imgUrl) => {
                 self.imageUrl = imgUrl;
                 close(self.imageUrl);
-            }, (err) => console.error(err), 
+            }, (err) => console.error(err),
             (percentage) => self.percentage = percentage);
         }
         this.selectFromPDB = function() {
@@ -28,11 +28,11 @@ export default function (ModalService, idImage, callback, idProject) {
                 onOkButtonClicked: function() {
                     const ModalCtrl =  this;
                     if(!this.selectedNode) {
-                        if(__toastr) __toastr.error(`Please select image to upload`)
+                        if(window.__toastr) window.__toastr.error(`Please select image to upload`)
                         return null
                     }
                     if(!self.arrayAccept.includes(ModalCtrl.selectedNode.rootName.split('.').pop())) {
-                        if(__toastr) __toastr.error(`Only accept image type`)
+                        if(window.__toastr) window.__toastr.error(`Only accept image type`)
                         return null
                     }
                     ModalCtrl.fileCtrl.downloadFileToUpload(ModalCtrl.selectedNode)

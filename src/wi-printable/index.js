@@ -134,7 +134,7 @@ function PrintableCtrl($scope, $element, $timeout, $compile, wiApi, wiLoading) {
     this.print = print;
     async function print() {
         const perm = await wiApi.checkObjectPermission('project.export').then(res => res && res.value)
-        if(!perm) return __toastr.warning("You don't have permission to print")
+        if(!perm) return window.__toastr.warning("You don't have permission to print")
         self.preview4Print();
     }
     this.onPaperSizeChange = onPaperSizeChange;
