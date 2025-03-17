@@ -36,11 +36,11 @@ function Controller($element, $scope) {
         const cols = self.getCols();
         $scope.table = rows.map(r => cols.map(c => self.accessor([r, c])));
     }
-    this.$onInit = function() {
+    this.$onInit = function () {
         this.colLabels = this.colLabels || {};
         this.rowLabels = this.rowLabels || {};
-        this.getRowIcons = this.getRowIcons || function() { return [] };
-        this.getRowIconStyle = this.getRowIconStyle || function() { return {} };
+        this.getRowIcons = this.getRowIcons || function () { return [] };
+        this.getRowIconStyle = this.getRowIconStyle || function () { return {} };
         self.cellStyle = self.cellStyle || {};
         $scope.table = [];
         $scope.$watchCollection('self.itemList', setTable)
@@ -58,14 +58,14 @@ function Controller($element, $scope) {
         setTable();
         if (!$scope.$root.$$phase) $scope.$digest();
     }
-    this.getRowHeaderCellStyle = function($index) {
+    this.getRowHeaderCellStyle = function ($index) {
         if (typeof self.rowHeaderCellStyle == 'function') {
             return self.rowHeaderCellStyle($index);
         } else {
             return self.rowHeaderCellStyle;
         }
     }
-    this.getRows = function() {
+    this.getRows = function () {
         let rowCount = 0;
         if (typeof self.rowCount === 'function') {
             rowCount = self.rowCount();
@@ -75,7 +75,7 @@ function Controller($element, $scope) {
         }
         return [...Array(rowCount).keys()];
     }
-    this.getCols = function(row) {
+    this.getCols = function (row) {
         let colCount = 0;
         try {
             if (typeof self.colCount === 'function') {
@@ -85,12 +85,12 @@ function Controller($element, $scope) {
                 colCount = self.colCount;
             }
         }
-        catch(e) {
+        catch (e) {
             return [];
         }
         return [...Array(colCount).keys()];
     }
-    this.getOriginColHeaders = function() {
+    this.getOriginColHeaders = function () {
         let colHeaders;
         if (typeof self.colHeaders === 'function') {
             colHeaders = self.colHeaders();
@@ -100,16 +100,16 @@ function Controller($element, $scope) {
         }
         return colHeaders;
     }
-    this.getColHeader = function(index) {
+    this.getColHeader = function (index) {
         let och = self.getOriginColHeaders()[index];
         self.colLabels[och] = self.colLabels[och] || och;
         return self.colLabels[och];
     }
-    this.setColHeader = function(index, newColHeader) {
+    this.setColHeader = function (index, newColHeader) {
         let originColHeader = self.getOriginColHeaders()[index];
         self.colLabels[originColHeader] = newColHeader;
     }
-    this.getOriginRowHeader = function(index) {
+    this.getOriginRowHeader = function (index) {
         let rowHeaders;
         if (!self.rowHeaders) return index + 1;
         if (typeof self.rowHeaders === 'function') {
@@ -120,20 +120,20 @@ function Controller($element, $scope) {
         }
         return rowHeaders[index];
     }
-    this.getRowHeader = function(index) {
+    this.getRowHeader = function (index) {
         let orh = self.getOriginRowHeader(index);
         self.rowLabels[orh] = self.rowLabels[orh] || orh;
         return self.rowLabels[orh];
     }
-    this.setRowHeader = function(index, newRowHeader) {
+    this.setRowHeader = function (index, newRowHeader) {
         let originRowHeader = self.getOriginRowHeader(index);
         self.rowLabels[originRowHeader] = newRowHeader;
     }
-    this.cellClick = function(row, col) {
+    this.cellClick = function (row, col) {
         self.selectedRow = row + headerRowCount();
         self.selectedCol = col + headerColCount();
     }
-    this.indicatorStyle = function() {
+    this.indicatorStyle = function () {
         let display = 'none';
         let row = $element.find('.row')[self.selectedRow];
         if (!row) return { display };
@@ -147,31 +147,33 @@ function Controller($element, $scope) {
             left: cell.offsetLeft
         }
     }
-    this.keyUp = function($event) {
+    this.keyUp = function ($event) {
         if ($event.keyCode == 27) {
             delete self.selectedRow;
             delete self.selectedCol;
         }
     }
-    this.isValidRow = function($index) {
+    this.isValidRow = function ($index) {
         if (typeof self.validRow === 'function') {
             return self.validRow($index);
-        } else if (self.validRow){
+        } else if (self.validRow) {
             return self.validRow;
         } else return true;
     }
     function headerRowCount() {
-        return self.colHeaders ? (self.showOriginHeader?2:1):0;
+        return self.colHeaders ? (self.showOriginHeader ? 2 : 1) : 0;
     }
     function headerColCount() {
-        return self.showOriginHeader?2:1;
+        return self.showOriginHeader ? 2 : 1;
     }
 
-  this.getTypeOfAccessor = function([row, col]) {
-    let type = typeof self.accessor([row, col]);
-    if (type == 'object') {
-      return self.accessor([row, col]).type;
+    this.getTypeOfAccessor = function ([row, col]) {
+        const result = self.accessor([row, col]);
+        $scope.table[row][col] = result;
+        let type = typeof result;
+        if (type == 'object') {
+            return self.accessor([row, col]).type;
+        }
+        return type;
     }
-    return type;
-  }
 }

@@ -37,4 +37,5 @@ module.exports = {
 			quiet: true,
 		}),
 	],
+	devtool: 'eval',
 }
